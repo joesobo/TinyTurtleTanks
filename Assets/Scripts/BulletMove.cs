@@ -25,19 +25,23 @@ public class BulletMove : MonoBehaviour
         {
             //Destroy(col.gameObject);
             //TODO: add damage enemy
+            Debug.Log("Hit Enemy");
         }
 
         if (col.gameObject.tag == "Player")
         {
             //Destroy(col.gameObject);
             //TODO: add damage player
+            Debug.Log("Hit Player");
         }
 
         if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Ground")
         {
-            Destroy(col.gameObject);
+            Debug.Log("Hit Obstacle");
+            //Destroy(col.gameObject);
         }
 
+        Debug.Log(col);
         Destroy(gameObject);
     }
 }
