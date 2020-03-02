@@ -33,6 +33,7 @@ public class BulletMove : MonoBehaviour
             //Destroy(col.gameObject);
             //TODO: add damage player
             Debug.Log("Hit Player");
+            col.gameObject.GetComponent<PlayerHealth>().decreaseHealth(1);
         }
 
         if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Ground")
