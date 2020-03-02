@@ -20,4 +20,10 @@ public class PlayerHealth : MonoBehaviour
     public void decreaseHealth(int amount){
         curHealth -= amount;
     }
+
+    private void Update() {
+        if(curHealth <= 0){
+            Destroy(gameObject);
+        }
+    }
 }
