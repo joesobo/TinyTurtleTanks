@@ -6,7 +6,11 @@ public class PlayerShoot : MonoBehaviour
 {
     public GameObject bullet;
     public Transform shootPoint;
-    public Transform parent;
+    private Transform parent;
+
+    private void Start() {
+        parent = GameObject.FindGameObjectWithTag("Planet").transform;
+    }
 
     private void Update() {
         if(Input.GetMouseButtonDown(0)){
