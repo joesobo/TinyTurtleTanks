@@ -40,6 +40,7 @@ public class BulletMove : MonoBehaviour
 
         if(col.gameObject.tag == "Breakable"){
             Debug.Log("Hit Breakable");
+            col.gameObject.GetComponent<Breakable>().Break();
             //TODO: Spawn new trap or pickup
         }
 

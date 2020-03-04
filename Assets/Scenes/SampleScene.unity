@@ -150,9 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7345578db5028a4d8ffba04e6f94398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloudPrefab: {fileID: 0}
-  minRadius: 50
-  maxRadius: 55
+  cloudPrefab: {fileID: 278618087781419115, guid: da7c0765dae1e574d85a0fa8e17f28fc,
+    type: 3}
+  minRadius: 30
+  maxRadius: 35
   maxClouds: 10
 --- !u!4 &14386595
 Transform:
@@ -764,7 +765,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 1.8e-43}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2277,7 +2278,7 @@ MonoBehaviour:
   breakablePrefab: {fileID: 292899640422399302, guid: d770eaa2689eed24c95c53ad0a4c067f,
     type: 3}
   radius: 50
-  waitForSeconds: 5
+  waitForSeconds: 15
 --- !u!4 &2029102070
 Transform:
   m_ObjectHideFlags: 0
