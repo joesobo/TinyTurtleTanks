@@ -23,7 +23,7 @@ public class BreakableSpawner : MonoBehaviour
     }
 
     private void SpawnAtPoint(){
-        Instantiate(breakablePrefab, randPos(radius), this.transform.rotation);
+        Instantiate(breakablePrefab, randPos(radius), this.transform.rotation, this.transform);
     }
 
     private Vector3 randPos(int r){
