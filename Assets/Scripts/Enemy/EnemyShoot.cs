@@ -7,7 +7,7 @@ public class EnemyShoot : MonoBehaviour
     public GameObject bullet;
     public List<Transform> shootPoints;
     private Transform parent;
-    public WaitForSeconds waitForSeconds = new WaitForSeconds(2);
+    public int waitForSeconds = 2;
     public bool doRotate = false;
     public float rotateSpeed = 3;
 
@@ -28,7 +28,7 @@ public class EnemyShoot : MonoBehaviour
         while (true)
         {
             ShootAtPoints();
-            yield return waitForSeconds;
+            yield return new WaitForSeconds(waitForSeconds);
         }
     }
 

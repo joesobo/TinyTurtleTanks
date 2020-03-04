@@ -23,16 +23,12 @@ public class BulletMove : MonoBehaviour
     {
         if (col.gameObject.tag == "Enemy")
         {
-            //Destroy(col.gameObject);
-            //TODO: add damage enemy
             Debug.Log("Hit Enemy");
             col.gameObject.GetComponent<Health>().decreaseHealth(1);
         }
 
         if (col.gameObject.tag == "Player")
         {
-            //Destroy(col.gameObject);
-            //TODO: add damage player
             Debug.Log("Hit Player");
             col.gameObject.GetComponent<Health>().decreaseHealth(1);
         }
@@ -40,7 +36,11 @@ public class BulletMove : MonoBehaviour
         if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Ground")
         {
             Debug.Log("Hit Obstacle");
-            //Destroy(col.gameObject);
+        }
+
+        if(col.gameObject.tag == "Breakable"){
+            Debug.Log("Hit Breakable");
+            //TODO: Spawn new trap or pickup
         }
 
         Debug.Log(col);
