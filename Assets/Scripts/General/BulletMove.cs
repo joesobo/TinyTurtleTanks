@@ -21,24 +21,24 @@ public class BulletMove : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Enemy")
-        {
-            Debug.Log("Hit Enemy");
-            col.gameObject.GetComponent<Health>().decreaseHealth(1);
-        }
-
-        if (col.gameObject.tag == "Player")
-        {
-            Debug.Log("Hit Player");
-            col.gameObject.GetComponent<Health>().decreaseHealth(1);
-        }
-
         if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Ground")
         {
             Debug.Log("Hit Obstacle");
         }
 
-        if(col.gameObject.tag == "Breakable"){
+        else if (col.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Hit Enemy");
+            col.gameObject.GetComponent<Health>().decreaseHealth(1);
+        }
+
+        else if (col.gameObject.tag == "Player")
+        {
+            Debug.Log("Hit Player");
+            col.gameObject.GetComponent<Health>().decreaseHealth(1);
+        }
+
+        else if(col.gameObject.tag == "Breakable"){
             Debug.Log("Hit Breakable");
             col.gameObject.GetComponent<Breakable>().Break();
             //TODO: Spawn new trap or pickup

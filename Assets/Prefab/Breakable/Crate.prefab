@@ -139,4 +139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trapList:
   - {fileID: 1574817469256227704, guid: 37d1b037e790c514592f774480ecbe2d, type: 3}
-  pickupList: []
+  pickupList:
+  - {fileID: 6806734388798298286, guid: da8da5147e7990340afe3c3e7312c309, type: 3}
+  - {fileID: 2097569431617901520, guid: c7ac303466d1e214d882a5dd8b80bc4d, type: 3}
+  - {fileID: 933950595042799967, guid: aeffe991b5340184d895bca5d127b645, type: 3}
+  - {fileID: 7178656836537848744, guid: 940428f6b3c4cda46a3f6e595da8496a, type: 3}
