@@ -20,6 +20,9 @@ public class SmartEnemy : MonoBehaviour
     private Vector3 offsetPosition;
     private bool lockRotation = true;
 
+    public float playerLookRadius = 5;
+    public float playerShootRadius = 2;
+
     private void Start() {
         rb = GetComponent<Rigidbody>();
         
@@ -80,7 +83,14 @@ public class SmartEnemy : MonoBehaviour
     }
 
     private void randomTimes(){
-        moveSeconds = Random.Range(1,3);
-        rotateSeconds = Random.Range(1,3);
+        moveSeconds = Random.Range(1,7);
+        rotateSeconds = Random.Range(1,5);
+    }
+
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = new Color32(5, 170, 250, 100);
+        Gizmos.DrawSphere(transform.position, playerLookRadius);
+        Gizmos.color = new Color32(250, 50, 10, 100);
+        Gizmos.DrawSphere(transform.position, playerShootRadius);
     }
 }

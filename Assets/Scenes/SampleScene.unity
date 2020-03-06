@@ -1964,11 +1964,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93078347b42cec345af6dc9c8eda5241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  rotateSpeed: 50
+  speed: 7
+  rotateSpeed: 90
   objectLayerMask:
     serializedVersion: 2
-    m_Bits: 2304
+    m_Bits: 3328
+  playerLookRadius: 7
+  playerShootRadius: 4
 --- !u!1001 &1604002241
 PrefabInstance:
   m_ObjectHideFlags: 0
