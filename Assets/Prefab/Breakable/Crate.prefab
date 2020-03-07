@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 292899640422399324}
   - component: {fileID: 292899640422399299}
   - component: {fileID: 292899640422399298}
-  - component: {fileID: 292899640422399297}
   - component: {fileID: 292899640422399296}
   - component: {fileID: 292899640422399303}
   - component: {fileID: 3667500603732894842}
+  - component: {fileID: 2993590900504112921}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Breakable
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292899640422399302}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -2432090755550338912, guid: 5fabe5ba06cba1448b94d2e0509b1502, type: 3}
 --- !u!23 &292899640422399298
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -8469494145858465668, guid: 5fabe5ba06cba1448b94d2e0509b1502, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,19 +83,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &292899640422399297
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 292899640422399302}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &292899640422399296
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -144,3 +131,16 @@ MonoBehaviour:
   - {fileID: 2097569431617901520, guid: c7ac303466d1e214d882a5dd8b80bc4d, type: 3}
   - {fileID: 933950595042799967, guid: aeffe991b5340184d895bca5d127b645, type: 3}
   - {fileID: 7178656836537848744, guid: 940428f6b3c4cda46a3f6e595da8496a, type: 3}
+--- !u!65 &2993590900504112921
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292899640422399302}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1, y: 2, z: 1.9999999}
+  m_Center: {x: -1.95, y: 3, z: -2.1}

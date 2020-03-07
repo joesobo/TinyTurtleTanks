@@ -27,7 +27,13 @@ public class Health : MonoBehaviour
     }
 
     private void updateHealthBar(){
-        float healthPercent = (float)curHealth / (float)MAXHEALTH;
+        float healthPercent;
+        if(curHealth < MAXHEALTH){
+            healthPercent = (float)curHealth / (float)MAXHEALTH;
+        }else{
+            healthPercent = 1;
+        }
+        
         curHealthBar.transform.localScale = (new Vector3(barMax * healthPercent + barMin, .8f, 1));
     }
 
