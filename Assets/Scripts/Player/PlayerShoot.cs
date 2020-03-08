@@ -8,13 +8,22 @@ public class PlayerShoot : MonoBehaviour
     public Transform shootPoint;
     private Transform parent;
 
-    private void Start() {
+    private GameSettings settings;
+
+    private void Start()
+    {
+        settings = FindObjectOfType<GameSettings>();
         parent = GameObject.FindGameObjectWithTag("Planet").transform;
     }
 
-    private void Update() {
-        if(Input.GetMouseButtonDown(0)){
-            Instantiate(bullet, shootPoint.position, this.transform.rotation, parent);
+    private void Update()
+    {
+        if (!settings.isPaused)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Instantiate(bullet, shootPoint.position, this.transform.rotation, parent);
+            }
         }
     }
 }

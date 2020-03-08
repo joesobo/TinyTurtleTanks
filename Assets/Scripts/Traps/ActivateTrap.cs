@@ -9,13 +9,26 @@ public class ActivateTrap : MonoBehaviour
     private bool moveSpike = false;
     private int maxSpike = 0;
 
-    private void Update() {
-        if(moveSpike){
-            if(spikes.transform.localPosition.y < maxSpike){
-                spikes.transform.localPosition = new Vector3(
-                    spikes.transform.localPosition.x, 
-                    spikes.transform.localPosition.y + (moveSpeed * Time.deltaTime), 
-                    spikes.transform.localPosition.z);
+    private GameSettings settings;
+
+    private void Start()
+    {
+        settings = FindObjectOfType<GameSettings>();
+    }
+
+    private void Update()
+    {
+        if (!settings.isPaused)
+        {
+            if (moveSpike)
+            {
+                if (spikes.transform.localPosition.y < maxSpike)
+                {
+                    spikes.transform.localPosition = new Vector3(
+                        spikes.transform.localPosition.x,
+                        spikes.transform.localPosition.y + (moveSpeed * Time.deltaTime),
+                        spikes.transform.localPosition.z);
+                }
             }
         }
     }
@@ -29,7 +42,8 @@ public class ActivateTrap : MonoBehaviour
         }
     }
 
-    public void Delete(){
+    public void Delete()
+    {
         Destroy(gameObject);
     }
 }

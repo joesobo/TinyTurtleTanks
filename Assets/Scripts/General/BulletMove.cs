@@ -8,15 +8,19 @@ public class BulletMove : MonoBehaviour
     private Vector3 moveAmount;
     private Vector3 smoothMoveVelocity;
     public float speed = 20f;
+    private GameSettings settings;
 
     private void Start()
     {
+        settings = FindObjectOfType<GameSettings>();
         rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        transform.RotateAround(this.transform.parent.position, this.transform.right, speed * Time.deltaTime);
+        if(!settings.isPaused){
+            transform.RotateAround(this.transform.parent.position, this.transform.right, speed * Time.deltaTime);
+        }
     }
 
     void OnTriggerEnter(Collider col)

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent (typeof (Rigidbody))]
+[RequireComponent(typeof(Rigidbody))]
 public class GravityBody : MonoBehaviour
 {
     GravityAttractor planet;
@@ -10,7 +10,11 @@ public class GravityBody : MonoBehaviour
     Rigidbody rb;
     public bool useGrav = true;
 
-    private void Awake() {
+    private GameSettings settings;
+
+    private void Awake()
+    {
+        settings = FindObjectOfType<GameSettings>();
         planet = GameObject.FindGameObjectWithTag("Planet").GetComponent<GravityAttractor>();
 
         rb = GetComponent<Rigidbody>();
@@ -19,11 +23,16 @@ public class GravityBody : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
-    private void FixedUpdate() {
-        planet.Attract(this);
+    private void FixedUpdate()
+    {
+        if (!settings.isPaused)
+        {
+            planet.Attract(this);
+        }
     }
 
-    public Rigidbody getRb(){
+    public Rigidbody getRb()
+    {
         return rb;
     }
 }

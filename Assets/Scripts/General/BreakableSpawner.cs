@@ -8,8 +8,10 @@ public class BreakableSpawner : MonoBehaviour
     public int radius = 50;
     public int waitForSeconds = 5;
     private Random rand = new Random();
+    private GameSettings settings;
 
     private void Start() {
+        settings = FindObjectOfType<GameSettings>();
         StartCoroutine("StartSpawn");
     }
 
@@ -17,7 +19,9 @@ public class BreakableSpawner : MonoBehaviour
     {
         while (true)
         {
-            SpawnAtPoint();
+            if(!settings.isPaused){
+                SpawnAtPoint();
+            }
             yield return new WaitForSeconds(waitForSeconds);
         }
     }

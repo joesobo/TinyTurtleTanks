@@ -5,28 +5,40 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     private bool pauseActive = false;
+    private GameSettings settings;
 
-    private void Start() {
+    private void Start()
+    {
         gameObject.transform.localScale = Vector3.zero;
+        settings = FindObjectOfType<GameSettings>();
     }
 
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.Escape)){
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             pauseActive = !pauseActive;
         }
 
-        if(pauseActive){
+        if (pauseActive)
+        {
             LeanTween.scale(gameObject, Vector3.one, 0.4f);
-        }else{
+            settings.isPaused = true;
+        }
+        else
+        {
             LeanTween.scale(gameObject, Vector3.zero, 0.4f);
+            settings.isPaused = false;
         }
     }
 
-    public void OnClose(){
+    public void OnClose()
+    {
         LeanTween.scale(gameObject, Vector3.zero, 0.4f);
     }
 
-    void DestroyMe(){
+    void DestroyMe()
+    {
         Destroy(gameObject);
     }
 }

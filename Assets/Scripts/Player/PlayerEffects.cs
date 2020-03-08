@@ -17,7 +17,10 @@ public class PlayerEffects : MonoBehaviour
 
     private PlayerController playerController;
 
+    private GameSettings settings;
+
     private void Start() {
+        settings = FindObjectOfType<GameSettings>();
         playerController = GetComponent<PlayerController>();
     }
 
@@ -47,7 +50,9 @@ public class PlayerEffects : MonoBehaviour
     IEnumerator StartShield()
     {
         findChildByName("Shield").gameObject.SetActive(true);
-        yield return new WaitForSeconds(waitForSecondsShield);
+        if(!settings.isPaused){
+            yield return new WaitForSeconds(waitForSecondsShield);
+        }
         findChildByName("Shield").gameObject.SetActive(false);
     }
 

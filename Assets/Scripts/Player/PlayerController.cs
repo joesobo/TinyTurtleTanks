@@ -14,41 +14,58 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private bool grounded;
 
-    private void Start() {
+    private GameSettings settings;
+
+    private void Start()
+    {
         rb = GetComponent<Rigidbody>();
+        settings = FindObjectOfType<GameSettings>();
     }
 
-    private void Update() {
-        //calculate movement
-        float inputY = Input.GetAxisRaw("Vertical");
+    private void Update()
+    {
+        if (!settings.isPaused)
+        {
+            //calculate movement
+            float inputY = Input.GetAxisRaw("Vertical");
 
-        Vector3 moveDir = new Vector3(0, 0, inputY).normalized;
-        Vector3 targetMoveAmount = moveDir * speed;
-        moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
-        
-        //calculate rotation
-        float inputX = Input.GetAxisRaw("Horizontal");
-        transform.Rotate(0, inputX * rotateSpeed * Time.deltaTime, 0);
+            Vector3 moveDir = new Vector3(0, 0, inputY).normalized;
+            Vector3 targetMoveAmount = moveDir * speed;
+            moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
 
-        //grounded check
-        Ray ray = new Ray(transform.position, -transform.up);
-        RaycastHit hit;
+            //calculate rotation
+            float inputX = Input.GetAxisRaw("Horizontal");
+            transform.Rotate(0, inputX * rotateSpeed * Time.deltaTime, 0);
 
-        if(Physics.Raycast(ray, out hit, .75f + .1f, groundMask)){
-            grounded = true;
-        }else{
-            grounded = false;
+            //grounded check
+            Ray ray = new Ray(transform.position, -transform.up);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, .75f + .1f, groundMask))
+            {
+                grounded = true;
+            }
+            else
+            {
+                grounded = false;
+            }
         }
     }
 
-    private void FixedUpdate() {
-        Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
-        rb.MovePosition(rb.position + localMove);
+    private void FixedUpdate()
+    {
+        if (!settings.isPaused)
+        {
+            Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
+            rb.MovePosition(rb.position + localMove);
 
-        //calculate jump
-        if(Input.GetButtonDown("Jump")){
-            if(grounded){
-                rb.AddForce(transform.up * jumpForce);
+            //calculate jump
+            if (Input.GetButtonDown("Jump"))
+            {
+                if (grounded)
+                {
+                    rb.AddForce(transform.up * jumpForce);
+                }
             }
         }
     }

@@ -31,11 +31,14 @@ public class SmartEnemy : MonoBehaviour
     private Transform parent;
     private bool canShoot = false;
 
+    private GameSettings settings;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         player = FindObjectOfType<PlayerController>().gameObject;
         parent = GameObject.FindGameObjectWithTag("Planet").transform;
+        settings = FindObjectOfType<GameSettings>();
 
         randomTimes();
         StartCoroutine("StartRotate");
@@ -44,82 +47,88 @@ public class SmartEnemy : MonoBehaviour
     private void Update()
     {
         //check for player in look radius
-        if (isPlayerInRadius(playerLookRadius))
+        if (!settings.isPaused)
         {
-            lockPlayer = true;
-        }
-        else
-        {
-            lockPlayer = false;
-        }
-
-        //check for player in shoot radius
-        if (isPlayerInRadius(playerShootRadius))
-        {
-            if (!shootPlayer)
+            if (isPlayerInRadius(playerLookRadius))
             {
-                canShoot = true;
-            }
-            shootPlayer = true;
-        }
-        else
-        {
-            shootPlayer = false;
-        }
-
-        //looking and moving towards player
-        if (lockPlayer)
-        {
-            curSpeed = speed;
-            transform.LookAt(player.transform, transform.up);
-
-            //stop moving and shoot at player
-            if (shootPlayer)
-            {
-                curSpeed = 0;
-                if (canShoot)
-                {
-                    canShoot = false;
-                    StartCoroutine("StartShoot");
-                }
-            }
-        }
-        //auto moving state
-        else
-        {
-            //calculate move if speed
-            Vector3 targetMoveAmount = Vector3.forward * curSpeed;
-            moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
-
-            offsetPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
-            RaycastHit hit;
-            if (Physics.Raycast(offsetPosition, transform.TransformDirection(Vector3.forward), out hit, 2, objectLayerMask))
-            {
-                Debug.DrawRay(offsetPosition, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                curRotate = rotateSpeed;
+                lockPlayer = true;
             }
             else
             {
-                Debug.DrawRay(offsetPosition, transform.TransformDirection(Vector3.forward) * 2, Color.white);
-                if (lockRotation)
+                lockPlayer = false;
+            }
+
+            //check for player in shoot radius
+            if (isPlayerInRadius(playerShootRadius))
+            {
+                if (!shootPlayer)
                 {
-                    curRotate = 0;
+                    canShoot = true;
+                }
+                shootPlayer = true;
+            }
+            else
+            {
+                shootPlayer = false;
+            }
+
+            //looking and moving towards player
+            if (lockPlayer)
+            {
+                curSpeed = speed;
+                transform.LookAt(player.transform, transform.up);
+
+                //stop moving and shoot at player
+                if (shootPlayer)
+                {
+                    curSpeed = 0;
+                    if (canShoot)
+                    {
+                        canShoot = false;
+                        StartCoroutine("StartShoot");
+                    }
                 }
             }
-            
-            lockPlayer = false;
-            shootPlayer = false;
+            //auto moving state
+            else
+            {
+                //calculate move if speed
+                Vector3 targetMoveAmount = Vector3.forward * curSpeed;
+                moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
+
+                offsetPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+                RaycastHit hit;
+                if (Physics.Raycast(offsetPosition, transform.TransformDirection(Vector3.forward), out hit, 2, objectLayerMask))
+                {
+                    Debug.DrawRay(offsetPosition, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+                    curRotate = rotateSpeed;
+                }
+                else
+                {
+                    Debug.DrawRay(offsetPosition, transform.TransformDirection(Vector3.forward) * 2, Color.white);
+                    if (lockRotation)
+                    {
+                        curRotate = 0;
+                    }
+                }
+
+                lockPlayer = false;
+                shootPlayer = false;
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        //move
-        Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
-        rb.MovePosition(rb.position + localMove);
+        if (!settings.isPaused)
+        {
+            //move
+            Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
+            rb.MovePosition(rb.position + localMove);
 
-        //rotate
-        transform.Rotate(0, 1 * curRotate * Time.deltaTime, 0);
+            //rotate
+            transform.Rotate(0, 1 * curRotate * Time.deltaTime, 0);
+        }
     }
 
     IEnumerator StartRotate()
@@ -146,7 +155,9 @@ public class SmartEnemy : MonoBehaviour
 
     IEnumerator StartShoot()
     {
-        ShootAtPoints();
+        if(!settings.isPaused){
+            ShootAtPoints();
+        }
         yield return new WaitForSeconds(shootSeconds);
         canShoot = true;
     }
