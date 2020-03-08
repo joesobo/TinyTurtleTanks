@@ -7,7 +7,7 @@ public class ActivateTrap : MonoBehaviour
     public GameObject spikes;
     public int moveSpeed = 5;
     private bool moveSpike = false;
-    private int maxSpike = 0;
+    private float maxSpike = -0.25f;
 
     private GameSettings settings;
 

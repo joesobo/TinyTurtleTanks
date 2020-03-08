@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spikes: {fileID: 6408316471027822224}
-  moveSpeed: 10
+  moveSpeed: 5
 --- !u!64 &1393694775
 MeshCollider:
   m_ObjectHideFlags: 0
