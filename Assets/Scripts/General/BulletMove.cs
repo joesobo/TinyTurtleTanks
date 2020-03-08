@@ -21,6 +21,7 @@ public class BulletMove : MonoBehaviour
     private void Update()
     {
         if(!settings.isPaused){
+            
             transform.RotateAround(this.transform.parent.position, this.transform.right, speed * Time.deltaTime);
         }
     }
@@ -36,9 +37,6 @@ public class BulletMove : MonoBehaviour
         else if (col.gameObject.tag == "Enemy")
         {
             Debug.Log("Hit Enemy");
-            if(col.gameObject.GetComponent<Health>().getCurHealth() == 1){
-                levelRunner.DecreaseNumEnemy();
-            }
             col.gameObject.GetComponent<Health>().decreaseHealth(1);
             Destroy(gameObject);
         }

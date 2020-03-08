@@ -7,6 +7,7 @@ public class LevelRunner : MonoBehaviour
     private int numberOfEnemies;
     [SerializeField]
     private int enemiesLeft;
+    public bool isDead;
 
     private void Start() {
         numberOfEnemies = FindObjectsOfType<SmartEnemy>().Length;

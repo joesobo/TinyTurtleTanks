@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7865330909404507690}
   - component: {fileID: 7865330909404507681}
   - component: {fileID: 7865330909404507695}
-  - component: {fileID: 7865330909404507693}
+  - component: {fileID: 5738638306009937676}
   m_Layer: 0
   m_Name: enemyTank1
   m_TagString: Enemy
@@ -103,7 +103,7 @@ MonoBehaviour:
   bullet: {fileID: 7755037917241053201, guid: bfc59661a4abe12428538656e16fdb99, type: 3}
   shootPoints:
   - {fileID: 7865330910300125785}
---- !u!114 &7865330909404507693
+--- !u!114 &5738638306009937676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2163603433509154725}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22ea9a7958252ad489c2585b0c2340b5, type: 3}
+  m_Script: {fileID: 11500000, guid: 6271a98950124114bbe4c73c6544b2ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MAXHEALTH: 3

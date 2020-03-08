@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public abstract class Health : MonoBehaviour
 {
     public int MAXHEALTH = 3;
     [SerializeField]
@@ -10,9 +10,11 @@ public class Health : MonoBehaviour
     public GameObject curHealthBar;
     private float barMax = .95f;
     private float barMin = 0;
+    private LevelRunner levelRunner;
 
     void Start()
     {
+        levelRunner = FindObjectOfType<LevelRunner>();
         curHealth = MAXHEALTH; 
     }
 
@@ -32,7 +34,10 @@ public class Health : MonoBehaviour
 
     private void updateHealthBar(){
         float healthPercent;
-        if(curHealth < MAXHEALTH){
+        if(curHealth <= 0){
+            healthPercent = 0;
+        }
+        else if(curHealth < MAXHEALTH){
             healthPercent = (float)curHealth / (float)MAXHEALTH;
         }else{
             healthPercent = 1;
@@ -43,11 +48,13 @@ public class Health : MonoBehaviour
 
     private void Update() {
         if(curHealth <= 0){
-            Destroy(gameObject);
+            onDeath();
         }
 
         if (curHealth > MAXHEALTH){
             curHealth = MAXHEALTH;
         }
     }
+
+    protected abstract void onDeath();
 }
