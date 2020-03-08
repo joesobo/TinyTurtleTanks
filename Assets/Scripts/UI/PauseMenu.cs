@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -27,14 +28,19 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
-            LeanTween.scale(gameObject, Vector3.zero, 0.4f);
-            settings.isPaused = false;
+            OnClose();
         }
     }
 
     public void OnClose()
     {
         LeanTween.scale(gameObject, Vector3.zero, 0.4f);
+        settings.isPaused = false;
+        pauseActive = false;
+    }
+
+    public void onMenu(){
+        SceneManager.LoadScene(0);
     }
 
     void DestroyMe()

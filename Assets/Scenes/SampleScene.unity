@@ -943,7 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2fc7633fada89438d9f86c463a8124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPause: 0
+  isPaused: 0
 --- !u!4 &1000687953
 Transform:
   m_ObjectHideFlags: 0
@@ -1918,7 +1918,7 @@ MonoBehaviour:
   breakablePrefab: {fileID: 292899640422399302, guid: d770eaa2689eed24c95c53ad0a4c067f,
     type: 3}
   radius: 50
-  waitForSeconds: 15
+  waitForSeconds: 5
 --- !u!4 &2029102070
 Transform:
   m_ObjectHideFlags: 0
