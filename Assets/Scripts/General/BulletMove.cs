@@ -9,9 +9,11 @@ public class BulletMove : MonoBehaviour
     private Vector3 smoothMoveVelocity;
     public float speed = 20f;
     private GameSettings settings;
+    private LevelRunner levelRunner;
 
     private void Start()
     {
+        levelRunner = FindObjectOfType<LevelRunner>();
         settings = FindObjectOfType<GameSettings>();
         rb = GetComponent<Rigidbody>();
     }
@@ -34,6 +36,9 @@ public class BulletMove : MonoBehaviour
         else if (col.gameObject.tag == "Enemy")
         {
             Debug.Log("Hit Enemy");
+            if(col.gameObject.GetComponent<Health>().getCurHealth() == 1){
+                levelRunner.DecreaseNumEnemy();
+            }
             col.gameObject.GetComponent<Health>().decreaseHealth(1);
             Destroy(gameObject);
         }

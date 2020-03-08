@@ -26,6 +26,10 @@ public class Health : MonoBehaviour
         updateHealthBar();
     }
 
+    public int getCurHealth(){
+        return curHealth;
+    }
+
     private void updateHealthBar(){
         float healthPercent;
         if(curHealth < MAXHEALTH){
