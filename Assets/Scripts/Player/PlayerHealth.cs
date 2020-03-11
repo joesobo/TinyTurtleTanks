@@ -6,7 +6,6 @@ public class PlayerHealth : Health
 {
     protected override void onDeath()
     {
-        FindObjectOfType<LoseMenu>().ActivateLose();
         FindObjectOfType<LevelRunner>().isDead = true;
     }
 }

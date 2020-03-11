@@ -1,22 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : BaseMenu
 {
     private bool pauseActive = false;
     private bool menuActive = false;
     private GameSettings settings;
     private LevelRunner levelRunner;
+
     private QuitMenu quitMenu;
 
     private void Start()
     {
+        quitMenu = FindObjectOfType<QuitMenu>();
         gameObject.transform.localScale = Vector3.zero;
         settings = FindObjectOfType<GameSettings>();
         levelRunner = FindObjectOfType<LevelRunner>();
-        quitMenu = FindObjectOfType<QuitMenu>();
     }
 
     private void Update()
@@ -31,7 +31,7 @@ public class PauseMenu : MonoBehaviour
 
             if (pauseActive)
             {
-                if (menuActive)
+                if (menuActive && gameObject.transform.localScale.x < 1)
                 {
                     LeanTween.scale(gameObject, Vector3.one, 0.4f);
                 }
@@ -55,27 +55,16 @@ public class PauseMenu : MonoBehaviour
         menuActive = false;
     }
 
-    public void OpenControls()
+    public override void OpenQuit()
     {
-
-    }
-
-    public void OpenQuit()
-    {
-        quitMenu.pauseMenu = this;
-        menuActive = false;
+        quitMenu.menu = this;
         LeanTween.scale(gameObject, Vector3.zero, 0.4f);
         LeanTween.scale(quitMenu.gameObject, Vector3.one, 0.4f);
     }
 
-    public void CloseQuit(){
-        menuActive = true;
+    public override void CloseQuit()
+    {
         LeanTween.scale(gameObject, Vector3.one, 0.4f);
         LeanTween.scale(quitMenu.gameObject, Vector3.zero, 0.4f);
-    }
-
-    public void onMenu()
-    {
-        SceneManager.LoadScene(0);
     }
 }

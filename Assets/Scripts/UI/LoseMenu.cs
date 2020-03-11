@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoseMenu : MonoBehaviour
+public class LoseMenu : BaseMenu
 {
     private bool pauseActive = false;
-    public GameSettings settings;
+    private GameSettings settings;
     private Health playerHealth;
-    private bool activate = false;
+    private QuitMenu quitMenu;
 
     private void Start()
     {
+        quitMenu = FindObjectOfType<QuitMenu>();
         gameObject.transform.localScale = Vector3.zero;
         settings = FindObjectOfType<GameSettings>();
     }
 
     private void Update() {
         if(pauseActive){
-            LeanTween.scale(gameObject, Vector3.one, 0.4f);
             settings.isPaused = true;
+            if(gameObject.transform.localScale.x < 1){
+                LeanTween.scale(gameObject, Vector3.one, 0.4f);
+            }
         }
     }
 
@@ -26,5 +29,18 @@ public class LoseMenu : MonoBehaviour
     {
         pauseActive = true;
         //LeanTween.scale(gameObject, Vector3.one, 0.4f);
+    }
+
+    public override void OpenQuit()
+    {
+        quitMenu.menu = this;
+        LeanTween.scale(gameObject, Vector3.zero, 0.4f);
+        LeanTween.scale(quitMenu.gameObject, Vector3.one, 0.4f);
+    }
+
+    public override void CloseQuit()
+    {
+        LeanTween.scale(gameObject, Vector3.one, 0.4f);
+        LeanTween.scale(quitMenu.gameObject, Vector3.zero, 0.4f);
     }
 }

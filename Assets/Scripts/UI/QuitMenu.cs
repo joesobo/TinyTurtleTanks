@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class QuitMenu : MonoBehaviour
 {
-    public PauseMenu pauseMenu;
+    public BaseMenu menu;
 
     public void OnYes(){
         Application.Quit();
     }
 
     public void OnNo(){
-        pauseMenu.CloseQuit();
+        menu.CloseQuit();
     }
 }

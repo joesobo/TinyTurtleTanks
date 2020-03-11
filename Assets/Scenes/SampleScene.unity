@@ -20,25 +20,25 @@ RenderSettings:
   m_FogDensity: 0.09
   m_LinearFogStart: 15
   m_LinearFogEnd: 120
-  m_AmbientSkyColor: {r: 0.8207547, g: 0.8901845, b: 1, a: 1}
+  m_AmbientSkyColor: {r: 0.6792453, g: 0.8047579, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 617d9be015db68348a623b01ea51a8c5, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 256
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18135308, g: 0.22697073, b: 0.3073734, a: 1}
+  m_IndirectSpecularColor: {r: 0.27014127, g: 0.8370101, b: 1.0941205, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -695,7 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef53cf6a02e9524498e21ae69b6bd168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
+  baseMenu: {fileID: 0}
 --- !u!114 &259797829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1055,22 +1055,22 @@ PrefabInstance:
     - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7787361
       objectReference: {fileID: 0}
     - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.62735164
       objectReference: {fileID: 0}
     - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
         type: 3}
@@ -1085,7 +1085,7 @@ PrefabInstance:
     - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 102.29
       objectReference: {fileID: 0}
     - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
         type: 3}
@@ -1312,7 +1312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3278eff35886ab46be79fdc081aabdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 0}
 --- !u!114 &446529304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1585,8 +1584,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnClose
+      - m_Target: {fileID: 446529303}
+        m_MethodName: OpenQuit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2277,7 +2276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &875001219
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2287,7 +2286,7 @@ RectTransform:
   m_GameObject: {fileID: 875001218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 536694990}
   - {fileID: 669811251}
@@ -2309,7 +2308,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 875001218}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd1d03ff8a8699c458a6f18bf95e6fc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 195d877c4551a9f4596c4204569e12cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &875001221
@@ -2430,7 +2429,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 446529303}
         m_MethodName: onMenu
         m_Mode: 1
         m_Arguments:
@@ -2514,7 +2513,7 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.5684627, g: 0.87039214, b: 0.9490196, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -2721,7 +2720,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4cc56cf208e034748a2818e3a8d51997, type: 2}
+      objectReference: {fileID: 2100000, guid: 86c8ab2f5f9ef64418df3ccef8df58c7, type: 2}
     - target: {fileID: -927199367670048503, guid: c5ecad824a95664408df24216be26cef,
         type: 3}
       propertyPath: m_Name
@@ -3208,7 +3207,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 875001220}
-        m_MethodName: OnClose
+        m_MethodName: OpenQuit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3926,14 +3925,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2eef1eec3b455c4eac29802076a9559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 1247584938}
-  shootPos: {fileID: 678666411}
+  rb: {fileID: 0}
+  shootPos: {fileID: 0}
   target: {fileID: 0}
   resolution: 30
-  dropY: 0.1
-  h: 2
+  dropY: 5
+  h: 25
   gravity: -18
-  debugPath: 1
+  debugPath: 0
 --- !u!114 &1681413301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4690,10 +4689,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
