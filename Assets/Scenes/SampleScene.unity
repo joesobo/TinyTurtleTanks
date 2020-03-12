@@ -651,7 +651,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ca5751f81f551fd4e9d03374c9924ad0, type: 3}
-  m_Color: {r: 0.4058581, g: 0.9529412, b: 0.32209417, a: 0.9019608}
+  m_Color: {r: 0.9054744, g: 0.9529412, b: 0.3215686, a: 0.9019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -732,7 +732,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243286911}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a0b46357f4b739044b66de398ad3b300, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1950,7 +1950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 49bebd2e07d4b6c4a8723c6555519628, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 49bebd2e07d4b6c4a8723c6555519628, type: 3}
       propertyPath: m_LocalPosition.x

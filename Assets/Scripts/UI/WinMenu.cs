@@ -20,7 +20,6 @@ public class WinMenu : BaseMenu
     {
         if (pauseActive)
         {
-            settings.isPaused = true;
             if (gameObject.transform.localScale.x == 1)
             {
                 stopScale = true;
@@ -29,12 +28,6 @@ public class WinMenu : BaseMenu
             {
                 LeanTween.scale(gameObject, Vector3.one, 0.4f);
             }
-        }
-
-        if(pauseActive){
-            Cursor.lockState = CursorLockMode.None;
-        }else{
-            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 

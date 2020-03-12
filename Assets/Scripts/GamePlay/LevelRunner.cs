@@ -13,6 +13,7 @@ public class LevelRunner : MonoBehaviour
     private WinMenu winMenu;
     private bool activeLose = true;
     private bool activeWin = true;
+    private GameSettings settings;
 
     private void Start() {
         numberOfEnemies = FindObjectsOfType<SmartEnemy>().Length;
@@ -20,6 +21,7 @@ public class LevelRunner : MonoBehaviour
 
         loseMenu = FindObjectOfType<LoseMenu>();
         winMenu = FindObjectOfType<WinMenu>();
+        settings = FindObjectOfType<GameSettings>();
     }
 
     private void Update() {
@@ -31,6 +33,16 @@ public class LevelRunner : MonoBehaviour
         else if(getNumEnemiesLeft() <= 0 && activeWin && activeLose){
             activeWin = false;
             winMenu.ActivateWin();
+        }
+
+        if(!activeLose || !activeWin){
+            settings.isPaused = true;
+        }
+
+        if(settings.isPaused){
+            Cursor.lockState = CursorLockMode.None;
+        }else{
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 

@@ -47,12 +47,6 @@ public class PauseMenu : BaseMenu
                 OnClose();
             }
         }
-
-        if(pauseActive){
-            Cursor.lockState = CursorLockMode.None;
-        }else{
-            Cursor.lockState = CursorLockMode.Locked;
-        }
     }
 
     public void OnClose()
