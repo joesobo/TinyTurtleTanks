@@ -11,47 +11,63 @@ public class BulletMove : MonoBehaviour
     private GameSettings settings;
     private LevelRunner levelRunner;
 
+    private bool delayOn = true;
+
     private void Start()
     {
         levelRunner = FindObjectOfType<LevelRunner>();
         settings = FindObjectOfType<GameSettings>();
         rb = GetComponent<Rigidbody>();
+
+        //add coroutine delay
+        StartCoroutine("DelayCo");
     }
 
     private void Update()
     {
-        if(!settings.isPaused){
-            
+        if (!settings.isPaused)
+        {
+
             transform.RotateAround(this.transform.parent.position, this.transform.right, speed * Time.deltaTime);
         }
     }
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Ground")
+        if (!delayOn)
         {
-            Debug.Log("Hit Obstacle");
-            Destroy(gameObject);
-        }
+            if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Ground")
+            {
+                Debug.Log("Hit Obstacle");
+                Destroy(gameObject);
+            }
 
-        else if (col.gameObject.tag == "Enemy")
-        {
-            Debug.Log("Hit Enemy");
-            col.gameObject.GetComponent<Health>().decreaseHealth(1);
-            Destroy(gameObject);
-        }
+            else if (col.gameObject.tag == "Enemy")
+            {
+                Debug.Log("Hit Enemy");
+                col.gameObject.GetComponent<Health>().decreaseHealth(1);
+                Destroy(gameObject);
+            }
 
-        else if (col.gameObject.tag == "Player")
-        {
-            Debug.Log("Hit Player");
-            col.gameObject.GetComponent<Health>().decreaseHealth(1);
-            Destroy(gameObject);
-        }
+            else if (col.gameObject.tag == "Player")
+            {
+                Debug.Log("Hit Player");
+                col.gameObject.GetComponent<Health>().decreaseHealth(1);
+                Destroy(gameObject);
+            }
 
-        else if(col.gameObject.tag == "Breakable"){
-            Debug.Log("Hit Breakable");
-            col.gameObject.GetComponent<Breakable>().Break();
-            Destroy(gameObject);
+            else if (col.gameObject.tag == "Breakable")
+            {
+                Debug.Log("Hit Breakable");
+                col.gameObject.GetComponent<Breakable>().Break();
+                Destroy(gameObject);
+            }
         }
+    }
+
+    IEnumerator DelayCo()
+    {
+        yield return new WaitForSeconds(0.2f);
+        delayOn = false;
     }
 }
