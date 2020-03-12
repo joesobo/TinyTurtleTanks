@@ -36,38 +36,38 @@ public class BulletMove : MonoBehaviour
     {
         if (!delayOn)
         {
-            if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Ground")
-            {
-                Debug.Log("Hit Obstacle");
-                Destroy(gameObject);
-            }
-
-            else if (col.gameObject.tag == "Enemy")
-            {
-                Debug.Log("Hit Enemy");
-                col.gameObject.GetComponent<Health>().decreaseHealth(1);
-                Destroy(gameObject);
-            }
-
-            else if (col.gameObject.tag == "Player")
+            if (col.gameObject.tag == "Player")
             {
                 Debug.Log("Hit Player");
                 col.gameObject.GetComponent<Health>().decreaseHealth(1);
                 Destroy(gameObject);
             }
+        }
 
-            else if (col.gameObject.tag == "Breakable")
-            {
-                Debug.Log("Hit Breakable");
-                col.gameObject.GetComponent<Breakable>().Break();
-                Destroy(gameObject);
-            }
+        if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Ground")
+        {
+            Debug.Log("Hit Obstacle");
+            Destroy(gameObject);
+        }
+
+        else if (col.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Hit Enemy");
+            col.gameObject.GetComponent<Health>().decreaseHealth(1);
+            Destroy(gameObject);
+        }
+
+        else if (col.gameObject.tag == "Breakable")
+        {
+            Debug.Log("Hit Breakable");
+            col.gameObject.GetComponent<Breakable>().Break();
+            Destroy(gameObject);
         }
     }
 
     IEnumerator DelayCo()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         delayOn = false;
     }
 }

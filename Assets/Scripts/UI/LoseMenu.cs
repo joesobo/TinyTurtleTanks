@@ -8,6 +8,7 @@ public class LoseMenu : BaseMenu
     private GameSettings settings;
     private Health playerHealth;
     private QuitMenu quitMenu;
+    private bool stopScale = false;
 
     private void Start()
     {
@@ -17,9 +18,15 @@ public class LoseMenu : BaseMenu
     }
 
     private void Update() {
-        if(pauseActive){
+        if (pauseActive)
+        {
             settings.isPaused = true;
-            if(gameObject.transform.localScale.x < 1){
+            if (gameObject.transform.localScale.x == 1)
+            {
+                stopScale = true;
+            }
+            if (!stopScale)
+            {
                 LeanTween.scale(gameObject, Vector3.one, 0.4f);
             }
         }

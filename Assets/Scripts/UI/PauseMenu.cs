@@ -8,6 +8,7 @@ public class PauseMenu : BaseMenu
     private bool menuActive = false;
     private GameSettings settings;
     private LevelRunner levelRunner;
+     private bool stopScale = false;
 
     private QuitMenu quitMenu;
 
@@ -31,11 +32,15 @@ public class PauseMenu : BaseMenu
 
             if (pauseActive)
             {
-                if (menuActive && gameObject.transform.localScale.x < 1)
+                settings.isPaused = true;
+                if (gameObject.transform.localScale.x == 1)
+                {
+                    stopScale = true;
+                }
+                if (!stopScale)
                 {
                     LeanTween.scale(gameObject, Vector3.one, 0.4f);
                 }
-                settings.isPaused = true;
             }
             else
             {
@@ -53,6 +58,7 @@ public class PauseMenu : BaseMenu
         }
         pauseActive = false;
         menuActive = false;
+        stopScale = false;
     }
 
     public override void OpenQuit()

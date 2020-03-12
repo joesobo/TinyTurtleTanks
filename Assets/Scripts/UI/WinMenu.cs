@@ -6,7 +6,6 @@ public class WinMenu : BaseMenu
 {
     private bool pauseActive = false;
     private GameSettings settings;
-    private LevelRunner levelRunner;
     private QuitMenu quitMenu;
     private bool stopScale = false;
 
@@ -15,7 +14,6 @@ public class WinMenu : BaseMenu
         quitMenu = FindObjectOfType<QuitMenu>();
         gameObject.transform.localScale = Vector3.zero;
         settings = FindObjectOfType<GameSettings>();
-        levelRunner = FindObjectOfType<LevelRunner>();
     }
 
     private void Update()

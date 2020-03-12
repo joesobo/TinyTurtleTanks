@@ -23,12 +23,12 @@ public class LevelRunner : MonoBehaviour
     }
 
     private void Update() {
-        if(isDead && activeLose){
+        if(isDead && activeLose && activeWin){
             activeLose = false;
             loseMenu.ActivateLose();
         }
 
-        else if(getNumEnemiesLeft() <= 0 && activeWin){
+        else if(getNumEnemiesLeft() <= 0 && activeWin && activeLose){
             activeWin = false;
             winMenu.ActivateWin();
         }
