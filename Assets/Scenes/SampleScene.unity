@@ -972,8 +972,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnClose
+      - m_Target: {fileID: 446529303}
+        m_MethodName: onRestart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

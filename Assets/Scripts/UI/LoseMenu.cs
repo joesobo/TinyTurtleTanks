@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoseMenu : BaseMenu
 {
@@ -49,5 +50,10 @@ public class LoseMenu : BaseMenu
     {
         LeanTween.scale(gameObject, Vector3.one, 0.4f);
         LeanTween.scale(quitMenu.gameObject, Vector3.zero, 0.4f);
+    }
+
+    public void onRestart()
+    {
+        SceneManager.LoadScene(1);
     }
 }
