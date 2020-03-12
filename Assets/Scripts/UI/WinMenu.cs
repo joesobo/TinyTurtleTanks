@@ -30,6 +30,12 @@ public class WinMenu : BaseMenu
                 LeanTween.scale(gameObject, Vector3.one, 0.4f);
             }
         }
+
+        if(pauseActive){
+            Cursor.lockState = CursorLockMode.None;
+        }else{
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     public void ActivateWin()

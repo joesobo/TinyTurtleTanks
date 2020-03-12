@@ -24,7 +24,7 @@ public class PauseMenu : BaseMenu
     {
         if (!levelRunner.isDead)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (!settings.isPaused && Input.GetKeyDown(KeyCode.Escape))
             {
                 pauseActive = !pauseActive;
                 menuActive = !menuActive;
@@ -46,6 +46,12 @@ public class PauseMenu : BaseMenu
             {
                 OnClose();
             }
+        }
+
+        if(pauseActive){
+            Cursor.lockState = CursorLockMode.None;
+        }else{
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
