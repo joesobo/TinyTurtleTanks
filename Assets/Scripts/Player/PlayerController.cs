@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10;
-    public float rotateSpeed = 100;
+    public float rotationChangeSpeed = 50;
+    public float rotateSpeed = 0;
+    private float maxRotateSpeed = 100;
     public float jumpForce = 200;
     public LayerMask groundMask;
 
@@ -35,7 +37,25 @@ public class PlayerController : MonoBehaviour
 
             //calculate rotation
             float inputX = Input.GetAxisRaw("Horizontal");
-            transform.Rotate(0, inputX * rotateSpeed * Time.deltaTime, 0);
+            if(inputX > 0){
+                if(rotateSpeed < 0){
+                    rotateSpeed = 0;
+                }
+                if(rotateSpeed < maxRotateSpeed){
+                    rotateSpeed = Mathf.Lerp(0, maxRotateSpeed, rotationChangeSpeed * Time.deltaTime);
+                }
+            }
+            else if(inputX < 0){
+                if(rotateSpeed > 0){
+                    rotateSpeed = 0;
+                }
+                if(rotateSpeed > -maxRotateSpeed){
+                    rotateSpeed = Mathf.Lerp(0, -maxRotateSpeed, rotationChangeSpeed * Time.deltaTime);
+                }
+            }else{
+                rotateSpeed = 0;
+            }
+            transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
 
             //grounded check
             Ray ray = new Ray(transform.position, -transform.up);
