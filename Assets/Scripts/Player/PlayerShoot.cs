@@ -7,6 +7,7 @@ public class PlayerShoot : MonoBehaviour
     public GameObject bullet;
     public Transform shootPoint;
     private Transform parent;
+    private bool delayOn = false;
 
     private GameSettings settings;
 
@@ -20,10 +21,18 @@ public class PlayerShoot : MonoBehaviour
     {
         if (!settings.isPaused)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !delayOn)
             {
+                delayOn = true;
+                StartCoroutine("DelayCo");
                 Instantiate(bullet, shootPoint.position, this.transform.rotation, parent);
             }
         }
+    }
+
+    IEnumerator DelayCo()
+    {
+        yield return new WaitForSeconds(0.3f);
+        delayOn = false;
     }
 }
