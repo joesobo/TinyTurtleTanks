@@ -16,7 +16,9 @@ public class GrassSpawner : MonoBehaviour
         {
             spawnPoint = FindSpawnPoint();
             if(spawnPoint != Vector3.zero){
-                Instantiate(grassPrefab, spawnPoint, Quaternion.LookRotation(-spawnPoint), this.transform);
+                GameObject g = Instantiate(grassPrefab, spawnPoint, Quaternion.LookRotation(-spawnPoint), this.transform);
+                g.transform.Rotate(new Vector3(-90,0,0));
+                g.transform.localScale = new Vector3(1,Random.Range(1,5),1);
             }
         }
     }
