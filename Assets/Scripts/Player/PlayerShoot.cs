@@ -21,7 +21,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (!settings.isPaused)
         {
-            if (Input.GetMouseButtonDown(0) && !delayOn)
+            if (Input.GetKeyDown(KeyCode.Return) && !delayOn)
             {
                 delayOn = true;
                 StartCoroutine("DelayCo");
