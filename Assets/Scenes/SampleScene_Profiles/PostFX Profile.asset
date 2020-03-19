@@ -18,7 +18,7 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 5
+    value: 7
   aperture:
     overrideState: 1
     value: 2.7
@@ -1458,7 +1458,7 @@ MonoBehaviour:
     value: 1
   shutterAngle:
     overrideState: 1
-    value: 120
+    value: 100
   sampleCount:
     overrideState: 0
     value: 10
@@ -1529,7 +1529,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.6
+    value: 0.4
   threshold:
     overrideState: 0
     value: 1.1
