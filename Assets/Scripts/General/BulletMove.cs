@@ -44,7 +44,7 @@ public class BulletMove : MonoBehaviour
             }
         }
 
-        if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Ground")
+        if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Planet")
         {
             Debug.Log("Hit Obstacle");
             Destroy(gameObject);
