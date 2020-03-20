@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private bool grounded;
 
     private GameSettings settings;
+    public ParticleSystem particleSystem;
 
     private void Start()
     {
@@ -37,22 +38,30 @@ public class PlayerController : MonoBehaviour
 
             //calculate rotation
             float inputX = Input.GetAxisRaw("Horizontal");
-            if(inputX > 0){
-                if(rotateSpeed < 0){
+            if (inputX > 0)
+            {
+                if (rotateSpeed < 0)
+                {
                     rotateSpeed = 0;
                 }
-                if(rotateSpeed < maxRotateSpeed){
+                if (rotateSpeed < maxRotateSpeed)
+                {
                     rotateSpeed = Mathf.Lerp(0, maxRotateSpeed, rotationChangeSpeed * Time.deltaTime);
                 }
             }
-            else if(inputX < 0){
-                if(rotateSpeed > 0){
+            else if (inputX < 0)
+            {
+                if (rotateSpeed > 0)
+                {
                     rotateSpeed = 0;
                 }
-                if(rotateSpeed > -maxRotateSpeed){
+                if (rotateSpeed > -maxRotateSpeed)
+                {
                     rotateSpeed = Mathf.Lerp(0, -maxRotateSpeed, rotationChangeSpeed * Time.deltaTime);
                 }
-            }else{
+            }
+            else
+            {
                 rotateSpeed = 0;
             }
             transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
@@ -78,6 +87,16 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
             rb.MovePosition(rb.position + localMove);
+            if (settings.useParticle)
+            {
+                if (localMove != Vector3.zero)
+                {
+                    particleSystem.Play();
+                }else{
+                    particleSystem.Stop();
+                }
+                
+            }
 
             //calculate jump
             if (Input.GetButtonDown("Jump"))
