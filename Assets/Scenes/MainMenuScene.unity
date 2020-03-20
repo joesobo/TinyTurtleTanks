@@ -447,7 +447,7 @@ RectTransform:
   - {fileID: 1546121450}
   - {fileID: 171699176}
   m_Father: {fileID: 1714969757}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -660,7 +660,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 140466254}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 738613313}
+        m_MethodName: ChangeGrassSetting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &140466254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,7 +789,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 165508036}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 738613313}
+        m_MethodName: ChangeSoundSetting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &165508036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2566,7 +2588,7 @@ RectTransform:
   - {fileID: 174284862}
   - {fileID: 1288725562}
   m_Father: {fileID: 1714969757}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2621,6 +2643,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64edc1b5c9d8dec4786cd6e5263b0339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vfxButton: {fileID: 1409666376}
+  soundButton: {fileID: 165508036}
+  particleButton: {fileID: 1321452893}
+  grassButton: {fileID: 140466254}
+  inActiveColor: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
+  ActiveColor: {r: 0.37102285, g: 0.735849, b: 0.34015664, a: 1}
 --- !u!1 &744351052
 GameObject:
   m_ObjectHideFlags: 0
@@ -5261,7 +5289,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1321452893}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 738613313}
+        m_MethodName: ChangeParticleSetting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1321452893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6998,8 +7037,8 @@ RectTransform:
   - {fileID: 1659392801}
   - {fileID: 1751057457}
   - {fileID: 1853757868}
-  - {fileID: 81910722}
   - {fileID: 738613310}
+  - {fileID: 81910722}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7452,7 +7491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.45490196, g: 0.45490196, b: 0.45490196, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7967,6 +8006,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   useVFX: 0
+  useSound: 0
+  useParticle: 0
+  useGrass: 0
 --- !u!4 &1920871025
 Transform:
   m_ObjectHideFlags: 0

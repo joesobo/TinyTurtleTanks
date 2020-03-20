@@ -15,6 +15,9 @@ public class LevelRunner : MonoBehaviour
     private bool activeWin = true;
     private GameSettings settings;
 
+    public GameObject fx;
+    public GameObject grassSpawner;
+
     private void Start() {
         numberOfEnemies = FindObjectsOfType<SmartEnemy>().Length;
         enemiesLeft = numberOfEnemies;
@@ -22,6 +25,8 @@ public class LevelRunner : MonoBehaviour
         loseMenu = FindObjectOfType<LoseMenu>();
         winMenu = FindObjectOfType<WinMenu>();
         settings = FindObjectOfType<GameSettings>();
+
+        CallSettings();
     }
 
     private void Update() {
@@ -52,5 +57,10 @@ public class LevelRunner : MonoBehaviour
 
     public int getNumEnemiesLeft(){
         return enemiesLeft;
+    }
+
+    private void CallSettings(){
+        fx.SetActive(settings.useVFX);
+        grassSpawner.SetActive(settings.useGrass);
     }
 }
