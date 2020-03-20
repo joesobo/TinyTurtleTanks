@@ -10,11 +10,13 @@ public class EnemyShoot : MonoBehaviour
     public int waitForSeconds = 2;
     public bool doRotate = false;
     public float rotateSpeed = 3;
+    private AudioSource source;
 
     private void Start()
     {
         parent = GameObject.FindGameObjectWithTag("Planet").transform;
         StartCoroutine("StartShoot");
+        source = GetComponent<AudioSource>();
     }
 
     private void Update() {
@@ -37,6 +39,7 @@ public class EnemyShoot : MonoBehaviour
         foreach (Transform shootPoint in shootPoints)
         {
             Instantiate(bullet, shootPoint.position, shootPoint.rotation, parent);
+            source.Play();
         }
     }
 }

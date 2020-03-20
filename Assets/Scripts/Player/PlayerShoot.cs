@@ -10,11 +10,13 @@ public class PlayerShoot : MonoBehaviour
     private bool delayOn = false;
 
     private GameSettings settings;
+    private AudioSource source;
 
     private void Start()
     {
         settings = FindObjectOfType<GameSettings>();
         parent = GameObject.FindGameObjectWithTag("Planet").transform;
+        source = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -26,6 +28,7 @@ public class PlayerShoot : MonoBehaviour
                 delayOn = true;
                 StartCoroutine("DelayCo");
                 Instantiate(bullet, shootPoint.position, this.transform.rotation, parent);
+                source.Play();
             }
         }
     }
