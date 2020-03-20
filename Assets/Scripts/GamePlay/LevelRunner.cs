@@ -17,6 +17,7 @@ public class LevelRunner : MonoBehaviour
 
     public GameObject fx;
     public GameObject grassSpawner;
+    public GameObject backgroundMusic;
 
     private void Start() {
         numberOfEnemies = FindObjectsOfType<SmartEnemy>().Length;
@@ -62,5 +63,6 @@ public class LevelRunner : MonoBehaviour
     private void CallSettings(){
         fx.SetActive(settings.useVFX);
         grassSpawner.SetActive(settings.useGrass);
+        backgroundMusic.SetActive(settings.useSound);
     }
 }

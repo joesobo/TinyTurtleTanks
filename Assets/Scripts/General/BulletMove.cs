@@ -12,12 +12,14 @@ public class BulletMove : MonoBehaviour
     private LevelRunner levelRunner;
 
     private bool delayOn = true;
+    private AudioSource source;
 
     private void Start()
     {
         levelRunner = FindObjectOfType<LevelRunner>();
         settings = FindObjectOfType<GameSettings>();
         rb = GetComponent<Rigidbody>();
+        source = GetComponent<AudioSource>();
 
         //add coroutine delay
         StartCoroutine("DelayCo");
@@ -47,6 +49,9 @@ public class BulletMove : MonoBehaviour
         if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Planet")
         {
             Debug.Log("Hit Obstacle");
+            if(settings.useSound){
+                source.Play();
+            }
             Destroy(gameObject);
         }
 
@@ -54,6 +59,9 @@ public class BulletMove : MonoBehaviour
         {
             Debug.Log("Hit Enemy");
             col.gameObject.GetComponent<Health>().decreaseHealth(1);
+            if(settings.useSound){
+                source.Play();
+            }
             Destroy(gameObject);
         }
 
@@ -61,6 +69,9 @@ public class BulletMove : MonoBehaviour
         {
             Debug.Log("Hit Breakable");
             col.gameObject.GetComponent<Breakable>().Break();
+            if(settings.useSound){
+                source.Play();
+            }
             Destroy(gameObject);
         }
     }

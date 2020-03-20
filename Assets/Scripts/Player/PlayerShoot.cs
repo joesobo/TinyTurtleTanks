@@ -28,7 +28,10 @@ public class PlayerShoot : MonoBehaviour
                 delayOn = true;
                 StartCoroutine("DelayCo");
                 Instantiate(bullet, shootPoint.position, this.transform.rotation, parent);
-                source.Play();
+                if (settings.useSound)
+                {
+                    source.Play();
+                }
             }
         }
     }
