@@ -78,6 +78,15 @@ public class PlayerController : MonoBehaviour
             {
                 grounded = false;
             }
+
+            //calculate jump
+            if (Input.GetButtonDown("Jump"))
+            {
+                if (grounded)
+                {
+                    rb.AddForce(transform.up * jumpForce);
+                }
+            }
         }
     }
 
@@ -96,15 +105,6 @@ public class PlayerController : MonoBehaviour
                     particleSystem.Stop();
                 }
                 
-            }
-
-            //calculate jump
-            if (Input.GetButtonDown("Jump"))
-            {
-                if (grounded)
-                {
-                    rb.AddForce(transform.up * jumpForce);
-                }
             }
         }
     }

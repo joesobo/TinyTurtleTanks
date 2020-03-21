@@ -65,7 +65,7 @@ public class PlayerEffects : MonoBehaviour
 
     IEnumerator StartJump()
     {
-        playerController.jumpForce = 300;
+        playerController.jumpForce = 1000;
         yield return new WaitForSeconds(waitForSecondsJump);
         playerController.jumpForce = saveJump;
     }
