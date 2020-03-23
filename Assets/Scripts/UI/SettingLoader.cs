@@ -10,59 +10,81 @@ public class SettingLoader : MonoBehaviour
     public Image soundButton;
     public Image particleButton;
     public Image grassButton;
+    public Image trailButton;
+    public Image cloudButton;
 
     public Color inActiveColor;
     public Color ActiveColor;
 
-    private void Awake() {
+    private void Awake()
+    {
         settings = FindObjectOfType<GameSettings>();
+        SetupSettings();
     }
 
-    public void LoadSettings(){
+    public void SetupSettings(){
+        LoadColor(settings.useVFX, vfxButton);
+        LoadColor(settings.useSound, soundButton);
+        LoadColor(settings.useParticle, particleButton);
+        LoadColor(settings.useGrass, grassButton);
+        LoadColor(settings.useTrails, trailButton);
+        LoadColor(settings.useClouds, cloudButton);
+    }
+
+    public void LoadSettings()
+    {
         this.gameObject.SetActive(true);
     }
 
-    public void UnloadSettings(){
+    public void UnloadSettings()
+    {
         this.gameObject.SetActive(false);
     }
 
-    public void ChangeVFXSetting(){
+    public void ChangeVFXSetting()
+    {
         settings.useVFX = !settings.useVFX;
-        if(settings.useVFX){
-            vfxButton.color = ActiveColor;
-        }else{
-            vfxButton.color = inActiveColor;
-        }
-         
+        LoadColor(settings.useVFX, vfxButton);
     }
 
-    public void ChangeSoundSetting(){
+    public void ChangeSoundSetting()
+    {
         settings.useSound = !settings.useSound;
-        if(settings.useSound){
-            soundButton.color = ActiveColor;
-        }else{
-            soundButton.color = inActiveColor;
-        }
-         
+        LoadColor(settings.useSound, soundButton);
     }
 
-    public void ChangeParticleSetting(){
+    public void ChangeParticleSetting()
+    {
         settings.useParticle = !settings.useParticle;
-        if(settings.useParticle){
-            particleButton.color = ActiveColor;
-        }else{
-            particleButton.color = inActiveColor;
-        }
-         
+        LoadColor(settings.useParticle, particleButton);
     }
 
-    public void ChangeGrassSetting(){
+    public void ChangeGrassSetting()
+    {
         settings.useGrass = !settings.useGrass;
-        if(settings.useGrass){
-            grassButton.color = ActiveColor;
-        }else{
-            grassButton.color = inActiveColor;
+        LoadColor(settings.useGrass, grassButton);
+    }
+
+    public void ChangeTrailSetting()
+    {
+        settings.useTrails = !settings.useTrails;
+        LoadColor(settings.useTrails, trailButton);
+    }
+
+    public void ChangeCloudSetting()
+    {
+        settings.useClouds = !settings.useClouds;
+        LoadColor(settings.useClouds, cloudButton);
+    }
+
+    public void LoadColor(bool condition, Image button){
+        if (condition)
+        {
+            button.color = ActiveColor;
         }
-         
+        else
+        {
+            button.color = inActiveColor;
+        }
     }
 }

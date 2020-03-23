@@ -31,6 +31,7 @@ public class SmartEnemy : MonoBehaviour
     private Transform parent;
     private bool canShoot = false;
 
+    private AudioSource source;
     private GameSettings settings;
 
     private void Start()
@@ -39,6 +40,7 @@ public class SmartEnemy : MonoBehaviour
         player = FindObjectOfType<PlayerController>().gameObject;
         parent = GameObject.FindGameObjectWithTag("Planet").transform;
         settings = FindObjectOfType<GameSettings>();
+        source = GetComponent<AudioSource>();
 
         randomTimes();
         StartCoroutine("StartRotate");
@@ -180,6 +182,10 @@ public class SmartEnemy : MonoBehaviour
         foreach (Transform shootPoint in shootPoints)
         {
             Instantiate(bullet, shootPoint.position, shootPoint.rotation, parent);
+            if (settings.useSound)
+            {
+                source.Play();
+            }
         }
     }
 

@@ -8,6 +8,11 @@ public class GameSettings : MonoBehaviour
     public bool useSound = false;
     public bool useParticle = false;
     public bool useGrass = false;
+    public bool useTrails = false;
+    public bool useClouds = false;
+    [Header("Test Settings")]
+    public bool useCrates = false;
+    public bool useEnvironmentObjects = false;
 
     void Awake()
     {

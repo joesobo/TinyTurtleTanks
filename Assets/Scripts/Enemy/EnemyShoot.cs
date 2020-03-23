@@ -21,19 +21,18 @@ public class EnemyShoot : MonoBehaviour
         source = GetComponent<AudioSource>();
     }
 
-    private void Update() {
-        if(doRotate){
+    private void Update()
+    {
+        if (doRotate)
+        {
             transform.RotateAround(transform.position, transform.up, rotateSpeed * Time.deltaTime * 90f);
         }
     }
 
     IEnumerator StartShoot()
     {
-        while (true)
-        {
-            ShootAtPoints();
-            yield return new WaitForSeconds(waitForSeconds);
-        }
+        ShootAtPoints();
+        yield return new WaitForSeconds(waitForSeconds);
     }
 
     private void ShootAtPoints()
@@ -41,7 +40,8 @@ public class EnemyShoot : MonoBehaviour
         foreach (Transform shootPoint in shootPoints)
         {
             Instantiate(bullet, shootPoint.position, shootPoint.rotation, parent);
-            if(settings.useSound){
+            if (settings.useSound)
+            {
                 source.Play();
             }
         }
