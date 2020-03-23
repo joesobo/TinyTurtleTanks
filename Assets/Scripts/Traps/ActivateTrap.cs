@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ActivateTrap : MonoBehaviour
 {
-    public GameObject spikes;
+    public GameObject spikes = null;
     public int moveSpeed = 5;
     private bool moveSpike = false;
     private float maxSpike = -0.25f;
+    private bool blowUp = false;
+    public ParticleSystem explosion;
 
     private GameSettings settings;
 
@@ -20,14 +22,26 @@ public class ActivateTrap : MonoBehaviour
     {
         if (!settings.isPaused)
         {
-            if (moveSpike)
+            //check if spikes
+            if (spikes != null)
             {
-                if (spikes.transform.localPosition.y < maxSpike)
+                if (moveSpike)
                 {
-                    spikes.transform.localPosition = new Vector3(
-                        spikes.transform.localPosition.x,
-                        spikes.transform.localPosition.y + (moveSpeed * Time.deltaTime),
-                        spikes.transform.localPosition.z);
+                    if (spikes.transform.localPosition.y < maxSpike)
+                    {
+                        spikes.transform.localPosition = new Vector3(
+                            spikes.transform.localPosition.x,
+                            spikes.transform.localPosition.y + (moveSpeed * Time.deltaTime),
+                            spikes.transform.localPosition.z);
+                    }
+                }
+            }
+            //otherwise its a mine
+            else{
+                if(blowUp){
+                    if(settings.useParticle){
+
+                    }
                 }
             }
         }
@@ -39,6 +53,7 @@ public class ActivateTrap : MonoBehaviour
         {
             Debug.Log("Player activated trap");
             moveSpike = true;
+            blowUp = true;
         }
     }
 
