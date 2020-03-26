@@ -157,7 +157,8 @@ public class SmartEnemy : MonoBehaviour
 
     IEnumerator StartShoot()
     {
-        if(!settings.isPaused){
+        if (!settings.isPaused)
+        {
             ShootAtPoints();
         }
         yield return new WaitForSeconds(shootSeconds);
@@ -182,10 +183,10 @@ public class SmartEnemy : MonoBehaviour
         foreach (Transform shootPoint in shootPoints)
         {
             Instantiate(bullet, shootPoint.position, shootPoint.rotation, parent);
-            if (settings.useSound)
-            {
-                source.Play();
-            }
+        }
+        if (settings.useSound)
+        {
+            source.Play();
         }
     }
 

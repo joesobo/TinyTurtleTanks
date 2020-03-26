@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7deffbb230db66647b2fafb99ecc56c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 0}
   footprintSize: {x: 1, y: 1}
   waitForSeconds: 0.05
   offset: 0.05

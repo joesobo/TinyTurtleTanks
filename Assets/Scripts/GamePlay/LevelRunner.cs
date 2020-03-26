@@ -55,15 +55,15 @@ public class LevelRunner : MonoBehaviour
             {
                 settings.isPaused = true;
             }
+        }
 
-            if (settings.isPaused)
-            {
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+        if (settings.isPaused)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
