@@ -10,9 +10,11 @@ public class GameSettings : MonoBehaviour
     public bool useGrass = false;
     public bool useTrails = false;
     public bool useClouds = false;
+    
     [Header("Test Settings")]
     public bool useCrates = false;
     public bool useEnvironmentObjects = false;
+    public bool useEnemies = false;
 
     void Awake()
     {
