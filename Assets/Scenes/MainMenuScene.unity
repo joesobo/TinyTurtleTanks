@@ -8574,14 +8574,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  useVFX: 0
-  useSound: 0
-  useParticle: 0
-  useGrass: 0
-  useTrails: 0
-  useClouds: 0
-  useCrates: 0
-  useEnvironmentObjects: 0
+  useVFX: 1
+  useSound: 1
+  useParticle: 1
+  useGrass: 1
+  useTrails: 1
+  useClouds: 1
+  useCrates: 1
+  useEnvironmentObjects: 1
 --- !u!4 &1920871025
 Transform:
   m_ObjectHideFlags: 0

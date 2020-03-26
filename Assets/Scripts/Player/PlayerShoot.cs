@@ -11,6 +11,7 @@ public class PlayerShoot : MonoBehaviour
 
     private GameSettings settings;
     private AudioSource source;
+    public ScreenShake screenShake;
 
     private void Start()
     {
@@ -25,13 +26,18 @@ public class PlayerShoot : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return) && !delayOn)
             {
+                //start delay for next shot
                 delayOn = true;
                 StartCoroutine("DelayCo");
+                //create bullet
                 Instantiate(bullet, shootPoint.position, this.transform.rotation, parent);
+                //play sound
                 if (settings.useSound)
                 {
                     source.Play();
                 }
+                //apply screen shake
+                StartCoroutine(screenShake.Shake(.15f, .4f));
             }
         }
     }
