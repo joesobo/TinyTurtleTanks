@@ -7,6 +7,11 @@ public class MainLoader : MonoBehaviour
 {
     public List<GameObject> mainObjects;
 
+    void Awake()
+    {
+        LoadObjects(true);
+    }
+
     public void LoadMain(){
         LoadObjects(true);
     }
