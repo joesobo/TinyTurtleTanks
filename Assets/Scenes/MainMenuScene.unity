@@ -8755,7 +8755,7 @@ MonoBehaviour:
   useClouds: 1
   useCrates: 1
   useEnvironmentObjects: 1
-  useEnemies: 0
+  useEnemies: 1
 --- !u!4 &1920871025
 Transform:
   m_ObjectHideFlags: 0
