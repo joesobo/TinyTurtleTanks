@@ -6,8 +6,8 @@ public class UnlockWorld : MonoBehaviour
 {
     private GameObject lockImage;
     private GameObject lockButton;
-    public Material unlockMat;
-    public Material lockMat;
+    private Material unlockMat;
+    private Material lockMat;
     public GameObject planet;
     private LevelSelectionController levelSelection;
     public int worldNumber;
@@ -17,6 +17,8 @@ public class UnlockWorld : MonoBehaviour
         lockImage = transform.GetChild(0).gameObject;
         lockButton = transform.GetChild(1).gameObject;
         levelSelection = FindObjectOfType<LevelSelectionController>();
+        unlockMat = levelSelection.defaultMat;
+        lockMat = levelSelection.lockMat;
     }
 
     public void ActivateWorld()
@@ -28,6 +30,7 @@ public class UnlockWorld : MonoBehaviour
             planet.GetComponent<MeshRenderer>().material = unlockMat;
             levelSelection.currentWorld++;
             levelSelection.nextWorldToUnlock++;
+            levelSelection.levels.Add(planet.GetComponent<LevelPicker>());
         }
     }
 
@@ -37,6 +40,6 @@ public class UnlockWorld : MonoBehaviour
         lockButton.SetActive(true);
         planet.GetComponent<MeshRenderer>().material = lockMat;
         levelSelection.currentWorld--;
-            levelSelection.nextWorldToUnlock--;
+        levelSelection.nextWorldToUnlock--;
     }
 }
