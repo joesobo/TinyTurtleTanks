@@ -12,9 +12,16 @@ public class LevelSelectionController : MonoBehaviour
     public Material activeMat;
 
     public List<LevelPicker> levels;
+    private GameSettings settings;
+
+    void Start()
+    {
+        settings = FindObjectOfType<GameSettings>();
+    }
 
     public void UpdateActiveMaterials()
     {
+        settings.currentLevel = currentSelectedWorld;
         if(currentSelectedWorld != -1){
             foreach (LevelPicker level in levels)
             {

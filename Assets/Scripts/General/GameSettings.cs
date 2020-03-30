@@ -15,6 +15,7 @@ public class GameSettings : MonoBehaviour
     public bool useCrates = false;
     public bool useEnvironmentObjects = false;
     public bool useEnemies = false;
+    public int currentLevel = 1;
 
     void Awake()
     {
