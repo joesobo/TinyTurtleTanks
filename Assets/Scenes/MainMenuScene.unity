@@ -926,7 +926,7 @@ GameObject:
   - component: {fileID: 152564145}
   - component: {fileID: 152564144}
   m_Layer: 5
-  m_Name: Planet (2)
+  m_Name: Planet2 UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -949,9 +949,9 @@ RectTransform:
   m_Father: {fileID: 733198874}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1023.70874, y: -315.0669}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &152564144
@@ -987,7 +987,7 @@ GameObject:
   - component: {fileID: 163122606}
   - component: {fileID: 163122608}
   m_Layer: 5
-  m_Name: Planet (1)
+  m_Name: Planet1 UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1008,9 +1008,9 @@ RectTransform:
   m_Father: {fileID: 733198874}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 341.23624, y: -315.0669}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &163122608
@@ -1312,7 +1312,7 @@ RectTransform:
   m_Children:
   - {fileID: 2022884738}
   m_Father: {fileID: 1370888463}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2297,7 +2297,7 @@ RectTransform:
   m_Children:
   - {fileID: 611200807}
   m_Father: {fileID: 1370888463}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -3380,9 +3380,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7022472016850757980}
-  - {fileID: 7022472016535136834}
-  - {fileID: 7022472015888543905}
   - {fileID: 7022472017976941767}
   - {fileID: 1136805128}
   - {fileID: 1840548190}
@@ -3555,7 +3552,7 @@ GameObject:
   - component: {fileID: 676525173}
   - component: {fileID: 676525172}
   m_Layer: 5
-  m_Name: Planet (3)
+  m_Name: Planet3 UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3578,9 +3575,9 @@ RectTransform:
   m_Father: {fileID: 733198874}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1706.1812, y: -315.0669}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &676525172
@@ -3754,6 +3751,9 @@ RectTransform:
   - {fileID: 163122606}
   - {fileID: 152564143}
   - {fileID: 676525171}
+  - {fileID: 7022472016850757980}
+  - {fileID: 7022472016535136834}
+  - {fileID: 7022472015888543905}
   m_Father: {fileID: 1370888463}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3910,7 +3910,7 @@ MonoBehaviour:
   grassButton: {fileID: 140466254}
   trailButton: {fileID: 133541303}
   cloudButton: {fileID: 1157467995}
-  inActiveColor: {r: 0, g: 0, b: 0, a: 0}
+  inActiveColor: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
   ActiveColor: {r: 0.092196584, g: 1, b: 0, a: 1}
 --- !u!1 &744351052
 GameObject:
@@ -5292,7 +5292,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 634031649}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &910621983
 MonoBehaviour:
@@ -5451,7 +5451,7 @@ RectTransform:
   m_Children:
   - {fileID: 1184694734}
   m_Father: {fileID: 1370888463}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -6380,7 +6380,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 634031649}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 40.27, y: 25.3, z: 0}
 --- !u!1 &1152613281
 GameObject:
@@ -8054,7 +8054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1370888463
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8069,9 +8069,9 @@ RectTransform:
   - {fileID: 1780890285}
   - {fileID: 733198874}
   - {fileID: 855964263}
-  - {fileID: 413937848}
   - {fileID: 223978917}
   - {fileID: 966186689}
+  - {fileID: 413937848}
   m_Father: {fileID: 1714969757}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10529,7 +10529,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 634031649}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -7.9740005, y: -3.8850002, z: -24.955002}
 --- !u!108 &1840548191
 Light:
@@ -11147,6 +11147,7 @@ MonoBehaviour:
   useCrates: 0
   useEnvironmentObjects: 0
   useEnemies: 0
+  currentLevel: 1
 --- !u!4 &1920871025
 Transform:
   m_ObjectHideFlags: 0
@@ -11618,7 +11619,7 @@ Transform:
   m_Children:
   - {fileID: 1559002435}
   m_Father: {fileID: 634031649}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2007938223
 MonoBehaviour:
@@ -12828,7 +12829,7 @@ GameObject:
   - component: {fileID: 7022472016535136834}
   - component: {fileID: 6282394827118368850}
   m_Layer: 8
-  m_Name: Planet2
+  m_Name: Planet2 Object
   m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12862,7 +12863,7 @@ GameObject:
   - component: {fileID: 7022472016850757980}
   - component: {fileID: 6282394827335424848}
   m_Layer: 8
-  m_Name: Planet1
+  m_Name: Planet1 Object
   m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12896,7 +12897,7 @@ GameObject:
   - component: {fileID: 7022472015888543905}
   - component: {fileID: 6282394827766006451}
   m_Layer: 8
-  m_Name: Planet3
+  m_Name: Planet3 Object
   m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12927,12 +12928,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6282394827766006450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 122.906006, y: 15, z: 199.87552}
-  m_LocalScale: {x: 3.7712362, y: 3.7712362, z: 3.7712362}
+  m_LocalPosition: {x: -958.5278, y: -579.91187, z: 106}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 655848623173149593}
-  m_Father: {fileID: 634031649}
-  m_RootOrder: 2
+  m_Father: {fileID: 733198874}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7022472016535136834
 Transform:
@@ -12942,12 +12943,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6282394827118368849}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2, y: 15, z: 199.87552}
-  m_LocalScale: {x: 3.2998316, y: 3.2998316, z: 3.2998316}
+  m_LocalPosition: {x: -1023.07214, y: -579.91187, z: 106}
+  m_LocalScale: {x: 1.7500002, y: 1.7500002, z: 1.7500002}
   m_Children:
   - {fileID: 655848623735634298}
-  m_Father: {fileID: 634031649}
-  m_RootOrder: 1
+  m_Father: {fileID: 733198874}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7022472016850757980
 Transform:
@@ -12957,12 +12958,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6282394827335424847}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -120.23486, y: 15, z: 199.87552}
-  m_LocalScale: {x: 2.828427, y: 2.828427, z: 2.828427}
+  m_LocalPosition: {x: -1087.4728, y: -579.91187, z: 106}
+  m_LocalScale: {x: 1.5000002, y: 1.5000002, z: 1.5000002}
   m_Children:
   - {fileID: 655848623581493860}
-  m_Father: {fileID: 634031649}
-  m_RootOrder: 0
+  m_Father: {fileID: 733198874}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7022472017976941767
 Transform:
@@ -12977,7 +12978,7 @@ Transform:
   m_Children:
   - {fileID: 655848624707637247}
   m_Father: {fileID: 634031649}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &8824918486974808409
 MeshRenderer:
