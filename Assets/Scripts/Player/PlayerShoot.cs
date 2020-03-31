@@ -6,7 +6,7 @@ public class PlayerShoot : MonoBehaviour
 {
     public GameObject bullet;
     public Transform shootPoint;
-    private Transform parent;
+    public Transform parent;
     private bool delayOn = false;
 
     private GameSettings settings;
@@ -16,7 +16,6 @@ public class PlayerShoot : MonoBehaviour
     private void Start()
     {
         settings = FindObjectOfType<GameSettings>();
-        parent = GameObject.FindGameObjectWithTag("Planet").transform;
         source = GetComponent<AudioSource>();
     }
 

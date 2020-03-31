@@ -29,7 +29,6 @@ public class BulletMove : MonoBehaviour
     {
         if (!settings.isPaused)
         {
-
             transform.RotateAround(this.transform.parent.position, this.transform.right, speed * Time.deltaTime);
         }
     }

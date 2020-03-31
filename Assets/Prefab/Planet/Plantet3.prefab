@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1781213758153470211}
   - component: {fileID: 1915655288038181897}
   - component: {fileID: 7122214272203212821}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plantet3
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5712ab3dea085f045920a5d9ba2c62d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: -10
+  gravity: -18
 --- !u!64 &7122214272203212821
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 8130962942159282747}
   - component: {fileID: 8833312851218151144}
   - component: {fileID: 267007559471028760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}

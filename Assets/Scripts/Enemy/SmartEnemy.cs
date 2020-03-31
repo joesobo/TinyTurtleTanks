@@ -28,7 +28,7 @@ public class SmartEnemy : MonoBehaviour
     public float shootSeconds = 5;
     public GameObject bullet;
     public List<Transform> shootPoints;
-    private Transform parent;
+    public Transform parent;
     private bool canShoot = false;
 
     private AudioSource source;
@@ -38,7 +38,6 @@ public class SmartEnemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         player = FindObjectOfType<PlayerController>().gameObject;
-        parent = GameObject.FindGameObjectWithTag("Planet").transform;
         settings = FindObjectOfType<GameSettings>();
         source = GetComponent<AudioSource>();
 
