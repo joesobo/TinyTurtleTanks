@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelPicker : MonoBehaviour
 {
     private Vector3 currentScale;
-    public Vector3 growScale;
+    public float growScale = 2;
     public float speed = 1;
     public int levelNumber;
     private LevelSelectionController levelSelection;
@@ -26,7 +26,7 @@ public class LevelPicker : MonoBehaviour
     {
         if (levelSelection.currentWorld >= levelNumber)
         {
-            transform.localScale = Vector3.Lerp(transform.localScale, growScale, Time.deltaTime * speed);
+            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * growScale, Time.deltaTime * speed);
 
             if (Input.GetMouseButtonDown(0))
             {
