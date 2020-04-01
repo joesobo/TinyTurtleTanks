@@ -206,7 +206,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298430
+  m_Name: pb_Mesh18478
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4022,7 +4022,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298434
+  m_Name: pb_Mesh19380
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4188,7 +4188,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 134742174}
-  - component: {fileID: 134742176}
   m_Layer: 0
   m_Name: rock1(Clone) (1)
   m_TagString: Obstacle
@@ -4211,22 +4210,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &134742176
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134742173}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &144047369
 GameObject:
   m_ObjectHideFlags: 0
@@ -4257,8 +4240,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.75, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
-  m_Father: {fileID: 1681413298}
-  m_RootOrder: 5
+  m_Father: {fileID: 4566354625369546602}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &144047371
 MeshFilter:
@@ -4330,7 +4313,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 150020496}
-  - component: {fileID: 150020498}
   m_Layer: 0
   m_Name: Tree 1(Clone) (10)
   m_TagString: Obstacle
@@ -4354,22 +4336,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &150020498
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150020495}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &175454021
 GameObject:
   m_ObjectHideFlags: 0
@@ -4379,7 +4345,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 175454022}
-  - component: {fileID: 175454024}
   m_Layer: 0
   m_Name: Tree 1(Clone) (1)
   m_TagString: Obstacle
@@ -4403,22 +4368,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &175454024
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175454021}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &203849749
 GameObject:
   m_ObjectHideFlags: 0
@@ -4506,7 +4455,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298448
+  m_Name: pb_Mesh19310
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8144,7 +8093,7 @@ Transform:
   - {fileID: 2029102070}
   - {fileID: 685176281}
   - {fileID: 1681107141}
-  - {fileID: 1681413298}
+  - {fileID: 4566354625369546602}
   - {fileID: 768355269}
   - {fileID: 2028036278}
   - {fileID: 557920416}
@@ -8385,7 +8334,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 265460463}
-  - component: {fileID: 265460465}
   m_Layer: 0
   m_Name: rock2(Clone) (4)
   m_TagString: Obstacle
@@ -8408,22 +8356,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &265460465
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265460462}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &265542425
 GameObject:
   m_ObjectHideFlags: 0
@@ -8635,7 +8567,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 286380906}
-  - component: {fileID: 286380908}
   m_Layer: 0
   m_Name: rock2(Clone) (12)
   m_TagString: Obstacle
@@ -8658,22 +8589,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &286380908
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286380905}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &294330530
 GameObject:
   m_ObjectHideFlags: 0
@@ -12273,7 +12188,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 341265952}
-  - component: {fileID: 341265954}
   m_Layer: 0
   m_Name: rock2(Clone) (1)
   m_TagString: Obstacle
@@ -12296,29 +12210,13 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &341265954
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 341265951}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!43 &342137524
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298420
+  m_Name: pb_Mesh19204
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23272,95 +23170,6 @@ Transform:
   m_Father: {fileID: 1289175531}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &414533075
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 237689038}
-    m_Modifications:
-    - target: {fileID: 650113249777199274, guid: 252236e4cc7dd0442827e728f747673c,
-        type: 3}
-      propertyPath: m_Name
-      value: TankPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 650113249777199274, guid: 252236e4cc7dd0442827e728f747673c,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 650113249777199274, guid: 252236e4cc7dd0442827e728f747673c,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 23.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.60508555
-      objectReference: {fileID: 0}
-    - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7961605
-      objectReference: {fileID: 0}
-    - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 74.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415905580204313911, guid: 252236e4cc7dd0442827e728f747673c,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415905580204313911, guid: 252236e4cc7dd0442827e728f747673c,
-        type: 3}
-      propertyPath: m_Name
-      value: Model
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 252236e4cc7dd0442827e728f747673c, type: 3}
 --- !u!1 &420016471
 GameObject:
   m_ObjectHideFlags: 0
@@ -23614,7 +23423,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 448599373}
-  - component: {fileID: 448599375}
   m_Layer: 0
   m_Name: rock2(Clone)
   m_TagString: Obstacle
@@ -23637,22 +23445,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &448599375
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 448599372}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &459740610
 GameObject:
   m_ObjectHideFlags: 0
@@ -23767,7 +23559,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298456
+  m_Name: pb_Mesh18458
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23933,7 +23725,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 494026200}
-  - component: {fileID: 494026202}
   m_Layer: 0
   m_Name: rock3(Clone) (4)
   m_TagString: Obstacle
@@ -23956,22 +23747,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &494026202
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494026199}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &536694989
 GameObject:
   m_ObjectHideFlags: 0
@@ -24151,7 +23926,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 551959305}
-  - component: {fileID: 551959307}
   m_Layer: 0
   m_Name: Tree 1(Clone) (3)
   m_TagString: Obstacle
@@ -24175,22 +23949,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &551959307
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551959304}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &557685988
 GameObject:
   m_ObjectHideFlags: 0
@@ -24200,7 +23958,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 557685989}
-  - component: {fileID: 557685991}
   m_Layer: 0
   m_Name: rock1(Clone) (4)
   m_TagString: Obstacle
@@ -24223,22 +23980,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: -102.33, z: 0}
---- !u!54 &557685991
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557685988}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &557920415
 GameObject:
   m_ObjectHideFlags: 0
@@ -24375,7 +24116,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578960882}
-  - component: {fileID: 578960881}
   m_Layer: 0
   m_Name: Tree 1(Clone) (1)
   m_TagString: Obstacle
@@ -24383,22 +24123,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!54 &578960881
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578960879}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!4 &578960882
 Transform:
   m_ObjectHideFlags: 0
@@ -24573,8 +24297,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1681413298}
-  m_RootOrder: 6
+  m_Father: {fileID: 4566354625369546602}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
 --- !u!199 &617543724
 ParticleSystemRenderer:
@@ -33228,7 +32952,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298452
+  m_Name: pb_Mesh18336
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -33589,7 +33313,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 673640900}
-  - component: {fileID: 673640902}
   m_Layer: 0
   m_Name: rock2(Clone) (3)
   m_TagString: Obstacle
@@ -33612,22 +33335,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &673640902
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673640899}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &678666410
 GameObject:
   m_ObjectHideFlags: 0
@@ -33652,11 +33359,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678666410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 5}
+  m_LocalPosition: {x: 0, y: -0.321, z: 2.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1681413298}
-  m_RootOrder: 3
+  m_Father: {fileID: 4566354625369546602}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &685176281 stripped
 Transform:
@@ -33984,7 +33691,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 727559636}
-  - component: {fileID: 727559638}
   m_Layer: 0
   m_Name: rock3(Clone) (1)
   m_TagString: Obstacle
@@ -34007,22 +33713,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &727559638
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727559635}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &729406749
 GameObject:
   m_ObjectHideFlags: 0
@@ -34123,7 +33813,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298486
+  m_Name: pb_Mesh19494
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -34363,7 +34053,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298372
+  m_Name: pb_Mesh19530
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -34529,7 +34219,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 763914926}
-  - component: {fileID: 763914928}
   m_Layer: 0
   m_Name: rock3(Clone)
   m_TagString: Obstacle
@@ -34552,22 +34241,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &763914928
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763914925}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &768355268
 GameObject:
   m_ObjectHideFlags: 0
@@ -34720,7 +34393,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298356
+  m_Name: pb_Mesh19392
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -37051,7 +36724,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 851056548}
-  - component: {fileID: 851056550}
   m_Layer: 0
   m_Name: Tree 1(Clone) (9)
   m_TagString: Obstacle
@@ -37075,29 +36747,13 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &851056550
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 851056547}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!43 &862559053
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298506
+  m_Name: pb_Mesh18428
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -41491,7 +41147,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298484
+  m_Name: pb_Mesh19404
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -41708,7 +41364,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298332
+  m_Name: pb_Mesh18826
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -41871,7 +41527,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298376
+  m_Name: pb_Mesh19182
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -42111,7 +41767,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298426
+  m_Name: pb_Mesh19226
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -45783,7 +45439,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1105951957}
-  - component: {fileID: 1105951959}
   m_Layer: 0
   m_Name: rock2(Clone) (8)
   m_TagString: Obstacle
@@ -45806,22 +45461,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1105951959
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1105951956}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &1113613376
 GameObject:
   m_ObjectHideFlags: 0
@@ -45831,7 +45470,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1113613377}
-  - component: {fileID: 1113613379}
   m_Layer: 0
   m_Name: rock2(Clone) (2)
   m_TagString: Obstacle
@@ -45854,22 +45492,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1113613379
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1113613376}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &1115601151
 GameObject:
   m_ObjectHideFlags: 0
@@ -45900,8 +45522,8 @@ Transform:
   m_Children:
   - {fileID: 220808438}
   - {fileID: 203849750}
-  m_Father: {fileID: 1681413298}
-  m_RootOrder: 4
+  m_Father: {fileID: 4566354625369546602}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!212 &1115601153
 SpriteRenderer:
@@ -49594,7 +49216,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1174034272}
-  - component: {fileID: 1174034274}
   m_Layer: 0
   m_Name: rock1(Clone) (6)
   m_TagString: Obstacle
@@ -49617,22 +49238,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1174034274
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174034271}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &1181918751
 GameObject:
   m_ObjectHideFlags: 0
@@ -49642,7 +49247,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1181918752}
-  - component: {fileID: 1181918754}
   m_Layer: 0
   m_Name: rock3(Clone) (5)
   m_TagString: Obstacle
@@ -49665,22 +49269,12 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1181918754
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!4 &1196663912 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: cfc9cf314c0829247b399e1381dde6fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1870007970}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181918751}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &1203156278
 GameObject:
   m_ObjectHideFlags: 0
@@ -49690,7 +49284,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1203156279}
-  - component: {fileID: 1203156281}
   m_Layer: 0
   m_Name: rock2(Clone) (9)
   m_TagString: Obstacle
@@ -49713,22 +49306,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1203156281
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1203156278}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!224 &1203280863
 RectTransform:
   m_ObjectHideFlags: 0
@@ -49890,7 +49467,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1238911145}
-  - component: {fileID: 1238911147}
   m_Layer: 0
   m_Name: rock2(Clone) (5)
   m_TagString: Obstacle
@@ -49912,132 +49488,6 @@ Transform:
   - {fileID: 1572997302}
   m_Father: {fileID: 768355269}
   m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1238911147
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1238911144}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!1 &1247584937
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1247584943}
-  - component: {fileID: 1247584942}
-  - component: {fileID: 1247584941}
-  - component: {fileID: 1247584940}
-  - component: {fileID: 1247584938}
-  m_Layer: 9
-  m_Name: Bullet
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!54 &1247584938
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247584937}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!135 &1247584940
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247584937}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1247584941
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247584937}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1247584942
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247584937}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1247584943
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247584937}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.25, z: 2.65}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1681413298}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1254884037
 GameObject:
@@ -50216,7 +49666,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298322
+  m_Name: pb_Mesh18756
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -50382,7 +49832,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1289175531}
-  - component: {fileID: 1289175533}
   m_Layer: 0
   m_Name: Tree 1(Clone)
   m_TagString: Obstacle
@@ -50406,29 +49855,13 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1289175533
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1289175530}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!43 &1293844022
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298348
+  m_Name: pb_Mesh19330
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -50671,7 +50104,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1335234392}
-  - component: {fileID: 1335234394}
   m_Layer: 0
   m_Name: rock2(Clone) (11)
   m_TagString: Obstacle
@@ -50694,22 +50126,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1335234394
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335234391}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &1357959565
 GameObject:
   m_ObjectHideFlags: 0
@@ -50845,7 +50261,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298350
+  m_Name: pb_Mesh19554
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -51230,7 +50646,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1414830715}
-  - component: {fileID: 1414830717}
   m_Layer: 0
   m_Name: Tree 1(Clone) (4)
   m_TagString: Obstacle
@@ -51254,22 +50669,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1414830717
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414830714}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &1454794112
 GameObject:
   m_ObjectHideFlags: 0
@@ -51373,7 +50772,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1497477766}
-  - component: {fileID: 1497477768}
   m_Layer: 0
   m_Name: Tree 1(Clone) (8)
   m_TagString: Obstacle
@@ -51397,22 +50795,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1497477768
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1497477765}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &1505522351
 GameObject:
   m_ObjectHideFlags: 0
@@ -51422,7 +50804,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1505522352}
-  - component: {fileID: 1505522354}
   m_Layer: 0
   m_Name: rock2(Clone) (6)
   m_TagString: Obstacle
@@ -51445,29 +50826,13 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1505522354
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505522351}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!43 &1510507956
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298442
+  m_Name: pb_Mesh18498
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -51630,7 +50995,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298400
+  m_Name: pb_Mesh18630
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -55803,7 +55168,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1560938469}
-  - component: {fileID: 1560938471}
   m_Layer: 0
   m_Name: rock1(Clone) (2)
   m_TagString: Obstacle
@@ -55826,22 +55190,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1560938471
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560938468}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &1567890312
 GameObject:
   m_ObjectHideFlags: 0
@@ -59374,7 +58722,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1600003992}
-  - component: {fileID: 1600003994}
   m_Layer: 0
   m_Name: rock1(Clone) (5)
   m_TagString: Obstacle
@@ -59397,22 +58744,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1600003994
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1600003991}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &1613358216
 GameObject:
   m_ObjectHideFlags: 0
@@ -62864,7 +62195,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963194228}
-  m_Father: {fileID: 1681413298}
+  m_Father: {fileID: 4566354625369546602}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1629985869
@@ -70871,19 +70202,13 @@ Transform:
   m_Father: {fileID: 237689038}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1681413294 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 650113249777199274, guid: 252236e4cc7dd0442827e728f747673c,
-    type: 3}
-  m_PrefabInstance: {fileID: 414533075}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1681413295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681413294}
+  m_GameObject: {fileID: 650113250168139129}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fdab304602153f4f9beb3c290020eb4, type: 3}
@@ -70903,7 +70228,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681413294}
+  m_GameObject: {fileID: 650113250168139129}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a66d3de66b3be1441a0902ffdf21c159, type: 3}
@@ -70916,7 +70241,7 @@ Rigidbody:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681413294}
+  m_GameObject: {fileID: 650113250168139129}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -70926,32 +70251,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!4 &1681413298 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4566354625227676345, guid: 252236e4cc7dd0442827e728f747673c,
-    type: 3}
-  m_PrefabInstance: {fileID: 414533075}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &1681413299
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681413294}
+  m_GameObject: {fileID: 650113250168139129}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.75, y: 1.5, z: 3.5}
-  m_Center: {x: -0.05, y: 0.75, z: 0.3}
+  m_Size: {x: 2.428429, y: 0.81425667, z: 1.9378662}
+  m_Center: {x: 0.0034713724, y: 0.4, z: -0.17261495}
 --- !u!82 &1681413300
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681413294}
+  m_GameObject: {fileID: 650113250168139129}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -71047,7 +70366,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681413294}
+  m_GameObject: {fileID: 650113250168139129}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f271b6c6899fcca45816f26f358e5f8f, type: 3}
@@ -71063,7 +70382,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681413294}
+  m_GameObject: {fileID: 650113250168139129}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0808a5f84dae54f4e8f5923861dd0506, type: 3}
@@ -71078,7 +70397,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681413294}
+  m_GameObject: {fileID: 650113250168139129}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9a6d41fe2730ed469298c5ff1244e75, type: 3}
@@ -71096,7 +70415,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681413294}
+  m_GameObject: {fileID: 650113250168139129}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7deffbb230db66647b2fafb99ecc56c1, type: 3}
@@ -73410,7 +72729,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298346
+  m_Name: pb_Mesh19258
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -73576,7 +72895,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1776039052}
-  - component: {fileID: 1776039054}
   m_Layer: 0
   m_Name: rock3(Clone) (3)
   m_TagString: Obstacle
@@ -73599,22 +72917,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1776039054
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1776039051}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &1779360419
 GameObject:
   m_ObjectHideFlags: 0
@@ -92625,13 +91927,133 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818064412}
   m_Mesh: {fileID: 980116677}
+--- !u!1001 &1870007970
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4566354625369546602}
+    m_Modifications:
+    - target: {fileID: -7302069928701746051, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -8469494145858465668, guid: 6284fdefeba59354095af389e8e47c33,
+        type: 3}
+    - target: {fileID: -6874540395504895234, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -8469494145858465668, guid: 6284fdefeba59354095af389e8e47c33,
+        type: 3}
+    - target: {fileID: -5624321104683477449, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -8469494145858465668, guid: 6284fdefeba59354095af389e8e47c33,
+        type: 3}
+    - target: {fileID: -5403581330744759683, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -8469494145858465668, guid: 6284fdefeba59354095af389e8e47c33,
+        type: 3}
+    - target: {fileID: -4216859302048453862, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_Name
+      value: TurtleModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2345211957819186503, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -8469494145858465668, guid: 6284fdefeba59354095af389e8e47c33,
+        type: 3}
+    - target: {fileID: 8429453850821829332, guid: cfc9cf314c0829247b399e1381dde6fe,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -8469494145858465668, guid: 6284fdefeba59354095af389e8e47c33,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cfc9cf314c0829247b399e1381dde6fe, type: 3}
 --- !u!43 &1870184627
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298354
+  m_Name: pb_Mesh18894
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -92797,7 +92219,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1873606844}
-  - component: {fileID: 1873606843}
   m_Layer: 0
   m_Name: Tree 1(Clone)
   m_TagString: Obstacle
@@ -92805,22 +92226,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!54 &1873606843
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1873606841}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!4 &1873606844
 Transform:
   m_ObjectHideFlags: 0
@@ -92846,7 +92251,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1888672699}
-  - component: {fileID: 1888672701}
   m_Layer: 0
   m_Name: rock2(Clone) (10)
   m_TagString: Obstacle
@@ -92869,22 +92273,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1888672701
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1888672698}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &1927800935
 GameObject:
   m_ObjectHideFlags: 0
@@ -93335,7 +92723,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298374
+  m_Name: pb_Mesh19342
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -93498,7 +92886,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298464
+  m_Name: pb_Mesh19364
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -101805,7 +101193,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2037329912}
-  - component: {fileID: 2037329914}
   m_Layer: 0
   m_Name: rock2(Clone) (7)
   m_TagString: Obstacle
@@ -101828,22 +101215,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2037329914
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037329911}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &2039009495
 GameObject:
   m_ObjectHideFlags: 0
@@ -101853,7 +101224,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2039009496}
-  - component: {fileID: 2039009498}
   m_Layer: 0
   m_Name: Tree 1(Clone) (7)
   m_TagString: Obstacle
@@ -101877,22 +101247,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2039009498
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2039009495}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &2040444450
 GameObject:
   m_ObjectHideFlags: 0
@@ -101902,7 +101256,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2040444451}
-  - component: {fileID: 2040444453}
   m_Layer: 0
   m_Name: rock1(Clone) (3)
   m_TagString: Obstacle
@@ -101925,22 +101278,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2040444453
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040444450}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &2047932762
 GameObject:
   m_ObjectHideFlags: 0
@@ -102182,7 +101519,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2050102547}
-  - component: {fileID: 2050102549}
   m_Layer: 0
   m_Name: Tree 1(Clone) (2)
   m_TagString: Obstacle
@@ -102206,22 +101542,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2050102549
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2050102546}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1001 &2051860638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102229,6 +101549,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 237689038}
     m_Modifications:
+    - target: {fileID: 1293238551, guid: d96ae466f6d1a3f498eb2c74d8ba74c5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6202714892861248308, guid: d96ae466f6d1a3f498eb2c74d8ba74c5,
         type: 3}
       propertyPath: m_Name
@@ -102289,6 +101613,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 56.763992
       objectReference: {fileID: 0}
+    - target: {fileID: 8882114414502218300, guid: d96ae466f6d1a3f498eb2c74d8ba74c5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d96ae466f6d1a3f498eb2c74d8ba74c5, type: 3}
 --- !u!1 &2060704908
@@ -102300,7 +101629,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2060704909}
-  - component: {fileID: 2060704911}
   m_Layer: 0
   m_Name: rock1(Clone)
   m_TagString: Obstacle
@@ -102323,22 +101651,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2060704911
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060704908}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &2063376317
 GameObject:
   m_ObjectHideFlags: 0
@@ -102571,7 +101883,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2073784038}
-  - component: {fileID: 2073784040}
   m_Layer: 0
   m_Name: Tree 1(Clone) (5)
   m_TagString: Obstacle
@@ -102595,22 +101906,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2073784040
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2073784037}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &2078344721
 GameObject:
   m_ObjectHideFlags: 0
@@ -102648,7 +101943,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298458
+  m_Name: pb_Mesh19138
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -102814,7 +102109,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2089603019}
-  - component: {fileID: 2089603021}
   m_Layer: 0
   m_Name: Tree 1(Clone) (6)
   m_TagString: Obstacle
@@ -102838,22 +102132,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2089603021
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2089603018}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &2100469178
 GameObject:
   m_ObjectHideFlags: 0
@@ -102891,7 +102169,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298460
+  m_Name: pb_Mesh18282
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -103054,7 +102332,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-298386
+  m_Name: pb_Mesh18958
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -103405,7 +102683,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2137844697}
-  - component: {fileID: 2137844699}
   m_Layer: 0
   m_Name: rock3(Clone) (2)
   m_TagString: Obstacle
@@ -103428,22 +102705,6 @@ Transform:
   m_Father: {fileID: 768355269}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2137844699
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2137844696}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!1 &2139087871
 GameObject:
   m_ObjectHideFlags: 0
@@ -103521,3 +102782,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139087871}
   m_CullTransparentMesh: 0
+--- !u!1 &650113250168139129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4566354625369546602}
+  - component: {fileID: 1681413297}
+  - component: {fileID: 1681413299}
+  - component: {fileID: 1681413300}
+  - component: {fileID: 1681413295}
+  - component: {fileID: 1681413296}
+  - component: {fileID: 1681413301}
+  - component: {fileID: 1681413302}
+  - component: {fileID: 1681413303}
+  - component: {fileID: 1681413304}
+  m_Layer: 9
+  m_Name: TankPlayer
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4566354625369546602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650113250168139129}
+  m_LocalRotation: {x: 0, y: 0.60508555, z: 0, w: 0.7961605}
+  m_LocalPosition: {x: -0.8, y: 26.19, z: -1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1196663912}
+  - {fileID: 1625640035}
+  - {fileID: 678666411}
+  - {fileID: 1115601152}
+  - {fileID: 144047370}
+  - {fileID: 617543723}
+  m_Father: {fileID: 237689038}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 74.47, z: 0}

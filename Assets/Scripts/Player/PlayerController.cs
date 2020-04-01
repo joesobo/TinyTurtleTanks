@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private GameSettings settings;
     public ParticleSystem particleSystem;
+    public Animator animator;
 
     private void Start()
     {
@@ -27,10 +28,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        animator.SetBool("Walking", false);
         if (!settings.isPaused)
         {
             //calculate movement
             float inputY = Input.GetAxisRaw("Vertical");
+
+            if(inputY != 0){
+                animator.SetBool("Walking", true);
+            }
 
             Vector3 moveDir = new Vector3(0, 0, inputY).normalized;
             Vector3 targetMoveAmount = moveDir * speed;
@@ -70,13 +76,16 @@ public class PlayerController : MonoBehaviour
             Ray ray = new Ray(transform.position, -transform.up);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, .75f + .1f, groundMask))
+            Debug.DrawRay(transform.position, -transform.up * .85f, Color.red);
+            if (Physics.Raycast(ray, out hit, .85f, groundMask))
             {
                 grounded = true;
+                print("GROUNDED");
             }
             else
             {
                 grounded = false;
+                print("NOT GROUNDED");
             }
 
             //calculate jump
