@@ -147,14 +147,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 14386593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7345578db5028a4d8ffba04e6f94398, type: 3}
+  m_Script: {fileID: 11500000, guid: ffc941c1255adf44487b5c27d66187fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloudPrefab: {fileID: 278618087781419115, guid: da7c0765dae1e574d85a0fa8e17f28fc,
+  orbitalPrefab: {fileID: 278618087781419115, guid: da7c0765dae1e574d85a0fa8e17f28fc,
     type: 3}
   minRadius: 30
   maxRadius: 50
-  maxClouds: 30
+  maxOrbitals: 30
 --- !u!4 &14386595
 Transform:
   m_ObjectHideFlags: 0
@@ -8098,6 +8098,7 @@ Transform:
   - {fileID: 2028036278}
   - {fileID: 557920416}
   - {fileID: 1969841754}
+  - {fileID: 1457015565}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -41339,7 +41340,7 @@ MonoBehaviour:
   useParticle: 0
   useGrass: 0
   useTrails: 1
-  useClouds: 1
+  useClouds: 0
   useCrates: 0
   useEnvironmentObjects: 0
   useEnemies: 0
@@ -50788,6 +50789,54 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454794112}
   m_Mesh: {fileID: -2432090755550338912, guid: 718e2368ce080214bb7339e0bb6b0868, type: 3}
+--- !u!1 &1457015564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1457015565}
+  - component: {fileID: 1457015566}
+  m_Layer: 0
+  m_Name: MoonSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1457015565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457015564}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 237689038}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1457015566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457015564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc941c1255adf44487b5c27d66187fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbitalPrefab: {fileID: 5831345753078639895, guid: 4f4665a93a205774191b4c2210c7e5d7,
+    type: 3}
+  minRadius: 75
+  maxRadius: 85
+  maxOrbitals: 3
 --- !u!1 &1497477765
 GameObject:
   m_ObjectHideFlags: 0

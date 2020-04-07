@@ -7,15 +7,16 @@ public class OrbitalSpawner : MonoBehaviour
     public GameObject orbitalPrefab;
     public int minRadius = 50;
     public int maxRadius = 55;
-    public int maxOrbitals = 10;
+    public int numOfOrbitals = 10;
+    public float minScale = 0.5f;
+    public float maxScale = 2;
 
     private void Start()
     {
-        //numberOfClouds = Random.Range(0, maxClouds);
-
-        for (int i = 0; i < maxOrbitals; i++)
+        for (int i = 0; i < numOfOrbitals; i++)
         {
-            Instantiate(orbitalPrefab, RandomBetweenRadius3D(minRadius, maxRadius), this.transform.rotation, this.transform);
+            GameObject orbital = Instantiate(orbitalPrefab, RandomBetweenRadius3D(minRadius, maxRadius), this.transform.rotation, this.transform);
+            orbital.transform.localScale = Vector3.one * Random.Range(minScale, maxScale);
         }
     }
 

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 664970315820745267}
   - component: {fileID: 2029286311005928226}
-  - component: {fileID: 3018865409594677325}
-  - component: {fileID: 4336232286803755974}
+  - component: {fileID: 8866392825549705355}
+  - component: {fileID: 3901271707600004865}
   m_Layer: 0
   m_Name: MoonHolder
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5831345753078639895}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 3750394422335650863}
   m_Father: {fileID: 0}
@@ -46,8 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8022d499b4a38714abaebe5c6eb6b0e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbitSpeed: 3
---- !u!54 &3018865409594677325
+  orbitSpeed: 2
+  useWind: 0
+  rotateDir: {x: 0, y: 0, z: 0}
+--- !u!54 &8866392825549705355
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,7 +65,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4336232286803755974
+--- !u!114 &3901271707600004865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,6 +90,7 @@ GameObject:
   - component: {fileID: 3750394422335650863}
   - component: {fileID: 2212055637423219108}
   - component: {fileID: 631809294289271623}
+  - component: {fileID: 2482469010851722852}
   m_Layer: 8
   m_Name: Moon
   m_TagString: Untagged
@@ -159,6 +162,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2482469010851722852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6823472286361986255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdfbb30a61ddb024da8992173191eff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6105323521744616180
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbitSpeed: 2
+  useWind: 1
 --- !u!1 &6039770216610475510
 GameObject:
   m_ObjectHideFlags: 0
