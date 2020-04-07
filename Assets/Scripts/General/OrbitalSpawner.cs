@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloudSpawner : MonoBehaviour
+public class OrbitalSpawner : MonoBehaviour
 {
-    public GameObject cloudPrefab;
+    public GameObject orbitalPrefab;
     public int minRadius = 50;
     public int maxRadius = 55;
-    public int maxClouds = 10;
-    private int numberOfClouds;
+    public int maxOrbitals = 10;
 
     private void Start()
     {
         //numberOfClouds = Random.Range(0, maxClouds);
 
-        for (int i = 0; i < maxClouds; i++)
+        for (int i = 0; i < maxOrbitals; i++)
         {
-            Instantiate(cloudPrefab, RandomBetweenRadius3D(minRadius, maxRadius), this.transform.rotation, this.transform);
+            Instantiate(orbitalPrefab, RandomBetweenRadius3D(minRadius, maxRadius), this.transform.rotation, this.transform);
         }
     }
 
