@@ -24,7 +24,7 @@ public class RotateAroundCenter : MonoBehaviour
         {
             if (useWind)
             {
-                transform.RotateAround(Vector3.zero, Vector3.forward, orbitSpeed * Time.deltaTime);
+                transform.RotateAround(Vector3.zero, Vector3.up, orbitSpeed * Time.deltaTime);
             }
             else
             {
