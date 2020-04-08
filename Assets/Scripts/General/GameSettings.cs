@@ -10,6 +10,7 @@ public class GameSettings : MonoBehaviour
     public bool useGrass = false;
     public bool useTrails = false;
     public bool useClouds = false;
+    public bool useMoons = false;
     
     [Header("Test Settings")]
     public bool useCrates = false;

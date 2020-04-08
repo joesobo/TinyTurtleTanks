@@ -154,7 +154,9 @@ MonoBehaviour:
     type: 3}
   minRadius: 30
   maxRadius: 50
-  maxOrbitals: 30
+  numOfOrbitals: 30
+  minScale: 0.5
+  maxScale: 2
 --- !u!4 &14386595
 Transform:
   m_ObjectHideFlags: 0
@@ -41340,7 +41342,8 @@ MonoBehaviour:
   useParticle: 0
   useGrass: 0
   useTrails: 1
-  useClouds: 0
+  useClouds: 1
+  useMoons: 1
   useCrates: 0
   useEnvironmentObjects: 0
   useEnemies: 0
@@ -50805,7 +50808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1457015565
 Transform:
   m_ObjectHideFlags: 0
@@ -50836,7 +50839,9 @@ MonoBehaviour:
     type: 3}
   minRadius: 75
   maxRadius: 85
-  maxOrbitals: 3
+  numOfOrbitals: 3
+  minScale: 0.25
+  maxScale: 0.75
 --- !u!1 &1497477765
 GameObject:
   m_ObjectHideFlags: 0
@@ -62234,6 +62239,7 @@ MonoBehaviour:
   grassSpawner: {fileID: 2028036277}
   backgroundMusic: {fileID: 557920415}
   cloudSpawner: {fileID: 14386593}
+  moonSpawner: {fileID: 1457015564}
   crateSpawner: {fileID: 2029102068}
   obstacleList: {fileID: 768355268}
   enemyStuffList:

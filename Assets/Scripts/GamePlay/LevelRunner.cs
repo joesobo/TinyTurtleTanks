@@ -19,6 +19,7 @@ public class LevelRunner : MonoBehaviour
     public GameObject grassSpawner;
     public GameObject backgroundMusic;
     public GameObject cloudSpawner;
+    public GameObject moonSpawner;
     public GameObject crateSpawner;
     public GameObject obstacleList;
     public List<GameObject> enemyStuffList;
@@ -83,6 +84,7 @@ public class LevelRunner : MonoBehaviour
         grassSpawner.SetActive(settings.useGrass);
         backgroundMusic.SetActive(settings.useSound);
         cloudSpawner.SetActive(settings.useClouds);
+        moonSpawner.SetActive(settings.useMoons);
         crateSpawner.SetActive(settings.useCrates);
         obstacleList.SetActive(settings.useEnvironmentObjects);
         foreach (GameObject enemyThing in enemyStuffList)
