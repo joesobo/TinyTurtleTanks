@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     public GameObject bullet;
+    public Material bulletMat;
     public Transform shootPoint;
     public Transform parent;
     private bool delayOn = false;
@@ -17,6 +18,7 @@ public class PlayerShoot : MonoBehaviour
     {
         settings = FindObjectOfType<GameSettings>();
         source = GetComponent<AudioSource>();
+        bullet.GetComponent<MeshRenderer>().material = bulletMat;
     }
 
     private void Update()
