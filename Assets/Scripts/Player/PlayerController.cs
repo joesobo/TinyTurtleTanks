@@ -80,12 +80,10 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(ray, out hit, .85f, groundMask))
             {
                 grounded = true;
-                print("GROUNDED");
             }
             else
             {
                 grounded = false;
-                print("NOT GROUNDED");
             }
 
             //calculate jump

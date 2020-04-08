@@ -28,7 +28,7 @@ public class SmartEnemy : MonoBehaviour
     public float shootSeconds = 5;
     public GameObject bullet;
     public List<Transform> shootPoints;
-    public Transform parent;
+    private Transform parent;
     private bool canShoot = false;
 
     private AudioSource source;
@@ -40,6 +40,7 @@ public class SmartEnemy : MonoBehaviour
         player = FindObjectOfType<PlayerController>().gameObject;
         settings = FindObjectOfType<GameSettings>();
         source = GetComponent<AudioSource>();
+        parent = FindObjectOfType<BulletController>().transform;
 
         randomTimes();
         StartCoroutine("StartRotate");
