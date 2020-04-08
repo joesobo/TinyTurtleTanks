@@ -14,12 +14,16 @@ public class BulletMove : MonoBehaviour
     private bool delayOn = true;
     private AudioSource source;
 
+    private MeshRenderer meshRenderer;
+    public float decaySpeed = 20;
+
     private void Start()
     {
         levelRunner = FindObjectOfType<LevelRunner>();
         settings = FindObjectOfType<GameSettings>();
         rb = GetComponent<Rigidbody>();
         source = GetComponent<AudioSource>();
+        meshRenderer = GetComponent<MeshRenderer>();
 
         //add coroutine delay
         StartCoroutine("DelayCo");
@@ -30,7 +34,19 @@ public class BulletMove : MonoBehaviour
         if (!settings.isPaused)
         {
             transform.RotateAround(this.transform.parent.position, this.transform.right, speed * Time.deltaTime);
+
+            meshRenderer.material.color = new Color(meshRenderer.material.color.r, meshRenderer.material.color.g, meshRenderer.material.color.b, meshRenderer.material.color.a - (Time.deltaTime / decaySpeed));
+
+            if (meshRenderer.material.color.a <= .15f)
+            {
+                BulletDeath();
+            }
         }
+    }
+
+    void BulletDeath()
+    {
+        Destroy(gameObject);
     }
 
     void OnTriggerEnter(Collider col)
@@ -48,7 +64,8 @@ public class BulletMove : MonoBehaviour
         if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Planet")
         {
             Debug.Log("Hit Obstacle");
-            if(settings.useSound){
+            if (settings.useSound)
+            {
                 source.Play();
             }
             Destroy(gameObject);
@@ -58,7 +75,8 @@ public class BulletMove : MonoBehaviour
         {
             Debug.Log("Hit Enemy");
             col.gameObject.GetComponent<Health>().decreaseHealth(1);
-            if(settings.useSound){
+            if (settings.useSound)
+            {
                 source.Play();
             }
             Destroy(gameObject);
@@ -68,7 +86,8 @@ public class BulletMove : MonoBehaviour
         {
             Debug.Log("Hit Breakable");
             col.gameObject.GetComponent<Breakable>().Break();
-            if(settings.useSound){
+            if (settings.useSound)
+            {
                 source.Play();
             }
             Destroy(gameObject);
