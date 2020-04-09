@@ -11,9 +11,12 @@ public abstract class Health : MonoBehaviour
     private float barMax = .95f;
     private float barMin = 0;
     private LevelRunner levelRunner;
+    public GameObject deathParticles;
+    public GameSettings settings;
 
     void Start()
     {
+        settings = FindObjectOfType<GameSettings>();
         levelRunner = FindObjectOfType<LevelRunner>();
         curHealth = MAXHEALTH; 
     }

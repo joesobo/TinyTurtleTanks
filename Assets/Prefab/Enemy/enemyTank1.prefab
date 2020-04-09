@@ -122,6 +122,8 @@ MonoBehaviour:
   MAXHEALTH: 3
   curHealth: 0
   curHealthBar: {fileID: 7865330909671270361}
+  deathParticles: {fileID: 7710933089740006782, guid: 0e7e116dd6e65674188f1c137a9d5f1e,
+    type: 3}
 --- !u!82 &-4124609015406849563
 AudioSource:
   m_ObjectHideFlags: 0
