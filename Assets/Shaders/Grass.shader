@@ -83,7 +83,7 @@ Shader "Custom/JoeGrass"
 		return VertexOutput(localPosition, uv);
 	}
 
-	[maxvertexcount(BLADE_SEGMENTS + 1)]
+	[maxvertexcount(BLADE_SEGMENTS * 10)]
 	void geo(triangle vertexOutput IN[3] : SV_POSITION, inout TriangleStream<geometryOutput> triStream){
 		float3 pos = IN[0].vertex;
 
@@ -111,21 +111,50 @@ Shader "Custom/JoeGrass"
 		float width = (rand(pos.xzy) * 2 - 1) * _BladeWidthRandom + _BladeWidth;
 		float depth = (rand(pos.yxz) * 2 - 1) * _BladeDepthRandom + _BladeDepth;
 
-		for(int i = 0; i < BLADE_SEGMENTS; i++){
-			float t = i / (float)BLADE_SEGMENTS;
+		//FRONT
+		triStream.Append(VertexOutput(pos + mul(transformationMatrixFacing, float3(0, 0, 0)), float2(0, 0)));			//A
+		triStream.Append(VertexOutput(pos + mul(transformationMatrixFacing, float3(width, 0, 0)), float2(1, 0)));		//B
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(0, 0, height)), float2(0.5, 1)));			//C
 
-			float segmentHeight = height * t;
+		triStream.Append(VertexOutput(pos + mul(transformationMatrixFacing, float3(width, 0, 0)), float2(1, 0)));		//B
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(0, 0, height)), float2(0.5, 1)));			//C
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(width, 0, height)), float2(0.5, 1)));		//D
 
-			float3x3 transformMatrix = i == 0 ? transformationMatrixFacing : transformationMatrix;
+		//TOP
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(0, 0, height)), float2(0.5, 1)));			//C
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(width, 0, height)), float2(0.5, 1)));		//D
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(0, depth, height)), float2(0.5, 1)));		//G
 
-			triStream.Append(GenerateGrassVertex(pos, width, height * t, 0, float2(0,t), transformMatrix));
-			triStream.Append(GenerateGrassVertex(pos, -width, height * t, 0, float2(1,t), transformMatrix));
-			//triStream.Append(GenerateGrassVertex(pos, width, height * t, depth, float2(2,t), transformMatrix));
-			//triStream.Append(GenerateGrassVertex(pos, -width, height * t, depth, float2(3,t), transformMatrix));
-			//triStream.Append(GenerateGrassVertex(pos, 0, height * t, depth, float2(4,t), transformMatrix));
-			//triStream.Append(GenerateGrassVertex(pos, 0, height * t, -depth, float2(5,t), transformMatrix));
-		}
-		//triStream.Append(GenerateGrassVertex(pos, 0, height, float2(0.5,1), transformationMatrix));
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(width, 0, height)), float2(0.5, 1)));		//D
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(0, depth, height)), float2(0.5, 1)));		//G
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(width, depth, height)), float2(0.5, 1)));	//H
+
+		//BACK
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(0, depth, height)), float2(0.5, 1)));		//G
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(width, depth, height)), float2(0.5, 1)));	//H
+		triStream.Append(VertexOutput(pos + mul(transformationMatrixFacing, float3(0, depth, 0)), float2(0.5, 1)));		//E
+
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(width, depth, height)), float2(0.5, 1)));	//H
+		triStream.Append(VertexOutput(pos + mul(transformationMatrixFacing, float3(0, depth, 0)), float2(0.5, 1)));		//E
+		triStream.Append(VertexOutput(pos + mul(transformationMatrixFacing, float3(width, depth, 0)), float2(0.5, 1)));	//F
+
+		//RIGHT
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(width, depth, height)), float2(0.5, 1)));	//H
+		triStream.Append(VertexOutput(pos + mul(transformationMatrixFacing, float3(width, depth, 0)), float2(0.5, 1)));	//F
+		triStream.Append(VertexOutput(pos + mul(transformationMatrixFacing, float3(width, 0, 0)), float2(1, 0)));		//B
+
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(width, depth, height)), float2(0.5, 1)));	//H
+		triStream.Append(VertexOutput(pos + mul(transformationMatrixFacing, float3(width, 0, 0)), float2(1, 0)));		//B
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(width, 0, height)), float2(0.5, 1)));		//D
+
+		//LEFT
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(0, depth, height)), float2(0.5, 1)));		//G
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(0, 0, height)), float2(0.5, 1)));			//C
+		triStream.Append(VertexOutput(pos + mul(transformationMatrixFacing, float3(0, depth, 0)), float2(0.5, 1)));		//E
+
+		triStream.Append(VertexOutput(pos + mul(transformationMatrix, float3(0, 0, height)), float2(0.5, 1)));			//C
+		triStream.Append(VertexOutput(pos + mul(transformationMatrixFacing, float3(0, depth, 0)), float2(0.5, 1)));		//E
+		triStream.Append(VertexOutput(pos + mul(transformationMatrixFacing, float3(0, 0, 0)), float2(0, 0)));			//A
 	}
 	ENDCG
 

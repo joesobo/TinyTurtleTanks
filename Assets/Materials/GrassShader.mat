@@ -84,7 +84,7 @@ Material:
     - _TessellationUniform: 5
     - _TranslucentGain: 0.5
     - _UVSec: 0
-    - _WindStrength: 0.1
+    - _WindStrength: 0.2
     - _ZWrite: 1
     m_Colors:
     - _BottomColor: {r: 0.1595928, g: 0.4528302, b: 0.15592737, a: 1}
