@@ -44,6 +44,7 @@ Shader "Custom/JoeGrass"
 	{
 		float2 uv : TEXCOORD0;
 		float4 pos : SV_POSITION;
+		unityShadowCoord4 _ShadowCoord : TEXCOORD1;
 	};
 
 	float rand(float3 co)
@@ -73,6 +74,12 @@ Shader "Custom/JoeGrass"
 		geometryOutput o;
 		o.pos = UnityObjectToClipPos(pos);
 		o.uv = uv;
+		o._ShadowCoord = ComputeScreenPos(o.pos);
+
+		#if UNITY_PASS_SHADOWCASTER
+			o.pos = UnityApplyLinearShadowBias(o.pos);
+		#endif
+
 		return o;
 	}
 
@@ -175,6 +182,7 @@ Shader "Custom/JoeGrass"
             #pragma fragment frag
 			#pragma geometry geo
 			#pragma target 4.6
+			#pragma multi_compile_fwdbase
 			#pragma hull hull
 			#pragma domain domain
             
@@ -186,9 +194,34 @@ Shader "Custom/JoeGrass"
 
 			float4 frag (geometryOutput i, fixed facing : VFACE) : SV_Target
             {	
-				return lerp(_BottomColor, _TopColor, i.uv.y);
+				return SHADOW_ATTENUATION(i);
             }
-            ENDCG
+           
+		    ENDCG
         }
+
+		Pass
+		{
+			Tags 
+			{
+				"LightMode" = "ShadowCaster"
+			}
+
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma geometry geo
+			#pragma fragment frag
+			#pragma hull hull
+			#pragma domain domain
+			#pragma target 4.6
+			#pragma multi_compile_shadowcaster
+
+			float4 frag(geometryOutput i) : SV_Target
+			{
+				SHADOW_CASTER_FRAGMENT(i)
+			}
+
+			ENDCG
+		}
     }
 }

@@ -40899,15 +40899,13 @@ GameObject:
   - component: {fileID: 1127533629}
   - component: {fileID: 1127533633}
   - component: {fileID: 1127533632}
-  - component: {fileID: 1127533631}
-  - component: {fileID: 1127533630}
   m_Layer: 8
-  m_Name: default (1)
+  m_Name: PlanetGrassShader
   m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1127533629
 Transform:
   m_ObjectHideFlags: 0
@@ -40922,33 +40920,6 @@ Transform:
   m_Father: {fileID: 685176281}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1127533630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127533628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5712ab3dea085f045920a5d9ba2c62d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravity: -18
---- !u!64 &1127533631
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127533628}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: 4834e5941c91cc64abaf76ca8ca61d74, type: 3}
 --- !u!23 &1127533632
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -97332,6 +97303,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 439157018633041577, guid: d96ae466f6d1a3f498eb2c74d8ba74c5,
+        type: 3}
+      propertyPath: m_Name
+      value: PlanetModel
       objectReference: {fileID: 0}
     - target: {fileID: 6202714892861248308, guid: d96ae466f6d1a3f498eb2c74d8ba74c5,
         type: 3}
