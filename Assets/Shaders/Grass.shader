@@ -1,3 +1,9 @@
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
 Shader "Custom/JoeGrass"
 {
     Properties
@@ -17,6 +23,7 @@ Shader "Custom/JoeGrass"
 		_WindDistortionMap("Wind Distortion Map", 2D) = "white" {}
 		_WindFrequency("Wind Frequency", Vector) = (0.05, 0.05, 0, 0)
 		_WindStrength("Wind Strength", Float) = 1
+		_GrassCutoff("Grass Cutoff", Range(-1,1)) = 0.5
     }
 
 	CGINCLUDE
@@ -40,11 +47,14 @@ Shader "Custom/JoeGrass"
 	float2 _WindFrequency;
 	float _WindStrength;
 
+	float _GrassCutoff;
+
 	struct geometryOutput
 	{
 		float2 uv : TEXCOORD0;
 		float4 pos : SV_POSITION;
 		unityShadowCoord4 _ShadowCoord : TEXCOORD1;
+		float3 normal : NORMAL;
 	};
 
 	float rand(float3 co)
@@ -69,11 +79,12 @@ Shader "Custom/JoeGrass"
 		);
 	}
 
-	geometryOutput VertexOutput(float3 pos, float2 uv)
+	geometryOutput VertexOutput(float3 pos, float2 uv, float3 normal)
 	{
 		geometryOutput o;
 		o.pos = UnityObjectToClipPos(pos);
 		o.uv = uv;
+		o.normal = UnityObjectToWorldNormal(normal);
 		o._ShadowCoord = ComputeScreenPos(o.pos);
 
 		#if UNITY_PASS_SHADOWCASTER
@@ -86,8 +97,11 @@ Shader "Custom/JoeGrass"
 	geometryOutput GenerateGrassVertex(float3 vertexPosition, float width, float depth, float height, float2 uv, float3x3 transformMatrix){
 		float3 tangentPoint = float3(width, depth, height);
 
+		float3 tangentNormal = float3(0, -1, 0);
+		float3 localNormal = mul(transformMatrix, tangentNormal);
+
 		float3 localPosition = vertexPosition + mul(transformMatrix, tangentPoint);
-		return VertexOutput(localPosition, uv);
+		return VertexOutput(localPosition, uv, localNormal);
 	}
 
 	[maxvertexcount(BLADE_SEGMENTS * 10)]
@@ -95,73 +109,76 @@ Shader "Custom/JoeGrass"
 		float3 pos = IN[0].vertex;
 
 		float3 vNormal = IN[0].normal;
-		float4 vTangent = IN[0].tangent;
-		float3 vBinormal = cross(vNormal, vTangent) * vTangent.w;
+		if(dot(vNormal, normalize(pos.xyz)) > _GrassCutoff){
+			float4 vTangent = IN[0].tangent;
+			float3 vBinormal = cross(vNormal, vTangent) * vTangent.w;
 
-		float3x3 tangentToLocal = float3x3(
-			vTangent.x, vBinormal.x, vNormal.x,
-			vTangent.y, vBinormal.y, vNormal.y,
-			vTangent.z, vBinormal.z, vNormal.z
-		);
-		float3x3 facingRotationMatrix = AngleAxis3x3(rand(pos) * UNITY_TWO_PI, float3(0, 0, 1));
-		float3x3 bendRotationMatrix = AngleAxis3x3(rand(pos.zzx) * _BendRotationRandom * UNITY_PI * 0.5, float3(-1, 0, 0));
+			float3x3 tangentToLocal = float3x3(
+				vTangent.x, vBinormal.x, vNormal.x,
+				vTangent.y, vBinormal.y, vNormal.y,
+				vTangent.z, vBinormal.z, vNormal.z
+			);
 
-		float2 uv = pos.xz * _WindDistortionMap_ST.xy + _WindDistortionMap_ST.zw + _WindFrequency * _Time.y;
-		float2 windSample = (tex2Dlod(_WindDistortionMap, float4(uv, 0, 0)).xy * 2 - 1) * _WindStrength;
-		float3 wind = normalize(float3(windSample.x, windSample.y, 0));
-		float3x3 windRotation = AngleAxis3x3(UNITY_PI * windSample, wind);
+			float3x3 facingRotationMatrix = AngleAxis3x3(rand(pos) * UNITY_TWO_PI, float3(0, 0, 1));
+			float3x3 bendRotationMatrix = AngleAxis3x3(rand(pos.zzx) * _BendRotationRandom * UNITY_PI * 0.5, float3(-1, 0, 0));
 
-		float3x3 transformationMatrix = mul(mul(mul(tangentToLocal, windRotation), facingRotationMatrix), bendRotationMatrix);
-		float3x3 transformationMatrixFacing = mul(tangentToLocal, facingRotationMatrix);
+			float2 uv = pos.xz * _WindDistortionMap_ST.xy + _WindDistortionMap_ST.zw + _WindFrequency * _Time.y;
+			float2 windSample = (tex2Dlod(_WindDistortionMap, float4(uv, 0, 0)).xy * 2 - 1) * _WindStrength;
+			float3 wind = normalize(float3(windSample.x, windSample.y, 0));
+			float3x3 windRotation = AngleAxis3x3(UNITY_PI * windSample, wind);
 
-		float height = (rand(pos.zyx) * 2 - 1) * _BladeHeightRandom + _BladeHeight;
-		float width = (rand(pos.xzy) * 2 - 1) * _BladeWidthRandom + _BladeWidth;
-		float depth = (rand(pos.yxz) * 2 - 1) * _BladeDepthRandom + _BladeDepth;
+			float3x3 transformationMatrix = mul(mul(mul(tangentToLocal, windRotation), facingRotationMatrix), bendRotationMatrix);
+			float3x3 transformationMatrixFacing = mul(tangentToLocal, facingRotationMatrix);
 
-		//FRONT
-		triStream.Append(GenerateGrassVertex(pos, 0, 0, 0, float2(0, 0), transformationMatrixFacing));					//A
-		triStream.Append(GenerateGrassVertex(pos, width, 0, 0, float2(1, 0), transformationMatrixFacing));				//B
-		triStream.Append(GenerateGrassVertex(pos, 0, 0, height, float2(0.5, 1), transformationMatrix));					//C
+			float height = (rand(pos.zyx) * 2 - 1) * _BladeHeightRandom + _BladeHeight;
+			float width = (rand(pos.xzy) * 2 - 1) * _BladeWidthRandom + _BladeWidth;
+			float depth = (rand(pos.yxz) * 2 - 1) * _BladeDepthRandom + _BladeDepth;
 
-		triStream.Append(GenerateGrassVertex(pos, width, 0, 0, float2(1, 0), transformationMatrixFacing));				//B
-		triStream.Append(GenerateGrassVertex(pos, 0, 0, height, float2(0.5, 1), transformationMatrix));					//C
-		triStream.Append(GenerateGrassVertex(pos, width, 0, height, float2(0.5, 1), transformationMatrix));				//D
+			//FRONT
+			triStream.Append(GenerateGrassVertex(pos, 0, 0, 0, float2(0, 0), transformationMatrixFacing));					//A
+			triStream.Append(GenerateGrassVertex(pos, width, 0, 0, float2(1, 0), transformationMatrixFacing));				//B
+			triStream.Append(GenerateGrassVertex(pos, 0, 0, height, float2(0.5, 1), transformationMatrix));					//C
 
-		//TOP		
-		triStream.Append(GenerateGrassVertex(pos, 0, 0, height, float2(0.5, 1), transformationMatrix));					//C
-		triStream.Append(GenerateGrassVertex(pos, width, 0, height, float2(0.5, 1), transformationMatrix));				//D
-		triStream.Append(GenerateGrassVertex(pos, 0, depth, height, float2(0.5, 1), transformationMatrix));				//G
+			triStream.Append(GenerateGrassVertex(pos, width, 0, 0, float2(1, 0), transformationMatrixFacing));				//B
+			triStream.Append(GenerateGrassVertex(pos, 0, 0, height, float2(0.5, 1), transformationMatrix));					//C
+			triStream.Append(GenerateGrassVertex(pos, width, 0, height, float2(0.5, 1), transformationMatrix));				//D
 
-		triStream.Append(GenerateGrassVertex(pos, width, 0, height, float2(0.5, 1), transformationMatrix));				//D
-		triStream.Append(GenerateGrassVertex(pos, 0, depth, height, float2(0.5, 1), transformationMatrix));				//G
-		triStream.Append(GenerateGrassVertex(pos, width, depth, height, float2(0.5, 1), transformationMatrix));			//H
+			//TOP		
+			triStream.Append(GenerateGrassVertex(pos, 0, 0, height, float2(0.5, 1), transformationMatrix));					//C
+			triStream.Append(GenerateGrassVertex(pos, width, 0, height, float2(0.5, 1), transformationMatrix));				//D
+			triStream.Append(GenerateGrassVertex(pos, 0, depth, height, float2(0.5, 1), transformationMatrix));				//G
 
-		//BACK		
-		triStream.Append(GenerateGrassVertex(pos, 0, depth, height, float2(0.5, 1), transformationMatrix));				//G
-		triStream.Append(GenerateGrassVertex(pos, width, depth, height, float2(0.5, 1), transformationMatrix));			//H
-		triStream.Append(GenerateGrassVertex(pos, 0, depth, 0, float2(0.5, 1), transformationMatrixFacing));			//E
+			triStream.Append(GenerateGrassVertex(pos, width, 0, height, float2(0.5, 1), transformationMatrix));				//D
+			triStream.Append(GenerateGrassVertex(pos, 0, depth, height, float2(0.5, 1), transformationMatrix));				//G
+			triStream.Append(GenerateGrassVertex(pos, width, depth, height, float2(0.5, 1), transformationMatrix));			//H
 
-		triStream.Append(GenerateGrassVertex(pos, width, depth, height, float2(0.5, 1), transformationMatrix));			//H
-		triStream.Append(GenerateGrassVertex(pos, 0, depth, 0, float2(0.5, 1), transformationMatrixFacing));			//E
-		triStream.Append(GenerateGrassVertex(pos, width, depth, 0, float2(0.5, 1), transformationMatrixFacing));		//F
+			//BACK		
+			triStream.Append(GenerateGrassVertex(pos, 0, depth, height, float2(0.5, 1), transformationMatrix));				//G
+			triStream.Append(GenerateGrassVertex(pos, width, depth, height, float2(0.5, 1), transformationMatrix));			//H
+			triStream.Append(GenerateGrassVertex(pos, 0, depth, 0, float2(0.5, 1), transformationMatrixFacing));			//E
 
-		//RIGHT		
-		triStream.Append(GenerateGrassVertex(pos, width, depth, height, float2(0.5, 1), transformationMatrix));			//H
-		triStream.Append(GenerateGrassVertex(pos, width, depth, 0, float2(0.5, 1), transformationMatrixFacing));		//F
-		triStream.Append(GenerateGrassVertex(pos, width, 0, 0, float2(1, 0), transformationMatrixFacing));				//B
+			triStream.Append(GenerateGrassVertex(pos, width, depth, height, float2(0.5, 1), transformationMatrix));			//H
+			triStream.Append(GenerateGrassVertex(pos, 0, depth, 0, float2(0.5, 1), transformationMatrixFacing));			//E
+			triStream.Append(GenerateGrassVertex(pos, width, depth, 0, float2(0.5, 1), transformationMatrixFacing));		//F
 
-		triStream.Append(GenerateGrassVertex(pos, width, depth, height, float2(0.5, 1), transformationMatrix));			//H
-		triStream.Append(GenerateGrassVertex(pos, width, 0, 0, float2(1, 0), transformationMatrixFacing));				//B
-		triStream.Append(GenerateGrassVertex(pos, width, 0, height, float2(0.5, 1), transformationMatrix));				//D
+			//RIGHT		
+			triStream.Append(GenerateGrassVertex(pos, width, depth, height, float2(0.5, 1), transformationMatrix));			//H
+			triStream.Append(GenerateGrassVertex(pos, width, depth, 0, float2(0.5, 1), transformationMatrixFacing));		//F
+			triStream.Append(GenerateGrassVertex(pos, width, 0, 0, float2(1, 0), transformationMatrixFacing));				//B
 
-		//LEFT		
-		triStream.Append(GenerateGrassVertex(pos, 0, depth, height, float2(0.5, 1), transformationMatrix));				//G
-		triStream.Append(GenerateGrassVertex(pos, 0, 0, height, float2(0.5, 1), transformationMatrix));					//C
-		triStream.Append(GenerateGrassVertex(pos, 0, depth, 0, float2(0.5, 1), transformationMatrixFacing));			//E
+			triStream.Append(GenerateGrassVertex(pos, width, depth, height, float2(0.5, 1), transformationMatrix));			//H
+			triStream.Append(GenerateGrassVertex(pos, width, 0, 0, float2(1, 0), transformationMatrixFacing));				//B
+			triStream.Append(GenerateGrassVertex(pos, width, 0, height, float2(0.5, 1), transformationMatrix));				//D
 
-		triStream.Append(GenerateGrassVertex(pos, 0, 0, height, float2(0.5, 1), transformationMatrix));					//C
-		triStream.Append(GenerateGrassVertex(pos, 0, depth, 0, float2(0.5, 1), transformationMatrixFacing));			//E
-		triStream.Append(GenerateGrassVertex(pos, 0, 0, 0, float2(0, 0), transformationMatrixFacing));					//A
+			//LEFT		
+			triStream.Append(GenerateGrassVertex(pos, 0, depth, height, float2(0.5, 1), transformationMatrix));				//G
+			triStream.Append(GenerateGrassVertex(pos, 0, 0, height, float2(0.5, 1), transformationMatrix));					//C
+			triStream.Append(GenerateGrassVertex(pos, 0, depth, 0, float2(0.5, 1), transformationMatrixFacing));			//E
+
+			triStream.Append(GenerateGrassVertex(pos, 0, 0, height, float2(0.5, 1), transformationMatrix));					//C
+			triStream.Append(GenerateGrassVertex(pos, 0, depth, 0, float2(0.5, 1), transformationMatrixFacing));			//E
+			triStream.Append(GenerateGrassVertex(pos, 0, 0, 0, float2(0, 0), transformationMatrixFacing));					//A
+		}
 	}
 	ENDCG
 
@@ -194,7 +211,16 @@ Shader "Custom/JoeGrass"
 
 			float4 frag (geometryOutput i, fixed facing : VFACE) : SV_Target
             {	
-				return SHADOW_ATTENUATION(i);
+				float3 normal = facing > 0 ? i.normal : - i.normal;
+
+				float shadow = SHADOW_ATTENUATION(i);
+				float NdotL = saturate(saturate(dot(normal, _WorldSpaceLightPos0)) + _TranslucentGain) * shadow;
+
+				float3 ambient = ShadeSH9(float4(normal, 1));
+				float4 lightIntensity = NdotL * _LightColor0 + float4(ambient, 1);
+				float4 col = lerp(_BottomColor, _TopColor * lightIntensity, i.uv.y);
+
+				return col;
             }
            
 		    ENDCG
