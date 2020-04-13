@@ -28754,7 +28754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &714420841
 Transform:
   m_ObjectHideFlags: 0
@@ -36482,14 +36482,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  useVFX: 0
+  useVFX: 1
   useSound: 0
   useParticle: 0
   useGrass: 0
   useTrails: 0
   useClouds: 0
   useMoons: 0
-  useCrates: 1
+  useCrates: 0
   useEnvironmentObjects: 0
   useEnemies: 0
   currentLevel: 1
