@@ -1,8 +1,5 @@
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+//Tutorial from:
+//https://roystan.net/articles/grass-shader.html
 
 Shader "Custom/JoeGrass"
 {
