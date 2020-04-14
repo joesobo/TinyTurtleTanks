@@ -23,6 +23,7 @@ public class LevelRunner : MonoBehaviour
     public GameObject crateSpawner;
     public GameObject obstacleList;
     public List<GameObject> enemyStuffList;
+    public GameObject water;
 
     private void Start()
     {
@@ -87,6 +88,7 @@ public class LevelRunner : MonoBehaviour
         moonSpawner.SetActive(settings.useMoons);
         crateSpawner.SetActive(settings.useCrates);
         obstacleList.SetActive(settings.useEnvironmentObjects);
+        water.SetActive(settings.useWater);
         foreach (GameObject enemyThing in enemyStuffList)
         {
             enemyThing.SetActive(settings.useEnemies);

@@ -11,6 +11,7 @@ public class GameSettings : MonoBehaviour
     public bool useTrails = false;
     public bool useClouds = false;
     public bool useMoons = false;
+    public bool useWater = false;
     
     [Header("Test Settings")]
     public bool useCrates = false;
