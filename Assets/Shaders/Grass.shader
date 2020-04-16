@@ -21,6 +21,7 @@ Shader "Custom/JoeGrass"
 		_WindFrequency("Wind Frequency", Vector) = (0.05, 0.05, 0, 0)
 		_WindStrength("Wind Strength", Float) = 1
 		_GrassCutoff("Grass Cutoff", Range(-1,1)) = 0.5
+		_HeightCutoff("Height Cutoff", Range(0,5)) = 0.5
     }
 
 	CGINCLUDE
@@ -45,6 +46,7 @@ Shader "Custom/JoeGrass"
 	float _WindStrength;
 
 	float _GrassCutoff;
+	float _HeightCutoff;
 
 	struct geometryOutput
 	{
@@ -104,9 +106,10 @@ Shader "Custom/JoeGrass"
 	[maxvertexcount(BLADE_SEGMENTS * 10)]
 	void geo(triangle vertexOutput IN[3] : SV_POSITION, inout TriangleStream<geometryOutput> triStream){
 		float3 pos = IN[0].vertex;
+		float3 origin = float3(0,0,0);
 
 		float3 vNormal = IN[0].normal;
-		if(dot(vNormal, normalize(pos.xyz)) > _GrassCutoff){
+		if(dot(vNormal, normalize(pos.xyz)) > _GrassCutoff && distance(pos, origin) > _HeightCutoff){
 			float4 vTangent = IN[0].tangent;
 			float3 vBinormal = cross(vNormal, vTangent) * vTangent.w;
 
