@@ -36,10 +36,8 @@ public class CameraShake : CinemachineExtension
 
     Vector3 GetOffset()
     {
-        // Note: change this to something more interesting!
-        return new Vector3(
-            Random.Range(-m_Range, m_Range),
-            Random.Range(-m_Range, m_Range),
-            Random.Range(-m_Range, m_Range));
+        float x = Random.Range(-1, 1) * m_Range;
+        float y = Random.Range(-1, 1) * m_Range;
+        return new Vector3(x, y, 0);
     }
 }
