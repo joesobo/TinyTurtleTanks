@@ -12,7 +12,7 @@ public class PlayerShoot : MonoBehaviour
 
     private GameSettings settings;
     private AudioSource source;
-    public ScreenShake screenShake;
+    public CameraShake screenShake;
 
     private void Start()
     {
@@ -38,7 +38,7 @@ public class PlayerShoot : MonoBehaviour
                     source.Play();
                 }
                 //apply screen shake
-                StartCoroutine(screenShake.Shake(.15f, .4f));
+                StartCoroutine(screenShake.Shake());
             }
         }
     }
