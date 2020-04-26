@@ -46,25 +46,11 @@ public class PlayerController : MonoBehaviour
             float inputX = Input.GetAxisRaw("Horizontal");
             if (inputX > 0)
             {
-                if (rotateSpeed < 0)
-                {
-                    rotateSpeed = 0;
-                }
-                if (rotateSpeed < maxRotateSpeed)
-                {
-                    rotateSpeed = Mathf.Lerp(0, maxRotateSpeed, rotationChangeSpeed * Time.deltaTime);
-                }
+                rotateSpeed = maxRotateSpeed;
             }
             else if (inputX < 0)
             {
-                if (rotateSpeed > 0)
-                {
-                    rotateSpeed = 0;
-                }
-                if (rotateSpeed > -maxRotateSpeed)
-                {
-                    rotateSpeed = Mathf.Lerp(0, -maxRotateSpeed, rotationChangeSpeed * Time.deltaTime);
-                }
+                rotateSpeed = -maxRotateSpeed;
             }
             else
             {
