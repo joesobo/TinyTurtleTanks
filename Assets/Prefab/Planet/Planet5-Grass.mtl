@@ -1,0 +1,12 @@
+# Blender MTL File: 'Planet5.blend'
+# Material Count: 1
+
+newmtl Grass
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.345890 0.800000 0.174846
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1

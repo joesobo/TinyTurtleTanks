@@ -63,8 +63,8 @@ Material:
     - _BendRotationRandom: 0.2
     - _BladeDepth: 0.03
     - _BladeDepthRandom: 0
-    - _BladeHeight: 0.1
-    - _BladeHeightRandom: 0.05
+    - _BladeHeight: 0.07
+    - _BladeHeightRandom: 0.04
     - _BladeWidth: 0.03
     - _BladeWidthRandom: 0
     - _BumpScale: 1
@@ -75,7 +75,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _GrassCutoff: 0.87
-    - _HeightCutoff: 3
+    - _HeightCutoff: 1.5
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
