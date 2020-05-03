@@ -24,17 +24,28 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         settings = FindObjectOfType<GameSettings>();
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
     private void Update()
     {
+        if (settings.isPaused && rb.constraints == RigidbodyConstraints.FreezeRotation)
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
+        else if (rb.constraints == RigidbodyConstraints.FreezeAll)
+        {
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+        }
+
         animator.SetBool("Walking", false);
         if (!settings.isPaused)
         {
             //calculate movement
             float inputY = Input.GetAxisRaw("Vertical");
 
-            if(inputY != 0){
+            if (inputY != 0)
+            {
                 animator.SetBool("Walking", true);
             }
 
@@ -94,10 +105,12 @@ public class PlayerController : MonoBehaviour
                 if (localMove != Vector3.zero)
                 {
                     particleSystem.Play();
-                }else{
+                }
+                else
+                {
                     particleSystem.Stop();
                 }
-                
+
             }
         }
     }
