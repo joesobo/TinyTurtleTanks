@@ -11,6 +11,7 @@ public class LevelRunner : MonoBehaviour
 
     private LoseMenu loseMenu;
     private WinMenu winMenu;
+    private QuitMenu quitMenu;
     private bool activeLose = true;
     private bool activeWin = true;
     private GameSettings settings;
@@ -29,13 +30,15 @@ public class LevelRunner : MonoBehaviour
     private void Start()
     {
         settings = FindObjectOfType<GameSettings>();
-        CallSettings();
+
+        loseMenu = FindObjectOfType<LoseMenu>();
+        winMenu = FindObjectOfType<WinMenu>();
+        quitMenu = FindObjectOfType<QuitMenu>();
 
         numberOfEnemies = FindObjectsOfType<SmartEnemy>().Length;
         enemiesLeft = numberOfEnemies;
 
-        loseMenu = FindObjectOfType<LoseMenu>();
-        winMenu = FindObjectOfType<WinMenu>();
+        CallSettings();       
     }
 
     private void Update()
@@ -82,18 +85,26 @@ public class LevelRunner : MonoBehaviour
 
     private void CallSettings()
     {
+        //SFX and VFX
         fx.SetActive(settings.useVFX);
         grassSpawner.SetActive(settings.useGrass);
         backgroundMusic.SetActive(settings.useSound);
+
+        //Obstacles and Environment
         cloudSpawner.SetActive(settings.useClouds);
         moonSpawner.SetActive(settings.useMoons);
         crateSpawner.SetActive(settings.useCrates);
         obstacleList.SetActive(settings.useEnvironmentObjects);
         water.SetActive(settings.useWater);
         sun.SetActive(settings.useSun);
+
+        //Enemies
         foreach (GameObject enemyThing in enemyStuffList)
         {
             enemyThing.SetActive(settings.useEnemies);
         }
+
+        //UI Menu
+        quitMenu.gameObject.SetActive(settings.useEnemies);
     }
 }
