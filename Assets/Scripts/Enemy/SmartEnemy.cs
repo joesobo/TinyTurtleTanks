@@ -79,8 +79,10 @@ public class SmartEnemy : MonoBehaviour
             //looking and moving towards player
             if (lockPlayer)
             {
-                curSpeed = speed;
-                transform.LookAt(player.transform, transform.up);
+                Vector3 groundNormal = transform.position;
+                Vector3 forwardVector = Vector3.Cross(groundNormal, player.transform.position);
+                Vector3 rotatedVector = Quaternion.AngleAxis(-90, transform.up) * forwardVector;
+                transform.rotation = Quaternion.LookRotation(rotatedVector, groundNormal);
 
                 //stop moving and shoot at player
                 if (shootPlayer)
