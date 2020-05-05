@@ -1,5 +1,85 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5223873230367657868
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79c756fe45ae37747864bbe1e991ae38, type: 3}
+  m_Name: EdgeDetect_AfterStack
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  mode:
+    overrideState: 1
+    value: 1
+  sensitivityDepth:
+    overrideState: 1
+    value: 2
+  sensitivityNormals:
+    overrideState: 1
+    value: 5
+  lumThreshold:
+    overrideState: 1
+    value: 0.25
+  edgeExp:
+    overrideState: 1
+    value: 1
+  sampleDist:
+    overrideState: 1
+    value: 0.5
+  edgesOnly:
+    overrideState: 0
+    value: 1
+  edgesOnlyBgColor:
+    overrideState: 0
+    value: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &-5114728593978429757
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d5989756ea37ac46b1c199fb99ffc33, type: 3}
+  m_Name: EdgeDetect_BeforeStack
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  mode:
+    overrideState: 1
+    value: 1
+  sensitivityDepth:
+    overrideState: 1
+    value: 2
+  sensitivityNormals:
+    overrideState: 1
+    value: 5
+  lumThreshold:
+    overrideState: 1
+    value: 0.1
+  edgeExp:
+    overrideState: 1
+    value: 1
+  sampleDist:
+    overrideState: 1
+    value: 0.5
+  edgesOnly:
+    overrideState: 0
+    value: 0
+  edgesOnlyBgColor:
+    overrideState: 1
+    value: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &-4813778444536143555
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -85,6 +165,9 @@ MonoBehaviour:
   - {fileID: 8154003352296837038}
   - {fileID: 132855986721374795}
   - {fileID: 6155244271442678967}
+  - {fileID: -5114728593978429757}
+  - {fileID: 2616887751257961354}
+  - {fileID: -5223873230367657868}
 --- !u!114 &132855986721374795
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1440,6 +1523,46 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
+--- !u!114 &2616887751257961354
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1905ad603bb9a479914accad762e92, type: 3}
+  m_Name: EdgeDetect_BeforeTransparent
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  mode:
+    overrideState: 1
+    value: 0
+  sensitivityDepth:
+    overrideState: 0
+    value: 1
+  sensitivityNormals:
+    overrideState: 0
+    value: 1
+  lumThreshold:
+    overrideState: 0
+    value: 0.2
+  edgeExp:
+    overrideState: 0
+    value: 1
+  sampleDist:
+    overrideState: 0
+    value: 1
+  edgesOnly:
+    overrideState: 0
+    value: 0
+  edgesOnlyBgColor:
+    overrideState: 0
+    value: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &5803460062128088671
 MonoBehaviour:
   m_ObjectHideFlags: 3
