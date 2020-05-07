@@ -27,9 +27,13 @@ public class RaySpawner : MonoBehaviour
     public bool spawnTopDown = false;
     public bool useGizmos = false;
     public bool useRandomRotation = false;
+    public bool useRandomColor = false;
 
     public float minHeight = 0;
     public float maxHeight = 50;
+
+    public Color startColor;
+    public Color endColor;
 
     void Start()
     {
@@ -85,14 +89,19 @@ public class RaySpawner : MonoBehaviour
                     {
                         //spawn object
                         GameObject obj = Instantiate(prefabs[Random.Range(0, prefabs.Count)], hit.point, normalRotation, parent);
+                        
                         //change scale and rotation
                         obj.transform.localScale = new Vector3(Random.Range(minScale, maxScale), Random.Range(minScale, maxScale), Random.Range(minScale, maxScale));
                         if(useRandomRotation){
                             obj.transform.Rotate(0, Random.Range(0, 361), 0, Space.Self);
                         }
-                        //obj.transform.eulerAngles = new Vector3(transform.eulerAngles.x, Random.Range(0, 361), transform.eulerAngles.z);
+                        
                         //offset to bring closer to ground
                         obj.transform.position += transform.TransformDirection(-obj.transform.up) * offsetScale * obj.transform.localScale.y;
+
+                        if(useRandomColor){
+                            obj.GetComponent<MeshRenderer>().material.color = Color.Lerp(startColor, endColor, Random.value);
+                        }
 
                         currentTries = 0;
                     }
