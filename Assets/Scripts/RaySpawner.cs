@@ -2,14 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Clean up inspector
-//Add random color range
-//Add random angle tilt
-//Make it update in edit mode
-//Add edge detection
-//Add cluster spawning
-//Prevent overlapping objects X
-//Add random rotation
 public class RaySpawner : MonoBehaviour
 {
     public List<GameObject> prefabs;
@@ -19,6 +11,8 @@ public class RaySpawner : MonoBehaviour
     public int radius = 50;
     public int checkDst = 5;
     public float offsetScale = -0.25f;
+    [Range(0,10)]
+    public float maxDensity = 1;
 
     public float minScale = 0.5f;
     public float maxScale = 2;
@@ -48,7 +42,8 @@ public class RaySpawner : MonoBehaviour
             if (Physics.Raycast(point, dir, out hit, checkDst, layerMask))
             {
                 Quaternion normalRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-                Vector3 overlapTestBoxScale = Vector3.one;
+                //overlap checking
+                Vector3 overlapTestBoxScale = Vector3.one * maxDensity;
                 Collider[] collidersInsideOverlapBox = new Collider[1];
                 numberOfCollidersFound = Physics.OverlapBoxNonAlloc(hit.point, overlapTestBoxScale, collidersInsideOverlapBox, normalRotation, objectMask);
 
