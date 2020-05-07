@@ -29,6 +29,9 @@ public class RaySpawner : MonoBehaviour
     public bool useRandomRotation = false;
     public bool useRandomColor = false;
 
+    public float minRayHeight = 0;
+    public float maxRayHeight = 50;
+
     public float minHeight = 0;
     public float maxHeight = 50;
 
@@ -70,40 +73,48 @@ public class RaySpawner : MonoBehaviour
                 }
                 else
                 {
-                    point = Random.onUnitSphere * Random.Range(minHeight, maxHeight);
+                    point = Random.onUnitSphere * Random.Range(minRayHeight, maxRayHeight);
                     dir = Random.insideUnitCircle.normalized;
                 }
 
                 //Start raycast
                 if (Physics.Raycast(point, dir, out hit, checkDst, layerMask))
                 {
-                    Quaternion normalRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-
-                    //overlap checking
-                    Vector3 overlapTestBoxScale = Vector3.one * maxDensity;
-                    Collider[] collidersInsideOverlapBox = new Collider[1];
-                    numberOfCollidersFound = Physics.OverlapBoxNonAlloc(hit.point, overlapTestBoxScale, collidersInsideOverlapBox, normalRotation, objectMask);
-
-                    //if no overlaps
-                    if (numberOfCollidersFound == 0)
+                    //check max and min height
+                    float distFromCenter = Vector3.Distance(hit.point, Vector3.zero);
+                    if (distFromCenter > minHeight && distFromCenter < maxHeight)
                     {
-                        //spawn object
-                        GameObject obj = Instantiate(prefabs[Random.Range(0, prefabs.Count)], hit.point, normalRotation, parent);
-                        
-                        //change scale and rotation
-                        obj.transform.localScale = new Vector3(Random.Range(minScale, maxScale), Random.Range(minScale, maxScale), Random.Range(minScale, maxScale));
-                        if(useRandomRotation){
-                            obj.transform.Rotate(0, Random.Range(0, 361), 0, Space.Self);
-                        }
-                        
-                        //offset to bring closer to ground
-                        obj.transform.position += transform.TransformDirection(-obj.transform.up) * offsetScale * obj.transform.localScale.y;
+                        //find normal rotation based on surface
+                        Quaternion normalRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 
-                        if(useRandomColor){
-                            obj.GetComponent<MeshRenderer>().material.color = Color.Lerp(startColor, endColor, Random.value);
-                        }
+                        //overlap checking
+                        Vector3 overlapTestBoxScale = Vector3.one * maxDensity;
+                        Collider[] collidersInsideOverlapBox = new Collider[1];
+                        numberOfCollidersFound = Physics.OverlapBoxNonAlloc(hit.point, overlapTestBoxScale, collidersInsideOverlapBox, normalRotation, objectMask);
 
-                        currentTries = 0;
+                        //if no overlaps
+                        if (numberOfCollidersFound == 0)
+                        {
+                            //spawn object
+                            GameObject obj = Instantiate(prefabs[Random.Range(0, prefabs.Count)], hit.point, normalRotation, parent);
+
+                            //change scale and rotation
+                            obj.transform.localScale = new Vector3(Random.Range(minScale, maxScale), Random.Range(minScale, maxScale), Random.Range(minScale, maxScale));
+                            if (useRandomRotation)
+                            {
+                                obj.transform.Rotate(0, Random.Range(0, 361), 0, Space.Self);
+                            }
+
+                            //offset to bring closer to ground
+                            obj.transform.position += transform.TransformDirection(-obj.transform.up) * offsetScale * obj.transform.localScale.y;
+
+                            if (useRandomColor)
+                            {
+                                obj.GetComponent<MeshRenderer>().material.color = Color.Lerp(startColor, endColor, Random.value);
+                            }
+
+                            currentTries = 0;
+                        }
                     }
                 }
             }
