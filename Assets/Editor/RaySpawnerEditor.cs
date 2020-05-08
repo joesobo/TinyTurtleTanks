@@ -7,7 +7,6 @@ using UnityEngine;
 [CustomEditor(typeof(RaySpawner))]
 public class RaySpawnerEditor : Editor
 {
-
     override public void OnInspectorGUI()
     {
         RaySpawner raySpawner = target as RaySpawner;
@@ -51,7 +50,7 @@ public class RaySpawnerEditor : Editor
         if (raySpawner.spawnTopDown)
         {
             GUILayout.Space(5);
-            raySpawner.radius = EditorGUILayout.IntField("Ray Start Radius", raySpawner.radius);
+            raySpawner.radius = EditorGUILayout.IntField(new GUIContent("Ray Start Radius", "Larger radiuses ensure better top down spawning"), raySpawner.radius);
         }
         else
         {
@@ -62,7 +61,7 @@ public class RaySpawnerEditor : Editor
             EditorGUILayout.EndHorizontal();
         }
 
-        raySpawner.checkDst = EditorGUILayout.IntField("Check Distance", raySpawner.checkDst);
+        raySpawner.checkDst = EditorGUILayout.IntField(new GUIContent("Check Distance", "Length ray should check"), raySpawner.checkDst);
 
         EditorGUIUtility.labelWidth = 75;
         EditorGUILayout.EndVertical();
