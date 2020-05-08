@@ -20,7 +20,8 @@ public class RaySpawner : MonoBehaviour
     public LayerMask layerMask;
     public LayerMask objectMask;
 
-    public int maxTries = 10;
+    //how many times it tries to spawn an object before failing
+    private int maxTries = 60;
     private int currentTries = 0;
 
     public bool keepColliders = true;
