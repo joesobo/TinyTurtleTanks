@@ -47,9 +47,9 @@ public class RaySpawnerEditor : Editor
         EditorGUILayout.BeginVertical();
         raySpawner.spawnTopDown = GUILayout.Toggle(raySpawner.spawnTopDown, "Use Top Down Spawning");
         EditorGUIUtility.labelWidth = 100;
+        GUILayout.Space(5);
         if (raySpawner.spawnTopDown)
         {
-            GUILayout.Space(5);
             raySpawner.radius = EditorGUILayout.IntField(new GUIContent("Ray Start Radius", "Larger radiuses ensure better top down spawning"), raySpawner.radius);
         }
         else
@@ -86,7 +86,7 @@ public class RaySpawnerEditor : Editor
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(15);
         EditorGUILayout.BeginVertical();
-        
+
         raySpawner.keepColliders = GUILayout.Toggle(raySpawner.keepColliders, "Use Colliders");
         raySpawner.useGizmos = GUILayout.Toggle(raySpawner.useGizmos, "Use Gizmos");
         raySpawner.useRandomRotation = GUILayout.Toggle(raySpawner.useRandomRotation, "Use Random Rotation");
@@ -100,14 +100,33 @@ public class RaySpawnerEditor : Editor
             raySpawner.endColor = DrawColor(raySpawner.endColor, false);
             EditorGUILayout.EndHorizontal();
         }
+        GUILayout.Space(5);
+
+        if (GUILayout.Button("Regenerate"))
+        {
+            raySpawner.ClearObjects();
+            for (int i = 0; i < raySpawner.num; i++)
+            {
+                raySpawner.GenerateObject();
+            }
+        }
+
+        if (GUILayout.Button("Save Objects"))
+        {
+
+        }
         EditorGUILayout.EndVertical();
         EditorGUILayout.EndHorizontal();
     }
 
-    private Color DrawColor(Color color, bool start){
-        if(start){
+    private Color DrawColor(Color color, bool start)
+    {
+        if (start)
+        {
             return EditorGUILayout.ColorField("Start Color", color);
-        }else{
+        }
+        else
+        {
             return EditorGUILayout.ColorField("End Color", color);
         }
     }

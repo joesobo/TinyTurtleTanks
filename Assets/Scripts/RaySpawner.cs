@@ -53,7 +53,7 @@ public class RaySpawner : MonoBehaviour
         }
     }
 
-    private void GenerateObject()
+    public void GenerateObject()
     {
         //Cast ray in random direction
         RaycastHit hit = new RaycastHit();
@@ -127,7 +127,7 @@ public class RaySpawner : MonoBehaviour
         }
     }
 
-    private void ClearObjects()
+    public void ClearObjects()
     {
         foreach (Transform child in parent.transform)
         {
