@@ -21,15 +21,21 @@ public class RaySpawnerEditor : Editor
         raySpawner.offsetScale = EditorGUILayout.FloatField("Offset Scale", raySpawner.offsetScale);
         EditorGUIUtility.labelWidth = 75;
         EditorGUILayout.BeginHorizontal();
-        raySpawner.minScale = EditorGUILayout.FloatField("Min Scale", raySpawner.minScale);
+        raySpawner.minScale = EditorGUILayout.FloatField("Min Scale:", raySpawner.minScale);
         GUILayout.Space(25);
-        raySpawner.maxScale = EditorGUILayout.FloatField("Max Scale", raySpawner.maxScale);
+        raySpawner.maxScale = EditorGUILayout.FloatField("Max Scale:", raySpawner.maxScale);
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.MinMaxSlider(ref raySpawner.minScale, ref raySpawner.maxScale, 0, 5);
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.BeginHorizontal();
         raySpawner.minHeight = EditorGUILayout.FloatField("Min Height", raySpawner.minHeight);
         GUILayout.Space(25);
         raySpawner.maxHeight = EditorGUILayout.FloatField("Max Height", raySpawner.maxHeight);
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.MinMaxSlider(ref raySpawner.minHeight, ref raySpawner.maxHeight, 0, 50);
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.BeginHorizontal();
@@ -58,6 +64,9 @@ public class RaySpawnerEditor : Editor
             raySpawner.minRayHeight = EditorGUILayout.FloatField("Min Ray Height", raySpawner.minRayHeight);
             GUILayout.Space(25);
             raySpawner.maxRayHeight = EditorGUILayout.FloatField("Max Ray Height", raySpawner.maxRayHeight);
+            EditorGUILayout.EndHorizontal();
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.MinMaxSlider(ref raySpawner.minRayHeight, ref raySpawner.maxRayHeight, 0, 50);
             EditorGUILayout.EndHorizontal();
         }
 
