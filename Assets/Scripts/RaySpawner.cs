@@ -41,9 +41,15 @@ public class RaySpawner : MonoBehaviour
 
     void Start()
     {
+        GenAll();
+    }
+
+    public void GenAll()
+    {
         ClearObjects();
         for (int i = 0; i < num; i++)
         {
+            currentTries = 0;
             GenerateObject();
         }
 
@@ -53,7 +59,7 @@ public class RaySpawner : MonoBehaviour
         }
     }
 
-    public void GenerateObject()
+    private void GenerateObject()
     {
         //Cast ray in random direction
         RaycastHit hit = new RaycastHit();
@@ -127,11 +133,11 @@ public class RaySpawner : MonoBehaviour
         }
     }
 
-    public void ClearObjects()
+    private void ClearObjects()
     {
         foreach (Transform child in parent.transform)
         {
-            DestroyImmediate(child.gameObject);
+            Destroy(child.gameObject);
         }
     }
 

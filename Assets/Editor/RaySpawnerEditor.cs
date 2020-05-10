@@ -104,11 +104,7 @@ public class RaySpawnerEditor : Editor
 
         if (GUILayout.Button("Regenerate"))
         {
-            raySpawner.ClearObjects();
-            for (int i = 0; i < raySpawner.num; i++)
-            {
-                raySpawner.GenerateObject();
-            }
+            raySpawner.GenAll();
         }
 
         if (GUILayout.Button("Save Objects"))
