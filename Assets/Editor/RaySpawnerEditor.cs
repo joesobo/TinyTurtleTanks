@@ -102,14 +102,29 @@ public class RaySpawnerEditor : Editor
         }
         GUILayout.Space(5);
 
-        if (GUILayout.Button("Regenerate"))
+        if (Application.isPlaying)
         {
-            raySpawner.GenAll();
+            if (GUILayout.Button("Regenerate"))
+            {
+                raySpawner.ClearObjects();
+                raySpawner.GenAll();
+            }
+
+            if (GUILayout.Button("Save Objects"))
+            {
+                raySpawner.Save();
+            }
         }
 
-        if (GUILayout.Button("Save Objects"))
+        if (GUILayout.Button("Load Objects"))
         {
+            raySpawner.ClearObjects();
+            raySpawner.Load();
+        }
 
+        if (GUILayout.Button("Clear Objects"))
+        {
+            raySpawner.ClearObjects();
         }
         EditorGUILayout.EndVertical();
         EditorGUILayout.EndHorizontal();
