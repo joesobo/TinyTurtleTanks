@@ -27,7 +27,9 @@ public class RaySpawner : MonoBehaviour
 
     public bool keepColliders = true;
     public bool spawnTopDown = false;
-    public bool useGizmos = false;
+    public bool useGizmoRadius = false;
+    public bool useGizmoHeight = false;
+    public bool useGizmoRayHeight = false;
     public bool useRandomRotation = false;
     public bool useRandomColor = false;
 
@@ -246,13 +248,28 @@ public class RaySpawner : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        if (useGizmos)
+        if (useGizmoHeight)
         {
             Gizmos.color = new Color(1, 0, 0, 0.25f);
             Gizmos.DrawSphere(Vector3.zero, minHeight);
 
             Gizmos.color = new Color(0, 0, 1, 0.25f);
             Gizmos.DrawSphere(Vector3.zero, maxHeight);
+        }
+
+        if (useGizmoRayHeight)
+        {
+            Gizmos.color = new Color(1, 0, 0, 0.25f);
+            Gizmos.DrawSphere(Vector3.zero, minRayHeight);
+
+            Gizmos.color = new Color(0, 0, 1, 0.25f);
+            Gizmos.DrawSphere(Vector3.zero, maxRayHeight);
+        }
+
+        if (useGizmoRadius)
+        {
+            Gizmos.color = new Color(0, 1, 0, 0.25f);
+            Gizmos.DrawSphere(Vector3.zero, radius);
         }
     }
 }

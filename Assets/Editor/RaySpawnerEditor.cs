@@ -11,6 +11,7 @@ public class RaySpawnerEditor : Editor
     {
         RaySpawner raySpawner = target as RaySpawner;
 
+        //OBJECT SETTINGS
         EditorGUILayout.LabelField("Object Settings", EditorStyles.boldLabel);
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(15);
@@ -43,10 +44,19 @@ public class RaySpawnerEditor : Editor
         LayerMask tempMask = EditorGUILayout.MaskField(InternalEditorUtility.LayerMaskToConcatenatedLayersMask(raySpawner.layerMask), InternalEditorUtility.layers);
         raySpawner.layerMask = InternalEditorUtility.ConcatenatedLayersMaskToLayerMask(tempMask);
         EditorGUILayout.EndHorizontal();
+
+        raySpawner.useGizmoHeight = GUILayout.Toggle(raySpawner.useGizmoHeight, "Use Height Gizmos");
+        if (raySpawner.useGizmoHeight)
+        {
+            raySpawner.useGizmoRadius = false;
+            raySpawner.useGizmoRayHeight = false;
+        }
         EditorGUILayout.EndVertical();
         EditorGUILayout.EndHorizontal();
 
         GUILayout.Space(15);
+
+        //RAY SPAWN SETTINGS
         EditorGUILayout.LabelField("Ray Spawning Settings", EditorStyles.boldLabel);
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(15);
@@ -54,9 +64,19 @@ public class RaySpawnerEditor : Editor
         raySpawner.spawnTopDown = GUILayout.Toggle(raySpawner.spawnTopDown, "Use Top Down Spawning");
         EditorGUIUtility.labelWidth = 100;
         GUILayout.Space(5);
+
+        raySpawner.checkDst = EditorGUILayout.IntField(new GUIContent("Check Distance", "Length ray should check"), raySpawner.checkDst);
+
         if (raySpawner.spawnTopDown)
         {
             raySpawner.radius = EditorGUILayout.IntField(new GUIContent("Ray Start Radius", "Larger radiuses ensure better top down spawning"), raySpawner.radius);
+
+            raySpawner.useGizmoRadius = GUILayout.Toggle(raySpawner.useGizmoRadius, "Use Radius Gizmos");
+            if (raySpawner.useGizmoRadius)
+            {
+                raySpawner.useGizmoRayHeight = false;
+                raySpawner.useGizmoHeight = false;
+            }
         }
         else
         {
@@ -68,15 +88,21 @@ public class RaySpawnerEditor : Editor
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.MinMaxSlider(ref raySpawner.minRayHeight, ref raySpawner.maxRayHeight, 0, 50);
             EditorGUILayout.EndHorizontal();
+
+            raySpawner.useGizmoRayHeight = GUILayout.Toggle(raySpawner.useGizmoRayHeight, "Use Ray Height Gizmos");
+            if (raySpawner.useGizmoRayHeight)
+            {
+                raySpawner.useGizmoRadius = false;
+                raySpawner.useGizmoHeight = false;
+            }
         }
-
-        raySpawner.checkDst = EditorGUILayout.IntField(new GUIContent("Check Distance", "Length ray should check"), raySpawner.checkDst);
-
         EditorGUIUtility.labelWidth = 75;
         EditorGUILayout.EndVertical();
         EditorGUILayout.EndHorizontal();
 
         GUILayout.Space(15);
+
+        //OVERLAP DETECTION SETTINGS
         EditorGUILayout.LabelField("Overlap Detection Settings", EditorStyles.boldLabel);
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(15);
@@ -91,13 +117,14 @@ public class RaySpawnerEditor : Editor
         EditorGUILayout.EndHorizontal();
 
         GUILayout.Space(15);
+
+        //OTHER SETTINGS
         EditorGUILayout.LabelField("Extra Options", EditorStyles.boldLabel);
         EditorGUILayout.BeginHorizontal();
         GUILayout.Space(15);
         EditorGUILayout.BeginVertical();
 
         raySpawner.keepColliders = GUILayout.Toggle(raySpawner.keepColliders, "Use Colliders");
-        raySpawner.useGizmos = GUILayout.Toggle(raySpawner.useGizmos, "Use Gizmos");
         raySpawner.useRandomRotation = GUILayout.Toggle(raySpawner.useRandomRotation, "Use Random Rotation");
         raySpawner.useRandomColor = GUILayout.Toggle(raySpawner.useRandomColor, "Use Random Color");
 
