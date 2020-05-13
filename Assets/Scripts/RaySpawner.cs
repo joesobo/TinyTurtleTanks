@@ -58,10 +58,10 @@ public class RaySpawner : MonoBehaviour
             GenerateObject();
         }
 
-        // if (!keepColliders)
-        // {
-        //     TurnOffColliders();
-        // }
+        if (!keepColliders)
+        {
+            TurnOffColliders();
+        }
     }
 
     private void GenerateObject()
@@ -151,7 +151,17 @@ public class RaySpawner : MonoBehaviour
             BinaryWriter writer = new BinaryWriter(File.Open(Path.Combine(Application.persistentDataPath, "saveFile"), FileMode.Create))
         )
         {
+            //count
             writer.Write(objects.Count);
+            //collider
+            if (keepColliders)
+            {
+                writer.Write(1);
+            }
+            else
+            {
+                writer.Write(0);
+            }
             MeshRenderer meshRenderer;
             for (int i = 0; i < objects.Count; i++)
             {
@@ -187,11 +197,14 @@ public class RaySpawner : MonoBehaviour
             BinaryReader reader = new BinaryReader(File.Open(Path.Combine(Application.persistentDataPath, "saveFile"), FileMode.Open))
         )
         {
+            //count
             int count = reader.ReadInt32();
             int index;
             Vector3 p, s;
             Quaternion r;
             Color c;
+            //collider
+            int useCollider = reader.ReadInt32();
             for (int i = 0; i < count; i++)
             {
                 //prefab version
@@ -223,7 +236,12 @@ public class RaySpawner : MonoBehaviour
                 Material tempMat = new Material(renderer.sharedMaterial);
                 tempMat.color = c;
                 renderer.sharedMaterial = tempMat;
+
                 objects.Add(obj);
+            }
+            if (useCollider == 0)
+            {
+                TurnOffColliders();
             }
         }
     }
@@ -238,13 +256,13 @@ public class RaySpawner : MonoBehaviour
         objectsIndex.Clear();
     }
 
-    // private void TurnOffColliders()
-    // {
-    //     foreach (GameObject g in objects)
-    //     {
-    //         DestroyImmediate(g.GetComponent<BoxCollider>());
-    //     }
-    // }
+    private void TurnOffColliders()
+    {
+        foreach (GameObject g in objects)
+        {
+            DestroyImmediate(g.GetComponent<BoxCollider>());
+        }
+    }
 
     void OnDrawGizmosSelected()
     {
