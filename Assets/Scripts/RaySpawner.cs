@@ -151,16 +151,14 @@ public class RaySpawner : MonoBehaviour
             BinaryWriter writer = new BinaryWriter(File.Open(Path.Combine(Application.persistentDataPath, "saveFile"), FileMode.Create))
         )
         {
+            GameDataWriter gameDataWriter = new GameDataWriter(writer);
             //count
-            writer.Write(objects.Count);
+            gameDataWriter.Write(objects.Count);
             //collider
-            if (keepColliders)
-            {
-                writer.Write(1);
-            }
-            else
-            {
-                writer.Write(0);
+            if (keepColliders){
+                gameDataWriter.Write(1);
+            }else{
+                gameDataWriter.Write(0);
             }
             MeshRenderer meshRenderer;
             for (int i = 0; i < objects.Count; i++)
@@ -168,25 +166,11 @@ public class RaySpawner : MonoBehaviour
                 GameObject g = objects[i];
                 meshRenderer = g.GetComponent<MeshRenderer>();
                 //prefab version
-                writer.Write(objectsIndex[i]);
-                //position
-                writer.Write(g.transform.localPosition.x);
-                writer.Write(g.transform.localPosition.y);
-                writer.Write(g.transform.localPosition.z);
-                //rotation
-                writer.Write(g.transform.localRotation.x);
-                writer.Write(g.transform.localRotation.y);
-                writer.Write(g.transform.localRotation.z);
-                writer.Write(g.transform.localRotation.w);
-                //scale
-                writer.Write(g.transform.localScale.x);
-                writer.Write(g.transform.localScale.y);
-                writer.Write(g.transform.localScale.z);
-                //color
-                writer.Write(meshRenderer.material.color.r);
-                writer.Write(meshRenderer.material.color.g);
-                writer.Write(meshRenderer.material.color.b);
-                writer.Write(meshRenderer.material.color.a);
+                gameDataWriter.Write(objectsIndex[i]);
+                gameDataWriter.Write(g.transform.localPosition);
+                gameDataWriter.Write(g.transform.localRotation);
+                gameDataWriter.Write(g.transform.localScale);
+                gameDataWriter.Write(meshRenderer.material.color);
             }
         }
     }
@@ -197,36 +181,22 @@ public class RaySpawner : MonoBehaviour
             BinaryReader reader = new BinaryReader(File.Open(Path.Combine(Application.persistentDataPath, "saveFile"), FileMode.Open))
         )
         {
-            //count
-            int count = reader.ReadInt32();
+            GameDataReader gameDataReader = new GameDataReader(reader);
+
             int index;
             Vector3 p, s;
             Quaternion r;
             Color c;
-            //collider
-            int useCollider = reader.ReadInt32();
+            int count = gameDataReader.ReadInt();
+            int useCollider = gameDataReader.ReadInt();
             for (int i = 0; i < count; i++)
             {
                 //prefab version
-                index = reader.ReadInt32();
-                //position
-                p.x = reader.ReadSingle();
-                p.y = reader.ReadSingle();
-                p.z = reader.ReadSingle();
-                //rotation
-                r.x = reader.ReadSingle();
-                r.y = reader.ReadSingle();
-                r.z = reader.ReadSingle();
-                r.w = reader.ReadSingle();
-                //scale
-                s.x = reader.ReadSingle();
-                s.y = reader.ReadSingle();
-                s.z = reader.ReadSingle();
-                //color
-                c.r = reader.ReadSingle();
-                c.g = reader.ReadSingle();
-                c.b = reader.ReadSingle();
-                c.a = reader.ReadSingle();
+                index = gameDataReader.ReadInt();
+                p = gameDataReader.ReadVector3();
+                r = gameDataReader.ReadQuaternion();
+                s = gameDataReader.ReadVector3();
+                c = gameDataReader.ReadColor();
 
                 GameObject obj = Transform.Instantiate(prefabs[index], Vector3.zero, Quaternion.identity, parent);
                 obj.transform.localPosition = p;
