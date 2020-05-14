@@ -42,6 +42,8 @@ public class RaySpawner : MonoBehaviour
     public Color startColor;
     public Color endColor;
 
+    public float slopeCutoff = -0.5f;
+
     private List<int> objectsIndex = new List<int>();
     private List<GameObject> objects = new List<GameObject>();
 
@@ -94,7 +96,8 @@ public class RaySpawner : MonoBehaviour
                 {
                     //check max and min height
                     float distFromCenter = Vector3.Distance(hit.point, Vector3.zero);
-                    if (distFromCenter > minHeight && distFromCenter < maxHeight)
+                    float slopeResult = Vector3.Dot(Vector3.zero, hit.normal);
+                    if (distFromCenter > minHeight && distFromCenter < maxHeight && slopeResult < slopeCutoff)
                     {
                         //find normal rotation based on surface
                         Quaternion normalRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
