@@ -8,6 +8,7 @@ public class GameSettings : MonoBehaviour
     public bool useSound = false;
     public bool useParticle = false;
     public bool useGrass = false;
+    public bool useSeaweed = false;
     public bool useTrails = false;
     public bool useClouds = false;
     public bool useMoons = false;

@@ -18,6 +18,7 @@ public class LevelRunner : MonoBehaviour
 
     public GameObject fx;
     public GameObject grassSpawner;
+    public GameObject seaweedSpawner;
     public GameObject backgroundMusic;
     public GameObject cloudSpawner;
     public GameObject moonSpawner;
@@ -88,6 +89,7 @@ public class LevelRunner : MonoBehaviour
         //SFX and VFX
         fx.SetActive(settings.useVFX);
         grassSpawner.SetActive(settings.useGrass);
+        seaweedSpawner.SetActive(settings.useSeaweed);
         backgroundMusic.SetActive(settings.useSound);
 
         //Obstacles and Environment
