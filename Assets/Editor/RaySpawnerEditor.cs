@@ -77,7 +77,10 @@ public class RaySpawnerEditor : Editor
             GUILayout.Space(5);
 
             raySpawner.checkDst = EditorGUILayout.IntField(new GUIContent("Check Distance", "Length ray should check"), raySpawner.checkDst);
-            raySpawner.slopeCutoff = EditorGUILayout.FloatField("Slope Cutoff", raySpawner.slopeCutoff);
+            raySpawner.useSlopeCutoff = GUILayout.Toggle(raySpawner.useSlopeCutoff, "Use Slope Cutoff");
+            if(raySpawner.useSlopeCutoff) {
+                raySpawner.slopeCutoff = EditorGUILayout.FloatField("Slope Cutoff", raySpawner.slopeCutoff);
+            }
 
             if (raySpawner.spawnTopDown)
             {
