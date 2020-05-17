@@ -14,6 +14,8 @@ public class GameSettings : MonoBehaviour
     public bool useMoons = false;
     public bool useWater = false;
     public bool useSun = false;
+    [Range(0,1)]
+    public float soundVolume = 1.0f;
     
     [Header("Test Settings")]
     public bool useCrates = false;

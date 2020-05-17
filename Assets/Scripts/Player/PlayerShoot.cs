@@ -35,6 +35,7 @@ public class PlayerShoot : MonoBehaviour
                 //play sound
                 if (settings.useSound)
                 {
+                    source.volume = settings.soundVolume;
                     source.Play();
                 }
                 //apply screen shake

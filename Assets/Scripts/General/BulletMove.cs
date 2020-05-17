@@ -66,6 +66,7 @@ public class BulletMove : MonoBehaviour
             Debug.Log("Hit Obstacle");
             if (settings.useSound)
             {
+                source.volume = settings.soundVolume;
                 source.Play();
             }
             Destroy(gameObject);
@@ -77,6 +78,7 @@ public class BulletMove : MonoBehaviour
             col.gameObject.GetComponent<Health>().decreaseHealth(1);
             if (settings.useSound)
             {
+                source.volume = settings.soundVolume;
                 source.Play();
             }
             Destroy(gameObject);
@@ -88,6 +90,7 @@ public class BulletMove : MonoBehaviour
             col.gameObject.GetComponent<Breakable>().Break();
             if (settings.useSound)
             {
+                source.volume = settings.soundVolume;
                 source.Play();
             }
             Destroy(gameObject);

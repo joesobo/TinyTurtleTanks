@@ -190,6 +190,7 @@ public class SmartEnemy : MonoBehaviour
         }
         if (settings.useSound)
         {
+            source.volume = settings.soundVolume;
             source.Play();
         }
     }
