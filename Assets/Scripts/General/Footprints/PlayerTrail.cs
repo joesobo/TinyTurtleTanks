@@ -14,7 +14,7 @@ public class PlayerTrail : MonoBehaviour
     public GameObject footprintParent;
     public Color color;
     [Range(1,30)]
-    public int speed = 10;
+    public int fadeSpeed = 10;
 
     private Rigidbody rb;
 
@@ -53,7 +53,7 @@ public class PlayerTrail : MonoBehaviour
                 footprint.transform.position += hit.normal * offset;
 
                 footprint.GetComponent<Footprint>().color = color;
-                footprint.GetComponent<Footprint>().speed = speed;
+                footprint.GetComponent<Footprint>().fadeSpeed = fadeSpeed;
             }
         }
     }
