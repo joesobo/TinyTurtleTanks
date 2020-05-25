@@ -122,14 +122,15 @@ public class LevelRunner : MonoBehaviour
                 {
                     var main = ps.main;
                     var emissionModule = ps.emission;
-                    var rate = emissionModule.rateOverTime;
 
                     int oldMaxParticles = main.maxParticles;
-                    float oldRateOverTime = rate.constant;
+                    float oldRateOverTime = emissionModule.rateOverTime.constant;
+                    Burst oldBurst = emissionModule.GetBurst(0);
 
                     emissionModule = ps.emission;
-
                     emissionModule.rateOverTime = new MinMaxCurve(oldRateOverTime * limitParticle);
+
+                    emissionModule.SetBurst(0, new Burst(0, oldBurst.count.constant * limitParticle));
 
                     main.maxParticles = (int)(oldMaxParticles * limitParticle);
                 }
