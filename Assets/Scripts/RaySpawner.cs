@@ -33,6 +33,7 @@ public class RaySpawner : MonoBehaviour
     public bool useRandomRotation = false;
     public bool useRandomColor = false;
     public bool useSlopeCutoff = false;
+    public bool useRandomScaleAxis = false;
 
     public float minRayHeight = 0;
     public float maxRayHeight = 50;
@@ -104,7 +105,8 @@ public class RaySpawner : MonoBehaviour
                         float dist = heading.magnitude;
                         Vector3 direction = heading / dist;
                         float slopeResult = Vector3.Dot(direction, hit.normal);
-                        if(!useSlopeCutoff || slopeResult >= slopeCutoff) {
+                        if (!useSlopeCutoff || slopeResult >= slopeCutoff)
+                        {
                             //find normal rotation based on surface
                             Quaternion normalRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 
@@ -122,7 +124,13 @@ public class RaySpawner : MonoBehaviour
                                 objectsIndex.Add(index);
 
                                 //change scale and rotation
-                                obj.transform.localScale = new Vector3(Random.Range(minScale, maxScale), Random.Range(minScale, maxScale), Random.Range(minScale, maxScale));
+                                if(useRandomScaleAxis) {
+                                    obj.transform.localScale = new Vector3(Random.Range(minScale, maxScale), Random.Range(minScale, maxScale), Random.Range(minScale, maxScale));
+                                } else {
+                                    float setScale = Random.Range(minScale, maxScale);
+                                    obj.transform.localScale = new Vector3(setScale, setScale, setScale);
+                                }
+                                
                                 if (useRandomRotation)
                                 {
                                     obj.transform.Rotate(0, Random.Range(0, 361), 0, Space.Self);
@@ -134,9 +142,12 @@ public class RaySpawner : MonoBehaviour
                                 if (useRandomColor)
                                 {
                                     MeshRenderer renderer = obj.GetComponent<MeshRenderer>();
-                                    Material tempMat = new Material(renderer.sharedMaterial);
-                                    tempMat.color = Color.Lerp(startColor, endColor, Random.value);
-                                    renderer.sharedMaterial = tempMat;
+                                    if (renderer)
+                                    {
+                                        Material tempMat = new Material(renderer.sharedMaterial);
+                                        tempMat.color = Color.Lerp(startColor, endColor, Random.value);
+                                        renderer.sharedMaterial = tempMat;
+                                    }
                                 }
 
                                 objects.Add(obj);
@@ -165,9 +176,12 @@ public class RaySpawner : MonoBehaviour
             //count
             gameDataWriter.Write(objects.Count);
             //collider
-            if (keepColliders){
+            if (keepColliders)
+            {
                 gameDataWriter.Write(1);
-            }else{
+            }
+            else
+            {
                 gameDataWriter.Write(0);
             }
             MeshRenderer meshRenderer;

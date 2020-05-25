@@ -23,11 +23,17 @@ public class RaySpawnerEditor : Editor
             EditorGUILayout.BeginHorizontal();
             GUILayout.Space(15);
             EditorGUILayout.BeginVertical();
-            EditorList.Show(serializedObject.FindProperty("prefabs"));
+
+            //EditorList.Show(serializedObject.FindProperty("prefabs"));
+            var prefabProperty = serializedObject.FindProperty("prefabs");
+            EditorGUILayout.PropertyField(prefabProperty, new GUIContent("Prefabs"), true);
+            serializedObject.ApplyModifiedProperties();
+            
             raySpawner.parent = (Transform)EditorGUILayout.ObjectField("Parent", raySpawner.parent, typeof(Transform), true);
             raySpawner.num = EditorGUILayout.IntField("Number of Objects", raySpawner.num);
             raySpawner.offsetScale = EditorGUILayout.FloatField("Offset Scale", raySpawner.offsetScale);
             EditorGUIUtility.labelWidth = 75;
+            raySpawner.useRandomScaleAxis = GUILayout.Toggle(raySpawner.useRandomScaleAxis, "Use Random Scale Axis");
             EditorGUILayout.BeginHorizontal();
             raySpawner.minScale = EditorGUILayout.FloatField("Min Scale:", raySpawner.minScale);
             GUILayout.Space(25);
