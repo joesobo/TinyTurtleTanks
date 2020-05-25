@@ -25,6 +25,7 @@ public class LevelRunner : MonoBehaviour
     public GameObject crateSpawner;
     public GameObject obstacleList;
     public List<GameObject> enemyStuffList;
+    public List<GameObject> particleList;
     public GameObject water;
     public GameObject sun;
 
@@ -104,6 +105,12 @@ public class LevelRunner : MonoBehaviour
         foreach (GameObject enemyThing in enemyStuffList)
         {
             enemyThing.SetActive(settings.useEnemies);
+        }
+
+        //Particles
+        foreach (GameObject particle in particleList)
+        {
+            particle.SetActive(settings.useParticle);
         }
 
         //UI Menu

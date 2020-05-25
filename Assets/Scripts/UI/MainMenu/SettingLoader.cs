@@ -10,7 +10,7 @@ public class SettingLoader : MonoBehaviour
     public Image soundButton;
     public Image particleButton;
     public Image grassButton;
-    public Image trailButton;
+    public Image footPrintButton;
     public Image cloudButton;
 
     public Color inActiveColor;
@@ -27,7 +27,7 @@ public class SettingLoader : MonoBehaviour
         LoadColor(settings.useSound, soundButton);
         LoadColor(settings.useParticle, particleButton);
         LoadColor(settings.useGrass, grassButton);
-        LoadColor(settings.useTrails, trailButton);
+        LoadColor(settings.useFootPrints, footPrintButton);
         LoadColor(settings.useClouds, cloudButton);
     }
 
@@ -65,10 +65,10 @@ public class SettingLoader : MonoBehaviour
         LoadColor(settings.useGrass, grassButton);
     }
 
-    public void ChangeTrailSetting()
+    public void ChangeFootprintSetting()
     {
-        settings.useTrails = !settings.useTrails;
-        LoadColor(settings.useTrails, trailButton);
+        settings.useFootPrints = !settings.useFootPrints;
+        LoadColor(settings.useFootPrints, footPrintButton);
     }
 
     public void ChangeCloudSetting()

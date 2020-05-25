@@ -100,14 +100,11 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
             rb.MovePosition(rb.position + localMove);
-            if (settings.useParticle)
-            {
-                if (localMove != Vector3.zero)
-                {
+            if (settings.useParticle) {
+                if (localMove != Vector3.zero) {
                     particleSystem.Play();
                 }
-                else
-                {
+                else {
                     particleSystem.Stop();
                 }
 

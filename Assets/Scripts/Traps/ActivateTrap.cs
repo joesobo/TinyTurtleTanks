@@ -39,7 +39,7 @@ public class ActivateTrap : MonoBehaviour
             //otherwise its a mine
             else{
                 if(blowUp){
-                    if(settings.useParticle){
+                    if(settings.useParticle) {
 
                     }
                 }

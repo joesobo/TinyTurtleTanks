@@ -7,9 +7,11 @@ public class GameSettings : MonoBehaviour
     public bool useVFX = false;
     public bool useSound = false;
     public bool useParticle = false;
+    [Range(0,1)]
+    public float particleSlider = 1.0f;
     public bool useGrass = false;
     public bool useSeaweed = false;
-    public bool useTrails = false;
+    public bool useFootPrints = false;
     public bool useClouds = false;
     public bool useMoons = false;
     public bool useWater = false;

@@ -18,35 +18,30 @@ public class PlayerTrail : MonoBehaviour
 
     private Rigidbody rb;
 
-    private void Start()
-    {
+    private void Start() {
         settings = FindObjectOfType<GameSettings>();
 
-        if(footprintParent == null){
+        if (footprintParent == null) {
             footprintParent = GameObject.Find("FootprintParent");
         }
 
         rb = this.gameObject.GetComponent<Rigidbody>();
 
-        if(settings.useTrails){
+        if (settings.useFootPrints) {
             StartCoroutine("StartSpawn");
         }
     }
 
-    IEnumerator StartSpawn()
-    {
+    IEnumerator StartSpawn() {
         AddTrailStep();
         yield return new WaitForSeconds(waitForSeconds);
         StartCoroutine("StartSpawn");
     }
 
-    public void AddTrailStep()
-    {
-        if (rb.velocity.magnitude > 0)
-        {
+    public void AddTrailStep()  {
+        if (rb.velocity.magnitude > 0) {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, -transform.position, out hit, .75f + .1f, terrainLayer))
-            {
+            if (Physics.Raycast(transform.position, -transform.position, out hit, .75f + .1f, terrainLayer)) {
                 GameObject footprint = Instantiate(trailPrefab, hit.point, transform.rotation, footprintParent.transform);
                 footprint.transform.Rotate(90, 0, 0);
                 footprint.transform.localScale = footprintSize;
