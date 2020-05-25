@@ -41,7 +41,7 @@ public class LevelRunner : MonoBehaviour
         numberOfEnemies = FindObjectsOfType<SmartEnemy>().Length;
         enemiesLeft = numberOfEnemies;
 
-        CallSettings();       
+        CallSettings();
     }
 
     private void Update()
@@ -111,24 +111,30 @@ public class LevelRunner : MonoBehaviour
         //Particles
         foreach (GameObject particle in particleList)
         {
-            particle.SetActive(settings.useParticle);
+            if (settings.useParticle)
+            {
+                particle.SetActive(settings.useParticle);
 
-            float limitParticle = settings.particleSlider;
+                float limitParticle = settings.particleSlider;
 
-            ParticleSystem ps = particle.GetComponent<ParticleSystem>();
-            var main = ps.main;
-            var emissionModule = ps.emission;
-            var rate = emissionModule.rateOverTime;         
+                ParticleSystem ps = particle.GetComponent<ParticleSystem>();
+                if (ps != null)
+                {
+                    var main = ps.main;
+                    var emissionModule = ps.emission;
+                    var rate = emissionModule.rateOverTime;
 
-            int oldMaxParticles = main.maxParticles;
-            float oldRateOverTime = rate.constant;
+                    int oldMaxParticles = main.maxParticles;
+                    float oldRateOverTime = rate.constant;
 
-            emissionModule = ps.emission;
-            ParticleSystem.MinMaxCurve tempCurve = emissionModule.rateOverTime;
-            tempCurve.constant = oldRateOverTime * limitParticle;
-            emissionModule.rateOverTime = tempCurve;
+                    emissionModule = ps.emission;
 
-            main.maxParticles = (int)(oldMaxParticles * limitParticle);
+                    emissionModule.rateOverTime = new MinMaxCurve(oldRateOverTime * limitParticle);
+
+                    main.maxParticles = (int)(oldMaxParticles * limitParticle);
+                }
+
+            }
         }
 
         //UI Menu

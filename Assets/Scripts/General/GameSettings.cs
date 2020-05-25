@@ -6,8 +6,9 @@ public class GameSettings : MonoBehaviour
     public bool isPaused = false;
     public bool useVFX = false;
     public bool useSound = false;
+    [HideInInspector]
     public bool useParticle = false;
-    [Range(0,1)]
+    [Range(0,5)]
     public float particleSlider = 1.0f;
     public bool useGrass = false;
     public bool useSeaweed = false;
@@ -35,6 +36,10 @@ public class GameSettings : MonoBehaviour
         else if (Instance != this)
         {
             Destroy(gameObject);
+        }
+
+        if(particleSlider == 0) {
+            useParticle = false;
         }
     }
 }
