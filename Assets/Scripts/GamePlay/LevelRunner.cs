@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class LevelRunner : MonoBehaviour
 {
@@ -111,6 +112,23 @@ public class LevelRunner : MonoBehaviour
         foreach (GameObject particle in particleList)
         {
             particle.SetActive(settings.useParticle);
+
+            float limitParticle = settings.particleSlider;
+
+            ParticleSystem ps = particle.GetComponent<ParticleSystem>();
+            var main = ps.main;
+            var emissionModule = ps.emission;
+            var rate = emissionModule.rateOverTime;         
+
+            int oldMaxParticles = main.maxParticles;
+            float oldRateOverTime = rate.constant;
+
+            emissionModule = ps.emission;
+            ParticleSystem.MinMaxCurve tempCurve = emissionModule.rateOverTime;
+            tempCurve.constant = oldRateOverTime * limitParticle;
+            emissionModule.rateOverTime = tempCurve;
+
+            main.maxParticles = (int)(oldMaxParticles * limitParticle);
         }
 
         //UI Menu
