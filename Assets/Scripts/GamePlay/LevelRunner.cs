@@ -69,10 +69,12 @@ public class LevelRunner : MonoBehaviour
         if (settings.isPaused)
         {
             Cursor.lockState = CursorLockMode.None;
+            ParticleLock(true);
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
+            ParticleLock(false);
         }
     }
 
@@ -140,5 +142,16 @@ public class LevelRunner : MonoBehaviour
 
         //UI Menu
         quitMenu.gameObject.SetActive(settings.useEnemies);
+    }
+
+    private void ParticleLock(bool active) {
+        foreach (ParticleSystem ps in FindObjectsOfType(typeof(ParticleSystem)))
+        {
+            if (active) {
+                ps.Pause();
+            } else {
+                ps.Play();
+            }
+        }
     }
 }
