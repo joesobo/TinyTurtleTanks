@@ -81,7 +81,8 @@ public class PlayerController : MonoBehaviour
                 grounded = true;
                 
                 if(settings.useParticle && !landParticleSpawned) {
-                    Instantiate(landParticles, transform.position, transform.rotation);
+                    ParticleSystem ps = Instantiate(landParticles, transform.position, transform.rotation);
+                    settings.SetParticleValues(ps);
                     landParticleSpawned = true;
                 }
             }

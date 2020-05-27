@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class GameSettings : MonoBehaviour
 {
@@ -40,6 +41,26 @@ public class GameSettings : MonoBehaviour
 
         if(particleSlider == 0) {
             useParticle = false;
+        }
+    }
+
+    public void SetParticleValues(ParticleSystem ps)
+    {
+        if (ps != null)
+        {   
+            var main = ps.main;
+            var emissionModule = ps.emission;
+
+            int oldMaxParticles = main.maxParticles;
+            float oldRateOverTime = emissionModule.rateOverTime.constant;
+            Burst oldBurst = emissionModule.GetBurst(0);
+
+            emissionModule = ps.emission;
+            emissionModule.rateOverTime = new MinMaxCurve(oldRateOverTime * particleSlider);
+
+            emissionModule.SetBurst(0, new Burst(0, oldBurst.count.constant * particleSlider));
+
+            main.maxParticles = (int)(oldMaxParticles * particleSlider);
         }
     }
 }

@@ -116,27 +116,8 @@ public class LevelRunner : MonoBehaviour
             if (settings.useParticle)
             {
                 particle.SetActive(settings.useParticle);
-
-                float limitParticle = settings.particleSlider;
-
                 ParticleSystem ps = particle.GetComponent<ParticleSystem>();
-                if (ps != null)
-                {
-                    var main = ps.main;
-                    var emissionModule = ps.emission;
-
-                    int oldMaxParticles = main.maxParticles;
-                    float oldRateOverTime = emissionModule.rateOverTime.constant;
-                    Burst oldBurst = emissionModule.GetBurst(0);
-
-                    emissionModule = ps.emission;
-                    emissionModule.rateOverTime = new MinMaxCurve(oldRateOverTime * limitParticle);
-
-                    emissionModule.SetBurst(0, new Burst(0, oldBurst.count.constant * limitParticle));
-
-                    main.maxParticles = (int)(oldMaxParticles * limitParticle);
-                }
-
+                settings.SetParticleValues(ps);
             }
         }
 
@@ -144,12 +125,16 @@ public class LevelRunner : MonoBehaviour
         quitMenu.gameObject.SetActive(settings.useEnemies);
     }
 
-    private void ParticleLock(bool active) {
+    private void ParticleLock(bool active)
+    {
         foreach (ParticleSystem ps in FindObjectsOfType(typeof(ParticleSystem)))
         {
-            if (active) {
+            if (active)
+            {
                 ps.Pause();
-            } else {
+            }
+            else
+            {
                 ps.Stop();
             }
         }
