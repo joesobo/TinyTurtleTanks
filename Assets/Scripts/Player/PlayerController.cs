@@ -15,9 +15,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 smoothMoveVelocity;
     private Rigidbody rb;
     private bool grounded;
+    private bool landParticleSpawned = false;
 
     private GameSettings settings;
-    public ParticleSystem particleSystem;
+    public ParticleSystem trailParticles;
+    public ParticleSystem landParticles;
     public Animator animator;
 
     private void Start()
@@ -77,10 +79,16 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(ray, out hit, .85f, groundMask))
             {
                 grounded = true;
+                
+                if(settings.useParticle && !landParticleSpawned) {
+                    Instantiate(landParticles, transform.position, transform.rotation);
+                    landParticleSpawned = true;
+                }
             }
             else
             {
                 grounded = false;
+                landParticleSpawned = false;
             }
 
             //calculate jump
@@ -102,12 +110,12 @@ public class PlayerController : MonoBehaviour
             rb.MovePosition(rb.position + localMove);
             if (settings.useParticle) {
                 if (localMove != Vector3.zero) {
-                    particleSystem.Play();
+                    trailParticles.Play();
                 }
-                else {
-                    particleSystem.Stop();
+                else 
+                {
+                    trailParticles.Stop();
                 }
-
             }
         }
     }

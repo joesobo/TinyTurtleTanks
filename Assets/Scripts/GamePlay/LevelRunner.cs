@@ -150,7 +150,7 @@ public class LevelRunner : MonoBehaviour
             if (active) {
                 ps.Pause();
             } else {
-                ps.Play();
+                ps.Stop();
             }
         }
     }
