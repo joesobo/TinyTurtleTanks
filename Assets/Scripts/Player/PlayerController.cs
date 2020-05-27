@@ -71,6 +71,22 @@ public class PlayerController : MonoBehaviour
             }
             transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
 
+            if (settings.useParticle)
+            {
+                if (settings.isPaused)
+                {
+                    trailParticles.Pause();
+                }
+                else
+                {
+                    if (inputX != 0 || inputY != 0)
+                    {
+                        trailParticles.Play();
+                    }
+                }
+            }
+
+
             //grounded check
             Ray ray = new Ray(transform.position, -transform.up);
             RaycastHit hit;
@@ -79,8 +95,9 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(ray, out hit, .85f, groundMask))
             {
                 grounded = true;
-                
-                if(settings.useParticle && !landParticleSpawned) {
+
+                if (settings.useParticle && !landParticleSpawned)
+                {
                     ParticleSystem ps = Instantiate(landParticles, transform.position, transform.rotation);
                     settings.SetParticleValues(ps);
                     landParticleSpawned = true;
@@ -109,15 +126,6 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
             rb.MovePosition(rb.position + localMove);
-            if (settings.useParticle) {
-                if (localMove != Vector3.zero) {
-                    trailParticles.Play();
-                }
-                else 
-                {
-                    trailParticles.Stop();
-                }
-            }
         }
     }
 }

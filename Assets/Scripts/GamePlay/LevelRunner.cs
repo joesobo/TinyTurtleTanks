@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.ParticleSystem;
 
 public class LevelRunner : MonoBehaviour
 {
@@ -40,6 +39,11 @@ public class LevelRunner : MonoBehaviour
 
         numberOfEnemies = FindObjectsOfType<SmartEnemy>().Length;
         enemiesLeft = numberOfEnemies;
+
+        foreach (ParticleSystem ps in FindObjectsOfType(typeof(ParticleSystem)))
+        {
+            ps.Stop();
+        }
 
         CallSettings();
     }
@@ -135,7 +139,7 @@ public class LevelRunner : MonoBehaviour
             }
             else
             {
-                ps.Stop();
+                ps.Play();
             }
         }
     }
