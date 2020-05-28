@@ -50,9 +50,9 @@ public class SmartEnemy : MonoBehaviour
 
     private void Update()
     {
-        //check for player in look radius
         if (!settings.isPaused)
         {
+            //check for player in look radius
             if (isPlayerInRadius(playerLookRadius))
             {
                 lockPlayer = true;
