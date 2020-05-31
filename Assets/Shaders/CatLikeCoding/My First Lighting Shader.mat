@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_My First Lighting Shader
-  m_Shader: {fileID: 4800000, guid: 61f695d86ad938142a12394779598bc2, type: 3}
+  m_Name: My First Lighting Shader
+  m_Shader: {fileID: 4800000, guid: 1df87b17baca7be4c88b763489128729, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -27,5 +27,4 @@ Material:
     - _Metallic: 0
     - _Smoothness: 0.5
     m_Colors:
-    - _SpecularTint: {r: 0.943, g: 0, b: 0, a: 1}
     - _Tint: {r: 1, g: 1, b: 1, a: 1}
