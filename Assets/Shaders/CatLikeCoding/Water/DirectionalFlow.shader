@@ -1,4 +1,6 @@
-﻿Shader "Custom/DirectionalFlow" {
+﻿//Credit: https://catlikecoding.com/unity/tutorials/flow/looking-through-water/
+
+Shader "Custom/DirectionalFlow" {
     Properties  {
         _Color ("Color", Color) = (1,1,1,1)
         [NoScaleOffset] _MainTex ("Deriv (AG) Height (B)", 2D) = "black" {}
