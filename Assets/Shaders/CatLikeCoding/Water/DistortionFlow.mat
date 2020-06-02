@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _DerivHeightMap:
-        m_Texture: {fileID: 2800000, guid: 9937517bc176b0d4497ef6ebf9808d81, type: 3}
+        m_Texture: {fileID: 2800000, guid: dbc161fc7c9cab74ba1346bd16050faa, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FlowMap:

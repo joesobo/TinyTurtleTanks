@@ -42,7 +42,7 @@ Material:
     m_Floats:
     - _BumpScale: 0.25
     - _DetailBumpScale: 0.3
-    - _Metallic: 1
-    - _Smoothness: 1
+    - _Metallic: 0.5
+    - _Smoothness: 0.9
     m_Colors:
-    - _Tint: {r: 1, g: 1, b: 1, a: 1}
+    - _Tint: {r: 0.22258809, g: 0.47832167, b: 0.7735849, a: 1}
