@@ -78,6 +78,11 @@ public class BulletMove : MonoBehaviour
         {
             Debug.Log("Hit Enemy");
             col.gameObject.GetComponent<Health>().decreaseHealth(1);
+            if (settings.useParticle)
+            {
+                Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
+            }
+
             if (settings.useSound)
             {
                 source.volume = settings.soundVolume;
