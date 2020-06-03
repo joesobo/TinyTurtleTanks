@@ -17,6 +17,8 @@ public class BulletMove : MonoBehaviour
     private MeshRenderer meshRenderer;
     public float decaySpeed = 20;
 
+    public GameObject bloodParticlePrefab;
+
     private void Start()
     {
         levelRunner = FindObjectOfType<LevelRunner>();
@@ -93,6 +95,24 @@ public class BulletMove : MonoBehaviour
                 source.volume = settings.soundVolume;
                 source.Play();
             }
+            Destroy(gameObject);
+        }
+
+        else if (col.gameObject.tag == "Fish")
+        {
+            Debug.Log("Hit Fish");
+            if (settings.useParticle)
+            {
+                Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
+            }
+            
+            if (settings.useSound)
+            {
+                source.volume = settings.soundVolume;
+                source.Play();
+            }
+
+            Destroy(col.gameObject);
             Destroy(gameObject);
         }
     }

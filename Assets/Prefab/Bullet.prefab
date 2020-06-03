@@ -113,6 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   decaySpeed: 20
+  bloodParticlePrefab: {fileID: 8343780882660272222, guid: 19b2cc45717b8204aad3bdaea8236e47,
+    type: 3}
 --- !u!64 &-3162232952115154802
 MeshCollider:
   m_ObjectHideFlags: 0
