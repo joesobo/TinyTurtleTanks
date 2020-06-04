@@ -18,13 +18,17 @@ public class FishMovement : MonoBehaviour
     private Vector3 moveAmount;
     private Vector3 smoothMoveVelocity;
     private Rigidbody rb;
+    private GravityBody gravityBody;
     private GameSettings settings;
     private float moveSeconds;
     private float rotateSeconds;
 
+    private float waterRadius = 26.5f;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        gravityBody = GetComponent<GravityBody>();
         settings = FindObjectOfType<GameSettings>();
 
         raycastOrigin = raycastPoint.GetComponent<Transform>().localPosition;
@@ -36,6 +40,15 @@ public class FishMovement : MonoBehaviour
     {
         if (!settings.isPaused)
         {
+            if (!isInsideRadius(transform.position))
+            {
+                gravityBody.useGrav = true;
+            }
+            else
+            {
+                gravityBody.useGrav = false;
+            }
+
             //calculate move if speed
             Vector3 targetMoveAmount = Vector3.forward * curSpeed;
             moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
@@ -57,6 +70,11 @@ public class FishMovement : MonoBehaviour
 
             lockEntity = false;
         }
+    }
+
+    bool isInsideRadius(Vector3 point)
+    {
+        return Mathf.Pow(point.x, 2) + Mathf.Pow(point.y, 2) + Mathf.Pow(point.z, 2) < Mathf.Pow(waterRadius, 2);
     }
 
     private void FixedUpdate()
