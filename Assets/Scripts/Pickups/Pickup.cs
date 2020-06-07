@@ -11,7 +11,7 @@ public abstract class Pickup : MonoBehaviour
             Debug.Log("Player got pickup");
             applyEffect(col);
 
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 
