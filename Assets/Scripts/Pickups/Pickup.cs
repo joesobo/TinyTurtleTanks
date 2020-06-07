@@ -10,6 +10,7 @@ public abstract class Pickup : MonoBehaviour
         {
             Debug.Log("Player got pickup");
             applyEffect(col);
+            col.gameObject.GetComponent<PlayerEffects>().col = col;
 
             Destroy(transform.parent.gameObject);
         }
