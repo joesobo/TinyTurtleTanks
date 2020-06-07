@@ -822,7 +822,7 @@ MonoBehaviour:
   num: 100
   radius: 50
   checkDst: 150
-  offsetScale: -0.3
+  offsetScale: 0
   maxDensity: 1
   minScale: 0.5
   maxScale: 1
@@ -3995,7 +3995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  useVFX: 0
+  useVFX: 1
   useSound: 0
   useParticle: 1
   particleSlider: 0
@@ -4008,7 +4008,7 @@ MonoBehaviour:
   useSun: 0
   soundVolume: 0.5
   useCrates: 0
-  useEnvironmentObjects: 0
+  useEnvironmentObjects: 1
   useEnemies: 0
   currentLevel: 1
 --- !u!4 &1000687953
@@ -39851,8 +39851,8 @@ MonoBehaviour:
   m_Strategy: 0
   m_MaximumEffort: 4
   m_SmoothingTime: 0
-  m_Damping: 2
-  m_DampingWhenOccluded: 2
+  m_Damping: 2.5
+  m_DampingWhenOccluded: 2.5
   m_OptimalTargetDistance: 0
 --- !u!114 &1761544806
 MonoBehaviour:
