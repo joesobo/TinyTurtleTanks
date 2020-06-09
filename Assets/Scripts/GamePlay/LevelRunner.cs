@@ -28,6 +28,7 @@ public class LevelRunner : MonoBehaviour
     public List<GameObject> particleList;
     public GameObject water;
     public GameObject sun;
+    public RotateAroundCenter daylightCycle;
 
     private void Start()
     {
@@ -107,6 +108,7 @@ public class LevelRunner : MonoBehaviour
         obstacleList.SetActive(settings.useEnvironmentObjects);
         water.SetActive(settings.useWater);
         sun.SetActive(settings.useSun);
+        daylightCycle.enabled = settings.daylightCycle;
 
         //Enemies
         foreach (GameObject enemyThing in enemyStuffList)
