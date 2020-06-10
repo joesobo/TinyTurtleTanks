@@ -3812,7 +3812,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.3079895, y: 0.56101626, z: -0.23632859, w: 0.7311307}
+  m_LocalRotation: {x: 0.30798948, y: 0.56101626, z: -0.2363286, w: 0.7311306}
   m_LocalPosition: {x: -11.359258, y: 40.66, z: -0.88819146}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3995,7 +3995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  useVFX: 1
+  useVFX: 0
   useSound: 0
   useParticle: 1
   particleSlider: 0
@@ -4003,12 +4003,13 @@ MonoBehaviour:
   useSeaweed: 0
   useFootPrints: 0
   useClouds: 0
-  useMoons: 0
+  useMoons: 1
   useWater: 0
   useSun: 0
+  daylightCycle: 0
   soundVolume: 0.5
   useCrates: 0
-  useEnvironmentObjects: 1
+  useEnvironmentObjects: 0
   useEnemies: 0
   currentLevel: 1
 --- !u!4 &1000687953
@@ -4836,7 +4837,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149512827}
-  m_LocalRotation: {x: 0.36141554, y: 0.52818125, z: -0.16364105, w: 0.7507497}
+  m_LocalRotation: {x: 0.3614155, y: 0.5281814, z: -0.1636411, w: 0.75074965}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5252,7 +5253,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.32276803, y: 0.5479633, z: -0.17222346, w: 0.7522607}
+  m_LocalRotation: {x: 0.32276803, y: 0.5479634, z: -0.1722235, w: 0.7522606}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5818,11 +5819,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbitalPrefab: {fileID: 5831345753078639895, guid: 4f4665a93a205774191b4c2210c7e5d7,
     type: 3}
-  minRadius: 100
-  maxRadius: 110
+  minRadius: 150
+  maxRadius: 160
   numOfOrbitals: 3
   minScale: 0.25
-  maxScale: 0.5
+  maxScale: 0.4
 --- !u!1 &1507705202
 GameObject:
   m_ObjectHideFlags: 0
@@ -39283,6 +39284,7 @@ MonoBehaviour:
   - {fileID: 617543722}
   water: {fileID: 464551887}
   sun: {fileID: 1275909763}
+  daylightCycle: {fileID: 1261682982}
 --- !u!1 &1681107140
 GameObject:
   m_ObjectHideFlags: 0

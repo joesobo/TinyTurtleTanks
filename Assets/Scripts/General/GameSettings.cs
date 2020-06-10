@@ -17,7 +17,6 @@ public class GameSettings : MonoBehaviour
     public bool useClouds = false;
     public bool useMoons = false;
     public bool useWater = false;
-    public bool useSun = false;
     public bool daylightCycle = false;
     [Range(0,1)]
     public float soundVolume = 1.0f;
