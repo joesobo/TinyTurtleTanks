@@ -219,7 +219,7 @@ Shader "Custom/JoeGrass"
 				float NdotL = saturate(saturate(dot(normal, _WorldSpaceLightPos0)) + _TranslucentGain) * shadow;
 
 				float3 ambient = ShadeSH9(float4(normal, 1));
-				float4 lightIntensity = NdotL * _LightColor0 + float4(ambient, 1);
+				float4 lightIntensity = NdotL * _LightColor0 + float4(ambient, 1) * 2;
 				float4 col = lerp(_BottomColor, _TopColor * lightIntensity, i.uv.y);
 
 				return col;
