@@ -17,6 +17,6 @@ public class FindActiveLevel : MonoBehaviour
         }
         childWorld = Instantiate(worldPrefabs[activeWorld], Vector3.zero, Quaternion.identity, this.transform);
         childWorld.transform.localPosition = Vector3.zero;
-        childWorld.transform.localScale = Vector3.one;
+        childWorld.transform.localScale = Vector3.one * 30;
     }
 }

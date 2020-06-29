@@ -11,8 +11,8 @@ Material:
   m_Shader: {fileID: 4800000, guid: 4b1676a7c3b2eb046b699bb313f83254, type: 3}
   m_ShaderKeywords: _DUAL_GRID
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
@@ -39,7 +39,7 @@ Material:
     - _Speed: 0.1
     - _Tiling: 10
     - _TilingModulated: 100
-    - _WaterFogDensity: 0.35
+    - _WaterFogDensity: 0.025
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 0.39215687}
     - _WaterFogColor: {r: 0.039285723, g: 0.53166664, b: 0.66, a: 1}
