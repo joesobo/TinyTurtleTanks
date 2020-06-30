@@ -6,6 +6,12 @@ public class Breakable : MonoBehaviour
 {
     public List<GameObject> trapList;
     public List<GameObject> pickupList;
+    private BreakableSpawner breakableSpawner;
+
+    void Start()
+    {
+        breakableSpawner = FindObjectOfType<BreakableSpawner>();
+    }
 
     public void Break(){
         //spawn trap
@@ -17,6 +23,7 @@ public class Breakable : MonoBehaviour
             int index = Random.Range(0, pickupList.Count);
             Instantiate(pickupList[index], this.transform.position + (0.75f * this.transform.position.normalized), this.transform.rotation);
         }
+        breakableSpawner.totalCrates--;
         Destroy(gameObject);
     }
 }
