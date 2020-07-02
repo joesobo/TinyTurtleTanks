@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -8885,17 +8885,17 @@ MonoBehaviour:
   useSound: 0
   useParticle: 1
   particleSlider: 1
-  useGrass: 1
-  useSeaweed: 1
-  useFootPrints: 1
+  useGrass: 0
+  useSeaweed: 0
+  useFootPrints: 0
   useClouds: 0
-  useMoons: 1
-  useWater: 1
-  daylightCycle: 1
+  useMoons: 0
+  useWater: 0
+  daylightCycle: 0
   soundVolume: 0.5
   useCrates: 1
-  useEnvironmentObjects: 1
-  useEnemies: 1
+  useEnvironmentObjects: 0
+  useEnemies: 0
   currentLevel: 1
 --- !u!4 &1000687953
 Transform:
@@ -45598,6 +45598,8 @@ MonoBehaviour:
     type: 3}
   radius: 50
   waitForSeconds: 5
+  maxTotalCrates: 15
+  totalCrates: 0
 --- !u!4 &2029102070
 Transform:
   m_ObjectHideFlags: 0
@@ -46745,6 +46747,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainPlanet1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856685463649930127, guid: 3829860b8eec89846bb6842029057624,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856685464581317381, guid: 3829860b8eec89846bb6842029057624,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3829860b8eec89846bb6842029057624, type: 3}
