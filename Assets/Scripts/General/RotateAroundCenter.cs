@@ -24,11 +24,11 @@ public class RotateAroundCenter : MonoBehaviour
         {
             if (useWind)
             {
-                transform.RotateAround(Vector3.zero, Vector3.up, orbitSpeed * Time.deltaTime);
+                transform.RotateAround(this.transform.position, Vector3.up, orbitSpeed * Time.deltaTime);
             }
             else
             {
-                transform.RotateAround(Vector3.zero, rotateDir, orbitSpeed * Time.deltaTime);
+                transform.RotateAround(this.transform.position, rotateDir, orbitSpeed * Time.deltaTime);
             }
         }
     }
