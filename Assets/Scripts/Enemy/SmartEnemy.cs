@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmartEnemy : MonoBehaviour
-{
+public class SmartEnemy : MonoBehaviour {
     private float moveSeconds;
     private float rotateSeconds;
 
@@ -35,8 +34,7 @@ public class SmartEnemy : MonoBehaviour
     private AudioSource source;
     private GameSettings settings;
 
-    private void Start()
-    {
+    private void Start() {
         rb = GetComponent<Rigidbody>();
         player = FindObjectOfType<PlayerController>().gameObject;
         settings = FindObjectOfType<GameSettings>();
@@ -48,72 +46,58 @@ public class SmartEnemy : MonoBehaviour
         StartCoroutine("StartRotate");
     }
 
-    private void Update()
-    {
-        if (!settings.isPaused)
-        {
+    private void Update() {
+        if (!settings.isPaused) {
             //check for player in look radius
-            if (isPlayerInRadius(playerLookRadius))
-            {
+            if (isPlayerInRadius(playerLookRadius)) {
                 lockPlayer = true;
             }
-            else
-            {
+            else {
                 lockPlayer = false;
             }
 
             //check for player in shoot radius
-            if (isPlayerInRadius(playerShootRadius))
-            {
-                if (!shootPlayer)
-                {
+            if (isPlayerInRadius(playerShootRadius)) {
+                if (!shootPlayer) {
                     canShoot = true;
                 }
                 shootPlayer = true;
             }
-            else
-            {
+            else {
                 shootPlayer = false;
             }
 
             //looking and moving towards player
-            if (lockPlayer)
-            {
+            if (lockPlayer) {
                 Vector3 groundNormal = transform.position;
                 Vector3 forwardVector = Vector3.Cross(groundNormal, player.transform.position);
                 Vector3 rotatedVector = Quaternion.AngleAxis(-90, transform.up) * forwardVector;
                 transform.rotation = Quaternion.LookRotation(rotatedVector, groundNormal);
 
                 //stop moving and shoot at player
-                if (shootPlayer)
-                {
+                if (shootPlayer) {
                     curSpeed = 0;
-                    if (canShoot)
-                    {
+                    if (canShoot) {
                         canShoot = false;
                         StartCoroutine("StartShoot");
                     }
                 }
             }
             //auto moving state
-            else
-            {
+            else {
                 //calculate move if speed
                 Vector3 targetMoveAmount = Vector3.forward * curSpeed;
                 moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
 
                 offsetPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
                 RaycastHit hit;
-                if (Physics.Raycast(offsetPosition, transform.TransformDirection(Vector3.forward), out hit, 2, objectLayerMask))
-                {
+                if (Physics.Raycast(offsetPosition, transform.TransformDirection(Vector3.forward), out hit, 2, objectLayerMask)) {
                     Debug.DrawRay(offsetPosition, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                     curRotate = rotateSpeed;
                 }
-                else
-                {
+                else {
                     Debug.DrawRay(offsetPosition, transform.TransformDirection(Vector3.forward) * 2, Color.white);
-                    if (lockRotation)
-                    {
+                    if (lockRotation) {
                         curRotate = 0;
                     }
                 }
@@ -124,10 +108,8 @@ public class SmartEnemy : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (!settings.isPaused)
-        {
+    private void FixedUpdate() {
+        if (!settings.isPaused) {
             //move
             Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
             rb.MovePosition(rb.position + localMove);
@@ -137,8 +119,7 @@ public class SmartEnemy : MonoBehaviour
         }
     }
 
-    IEnumerator StartRotate()
-    {
+    IEnumerator StartRotate() {
         curRotate = rotateSpeed;
         lockRotation = false;
         yield return new WaitForSeconds(rotateSeconds);
@@ -149,8 +130,7 @@ public class SmartEnemy : MonoBehaviour
         StartCoroutine("StartMove");
     }
 
-    IEnumerator StartMove()
-    {
+    IEnumerator StartMove() {
         curSpeed = speed;
         yield return new WaitForSeconds(moveSeconds);
         curSpeed = 0;
@@ -159,50 +139,40 @@ public class SmartEnemy : MonoBehaviour
         StartCoroutine("StartRotate");
     }
 
-    IEnumerator StartShoot()
-    {
-        if (!settings.isPaused)
-        {
+    IEnumerator StartShoot() {
+        if (!settings.isPaused) {
             ShootAtPoints();
         }
         yield return new WaitForSeconds(shootSeconds);
         canShoot = true;
     }
 
-    private bool isPlayerInRadius(float radius)
-    {
+    private bool isPlayerInRadius(float radius) {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
-        foreach (Collider collider in hitColliders)
-        {
-            if (collider.tag == "Player")
-            {
+        foreach (Collider collider in hitColliders) {
+            if (collider.tag == "Player") {
                 return true;
             }
         }
         return false;
     }
 
-    private void ShootAtPoints()
-    {
-        foreach (Transform shootPoint in shootPoints)
-        {
+    private void ShootAtPoints() {
+        foreach (Transform shootPoint in shootPoints) {
             Instantiate(bullet, shootPoint.position, shootPoint.rotation, parent);
         }
-        if (settings.useSound)
-        {
+        if (settings.useSound) {
             source.volume = settings.soundVolume;
             source.Play();
         }
     }
 
-    private void randomTimes()
-    {
+    private void randomTimes() {
         moveSeconds = Random.Range(1, 7);
         rotateSeconds = Random.Range(1, 5);
     }
 
-    private void OnDrawGizmosSelected()
-    {
+    private void OnDrawGizmosSelected() {
         Gizmos.color = new Color32(5, 170, 250, 100);
         Gizmos.DrawSphere(transform.position, playerLookRadius);
         Gizmos.color = new Color32(250, 50, 10, 100);

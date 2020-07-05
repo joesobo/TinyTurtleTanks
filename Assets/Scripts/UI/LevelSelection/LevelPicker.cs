@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelPicker : MonoBehaviour
-{
+public class LevelPicker : MonoBehaviour {
     private Vector3 currentScale;
     public float growScale = 2;
     public float speed = 1;
@@ -13,8 +12,7 @@ public class LevelPicker : MonoBehaviour
     private Material defaultMat;
     private Material activeMat;
 
-    void Start()
-    {
+    void Start() {
         levelSelection = FindObjectOfType<LevelSelectionController>();
         meshRenderer = gameObject.GetComponent<MeshRenderer>();
         currentScale = transform.localScale;
@@ -22,22 +20,18 @@ public class LevelPicker : MonoBehaviour
         activeMat = levelSelection.activeMat;
     }
 
-    void OnMouseOver()
-    {
-        if (levelSelection.currentWorld >= levelNumber)
-        {
+    void OnMouseOver() {
+        if (levelSelection.currentWorld >= levelNumber) {
             transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * growScale, Time.deltaTime * speed);
 
-            if (Input.GetMouseButtonDown(0))
-            {
+            if (Input.GetMouseButtonDown(0)) {
                 levelSelection.currentSelectedWorld = levelNumber;
                 levelSelection.UpdateActiveMaterials();
             }
         }
     }
 
-    void OnMouseExit()
-    {
+    void OnMouseExit() {
         transform.localScale = currentScale;
     }
 }

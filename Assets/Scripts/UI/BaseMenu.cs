@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public abstract class BaseMenu : MonoBehaviour
-{
-    public void OpenControls()
-    {
+public abstract class BaseMenu : MonoBehaviour {
+    public void OpenControls() {
 
     }
 
-    public void onMenu()
-    {
+    public void onMenu() {
         SceneManager.LoadScene(0);
     }
 

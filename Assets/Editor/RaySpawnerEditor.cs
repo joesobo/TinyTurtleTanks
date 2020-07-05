@@ -28,7 +28,7 @@ public class RaySpawnerEditor : Editor
             var prefabProperty = serializedObject.FindProperty("prefabs");
             EditorGUILayout.PropertyField(prefabProperty, new GUIContent("Prefabs"), true);
             serializedObject.ApplyModifiedProperties();
-            
+
             raySpawner.parent = (Transform)EditorGUILayout.ObjectField("Parent", raySpawner.parent, typeof(Transform), true);
             raySpawner.num = EditorGUILayout.IntField("Number of Objects", raySpawner.num);
             raySpawner.offsetScale = EditorGUILayout.FloatField("Offset Scale", raySpawner.offsetScale);
@@ -84,7 +84,8 @@ public class RaySpawnerEditor : Editor
 
             raySpawner.checkDst = EditorGUILayout.IntField(new GUIContent("Check Distance", "Length ray should check"), raySpawner.checkDst);
             raySpawner.useSlopeCutoff = GUILayout.Toggle(raySpawner.useSlopeCutoff, "Use Slope Cutoff");
-            if(raySpawner.useSlopeCutoff) {
+            if (raySpawner.useSlopeCutoff)
+            {
                 raySpawner.slopeCutoff = EditorGUILayout.Slider("Slope Cutoff", raySpawner.slopeCutoff, -1, 1);
             }
 

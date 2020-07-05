@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShoot : MonoBehaviour
-{
+public class PlayerShoot : MonoBehaviour {
     public GameObject bullet;
     public Material bulletMat;
     public Transform shootPoint;
@@ -14,27 +13,22 @@ public class PlayerShoot : MonoBehaviour
     private AudioSource source;
     public CameraShake screenShake;
 
-    private void Start()
-    {
+    private void Start() {
         settings = FindObjectOfType<GameSettings>();
         source = GetComponent<AudioSource>();
         bullet.GetComponent<MeshRenderer>().material = bulletMat;
     }
 
-    private void Update()
-    {
-        if (!settings.isPaused)
-        {
-            if (Input.GetKeyDown(KeyCode.Return) && !delayOn)
-            {
+    private void Update() {
+        if (!settings.isPaused) {
+            if (Input.GetKeyDown(KeyCode.Return) && !delayOn) {
                 //start delay for next shot
                 delayOn = true;
                 StartCoroutine("DelayCo");
                 //create bullet
                 Instantiate(bullet, shootPoint.position, this.transform.rotation, parent);
                 //play sound
-                if (settings.useSound)
-                {
+                if (settings.useSound) {
                     source.volume = settings.soundVolume;
                     source.Play();
                 }
@@ -44,8 +38,7 @@ public class PlayerShoot : MonoBehaviour
         }
     }
 
-    IEnumerator DelayCo()
-    {
+    IEnumerator DelayCo() {
         yield return new WaitForSeconds(0.3f);
         delayOn = false;
     }

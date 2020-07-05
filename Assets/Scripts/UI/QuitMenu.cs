@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuitMenu : MonoBehaviour
-{
+public class QuitMenu : MonoBehaviour {
     public BaseMenu menu;
 
-    public void OnYes(){
+    public void OnYes() {
         Application.Quit();
     }
 
-    public void OnNo(){
+    public void OnNo() {
         menu.CloseQuit();
     }
 }

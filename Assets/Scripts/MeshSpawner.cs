@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeshSpawner : MonoBehaviour
-{
+public class MeshSpawner : MonoBehaviour {
     public GameObject prefab;
     public MeshFilter meshFilter;
     public Transform parent;
@@ -13,18 +12,15 @@ public class MeshSpawner : MonoBehaviour
 
     private Mesh mesh;
 
-    private void Start()
-    {
+    private void Start() {
         mesh = meshFilter.sharedMesh;
 
-        for (int i = 0; i < num; i++)
-        {
+        for (int i = 0; i < num; i++) {
             GenerateObject();
         }
     }
 
-    private void GenerateObject()
-    {
+    private void GenerateObject() {
         int rndTriStart = Random.Range(0, mesh.vertices.Length / 3) * 3; //pick a triangle
         Vector3 position = mesh.vertices[rndTriStart + 0];
         Vector3 normal = mesh.normals[rndTriStart + 0];

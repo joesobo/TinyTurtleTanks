@@ -3,26 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainLoader : MonoBehaviour
-{
+public class MainLoader : MonoBehaviour {
     public List<GameObject> mainObjects;
 
-    void Awake()
-    {
+    void Awake() {
         LoadObjects(true);
     }
 
-    public void LoadMain(){
+    public void LoadMain() {
         LoadObjects(true);
     }
 
-    public void UnloadMain(){
+    public void UnloadMain() {
         LoadObjects(false);
     }
 
-    private void LoadObjects(bool active){
-        foreach (GameObject obj in mainObjects)
-        {
+    private void LoadObjects(bool active) {
+        foreach (GameObject obj in mainObjects) {
             obj.SetActive(active);
         }
     }

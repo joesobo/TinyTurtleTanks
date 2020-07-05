@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelRunner : MonoBehaviour
-{
+public class LevelRunner : MonoBehaviour {
     private int numberOfEnemies;
     [SerializeField]
     private int enemiesLeft;
@@ -29,8 +28,7 @@ public class LevelRunner : MonoBehaviour
     public GameObject water;
     public RotateAroundCenter daylightCycle;
 
-    private void Start()
-    {
+    private void Start() {
         settings = FindObjectOfType<GameSettings>();
 
         loseMenu = FindObjectOfType<LoseMenu>();
@@ -40,60 +38,49 @@ public class LevelRunner : MonoBehaviour
         numberOfEnemies = FindObjectsOfType<SmartEnemy>().Length;
         enemiesLeft = numberOfEnemies;
 
-        foreach (ParticleSystem ps in FindObjectsOfType(typeof(ParticleSystem)))
-        {
+        foreach (ParticleSystem ps in FindObjectsOfType(typeof(ParticleSystem))) {
             ps.Stop();
         }
 
         CallSettings();
     }
 
-    private void Update()
-    {
-        if (settings.useEnemies)
-        {
-            if (isDead && activeLose && activeWin)
-            {
+    private void Update() {
+        if (settings.useEnemies) {
+            if (isDead && activeLose && activeWin) {
                 activeLose = false;
                 loseMenu.ActivateLose();
             }
 
-            else if (getNumEnemiesLeft() <= 0 && activeWin && activeLose)
-            {
+            else if (getNumEnemiesLeft() <= 0 && activeWin && activeLose) {
                 activeWin = false;
                 winMenu.ActivateWin();
             }
 
-            if (!activeLose || !activeWin)
-            {
+            if (!activeLose || !activeWin) {
                 settings.isPaused = true;
             }
         }
 
-        if (settings.isPaused)
-        {
+        if (settings.isPaused) {
             Cursor.lockState = CursorLockMode.None;
             ParticleLock(true);
         }
-        else
-        {
+        else {
             Cursor.lockState = CursorLockMode.Locked;
             ParticleLock(false);
         }
     }
 
-    public void DecreaseNumEnemy()
-    {
+    public void DecreaseNumEnemy() {
         enemiesLeft--;
     }
 
-    public int getNumEnemiesLeft()
-    {
+    public int getNumEnemiesLeft() {
         return enemiesLeft;
     }
 
-    private void CallSettings()
-    {
+    private void CallSettings() {
         //SFX and VFX
         fx.SetActive(settings.useVFX);
         grassSpawner.SetActive(settings.useGrass);
@@ -109,16 +96,13 @@ public class LevelRunner : MonoBehaviour
         daylightCycle.enabled = settings.daylightCycle;
 
         //Enemies
-        foreach (GameObject enemyThing in enemyStuffList)
-        {
+        foreach (GameObject enemyThing in enemyStuffList) {
             enemyThing.SetActive(settings.useEnemies);
         }
 
         //Particles
-        foreach (GameObject particle in particleList)
-        {
-            if (settings.useParticle)
-            {
+        foreach (GameObject particle in particleList) {
+            if (settings.useParticle) {
                 particle.SetActive(settings.useParticle);
                 ParticleSystem ps = particle.GetComponent<ParticleSystem>();
                 settings.SetParticleValues(ps);
@@ -129,16 +113,12 @@ public class LevelRunner : MonoBehaviour
         quitMenu.gameObject.SetActive(settings.useEnemies);
     }
 
-    private void ParticleLock(bool active)
-    {
-        foreach (ParticleSystem ps in FindObjectsOfType(typeof(ParticleSystem)))
-        {
-            if (active)
-            {
+    private void ParticleLock(bool active) {
+        foreach (ParticleSystem ps in FindObjectsOfType(typeof(ParticleSystem))) {
+            if (active) {
                 ps.Pause();
             }
-            else
-            {
+            else {
                 ps.Play();
             }
         }

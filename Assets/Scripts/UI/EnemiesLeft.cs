@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemiesLeft : MonoBehaviour
-{
+public class EnemiesLeft : MonoBehaviour {
     private LevelRunner levelRunner;
     private Text text;
 

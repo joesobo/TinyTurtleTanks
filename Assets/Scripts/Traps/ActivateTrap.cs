@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActivateTrap : MonoBehaviour
-{
+public class ActivateTrap : MonoBehaviour {
     public GameObject spikes = null;
     public int moveSpeed = 5;
     private bool moveSpike = false;
@@ -13,22 +12,16 @@ public class ActivateTrap : MonoBehaviour
 
     private GameSettings settings;
 
-    private void Start()
-    {
+    private void Start() {
         settings = FindObjectOfType<GameSettings>();
     }
 
-    private void Update()
-    {
-        if (!settings.isPaused)
-        {
+    private void Update() {
+        if (!settings.isPaused) {
             //check if spikes
-            if (spikes != null)
-            {
-                if (moveSpike)
-                {
-                    if (spikes.transform.localPosition.y < maxSpike)
-                    {
+            if (spikes != null) {
+                if (moveSpike) {
+                    if (spikes.transform.localPosition.y < maxSpike) {
                         spikes.transform.localPosition = new Vector3(
                             spikes.transform.localPosition.x,
                             spikes.transform.localPosition.y + (moveSpeed * Time.deltaTime),
@@ -37,9 +30,9 @@ public class ActivateTrap : MonoBehaviour
                 }
             }
             //otherwise its a mine
-            else{
-                if(blowUp){
-                    if(settings.useParticle) {
+            else {
+                if (blowUp) {
+                    if (settings.useParticle) {
 
                     }
                 }
@@ -47,18 +40,15 @@ public class ActivateTrap : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
+    void OnTriggerEnter(Collider col) {
+        if (col.gameObject.tag == "Player") {
             Debug.Log("Player activated trap");
             moveSpike = true;
             blowUp = true;
         }
     }
 
-    public void Delete()
-    {
+    public void Delete() {
         Destroy(gameObject);
     }
 }

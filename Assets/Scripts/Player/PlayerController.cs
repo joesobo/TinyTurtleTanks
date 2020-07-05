@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
-{
+public class PlayerController : MonoBehaviour {
     public float speed = 10;
     public float rotationChangeSpeed = 50;
     public float rotateSpeed = 0;
@@ -22,32 +21,26 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem landParticles;
     public Animator animator;
 
-    private void Start()
-    {
+    private void Start() {
         rb = GetComponent<Rigidbody>();
         settings = FindObjectOfType<GameSettings>();
         rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
-    private void Update()
-    {
-        if (settings.isPaused && rb.constraints == RigidbodyConstraints.FreezeRotation)
-        {
+    private void Update() {
+        if (settings.isPaused && rb.constraints == RigidbodyConstraints.FreezeRotation) {
             rb.constraints = RigidbodyConstraints.FreezeAll;
         }
-        else if (rb.constraints == RigidbodyConstraints.FreezeAll)
-        {
+        else if (rb.constraints == RigidbodyConstraints.FreezeAll) {
             rb.constraints = RigidbodyConstraints.FreezeRotation;
         }
 
         animator.SetBool("Walking", false);
-        if (!settings.isPaused)
-        {
+        if (!settings.isPaused) {
             //calculate movement
             float inputY = Input.GetAxisRaw("Vertical");
 
-            if (inputY != 0)
-            {
+            if (inputY != 0) {
                 animator.SetBool("Walking", true);
             }
 
@@ -57,30 +50,23 @@ public class PlayerController : MonoBehaviour
 
             //calculate rotation
             float inputX = Input.GetAxisRaw("Horizontal");
-            if (inputX > 0)
-            {
+            if (inputX > 0) {
                 rotateSpeed = maxRotateSpeed;
             }
-            else if (inputX < 0)
-            {
+            else if (inputX < 0) {
                 rotateSpeed = -maxRotateSpeed;
             }
-            else
-            {
+            else {
                 rotateSpeed = 0;
             }
             transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
 
-            if (settings.useParticle)
-            {
-                if (settings.isPaused)
-                {
+            if (settings.useParticle) {
+                if (settings.isPaused) {
                     trailParticles.Pause();
                 }
-                else
-                {
-                    if (inputX != 0 || inputY != 0)
-                    {
+                else {
+                    if (inputX != 0 || inputY != 0) {
                         trailParticles.Play();
                     }
                 }
@@ -92,38 +78,31 @@ public class PlayerController : MonoBehaviour
             RaycastHit hit;
 
             Debug.DrawRay(transform.position, -transform.up * .85f, Color.red);
-            if (Physics.Raycast(ray, out hit, .85f, groundMask))
-            {
+            if (Physics.Raycast(ray, out hit, .85f, groundMask)) {
                 grounded = true;
 
-                if (settings.useParticle && !landParticleSpawned)
-                {
+                if (settings.useParticle && !landParticleSpawned) {
                     ParticleSystem ps = Instantiate(landParticles, transform.position, transform.rotation);
                     settings.SetParticleValues(ps);
                     landParticleSpawned = true;
                 }
             }
-            else
-            {
+            else {
                 grounded = false;
                 landParticleSpawned = false;
             }
 
             //calculate jump
-            if (Input.GetButtonDown("Jump"))
-            {
-                if (grounded)
-                {
+            if (Input.GetButtonDown("Jump")) {
+                if (grounded) {
                     rb.AddForce(transform.up * jumpForce);
                 }
             }
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (!settings.isPaused)
-        {
+    private void FixedUpdate() {
+        if (!settings.isPaused) {
             Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
             rb.MovePosition(rb.position + localMove);
         }

@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelSelectionLoader : MonoBehaviour
-{
-    public void LoadLevelSelection(){
+public class LevelSelectionLoader : MonoBehaviour {
+    public void LoadLevelSelection() {
         this.gameObject.SetActive(true);
     }
 
-    public void UnloadLevelSelection(){
+    public void UnloadLevelSelection() {
         this.gameObject.SetActive(false);
     }
 }

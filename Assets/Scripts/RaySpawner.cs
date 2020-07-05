@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class RaySpawner : MonoBehaviour
-{
+public class RaySpawner : MonoBehaviour {
     public List<GameObject> prefabs;
     public Transform parent;
 
@@ -49,64 +48,52 @@ public class RaySpawner : MonoBehaviour
     private List<int> objectsIndex = new List<int>();
     private List<GameObject> objects = new List<GameObject>();
 
-    void Start()
-    {
+    void Start() {
         GenAll();
     }
 
-    public void GenAll()
-    {
-        for (int i = 0; i < num; i++)
-        {
+    public void GenAll() {
+        for (int i = 0; i < num; i++) {
             currentTries = 0;
             GenerateObject();
         }
 
-        if (!keepColliders)
-        {
+        if (!keepColliders) {
             TurnOffColliders();
         }
     }
 
-    private void GenerateObject()
-    {
+    private void GenerateObject() {
         //Cast ray in random direction
         RaycastHit hit = new RaycastHit();
         int numberOfCollidersFound = 1;
-        while (hit.collider == null && numberOfCollidersFound != 0)
-        {
-            if (currentTries < maxTries)
-            {
+        while (hit.collider == null && numberOfCollidersFound != 0) {
+            if (currentTries < maxTries) {
                 currentTries++;
 
                 //Generate starting point and direction
                 Vector3 point;
                 Vector3 dir;
-                if (spawnTopDown)
-                {
+                if (spawnTopDown) {
                     point = Random.onUnitSphere * radius;
                     dir = -point.normalized;
                 }
-                else
-                {
+                else {
                     point = Random.onUnitSphere * Random.Range(minRayHeight, maxRayHeight);
                     dir = Random.insideUnitCircle.normalized;
                 }
 
                 //Start raycast
-                if (Physics.Raycast(point, dir, out hit, checkDst, layerMask))
-                {
+                if (Physics.Raycast(point, dir, out hit, checkDst, layerMask)) {
                     //check max and min height
                     float distFromCenter = Vector3.Distance(hit.point, Vector3.zero);
-                    if (distFromCenter > minHeight && distFromCenter < maxHeight)
-                    {
+                    if (distFromCenter > minHeight && distFromCenter < maxHeight) {
                         //check slope
                         Vector3 heading = hit.point - Vector3.zero;
                         float dist = heading.magnitude;
                         Vector3 direction = heading / dist;
                         float slopeResult = Vector3.Dot(direction, hit.normal);
-                        if (!useSlopeCutoff || slopeResult >= slopeCutoff)
-                        {
+                        if (!useSlopeCutoff || slopeResult >= slopeCutoff) {
                             //find normal rotation based on surface
                             Quaternion normalRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
 
@@ -116,34 +103,31 @@ public class RaySpawner : MonoBehaviour
                             numberOfCollidersFound = Physics.OverlapBoxNonAlloc(hit.point, overlapTestBoxScale, collidersInsideOverlapBox, normalRotation, objectMask);
 
                             //if no overlaps
-                            if (numberOfCollidersFound == 0)
-                            {
+                            if (numberOfCollidersFound == 0) {
                                 //spawn object
                                 int index = Random.Range(0, prefabs.Count);
                                 GameObject obj = Instantiate(prefabs[index], hit.point, normalRotation, parent);
                                 objectsIndex.Add(index);
 
                                 //change scale and rotation
-                                if(useRandomScaleAxis) {
+                                if (useRandomScaleAxis) {
                                     obj.transform.localScale = new Vector3(Random.Range(minScale, maxScale), Random.Range(minScale, maxScale), Random.Range(minScale, maxScale));
-                                } else {
+                                }
+                                else {
                                     float setScale = Random.Range(minScale, maxScale);
                                     obj.transform.localScale = new Vector3(setScale, setScale, setScale);
                                 }
-                                
-                                if (useRandomRotation)
-                                {
+
+                                if (useRandomRotation) {
                                     obj.transform.Rotate(0, Random.Range(0, 361), 0, Space.Self);
                                 }
 
                                 //offset to bring closer to ground
                                 obj.transform.position += transform.TransformDirection(-obj.transform.up) * offsetScale * obj.transform.localScale.y;
 
-                                if (useRandomColor)
-                                {
+                                if (useRandomColor) {
                                     MeshRenderer renderer = obj.GetComponent<MeshRenderer>();
-                                    if (renderer)
-                                    {
+                                    if (renderer) {
                                         Material tempMat = new Material(renderer.sharedMaterial);
                                         tempMat.color = Color.Lerp(startColor, endColor, Random.value);
                                         renderer.sharedMaterial = tempMat;
@@ -158,35 +142,29 @@ public class RaySpawner : MonoBehaviour
                     }
                 }
             }
-            else
-            {
+            else {
                 print("Took too long to find a placement");
                 break;
             }
         }
     }
 
-    public void Save()
-    {
+    public void Save() {
         using (
             BinaryWriter writer = new BinaryWriter(File.Open(Path.Combine(Application.persistentDataPath, "saveFile"), FileMode.Create))
-        )
-        {
+        ) {
             GameDataWriter gameDataWriter = new GameDataWriter(writer);
             //count
             gameDataWriter.Write(objects.Count);
             //collider
-            if (keepColliders)
-            {
+            if (keepColliders) {
                 gameDataWriter.Write(1);
             }
-            else
-            {
+            else {
                 gameDataWriter.Write(0);
             }
             MeshRenderer meshRenderer;
-            for (int i = 0; i < objects.Count; i++)
-            {
+            for (int i = 0; i < objects.Count; i++) {
                 GameObject g = objects[i];
                 meshRenderer = g.GetComponent<MeshRenderer>();
                 //prefab version
@@ -199,12 +177,10 @@ public class RaySpawner : MonoBehaviour
         }
     }
 
-    public void Load()
-    {
+    public void Load() {
         using (
             BinaryReader reader = new BinaryReader(File.Open(Path.Combine(Application.persistentDataPath, "saveFile"), FileMode.Open))
-        )
-        {
+        ) {
             GameDataReader gameDataReader = new GameDataReader(reader);
 
             int index;
@@ -213,8 +189,7 @@ public class RaySpawner : MonoBehaviour
             Color c;
             int count = gameDataReader.ReadInt();
             int useCollider = gameDataReader.ReadInt();
-            for (int i = 0; i < count; i++)
-            {
+            for (int i = 0; i < count; i++) {
                 //prefab version
                 index = gameDataReader.ReadInt();
                 p = gameDataReader.ReadVector3();
@@ -233,35 +208,28 @@ public class RaySpawner : MonoBehaviour
 
                 objects.Add(obj);
             }
-            if (useCollider == 0)
-            {
+            if (useCollider == 0) {
                 TurnOffColliders();
             }
         }
     }
 
-    public void ClearObjects()
-    {
-        foreach (GameObject g in objects)
-        {
+    public void ClearObjects() {
+        foreach (GameObject g in objects) {
             DestroyImmediate(g);
         }
         objects.Clear();
         objectsIndex.Clear();
     }
 
-    private void TurnOffColliders()
-    {
-        foreach (GameObject g in objects)
-        {
+    private void TurnOffColliders() {
+        foreach (GameObject g in objects) {
             DestroyImmediate(g.GetComponent<BoxCollider>());
         }
     }
 
-    void OnDrawGizmosSelected()
-    {
-        if (useGizmoHeight)
-        {
+    void OnDrawGizmosSelected() {
+        if (useGizmoHeight) {
             Gizmos.color = new Color(1, 0, 0, 0.25f);
             Gizmos.DrawSphere(Vector3.zero, minHeight);
 
@@ -269,8 +237,7 @@ public class RaySpawner : MonoBehaviour
             Gizmos.DrawSphere(Vector3.zero, maxHeight);
         }
 
-        if (useGizmoRayHeight)
-        {
+        if (useGizmoRayHeight) {
             Gizmos.color = new Color(1, 0, 0, 0.25f);
             Gizmos.DrawSphere(Vector3.zero, minRayHeight);
 
@@ -278,8 +245,7 @@ public class RaySpawner : MonoBehaviour
             Gizmos.DrawSphere(Vector3.zero, maxRayHeight);
         }
 
-        if (useGizmoRadius)
-        {
+        if (useGizmoRadius) {
             Gizmos.color = new Color(0, 1, 0, 0.25f);
             Gizmos.DrawSphere(Vector3.zero, radius);
         }

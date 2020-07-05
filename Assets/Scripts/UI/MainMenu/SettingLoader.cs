@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingLoader : MonoBehaviour
-{
+public class SettingLoader : MonoBehaviour {
     private GameSettings settings;
     public Image vfxButton;
     public Image soundButton;
@@ -16,13 +15,12 @@ public class SettingLoader : MonoBehaviour
     public Color inActiveColor;
     public Color ActiveColor;
 
-    private void Awake()
-    {
+    private void Awake() {
         settings = FindObjectOfType<GameSettings>();
         SetupSettings();
     }
 
-    public void SetupSettings(){
+    public void SetupSettings() {
         LoadColor(settings.useVFX, vfxButton);
         LoadColor(settings.useSound, soundButton);
         LoadColor(settings.useParticle, particleButton);
@@ -31,59 +29,49 @@ public class SettingLoader : MonoBehaviour
         LoadColor(settings.useClouds, cloudButton);
     }
 
-    public void LoadSettings()
-    {
+    public void LoadSettings() {
         this.gameObject.SetActive(true);
     }
 
-    public void UnloadSettings()
-    {
+    public void UnloadSettings() {
         this.gameObject.SetActive(false);
     }
 
-    public void ChangeVFXSetting()
-    {
+    public void ChangeVFXSetting() {
         settings.useVFX = !settings.useVFX;
         LoadColor(settings.useVFX, vfxButton);
     }
 
-    public void ChangeSoundSetting()
-    {
+    public void ChangeSoundSetting() {
         settings.useSound = !settings.useSound;
         LoadColor(settings.useSound, soundButton);
     }
 
-    public void ChangeParticleSetting()
-    {
+    public void ChangeParticleSetting() {
         settings.useParticle = !settings.useParticle;
         LoadColor(settings.useParticle, particleButton);
     }
 
-    public void ChangeGrassSetting()
-    {
+    public void ChangeGrassSetting() {
         settings.useGrass = !settings.useGrass;
         LoadColor(settings.useGrass, grassButton);
     }
 
-    public void ChangeFootprintSetting()
-    {
+    public void ChangeFootprintSetting() {
         settings.useFootPrints = !settings.useFootPrints;
         LoadColor(settings.useFootPrints, footPrintButton);
     }
 
-    public void ChangeCloudSetting()
-    {
+    public void ChangeCloudSetting() {
         settings.useClouds = !settings.useClouds;
         LoadColor(settings.useClouds, cloudButton);
     }
 
-    public void LoadColor(bool condition, Image button){
-        if (condition)
-        {
+    public void LoadColor(bool condition, Image button) {
+        if (condition) {
             button.color = ActiveColor;
         }
-        else
-        {
+        else {
             button.color = inActiveColor;
         }
     }

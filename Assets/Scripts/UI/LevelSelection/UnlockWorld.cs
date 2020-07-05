@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnlockWorld : MonoBehaviour
-{
+public class UnlockWorld : MonoBehaviour {
     private GameObject lockImage;
     private GameObject lockButton;
     private Material unlockMat;
@@ -12,8 +11,7 @@ public class UnlockWorld : MonoBehaviour
     private LevelSelectionController levelSelection;
     public int worldNumber;
 
-    void Start()
-    {
+    void Start() {
         lockImage = transform.GetChild(0).gameObject;
         lockButton = transform.GetChild(1).gameObject;
         levelSelection = FindObjectOfType<LevelSelectionController>();
@@ -21,10 +19,8 @@ public class UnlockWorld : MonoBehaviour
         lockMat = levelSelection.lockMat;
     }
 
-    public void ActivateWorld()
-    {
-        if (levelSelection.nextWorldToUnlock == worldNumber)
-        {
+    public void ActivateWorld() {
+        if (levelSelection.nextWorldToUnlock == worldNumber) {
             lockImage.SetActive(false);
             lockButton.SetActive(false);
             planet.GetComponent<MeshRenderer>().material = unlockMat;
@@ -34,8 +30,7 @@ public class UnlockWorld : MonoBehaviour
         }
     }
 
-    public void DeactivateWorld()
-    {
+    public void DeactivateWorld() {
         lockImage.SetActive(true);
         lockButton.SetActive(true);
         planet.GetComponent<MeshRenderer>().material = lockMat;

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisplayRotate : MonoBehaviour
-{
+public class DisplayRotate : MonoBehaviour {
     public float maxRotationSpeed = 1f;
     public float minRotationSpeed = 1f;
     [SerializeField]
@@ -23,9 +22,9 @@ public class DisplayRotate : MonoBehaviour
         this.transform.Rotate(rotateX * Time.deltaTime, rotateY * Time.deltaTime, rotateZ * Time.deltaTime);
     }
 
-    private float GenRandNum(float min, float max){
+    private float GenRandNum(float min, float max) {
         float a = Random.Range(-max, max);
-        if(a < min && a > -min){
+        if (a < min && a > -min) {
             a = Random.Range(-max, max);
         }
         return a;

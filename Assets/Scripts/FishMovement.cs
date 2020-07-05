@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishMovement : MonoBehaviour
-{
+public class FishMovement : MonoBehaviour {
     public LayerMask objectLayerMask;
     public GameObject raycastPoint;
     private Vector3 raycastOrigin;
@@ -25,8 +24,7 @@ public class FishMovement : MonoBehaviour
 
     private float waterRadius = 26.5f;
 
-    private void Start()
-    {
+    private void Start() {
         rb = GetComponent<Rigidbody>();
         gravityBody = GetComponent<GravityBody>();
         settings = FindObjectOfType<GameSettings>();
@@ -36,16 +34,12 @@ public class FishMovement : MonoBehaviour
         StartCoroutine("StartRotate");
     }
 
-    private void Update()
-    {
-        if (!settings.isPaused)
-        {
-            if (!isInsideRadius(transform.position))
-            {
+    private void Update() {
+        if (!settings.isPaused) {
+            if (!isInsideRadius(transform.position)) {
                 gravityBody.useGrav = true;
             }
-            else
-            {
+            else {
                 gravityBody.useGrav = false;
             }
 
@@ -54,16 +48,13 @@ public class FishMovement : MonoBehaviour
             moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
 
             RaycastHit hit;
-            if (Physics.Raycast(raycastOrigin + transform.position, transform.TransformDirection(Vector3.forward), out hit, 2, objectLayerMask))
-            {
+            if (Physics.Raycast(raycastOrigin + transform.position, transform.TransformDirection(Vector3.forward), out hit, 2, objectLayerMask)) {
                 Debug.DrawRay(raycastOrigin + transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 curRotate = rotateSpeed;
             }
-            else
-            {
+            else {
                 Debug.DrawRay(raycastOrigin + transform.position, transform.TransformDirection(Vector3.forward) * 2, Color.white);
-                if (lockRotation)
-                {
+                if (lockRotation) {
                     curRotate = 0;
                 }
             }
@@ -72,15 +63,12 @@ public class FishMovement : MonoBehaviour
         }
     }
 
-    bool isInsideRadius(Vector3 point)
-    {
+    bool isInsideRadius(Vector3 point) {
         return Mathf.Pow(point.x, 2) + Mathf.Pow(point.y, 2) + Mathf.Pow(point.z, 2) < Mathf.Pow(waterRadius, 2);
     }
 
-    private void FixedUpdate()
-    {
-        if (!settings.isPaused)
-        {
+    private void FixedUpdate() {
+        if (!settings.isPaused) {
             //move
             Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
             rb.MovePosition(rb.position + localMove);
@@ -90,8 +78,7 @@ public class FishMovement : MonoBehaviour
         }
     }
 
-    IEnumerator StartRotate()
-    {
+    IEnumerator StartRotate() {
         curRotate = rotateSpeed;
         lockRotation = false;
         yield return new WaitForSeconds(rotateSeconds);
@@ -102,8 +89,7 @@ public class FishMovement : MonoBehaviour
         StartCoroutine("StartMove");
     }
 
-    IEnumerator StartMove()
-    {
+    IEnumerator StartMove() {
         curSpeed = speed;
         yield return new WaitForSeconds(moveSeconds);
         curSpeed = 0;

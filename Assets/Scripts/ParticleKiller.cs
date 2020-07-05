@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 
-public class ParticleKiller : MonoBehaviour
-{
+public class ParticleKiller : MonoBehaviour {
     ParticleSystem ps;
     bool stopped = false;
 
@@ -12,9 +11,8 @@ public class ParticleKiller : MonoBehaviour
         ps = this.GetComponent<ParticleSystem>();
     }
 
-    void Update()
-    {
-        if(ps.particleCount == ps.main.maxParticles) {
+    void Update() {
+        if (ps.particleCount == ps.main.maxParticles) {
             stopped = true;
         }
 
