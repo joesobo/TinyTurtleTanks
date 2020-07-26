@@ -104,10 +104,13 @@ MonoBehaviour:
   playerLookRadius: 10
   playerShootRadius: 6
   shootSeconds: 3
-  bullet: {fileID: 7755037917241053201, guid: ad3fd5bb57d93124cb7ac8f0ab978928, type: 3}
-  bulletMat: {fileID: 2100000, guid: 867785fb43d9f1248b65696f45dbdc4b, type: 2}
+  bullet: {fileID: 7755037917241053201, guid: a94f929a01267b5409e09e27718bb354, type: 3}
   shootPoints:
   - {fileID: 7865330910300125785}
+  jumpForce: 200
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 2304
 --- !u!114 &5738638306009937676
 MonoBehaviour:
   m_ObjectHideFlags: 0

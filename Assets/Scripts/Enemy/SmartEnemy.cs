@@ -26,10 +26,13 @@ public class SmartEnemy : MonoBehaviour {
     private bool shootPlayer = false;
     public float shootSeconds = 5;
     public GameObject bullet;
-    public Material bulletMat;
     public List<Transform> shootPoints;
     private Transform parent;
     private bool canShoot = false;
+    private bool canJump = false;
+    public float jumpForce = 200;
+    public LayerMask groundMask;
+    private bool grounded;
 
     private AudioSource source;
     private GameSettings settings;
@@ -40,7 +43,6 @@ public class SmartEnemy : MonoBehaviour {
         settings = FindObjectOfType<GameSettings>();
         source = GetComponent<AudioSource>();
         parent = FindObjectOfType<BulletController>().transform;
-        bullet.GetComponent<MeshRenderer>().material = bulletMat;
 
         randomTimes();
         StartCoroutine("StartRotate");
@@ -67,6 +69,30 @@ public class SmartEnemy : MonoBehaviour {
                 shootPlayer = false;
             }
 
+            
+            //grounded check
+            Ray ray = new Ray(transform.position, -transform.up);
+            RaycastHit groundHit;
+
+            Debug.DrawRay(transform.position, -transform.up * .85f, Color.red);
+            if (Physics.Raycast(ray, out groundHit, .85f, groundMask)) {
+                grounded = true;
+            }
+            else {
+                grounded = false;
+            }
+
+            //check for player above to enable jumping
+            float playerDist = Vector3.Distance(Vector3.zero, player.transform.position);
+            float enemyDist = Vector3.Distance(Vector3.zero, transform.position);
+
+            if (Mathf.Abs(playerDist - enemyDist) > 1 && grounded) {
+                canJump = true;
+            }
+            else {
+                canJump = false;
+            }
+
             //looking and moving towards player
             if (lockPlayer) {
                 Vector3 groundNormal = transform.position;
@@ -76,11 +102,17 @@ public class SmartEnemy : MonoBehaviour {
 
                 //stop moving and shoot at player
                 if (shootPlayer) {
-                    curSpeed = 0;
+                    curSpeed = speed / 2;
                     if (canShoot) {
                         canShoot = false;
                         StartCoroutine("StartShoot");
                     }
+                }
+
+                //stop moving and shoot at player
+                if (canJump) {
+                    canJump = false;
+                    rb.AddForce(transform.up * jumpForce);
                 }
             }
             //auto moving state
