@@ -15,6 +15,7 @@ public class GameSettings : MonoBehaviour {
     public bool useFootPrints = false;
     public bool useClouds = false;
     public bool useMoons = false;
+    public bool useAtmosphere = false;
     public bool useWater = false;
     public bool daylightCycle = false;
     [Range(0, 1)]

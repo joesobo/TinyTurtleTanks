@@ -21,8 +21,10 @@ public class LevelRunner : MonoBehaviour {
     public GameObject backgroundMusic;
     public GameObject cloudSpawner;
     public GameObject moonSpawner;
+    public GameObject atmosphere;
     public GameObject crateSpawner;
     public GameObject obstacleList;
+    public GameObject footprints;
     public List<GameObject> enemyStuffList;
     public List<GameObject> particleList;
     public GameObject water;
@@ -90,8 +92,10 @@ public class LevelRunner : MonoBehaviour {
         //Obstacles and Environment
         cloudSpawner.SetActive(settings.useClouds);
         moonSpawner.SetActive(settings.useMoons);
+        atmosphere.SetActive(settings.useAtmosphere);
         crateSpawner.SetActive(settings.useCrates);
         obstacleList.SetActive(settings.useEnvironmentObjects);
+        footprints.SetActive(settings.useFootPrints);
         water.SetActive(settings.useWater);
         daylightCycle.enabled = settings.daylightCycle;
 
