@@ -90,13 +90,13 @@ public class LevelRunner : MonoBehaviour {
         backgroundMusic.SetActive(settings.useSound);
 
         //Obstacles and Environment
-        cloudSpawner.SetActive(settings.useClouds);
-        moonSpawner.SetActive(settings.useMoons);
-        atmosphere.SetActive(settings.useAtmosphere);
-        crateSpawner.SetActive(settings.useCrates);
+        if (cloudSpawner) cloudSpawner.SetActive(settings.useClouds);
+        if (moonSpawner) moonSpawner.SetActive(settings.useMoons);
+        if (atmosphere) atmosphere.SetActive(settings.useAtmosphere);
+        if (crateSpawner) crateSpawner.SetActive(settings.useCrates);
         obstacleList.SetActive(settings.useEnvironmentObjects);
         footprints.SetActive(settings.useFootPrints);
-        water.SetActive(settings.useWater);
+        if (water) water.SetActive(settings.useWater);
         daylightCycle.enabled = settings.daylightCycle;
 
         //Enemies
