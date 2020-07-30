@@ -2,3 +2,39 @@
 ---
 
 @import 'jekyll-theme-architect';
+
+body {
+    background-color: #222;
+    background-image: none;
+}
+
+aside#sidebar {
+    background-color: #222;
+    background-image: none;
+}
+
+header {
+    background-color: #222;
+    background-image: none;
+    border-bottom: 1px solid black;
+}
+
+#content-wrapper {
+    border-top: none;
+}
+
+a {
+    color: #7ad8fa;
+}
+
+a:hover {
+    color: #56a9c7;
+}
+
+header h1 {
+    width: 600px;
+}
+
+aside#sidebar {
+    border-left: 1px solid black;
+}
