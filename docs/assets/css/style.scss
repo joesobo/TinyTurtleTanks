@@ -1,40 +1,72 @@
 ---
 ---
 
-@import 'jekyll-theme-architect';
+@import "jekyll-theme-architect";
 
 body {
-    background-color: #222;
-    background-image: none;
+  background-color: #222;
+  background-image: none;
 }
 
 aside#sidebar {
-    background-color: #222;
-    background-image: none;
+  background-color: #222;
+  background-image: none;
 }
 
 header {
-    background-color: #222;
-    background-image: none;
-    border-bottom: 1px solid black;
+  background-color: #222;
+  background-image: none;
+  border-bottom: 1px solid black;
+}
+
+.post-list-heading {
+  color: #c5eefc !important;
 }
 
 #content-wrapper {
-    border-top: none;
+  border-top: none;
 }
 
 a {
-    color: #7ad8fa;
+  color: #7ad8fa;
 }
 
 a:hover {
-    color: #56a9c7;
+  color: #56a9c7;
 }
 
 header h1 {
-    width: 600px;
+  width: 600px;
 }
 
 aside#sidebar {
-    border-left: 1px solid black;
+  border-left: 1px solid black;
+}
+
+#main-content h1 {
+  color: #7ad8fa;
+}
+
+#main-content h1:before {
+  content: none;
+}
+
+#main-content h2 {
+  color: #7ad8fa;
+}
+
+#main-content h2:before {
+  content: none;
+}
+
+#main-content h3:before {
+  content: none;
+}
+
+h4:before {
+  content: none;
+}
+
+.post-list {
+  list-style: none;
 }
