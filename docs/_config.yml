@@ -30,7 +30,7 @@ twitter_username: josephsobo
 github_username:  joesobo
 
 # Build settings
-theme: minima
+theme: jekyll-theme-midnight
 plugins:
   - jekyll-feed
 
