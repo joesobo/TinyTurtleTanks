@@ -4,19 +4,24 @@
 @import "jekyll-theme-architect";
 
 body {
-  background-color: #222;
+  background-color: #333;
   background-image: none;
 }
 
 aside#sidebar {
-  background-color: #222;
+  background-color: #333;
   background-image: none;
 }
 
 header {
-  background-color: #222;
+  background-color: #252525;
   background-image: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #222;
+}
+
+.post-header {
+  background-color: #333;
+  border-bottom: 1px solid white;
 }
 
 .post-list-heading {
@@ -40,7 +45,7 @@ header h1 {
 }
 
 aside#sidebar {
-  border-left: 1px solid black;
+  border-left: 1px solid white;
 }
 
 #main-content h1 {
@@ -69,4 +74,11 @@ h4:before {
 
 .post-list {
   list-style: none;
+}
+
+.post-list > li {
+  padding: 8px;
+  border: 1px solid white;
+  border-radius: 4px;
+  margin-bottom: 8px;
 }
