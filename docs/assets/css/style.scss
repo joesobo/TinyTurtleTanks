@@ -4,8 +4,17 @@
 @import "jekyll-theme-architect";
 
 body {
+  color: #888;
   background-color: #333;
   background-image: none;
+}
+
+ul {
+  margin-bottom: 0px;
+}
+
+ol > li {
+  margin-bottom: 10px;
 }
 
 aside#sidebar {
@@ -62,6 +71,10 @@ aside#sidebar {
 
 #main-content h2:before {
   content: none;
+}
+
+#main-content h3 {
+  color: #AAA;
 }
 
 #main-content h3:before {
