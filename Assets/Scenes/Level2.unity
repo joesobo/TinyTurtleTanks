@@ -645,7 +645,7 @@ MonoBehaviour:
   offsetScale: 2
   maxDensity: 1
   minScale: 0.25
-  maxScale: 1
+  maxScale: 1.5
   layerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -660,7 +660,7 @@ MonoBehaviour:
   useRandomRotation: 1
   useRandomColor: 1
   useSlopeCutoff: 1
-  useRandomScaleAxis: 0
+  useRandomScaleAxis: 1
   minRayHeight: 30
   maxRayHeight: 50
   minHeight: 22.4
@@ -8115,7 +8115,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.82687676, b: 0.6745283, a: 1}
+  m_Color: {r: 1, g: 0.63388443, b: 0.514151, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -9335,7 +9335,7 @@ MonoBehaviour:
   useFootPrints: 1
   useClouds: 1
   useMoons: 1
-  useAtmosphere: 1
+  useAtmosphere: 0
   useWater: 1
   daylightCycle: 1
   soundVolume: 0.5
@@ -10455,7 +10455,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.3210852, y: 0.54895115, z: -0.17453076, w: 0.7517287}
+  m_LocalRotation: {x: 0.3210852, y: 0.5489511, z: -0.17453074, w: 0.7517288}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10529,7 +10529,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.7219476}
+  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.72194755}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11035,10 +11035,10 @@ MonoBehaviour:
   orbitalPrefab: {fileID: 5831345753078639895, guid: 4f4665a93a205774191b4c2210c7e5d7,
     type: 3}
   minRadius: 175
-  maxRadius: 200
-  numOfOrbitals: 5
+  maxRadius: 250
+  numOfOrbitals: 10
   minScale: 0.25
-  maxScale: 0.5
+  maxScale: 0.7
 --- !u!1 &1507705202
 GameObject:
   m_ObjectHideFlags: 0
