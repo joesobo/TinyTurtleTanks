@@ -23,8 +23,9 @@ aside#sidebar {
 }
 
 header {
-  background-color: #252525;
-  background-image: none;
+  //background-color: #252525;
+  background-image: url(../images/planetBanner.png);
+  object-fit: cover;
   border-bottom: 1px solid #222;
 }
 
