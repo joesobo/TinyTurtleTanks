@@ -17,6 +17,7 @@ public abstract class Health : MonoBehaviour {
     private List<Material> tempMaterials = new List<Material>();
 
     private float flashTime = 0.15f;
+    private bool isDead = false;
 
     void Start() {
         settings = FindObjectOfType<GameSettings>();
@@ -76,7 +77,8 @@ public abstract class Health : MonoBehaviour {
     }
 
     private void Update() {
-        if (curHealth <= 0) {
+        if (curHealth <= 0 && !isDead) {
+            isDead = true;
             onDeath();
         }
 

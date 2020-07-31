@@ -6848,6 +6848,12 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.17261495
       objectReference: {fileID: 0}
+    - target: {fileID: 7865330909404507695, guid: 2a05409cbd6517342b707e75acccd2d5,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 7755037917241053201, guid: ea023efd15c8a9140a0b0ed7d6a6ffcb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a05409cbd6517342b707e75acccd2d5, type: 3}
 --- !u!1 &459740610
@@ -9289,8 +9295,8 @@ MonoBehaviour:
   daylightCycle: 1
   soundVolume: 0.5
   useCrates: 0
-  useEnvironmentObjects: 1
-  useEnemies: 0
+  useEnvironmentObjects: 0
+  useEnemies: 1
   currentLevel: 1
 --- !u!4 &1000687953
 Transform:
@@ -10329,6 +10335,12 @@ PrefabInstance:
       propertyPath: groundMask.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 7865330909404507695, guid: 2a05409cbd6517342b707e75acccd2d5,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 7755037917241053201, guid: ea023efd15c8a9140a0b0ed7d6a6ffcb,
+        type: 3}
     m_RemovedComponents:
     - {fileID: -6386909904037650603, guid: 2a05409cbd6517342b707e75acccd2d5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2a05409cbd6517342b707e75acccd2d5, type: 3}
@@ -10398,7 +10410,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.3210852, y: 0.54895115, z: -0.17453076, w: 0.7517287}
+  m_LocalRotation: {x: 0.3210852, y: 0.5489511, z: -0.17453074, w: 0.7517288}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -46691,6 +46703,12 @@ PrefabInstance:
       propertyPath: groundMask.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 7865330909404507695, guid: 2a05409cbd6517342b707e75acccd2d5,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 7755037917241053201, guid: ea023efd15c8a9140a0b0ed7d6a6ffcb,
+        type: 3}
     - target: {fileID: 7865330910300125784, guid: 2a05409cbd6517342b707e75acccd2d5,
         type: 3}
       propertyPath: m_IsActive
