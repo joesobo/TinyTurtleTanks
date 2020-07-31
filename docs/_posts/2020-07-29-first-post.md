@@ -3,7 +3,7 @@ layout: post
 title:  "My First Post"
 date:   2020-07-29 17:15:22 -0700
 categories: jekyll update
-img: ./assets/images/planet.png
+img: planet.png
 ---
 
 ## Welcome to my first post! 

@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
@@ -12,7 +13,15 @@ layout: default
       </time>
       {%- if page.author -%}
         • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
-      {%- endif -%}</p>
+      {%- endif -%}
+    </p>
+    <img
+      class="post-img"
+      src="../../../../../assets/images/{{ page.img }}"
+      alt=""
+      width="128"
+      height="128"
+    />
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
