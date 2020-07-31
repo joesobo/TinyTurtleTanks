@@ -10,10 +10,12 @@ img: planet.png
 
 Here I'm going to talk about my journey through the land of game development, specifically for my game <u>Tiny Turtle Tanks</u>. In making this blog, I hope to pass along some of the knowledge that I've learned and document the process of the making of this game. (Mostly so I don't forget it.)
 
+![Planets planets planets](../../../../../assets/images/planet.png "Ssssh its a planet")
+
 I also want to share tips and tricks to all of the different 'islands' that lie around game dev land. There is so much to creating a game, besides just making it. For example making music, marketing, and even creating this here website. 
 
 ## Steps for creating this devblog
-First a little info. This website is created using Jekyll for layouts, and hosted using Github Pages. I decided to use this path since I wanted to fast way to create new blog posts, and I wanted to host it for free. Besides a few painful installation moments, GH-Pages and Jekyll work extremely well together and matched all my requirements, so here we go.
+First a little tutorial, so I can recreate this in the future. This website is created using Jekyll for layouts, and hosted using Github Pages. I decided to use this path since I wanted to fast way to create new blog posts, and I wanted to host it for free. Besides a few painful installation moments, GH-Pages and Jekyll work extremely well together and matched all my requirements, so here we go.
 
 ### Resources
 1. [GitHub Pages][gh-p]
@@ -46,7 +48,6 @@ First a little info. This website is created using Jekyll for layouts, and hoste
     - Navigate to localhost:4000/{repo}/ 
     - (Ex: localhost:4000/TinyTurtleTanks/)
 14. Congrats! Go to your URL and see your working site now. (It should just be the default Jekyll homepage)
-
 
 ### Overview of the file structure:
 1. _config.yml - A configuration file used for storing basic information used in templates
