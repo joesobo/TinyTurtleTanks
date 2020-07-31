@@ -16,22 +16,24 @@ layout: default
       <li>
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         
-        <div class="row">
-          <div class="column sm-flex-item">
-            <span class="post-meta sm-flex-item">{{ post.date | date: date_format }}</span>
-            <h3 class="sm-flex-item">
-              <a class="post-link" href="{{ post.url | relative_url }}">
-                {{ post.title | escape }}
-              </a>
-            </h3>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          <div class="row">
+            <div class="column sm-flex-item">
+              <span class="post-meta sm-flex-item">{{ post.date | date: date_format }}</span>
+              <h3 class="sm-flex-item">
+                <p class="post-name" >
+                  {{ post.title | escape }}
+                </p>
+              </h3>
+            </div>
+            <img
+              class="post-img"
+              src="./assets/images/{{ post.img }}"
+              alt=""
+              width="128"
+              height="128">
           </div>
-          <img
-            class="post-large-img"
-            src="./assets/images/{{ post.img }}"
-            alt=""
-            width="128"
-            height="128">
-        </div>
+        </a>
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
         {%- endif -%}
