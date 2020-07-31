@@ -28,6 +28,11 @@ header {
   border-bottom: 1px solid #222;
 }
 
+.no-bg-img {
+  background-image: none;
+  background-color: #333;
+}
+
 .row {
   display: flex;
   flex-direction: row;
