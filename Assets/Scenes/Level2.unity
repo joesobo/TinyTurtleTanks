@@ -7036,11 +7036,11 @@ GameObject:
   - component: {fileID: 464551888}
   m_Layer: 4
   m_Name: WaterShader
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &464551888
 Transform:
   m_ObjectHideFlags: 0
@@ -9377,17 +9377,17 @@ MonoBehaviour:
   useSound: 0
   useParticle: 1
   particleSlider: 1
-  useGrass: 1
-  useSeaweed: 1
-  useFootPrints: 1
-  useClouds: 1
-  useMoons: 1
+  useGrass: 0
+  useSeaweed: 0
+  useFootPrints: 0
+  useClouds: 0
+  useMoons: 0
   useAtmosphere: 0
   useWater: 1
-  daylightCycle: 1
+  daylightCycle: 0
   soundVolume: 0.5
   useCrates: 0
-  useEnvironmentObjects: 1
+  useEnvironmentObjects: 0
   useEnemies: 0
   currentLevel: 1
 --- !u!4 &1000687953
@@ -10576,7 +10576,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.72194755}
+  m_LocalRotation: {x: 0.32894215, y: 0.5539686, z: -0.25240368, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11101,7 +11101,7 @@ GameObject:
   - component: {fileID: 1507705204}
   m_Layer: 4
   m_Name: WaterShader (Toon Foam)
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44595,7 +44595,7 @@ GameObject:
   - component: {fileID: 1681135431}
   m_Layer: 4
   m_Name: WaterShader (CatlikeCoding 2)
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44710,6 +44710,8 @@ MonoBehaviour:
     m_Bits: 2304
   trailParticles: {fileID: 1416507448}
   landParticles: {fileID: 3753587685060808994, guid: a1e19c9970456fa40a2be9330d19f82d,
+    type: 3}
+  waterParticles: {fileID: 3753587685060808994, guid: 65b57971e59397e4b9610842c44d2e5d,
     type: 3}
   animator: {fileID: 1196663913}
 --- !u!114 &1681413296
@@ -47187,7 +47189,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6202714891422923690}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.2825327, y: 0.18068714, z: -0.5075687, w: 0.7936633}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
@@ -47198,4 +47200,4 @@ Transform:
   - {fileID: 2008951771}
   m_Father: {fileID: 237689038}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 39.19, y: 0, z: -65.2}

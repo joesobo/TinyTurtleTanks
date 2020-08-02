@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour {
     private float maxRotateSpeed = 100;
     public float jumpForce = 200;
     public LayerMask groundMask;
-    public LayerMask waterMask;
-    private float waterRadius = 26.5f;
 
     private Vector3 moveAmount;
     private Vector3 smoothMoveVelocity;
