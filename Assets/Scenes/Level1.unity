@@ -8915,17 +8915,17 @@ MonoBehaviour:
   useSound: 0
   useParticle: 1
   particleSlider: 1
-  useGrass: 1
-  useSeaweed: 1
-  useFootPrints: 1
-  useClouds: 1
-  useMoons: 1
-  useAtmosphere: 1
+  useGrass: 0
+  useSeaweed: 0
+  useFootPrints: 0
+  useClouds: 0
+  useMoons: 0
+  useAtmosphere: 0
   useWater: 1
-  daylightCycle: 1
+  daylightCycle: 0
   soundVolume: 0.5
   useCrates: 0
-  useEnvironmentObjects: 1
+  useEnvironmentObjects: 0
   useEnemies: 0
   currentLevel: 1
 --- !u!4 &1000687953
@@ -10035,7 +10035,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.32894215, y: 0.5539686, z: -0.25240368, w: 0.7219476}
+  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -44100,9 +44100,14 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 2304
+  waterMask:
+    serializedVersion: 2
+    m_Bits: 16
   trailParticles: {fileID: 6771612981600578566, guid: a46417a6dc3657643b447398bdb999df,
     type: 3}
   landParticles: {fileID: 3753587685060808994, guid: a1e19c9970456fa40a2be9330d19f82d,
+    type: 3}
+  waterParticles: {fileID: 3753587685060808994, guid: 2c56aeb65b7121145b7c6b86e67ebba9,
     type: 3}
   animator: {fileID: 1196663913}
 --- !u!114 &1681413296
@@ -46785,15 +46790,35 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8856685463475428792, guid: 3829860b8eec89846bb6842029057624,
+        type: 3}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
     - target: {fileID: 8856685463649930127, guid: 3829860b8eec89846bb6842029057624,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8856685463649930127, guid: 3829860b8eec89846bb6842029057624,
+        type: 3}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
     - target: {fileID: 8856685464581317381, guid: 3829860b8eec89846bb6842029057624,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856685464581317381, guid: 3829860b8eec89846bb6842029057624,
+        type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856685464581317381, guid: 3829860b8eec89846bb6842029057624,
+        type: 3}
+      propertyPath: m_TagString
+      value: Water
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3829860b8eec89846bb6842029057624, type: 3}

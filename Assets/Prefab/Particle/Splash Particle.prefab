@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3754762435365305190}
   - component: {fileID: -1715654997982435447}
   m_Layer: 0
-  m_Name: Land Particles
+  m_Name: Splash Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,8 +222,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.55, g: 0.54640526, b: 0.45653594, a: 0.7490196}
-      maxColor: {r: 0.85, g: 0.8234375, b: 0.63750005, a: 0.7490196}
+      minColor: {r: 0.2392157, g: 0.56078434, b: 0.654902, a: 0.7490196}
+      maxColor: {r: 0.5882353, g: 0.882353, b: 0.9686275, a: 0.7490196}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -286,7 +286,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.4
-      minScalar: 0.2
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -601,7 +601,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 20
+    maxNumParticles: 30
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -3791,7 +3791,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 7463
+      m_Bits: 7479
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -4768,8 +4768,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8c89196c0ef52224f841c3516c975f18, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 6c366650ac93c84439ff420c4c090f0d, type: 2}
+  - {fileID: 2100000, guid: 6c366650ac93c84439ff420c4c090f0d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

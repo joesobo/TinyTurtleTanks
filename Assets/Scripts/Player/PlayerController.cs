@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
     private float maxRotateSpeed = 100;
     public float jumpForce = 200;
     public LayerMask groundMask;
+    public LayerMask waterMask;
+    private float waterRadius = 26.5f;
 
     private Vector3 moveAmount;
     private Vector3 smoothMoveVelocity;
@@ -19,7 +21,18 @@ public class PlayerController : MonoBehaviour {
     private GameSettings settings;
     public ParticleSystem trailParticles;
     public ParticleSystem landParticles;
+    public ParticleSystem waterParticles;
     public Animator animator;
+
+    private Vector3 moveDir;
+    private Vector3 localMove;
+    private Vector3 targetMoveAmount;
+    private float inputX;
+    private float inputY;
+    private Ray ray;
+    private RaycastHit hit;
+    private float dist;
+    private ParticleSystem ps;
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
@@ -38,18 +51,18 @@ public class PlayerController : MonoBehaviour {
         animator.SetBool("Walking", false);
         if (!settings.isPaused) {
             //calculate movement
-            float inputY = Input.GetAxisRaw("Vertical");
+            inputY = Input.GetAxisRaw("Vertical");
 
             if (inputY != 0) {
                 animator.SetBool("Walking", true);
             }
 
-            Vector3 moveDir = new Vector3(0, 0, inputY).normalized;
-            Vector3 targetMoveAmount = moveDir * speed;
+            moveDir = new Vector3(0, 0, inputY).normalized;
+            targetMoveAmount = moveDir * speed;
             moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
 
             //calculate rotation
-            float inputX = Input.GetAxisRaw("Horizontal");
+            inputX = Input.GetAxisRaw("Horizontal");
             if (inputX > 0) {
                 rotateSpeed = maxRotateSpeed;
             }
@@ -71,18 +84,15 @@ public class PlayerController : MonoBehaviour {
                     }
                 }
             }
-
-
+            
             //grounded check
-            Ray ray = new Ray(transform.position, -transform.up);
-            RaycastHit hit;
-
+            ray = new Ray(transform.position, -transform.up);
             Debug.DrawRay(transform.position, -transform.up * .85f, Color.red);
             if (Physics.Raycast(ray, out hit, .85f, groundMask)) {
                 grounded = true;
 
                 if (settings.useParticle && !landParticleSpawned) {
-                    ParticleSystem ps = Instantiate(landParticles, transform.position, transform.rotation);
+                    ps = Instantiate(landParticles, transform.position, transform.rotation);
                     settings.SetParticleValues(ps);
                     landParticleSpawned = true;
                 }
@@ -103,8 +113,17 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate() {
         if (!settings.isPaused) {
-            Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
+            localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
             rb.MovePosition(rb.position + localMove);
+        }
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Water") {
+            if (settings.useParticle ) {
+                ps = Instantiate(waterParticles, transform.position, transform.rotation);
+                settings.SetParticleValues(ps);
+            }
         }
     }
 }
