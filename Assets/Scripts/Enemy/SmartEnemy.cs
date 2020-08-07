@@ -24,8 +24,8 @@ public class SmartEnemy : MonoBehaviour {
     public float playerShootRadius = 2;
     private bool lockPlayer = false;
     private bool shootPlayer = false;
-    public float shootSeconds = 5;
-    public GameObject bullet;
+    //public GameObject bullet;
+    public Weapon weapon;
     public List<Transform> shootPoints;
     private Transform parent;
     private bool canShoot = false;
@@ -175,7 +175,14 @@ public class SmartEnemy : MonoBehaviour {
         if (!settings.isPaused) {
             ShootAtPoints();
         }
-        yield return new WaitForSeconds(shootSeconds);
+
+        if (weapon.currentClip > 0) {
+            yield return new WaitForSeconds(weapon.timeBetweenShots);
+        }else{
+            yield return new WaitForSeconds(weapon.reloadTime);
+            weapon.reload();
+        }
+        
         canShoot = true;
     }
 
@@ -191,7 +198,8 @@ public class SmartEnemy : MonoBehaviour {
 
     private void ShootAtPoints() {
         foreach (Transform shootPoint in shootPoints) {
-            Instantiate(bullet, shootPoint.position, shootPoint.rotation, parent);
+            Instantiate(weapon.ammo.prefab, shootPoint.position, shootPoint.rotation, parent);
+            weapon.useAmmo(1);
         }
         if (settings.useSound) {
             source.volume = settings.soundVolume;

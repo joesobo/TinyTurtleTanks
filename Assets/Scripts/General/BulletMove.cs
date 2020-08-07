@@ -7,6 +7,7 @@ public class BulletMove : MonoBehaviour {
     private Vector3 moveAmount;
     private Vector3 smoothMoveVelocity;
     public float speed = 20f;
+    public int damage = 1;
     private GameSettings settings;
     private LevelRunner levelRunner;
 
@@ -49,7 +50,7 @@ public class BulletMove : MonoBehaviour {
         if (!delayOn) {
             if (col.gameObject.tag == "Player") {
                 Debug.Log("Hit Player");
-                col.gameObject.GetComponent<Health>().decreaseHealth(1);
+                col.gameObject.GetComponent<Health>().decreaseHealth(damage);
                 Destroy(gameObject);
             }
         }
@@ -65,7 +66,7 @@ public class BulletMove : MonoBehaviour {
 
         else if (col.gameObject.tag == "Enemy") {
             Debug.Log("Hit Enemy");
-            col.gameObject.GetComponent<Health>().decreaseHealth(1);
+            col.gameObject.GetComponent<Health>().decreaseHealth(damage);
             if (settings.useParticle) {
                 Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
             }

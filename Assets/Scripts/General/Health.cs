@@ -66,9 +66,7 @@ public abstract class Health : MonoBehaviour {
             tempMaterials.Add(renderer.material);
             renderer.material = flashMaterial;
         }
-        print("START");
         yield return new WaitForSeconds(flashTime);
-        print("END");
         //reset materials to old
         for (int index = 0; index < meshRenderers.Length; index++) {
             meshRenderers[index].material = tempMaterials[index];
