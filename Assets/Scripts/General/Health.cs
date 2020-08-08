@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Health : MonoBehaviour {
+    [HideInInspector]
     public int MAXHEALTH = 3;
     [SerializeField]
     private int curHealth;

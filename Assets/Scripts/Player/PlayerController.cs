@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    public BaseTurtle BaseTurtle;
+
     public float speed = 10;
     public float rotationChangeSpeed = 50;
     public float rotateSpeed = 0;
@@ -32,7 +34,22 @@ public class PlayerController : MonoBehaviour {
     private float dist;
     private ParticleSystem ps;
 
+    private PlayerHealth playerHealth;
+    private PlayerShoot playerShoot;
+
     private void Start() {
+        playerHealth = GetComponent<PlayerHealth>();
+        playerHealth.MAXHEALTH = BaseTurtle.health;
+
+        speed = BaseTurtle.moveSpeed;
+        rotateSpeed = BaseTurtle.rotateSpeed;
+        jumpForce = BaseTurtle.jumpForce;
+
+        playerShoot = GetComponent<PlayerShoot>();
+        playerShoot.weapon = BaseTurtle.weapon;
+
+        BaseTurtle.weapon.reload();
+
         rb = GetComponent<Rigidbody>();
         settings = FindObjectOfType<GameSettings>();
         rb.constraints = RigidbodyConstraints.FreezeRotation;

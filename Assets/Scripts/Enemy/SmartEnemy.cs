@@ -24,7 +24,6 @@ public class SmartEnemy : MonoBehaviour {
     public float playerShootRadius = 2;
     private bool lockPlayer = false;
     private bool shootPlayer = false;
-    //public GameObject bullet;
     public Weapon weapon;
     public List<Transform> shootPoints;
     private Transform parent;
@@ -198,8 +197,7 @@ public class SmartEnemy : MonoBehaviour {
 
     private void ShootAtPoints() {
         foreach (Transform shootPoint in shootPoints) {
-            Instantiate(weapon.ammo.prefab, shootPoint.position, shootPoint.rotation, parent);
-            weapon.useAmmo(1);
+            weapon.shoot(shootPoint.position, this.transform.rotation, parent);
         }
         if (settings.useSound) {
             source.volume = settings.soundVolume;

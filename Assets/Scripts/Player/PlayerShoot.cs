@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour {
-    public GameObject bullet;
+    public Weapon weapon;
     public Transform shootPoint;
     public Transform parent;
     private bool delayOn = false;
@@ -24,7 +24,7 @@ public class PlayerShoot : MonoBehaviour {
                 delayOn = true;
                 StartCoroutine("DelayCo");
                 //create bullet
-                Instantiate(bullet, shootPoint.position, this.transform.rotation, parent);
+                weapon.shoot(shootPoint.position, this.transform.rotation, parent);
                 //play sound
                 if (settings.useSound) {
                     source.volume = settings.soundVolume;
@@ -37,7 +37,12 @@ public class PlayerShoot : MonoBehaviour {
     }
 
     IEnumerator DelayCo() {
-        yield return new WaitForSeconds(0.3f);
+        if (weapon.currentClip > 0) {
+            yield return new WaitForSeconds(weapon.timeBetweenShots);
+        }else{
+            yield return new WaitForSeconds(weapon.reloadTime);
+            weapon.reload();
+        }
         delayOn = false;
     }
 }

@@ -21,4 +21,9 @@ public class Weapon : ScriptableObject {
     public void reload() {
         currentClip = clipSize;
     }
+
+    public void shoot(Vector3 position, Quaternion rotation, Transform parent) {
+        ammo.StartUp(Instantiate(ammo.prefab, position, rotation, parent));
+        useAmmo(1);
+    }
 }

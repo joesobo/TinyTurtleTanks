@@ -11,8 +11,8 @@ public class Ammo : ScriptableObject {
     public bool doesExplode = false;
     private BulletMove bulletMove;
 
-    public Ammo() {
-        bulletMove = prefab.GetComponent<BulletMove>();
+    public void StartUp(GameObject bullet) {
+        bulletMove = bullet.GetComponent<BulletMove>();
         bulletMove.speed = speed;
         bulletMove.decaySpeed = decaySpeed;
         bulletMove.damage = damage;
