@@ -55,7 +55,7 @@ public class PlayerShoot : MonoBehaviour {
     }
 
     IEnumerator MainDelayCo() {
-        if (weapon.currentClip > 0) {
+        if (weapon.currentClip-1 > 0) {
             yield return new WaitForSeconds(weapon.timeBetweenShots);
         }else{
             yield return new WaitForSeconds(weapon.reloadTime);
