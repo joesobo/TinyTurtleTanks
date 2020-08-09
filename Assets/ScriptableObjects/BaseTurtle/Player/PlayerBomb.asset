@@ -16,5 +16,5 @@ MonoBehaviour:
   speed: 650
   damage: 1
   bounces: 0
-  decaySpeed: 0
+  decaySpeed: 2
   doesExplode: 0

@@ -6,6 +6,7 @@ public class BombLaunch : MonoBehaviour {
     public int speed;
     public int decaySpeed;
     public int damage;
+    public int damageRadius = 5;
     public GameObject explosionParticlePrefab;
 
     private GameSettings settings;
@@ -39,6 +40,7 @@ public class BombLaunch : MonoBehaviour {
             Instantiate(explosionParticlePrefab, transform.position, transform.rotation, this.transform);
         }
         //check radius for objects to damage
+        damageObjectInRadius();
         //delete object
         StartCoroutine("DeleteObject");
     }
@@ -46,5 +48,14 @@ public class BombLaunch : MonoBehaviour {
     IEnumerator DeleteObject() {
         yield return new WaitForSeconds(0.5f);
         Object.Destroy(this);
+    }
+
+    private void damageObjectInRadius() {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, damageRadius);
+        foreach (Collider col in hitColliders) {
+            if (col.tag == "Player" || col.tag == "Enemy") {
+                col.gameObject.GetComponent<Health>().decreaseHealth(damage);
+            }
+        }
     }
 }
