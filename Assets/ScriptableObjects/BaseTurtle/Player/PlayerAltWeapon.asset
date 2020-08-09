@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b5284a36715ee42b76831044b6e7af, type: 3}
+  m_Name: PlayerAltWeapon
+  m_EditorClassIdentifier: 
+  timeBetweenUses: 0.5
+  knockback: 0
+  ammo: {fileID: 11400000, guid: a09dee3e3fbbf114794f9475514d2392, type: 2}

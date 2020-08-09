@@ -23,7 +23,7 @@ public class Weapon : ScriptableObject {
     }
 
     public void shoot(Vector3 position, Quaternion rotation, Transform parent) {
-        ammo.StartUp(Instantiate(ammo.prefab, position, rotation, parent));
+        ammo.StartUpBullet(Instantiate(ammo.prefab, position, rotation, parent));
         useAmmo(1);
     }
 }
