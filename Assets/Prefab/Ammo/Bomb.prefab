@@ -111,6 +111,8 @@ MonoBehaviour:
   speed: 0
   decaySpeed: 0
   damage: 0
+  explosionParticlePrefab: {fileID: 7710933089740006782, guid: 0e7e116dd6e65674188f1c137a9d5f1e,
+    type: 3}
 --- !u!54 &1750185506979683502
 Rigidbody:
   m_ObjectHideFlags: 0

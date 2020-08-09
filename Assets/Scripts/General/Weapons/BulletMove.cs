@@ -9,7 +9,6 @@ public class BulletMove : MonoBehaviour {
     public float speed = 20f;
     public int damage = 1;
     private GameSettings settings;
-    private LevelRunner levelRunner;
 
     private bool delayOn = true;
     private AudioSource source;
@@ -20,7 +19,6 @@ public class BulletMove : MonoBehaviour {
     public GameObject bloodParticlePrefab;
 
     private void Start() {
-        levelRunner = FindObjectOfType<LevelRunner>();
         settings = FindObjectOfType<GameSettings>();
         rb = GetComponent<Rigidbody>();
         source = GetComponent<AudioSource>();

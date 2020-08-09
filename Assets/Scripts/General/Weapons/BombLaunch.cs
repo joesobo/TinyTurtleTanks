@@ -6,23 +6,45 @@ public class BombLaunch : MonoBehaviour {
     public int speed;
     public int decaySpeed;
     public int damage;
+    public GameObject explosionParticlePrefab;
 
-    private Rigidbody bomb_rb;
-    private Rigidbody player_rb;
+    private GameSettings settings;
+
+    private Rigidbody rb;
 
     private void Start() {
-        bomb_rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
+        settings = FindObjectOfType<GameSettings>();
     }
 
     public void launch() {
-        if (!bomb_rb) {
-            bomb_rb = GetComponent<Rigidbody>();
+        if (!rb) {
+            rb = GetComponent<Rigidbody>();
         }
-        // if (!player_rb) {
-        //     player_rb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>();
-        // }
-        //bomb_rb = player_rb;
-        bomb_rb.AddForce(transform.up * speed);
-        bomb_rb.AddForce(transform.forward * speed);
+        if (!settings) {
+            settings = FindObjectOfType<GameSettings>();
+        }
+        rb.AddForce(transform.up * speed);
+        rb.AddForce(transform.forward * speed);
+
+        StartCoroutine("DelayExplosion");
+    }
+
+    IEnumerator DelayExplosion() {
+        yield return new WaitForSeconds(decaySpeed);
+        //turn off renderer
+        GetComponent<MeshRenderer>().enabled = false;
+        //play explosion
+        if (settings.useParticle) {
+            Instantiate(explosionParticlePrefab, transform.position, transform.rotation, this.transform);
+        }
+        //check radius for objects to damage
+        //delete object
+        StartCoroutine("DeleteObject");
+    }
+
+    IEnumerator DeleteObject() {
+        yield return new WaitForSeconds(0.5f);
+        Object.Destroy(this);
     }
 }
