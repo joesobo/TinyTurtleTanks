@@ -47,7 +47,7 @@ public class BombLaunch : MonoBehaviour {
 
     IEnumerator DeleteObject() {
         yield return new WaitForSeconds(0.5f);
-        Object.Destroy(this);
+        Object.Destroy(this.gameObject);
     }
 
     private void damageObjectInRadius() {
