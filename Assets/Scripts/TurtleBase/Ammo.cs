@@ -8,9 +8,10 @@ public class Ammo : ScriptableObject {
     public int damage = 1;                                      // 1-5                   
     public int bounces = 0;                                     // 0-3
     public int decaySpeed = 0;                                  // 0-50
-    public bool doesExplode = false;
+    //public bool doesExplode = false;
     private BulletMove bulletMove;
     private BombLaunch bombLaunch;
+    private MineController mineController;
 
     public void StartUpBullet(GameObject bullet) {
         bulletMove = bullet.GetComponent<BulletMove>();
@@ -21,10 +22,22 @@ public class Ammo : ScriptableObject {
 
     public void StartUpAlt(GameObject bullet) {
         bombLaunch = bullet.GetComponent<BombLaunch>();
-        bombLaunch.speed = speed;
-        bombLaunch.decaySpeed = decaySpeed;
-        bombLaunch.damage = damage;
+        mineController = bullet.GetComponent<MineController>();
 
-        bombLaunch.launch();
+        if (bombLaunch) {
+            bombLaunch.speed = speed;
+            bombLaunch.decaySpeed = decaySpeed;
+            bombLaunch.damage = damage;
+
+            bombLaunch.launch();
+        }
+
+        if (mineController) {
+            //mineController.speed = speed;
+            //mineController.decaySpeed = decaySpeed;
+            mineController.damage = damage;
+
+            mineController.launch();
+        }
     }
 }

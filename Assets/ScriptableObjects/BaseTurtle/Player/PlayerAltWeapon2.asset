@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c419ab8dd3ef1349b033e5796f696c5, type: 3}
-  m_Name: PlayerWeapon
+  m_Script: {fileID: 11500000, guid: 18b5284a36715ee42b76831044b6e7af, type: 3}
+  m_Name: PlayerAltWeapon2
   m_EditorClassIdentifier: 
-  clipSize: 3
-  reloadTime: 1
-  timeBetweenShots: 0.2
-  directions: 1
-  ammo: {fileID: 11400000, guid: 6d9a97483d1502742a7e436f2ae6ebf2, type: 2}
+  timeBetweenUses: 0.5
+  knockback: 0
+  ammo: {fileID: 11400000, guid: d75642ff2c87ae743a98f290940423dc, type: 2}
