@@ -60,6 +60,7 @@ public class BombLaunch : MonoBehaviour {
         foreach (Collider col in hitColliders) {
             if (col.tag == "Player" || col.tag == "Enemy") {
                 col.gameObject.GetComponent<Health>().decreaseHealth(damage);
+                
                 if (settings.useParticle) {
                     Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
                 }

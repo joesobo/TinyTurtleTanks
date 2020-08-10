@@ -36,24 +36,40 @@ public class MineController : MonoBehaviour {
 
     private Collider checkNearby() {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, damageRadius);
-        foreach (Collider col in hitColliders) {
-            if (col.tag == "Player" || col.tag == "Enemy") {
-                return col;
+        foreach (Collider collider in hitColliders) {
+            if (collider.tag == "Player" || collider.tag == "Enemy") {
+                return collider;
             }
         }
         return null;
     }
 
-    private void explode(Collider col) {
-        if (col) {
+    private void explode(Collider collider) {
+        if (collider) {
             //play explosion
             if (settings.useParticle) {
                 Instantiate(explosionParticlePrefab, transform.position, transform.rotation, this.transform);
             }
             //apply damage
-            col.GetComponent<Health>().decreaseHealth(damage);
+            collider.GetComponent<Health>().decreaseHealth(damage);
+            //check radius for object to knockback
+            knockbackObjectsInRadius();
             //delete object
             StartCoroutine("DeleteObject");
+        }
+    }
+
+    private void knockbackObjectsInRadius() {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, knockbackRadius);
+        foreach (Collider collider in hitColliders) {
+            if (collider.tag == "Player" || collider.tag == "Enemy") {
+                Rigidbody rb = collider.gameObject.GetComponent<Rigidbody>();
+                rb.AddExplosionForce(knockbackForce, transform.position, knockbackRadius);
+
+                if (settings.useParticle) {
+                    Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
+                }
+            }
         }
     }
 

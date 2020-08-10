@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6280119818541980151}
   - component: {fileID: 1739600255225014850}
   - component: {fileID: 8375525482477056882}
-  - component: {fileID: 8298969615787911446}
   - component: {fileID: 4304436374379145468}
   m_Layer: 0
   m_Name: Mine
@@ -126,20 +125,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.15, z: 0.6}
   m_Center: {x: -1.85, y: 2.05, z: -2.05}
---- !u!136 &8298969615787911446
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054713760256882872}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: -1.85, y: 2.05, z: -2.05}
 --- !u!114 &4304436374379145468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +141,7 @@ MonoBehaviour:
   damage: 0
   damageRadius: 5
   knockbackRadius: 10
-  knockbackForce: 5000
+  knockbackForce: 1500
   explosionParticlePrefab: {fileID: 7710933089740006782, guid: 0e7e116dd6e65674188f1c137a9d5f1e,
     type: 3}
   bloodParticlePrefab: {fileID: 8343780882660272222, guid: 19b2cc45717b8204aad3bdaea8236e47,
