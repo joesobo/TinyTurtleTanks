@@ -10,7 +10,6 @@ public class AltLaunch : MonoBehaviour {
     [HideInInspector]
     public int damage;
 
-    [HideInInspector]
     public int damageRadius = 5;
     public int knockbackRadius = 10;
     public int knockbackForce = 5000;
@@ -20,11 +19,10 @@ public class AltLaunch : MonoBehaviour {
     private AltWeapon altWeapon;
     private GameSettings settings;
     private Rigidbody rb;
+    private Explosion explosion;
 
     private Collider col;
     private bool checkToExplode = false;
-
-    
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
@@ -48,6 +46,9 @@ public class AltLaunch : MonoBehaviour {
         if (!settings) {
             settings = FindObjectOfType<GameSettings>();
         }
+        if (!explosion) {
+            explosion = new Explosion(settings, explosionParticlePrefab, bloodParticlePrefab);
+        }
 
         if (type == AltWeapon.BulletType.Bomb) {
             rb.AddForce(transform.up * speed);
@@ -69,14 +70,9 @@ public class AltLaunch : MonoBehaviour {
         yield return new WaitForSeconds(decaySpeed);
         //turn off renderer
         GetComponent<MeshRenderer>().enabled = false;
-        //play explosion
-        if (settings.useParticle) {
-            Instantiate(explosionParticlePrefab, transform.position, transform.rotation, this.transform);
-        }
-        //check radius for objects to damage
-        damageObjectsInRadius();
-        //check radius for object to knockback
-        knockbackObjectsInRadius();
+
+        explosion.playExplosion(transform.position, transform.rotation, this.transform);
+        explosion.doDamage(damageRadius, knockbackRadius, knockbackForce, damage);
         //delete object
         StartCoroutine("DeleteObject");
     }
@@ -99,43 +95,10 @@ public class AltLaunch : MonoBehaviour {
 
     private void explode(Collider collider) {
         if (collider) {
-            //play explosion
-            if (settings.useParticle) {
-                Instantiate(explosionParticlePrefab, transform.position, transform.rotation, this.transform);
-            }
-            //apply damage
-            damageCollider();
-            //check radius for object to knockback
-            knockbackObjectsInRadius();
+            explosion.playExplosion(transform.position, transform.rotation, this.transform);
+            explosion.doDamage(damageRadius, knockbackRadius, knockbackForce, damage);
             //delete object
             StartCoroutine("DeleteObject");
-        }
-    }
-
-    private void damageObjectsInRadius() {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, damageRadius);
-        foreach (Collider col in hitColliders) {
-            if (col.tag == "Player" || col.tag == "Enemy") {
-                damageCollider();
-            }
-        }
-    }
-
-    private void knockbackObjectsInRadius() {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, knockbackRadius);
-        foreach (Collider col in hitColliders) {
-            if (col.tag == "Player" || col.tag == "Enemy") {
-                Rigidbody rb = col.gameObject.GetComponent<Rigidbody>();
-                rb.AddExplosionForce(knockbackForce, transform.position, knockbackRadius);
-            }
-        }
-    }
-
-    private void damageCollider() {
-        col.gameObject.GetComponent<Health>().decreaseHealth(damage);
-
-        if (settings.useParticle) {
-            Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
         }
     }
 

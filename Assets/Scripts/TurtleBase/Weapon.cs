@@ -8,8 +8,14 @@ public class Weapon : ScriptableObject {
     public float timeBetweenShots = 0.1f;
     public int directions = 1;                              // 1-8
     public Ammo ammo = null;
+    public BulletType type;
 
     public int currentClip { get; set; }
+
+    public enum BulletType {
+        Lazor,
+        Rocket
+    }
 
     public void useAmmo(int amount) {
         currentClip -= amount;
@@ -23,7 +29,7 @@ public class Weapon : ScriptableObject {
     }
 
     public void shoot(Vector3 position, Quaternion rotation, Transform parent) {
-        ammo.StartUpBullet(Instantiate(ammo.prefab, position, rotation, parent));
+        ammo.StartUpBullet(Instantiate(ammo.prefab, position, rotation, parent), type);
         useAmmo(1);
     }
 }

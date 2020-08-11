@@ -11,11 +11,16 @@ public class Ammo : ScriptableObject {
     private BulletMove bulletMove;
     private AltLaunch altLaunch;
 
-    public void StartUpBullet(GameObject bullet) {
+    public void StartUpBullet(GameObject bullet, Weapon.BulletType type) {
         bulletMove = bullet.GetComponent<BulletMove>();
         bulletMove.speed = speed;
         bulletMove.decaySpeed = decaySpeed;
         bulletMove.damage = damage;
+        if (type == Weapon.BulletType.Rocket) {
+            bulletMove.doesExplode = true;
+        } else {
+            bulletMove.doesExplode = false;
+        }
     }
 
     public void StartUpAlt(GameObject bullet, AltWeapon altWeapon, AltWeapon.BulletType type) {

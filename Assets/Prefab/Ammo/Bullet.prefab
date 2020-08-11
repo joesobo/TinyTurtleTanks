@@ -114,6 +114,12 @@ MonoBehaviour:
   speed: 50
   damage: 1
   decaySpeed: 20
+  doesExplode: 0
+  damageRadius: 0
+  knockbackRadius: 0
+  knockbackForce: 0
+  explosionParticlePrefab: {fileID: 7710933089740006782, guid: 0e7e116dd6e65674188f1c137a9d5f1e,
+    type: 3}
   bloodParticlePrefab: {fileID: 8343780882660272222, guid: 19b2cc45717b8204aad3bdaea8236e47,
     type: 3}
 --- !u!82 &5777538936903587684

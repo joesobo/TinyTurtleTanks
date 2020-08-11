@@ -3,26 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletMove : MonoBehaviour {
-    private Rigidbody rb;
-    private Vector3 moveAmount;
-    private Vector3 smoothMoveVelocity;
+    [HideInInspector]
     public float speed = 20f;
+    [HideInInspector]
     public int damage = 1;
-    private GameSettings settings;
+    [HideInInspector]
+    public float decaySpeed = 20;
+    [HideInInspector]
+    public bool doesExplode = false;
 
-    private bool delayOn = true;
+    public int damageRadius = 5;
+    public int knockbackRadius = 10;
+    public int knockbackForce = 5000;
+    public GameObject explosionParticlePrefab;
+    public GameObject bloodParticlePrefab;
+
+    private GameSettings settings;
+    private Rigidbody rb;
     private AudioSource source;
 
-    //private MeshRenderer meshRenderer;
-    public float decaySpeed = 20;
-
-    public GameObject bloodParticlePrefab;
+    private Vector3 moveAmount;
+    private Vector3 smoothMoveVelocity;
+    private bool delayOn = true;
 
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
         rb = GetComponent<Rigidbody>();
         source = GetComponent<AudioSource>();
-        //meshRenderer = GetComponent<MeshRenderer>();
 
         //add coroutine delay
         StartCoroutine("DelayCo");
@@ -31,17 +38,7 @@ public class BulletMove : MonoBehaviour {
     private void Update() {
         if (!settings.isPaused) {
             transform.RotateAround(this.transform.parent.position, this.transform.right, speed * Time.deltaTime);
-
-            // meshRenderer.material.color = new Color(meshRenderer.material.color.r, meshRenderer.material.color.g, meshRenderer.material.color.b, meshRenderer.material.color.a - (Time.deltaTime / decaySpeed));
-
-            // if (meshRenderer.material.color.a <= .15f) {
-            //     BulletDeath();
-            // }
         }
-    }
-
-    void BulletDeath() {
-        Destroy(gameObject);
     }
 
     void OnTriggerEnter(Collider col) {
@@ -49,7 +46,7 @@ public class BulletMove : MonoBehaviour {
             if (col.gameObject.tag == "Player") {
                 Debug.Log("Hit Player");
                 col.gameObject.GetComponent<Health>().decreaseHealth(damage);
-                Destroy(gameObject);
+                explodeBullet();
             }
         }
 
@@ -59,7 +56,7 @@ public class BulletMove : MonoBehaviour {
                 source.volume = settings.soundVolume;
                 source.Play();
             }
-            Destroy(gameObject);
+            explodeBullet();
         }
 
         else if (col.gameObject.tag == "Enemy") {
@@ -73,7 +70,7 @@ public class BulletMove : MonoBehaviour {
                 source.volume = settings.soundVolume;
                 source.Play();
             }
-            Destroy(gameObject);
+            explodeBullet();
         }
 
         else if (col.gameObject.tag == "Breakable") {
@@ -83,7 +80,7 @@ public class BulletMove : MonoBehaviour {
                 source.volume = settings.soundVolume;
                 source.Play();
             }
-            Destroy(gameObject);
+            explodeBullet();
         }
 
         else if (col.gameObject.tag == "Fish") {
@@ -98,8 +95,26 @@ public class BulletMove : MonoBehaviour {
             }
 
             Destroy(col.gameObject);
+            explodeBullet();
+        }
+    }
+
+    private void explodeBullet() {
+        if (doesExplode) {
+            Explosion explosion = new Explosion(settings, explosionParticlePrefab, bloodParticlePrefab);
+            explosion.playExplosion(transform.position, transform.rotation, this.transform);
+            explosion.doDamage(damageRadius, knockbackRadius, knockbackForce, damage);
+
+            StartCoroutine("DelayDeath");
+        }
+        else {
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator DelayDeath() {
+        yield return new WaitForSeconds(0.2f);
+        Destroy(gameObject);
     }
 
     IEnumerator DelayCo() {
