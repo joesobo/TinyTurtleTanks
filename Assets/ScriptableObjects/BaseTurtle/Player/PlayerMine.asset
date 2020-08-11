@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b5284a36715ee42b76831044b6e7af, type: 3}
-  m_Name: PlayerAltWeapon2
+  m_Script: {fileID: 11500000, guid: 520ee55a9df109d4c94e9b356794b67e, type: 3}
+  m_Name: PlayerMine
   m_EditorClassIdentifier: 
-  timeBetweenUses: 0.5
-  knockback: 0
-  maxInPlay: 3
-  ammo: {fileID: 11400000, guid: d75642ff2c87ae743a98f290940423dc, type: 2}
-  type: 1
+  prefab: {fileID: 1054713760256882872, guid: e911e014dd8a9004287e647ebc1908b7, type: 3}
+  speed: 0
+  damage: 1
+  bounces: 0
+  decaySpeed: 1

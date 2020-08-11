@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 520ee55a9df109d4c94e9b356794b67e, type: 3}
-  m_Name: PlayMine
+  m_Name: PlayerRocket
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1054713760256882872, guid: e911e014dd8a9004287e647ebc1908b7, type: 3}
-  speed: 0
+  prefab: {fileID: 2954808569391310541, guid: 2d374ca75fec3bd43ac51613b4948317, type: 3}
+  speed: 70
   damage: 1
   bounces: 0
-  decaySpeed: 1
+  decaySpeed: 20

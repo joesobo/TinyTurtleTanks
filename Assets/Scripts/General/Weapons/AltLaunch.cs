@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AltLaunch : MonoBehaviour {
+    [HideInInspector]
     public int speed = 0;
+    [HideInInspector]
     public int decaySpeed;
+    [HideInInspector]
     public int damage;
 
+    [HideInInspector]
     public int damageRadius = 5;
     public int knockbackRadius = 10;
     public int knockbackForce = 5000;
