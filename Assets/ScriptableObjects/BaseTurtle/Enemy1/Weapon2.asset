@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c419ab8dd3ef1349b033e5796f696c5, type: 3}
   m_Name: Weapon2
   m_EditorClassIdentifier: 
-  clipSize: 2
-  reloadTime: 2
-  timeBetweenShots: 0.5
+  clipSize: 1
+  reloadTime: 3
+  timeBetweenShots: 0
   directions: 1
-  ammo: {fileID: 11400000, guid: 6bac517dba0235949ba05d59c086f86a, type: 2}
-  type: 0
+  ammo: {fileID: 11400000, guid: eb9ef95c4abef314ca3fb4da1c1fe964, type: 2}
+  type: 1
