@@ -8,18 +8,24 @@ public class Enemy : MonoBehaviour {
     private EnemyHealth enemyHealth;
     private SmartEnemy smartEnemy;
 
+    private GameSettings settings;
+
     void Start() {
-        GameObject turtle = Instantiate(BaseTurtle.prefab, this.transform.position, Quaternion.identity);
+        settings = FindObjectOfType<GameSettings>();
 
-        enemyHealth = turtle.GetComponent<EnemyHealth>();
-        enemyHealth.MAXHEALTH = BaseTurtle.health;
+        if (settings.useEnemies) {
+            GameObject turtle = Instantiate(BaseTurtle.prefab, this.transform.position, Quaternion.identity);
 
-        smartEnemy = turtle.GetComponent<SmartEnemy>();
-        smartEnemy.speed = BaseTurtle.moveSpeed;
-        smartEnemy.rotateSpeed = BaseTurtle.rotateSpeed;
-        smartEnemy.jumpForce = BaseTurtle.jumpForce;
-        smartEnemy.weapon = BaseTurtle.weapon;
+            enemyHealth = turtle.GetComponent<EnemyHealth>();
+            enemyHealth.MAXHEALTH = BaseTurtle.health;
 
-        BaseTurtle.weapon.reload();
+            smartEnemy = turtle.GetComponent<SmartEnemy>();
+            smartEnemy.speed = BaseTurtle.moveSpeed;
+            smartEnemy.rotateSpeed = BaseTurtle.rotateSpeed;
+            smartEnemy.jumpForce = BaseTurtle.jumpForce;
+            smartEnemy.weapon = BaseTurtle.weapon;
+
+            BaseTurtle.weapon.reload();
+        }
     }
 }
