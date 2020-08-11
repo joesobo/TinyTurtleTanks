@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour {
     public Weapon weapon;
+    [HideInInspector]
+    public Weapon newWeapon = null;
+    [HideInInspector]
+    private Weapon tempWeapon = null;
+    public bool useNewWeapon = false;
+    private int waitForSecondsWeapon = 5;
 
     public AltWeapon altWeapon;
     [HideInInspector]
@@ -32,6 +38,11 @@ public class PlayerShoot : MonoBehaviour {
 
     private void Update() {
         //Temp switch weapons
+        if (useNewWeapon) {
+            useNewWeapon = false;
+            StartCoroutine("UseNewWeapon");
+        }
+
         if (useNewAlt) {
             useNewAlt = false;
             StartCoroutine("UseNewAltWeapon");
@@ -87,6 +98,15 @@ public class PlayerShoot : MonoBehaviour {
     IEnumerator AltDelayCo() {
         yield return new WaitForSeconds(altWeapon.timeBetweenUses);
         altDelayOn = false;
+    }
+
+    IEnumerator UseNewWeapon() {
+        tempWeapon = weapon;
+        weapon = newWeapon;
+        yield return new WaitForSeconds(waitForSecondsWeapon);
+        weapon = tempWeapon;
+        newWeapon = null;
+        tempWeapon = null;
     }
 
     IEnumerator UseNewAltWeapon() {
