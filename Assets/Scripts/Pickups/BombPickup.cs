@@ -6,6 +6,9 @@ public class BombPickup : Pickup {
     public AltWeapon bomb;
 
     protected override void applyEffect(Collider col) {
-        col.gameObject.GetComponent<PlayerShoot>().altWeapon = bomb;
+        PlayerShoot playerShoot = col.gameObject.GetComponent<PlayerShoot>();
+
+        playerShoot.newAltWeapon = bomb;
+        playerShoot.useNewAlt = true;
     }
 }

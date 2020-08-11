@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour {
     public Weapon weapon;
+
     public AltWeapon altWeapon;
+    [HideInInspector]
+    public AltWeapon newAltWeapon = null;
+    [HideInInspector]
+    private AltWeapon tempAltWeapon = null;
+    public bool useNewAlt = false;
+    private int waitForSecondsAlt = 5;
+
     public Transform shootPoint;
     public Transform dropPoint;
     public Transform parent;
@@ -23,6 +31,13 @@ public class PlayerShoot : MonoBehaviour {
     }
 
     private void Update() {
+        //Temp switch weapons
+        if (useNewAlt) {
+            useNewAlt = false;
+            StartCoroutine("UseNewAltWeapon");
+        }
+
+        //Shooting
         if (!settings.isPaused) {
             if (Input.GetMouseButtonDown(0) && !mainDelayOn) {
                 //start delay for next shot
@@ -47,16 +62,17 @@ public class PlayerShoot : MonoBehaviour {
                 altWeapon.shoot(dropPoint.position, this.transform.rotation, altParent);
                 altWeapon.inPlay++;
                 //play sound
-                // if (settings.useSound) {
-                //     source.volume = settings.soundVolume;
-                //     source.Play();
-                // }
+                if (settings.useSound) {
+                    // source.volume = settings.soundVolume;
+                    // source.Play();
+                }
                 //apply screen shake
                 StartCoroutine(screenShake.Shake());
             }
         }
     }
 
+    //Reload and delay shooting
     IEnumerator MainDelayCo() {
         if (weapon.currentClip-1 > 0) {
             yield return new WaitForSeconds(weapon.timeBetweenShots);
@@ -67,8 +83,18 @@ public class PlayerShoot : MonoBehaviour {
         mainDelayOn = false;
     }
 
+    //Delay shooting
     IEnumerator AltDelayCo() {
         yield return new WaitForSeconds(altWeapon.timeBetweenUses);
         altDelayOn = false;
+    }
+
+    IEnumerator UseNewAltWeapon() {
+        tempAltWeapon = altWeapon;
+        altWeapon = newAltWeapon;
+        yield return new WaitForSeconds(waitForSecondsAlt);
+        altWeapon = tempAltWeapon;
+        newAltWeapon = null;
+        tempAltWeapon = null;
     }
 }
