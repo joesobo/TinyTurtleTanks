@@ -16,4 +16,4 @@ MonoBehaviour:
   speed: 0
   damage: 1
   bounces: 0
-  decaySpeed: 0
+  decaySpeed: 1

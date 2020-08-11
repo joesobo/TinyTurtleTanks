@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MineController : MonoBehaviour {
-    //public int speed;
     public int decaySpeed;
     public int damage;
     public int damageRadius = 5;
@@ -15,15 +14,18 @@ public class MineController : MonoBehaviour {
     private GameSettings settings;
 
     private Collider col;
+    private AltWeapon altWeapon;
 
     private bool checkExplosions = false;
 
-    public void launch() {
+    public void launch(AltWeapon altWeap) {
+        altWeapon = altWeap;
+
         if (!settings) {
             settings = FindObjectOfType<GameSettings>();
-
-            StartCoroutine("StartExplosive");
         }
+
+        StartCoroutine("StartExplosive");
     }
 
     void Update() {
@@ -81,5 +83,6 @@ public class MineController : MonoBehaviour {
     IEnumerator DeleteObject() {
         yield return new WaitForSeconds(0.5f);
         Object.Destroy(this.gameObject);
+        altWeapon.inPlay--;
     }
 }

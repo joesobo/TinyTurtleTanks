@@ -12,6 +12,8 @@ public class BombLaunch : MonoBehaviour {
     public GameObject explosionParticlePrefab;
     public GameObject bloodParticlePrefab;
 
+    private AltWeapon altWeapon;
+
     private GameSettings settings;
 
     private Rigidbody rb;
@@ -21,7 +23,9 @@ public class BombLaunch : MonoBehaviour {
         settings = FindObjectOfType<GameSettings>();
     }
 
-    public void launch() {
+    public void launch(AltWeapon altWeap) {
+        altWeapon = altWeap;
+
         if (!rb) {
             rb = GetComponent<Rigidbody>();
         }
@@ -53,6 +57,7 @@ public class BombLaunch : MonoBehaviour {
     IEnumerator DeleteObject() {
         yield return new WaitForSeconds(0.5f);
         Object.Destroy(this.gameObject);
+        altWeapon.inPlay--;
     }
 
     private void damageObjectsInRadius() {

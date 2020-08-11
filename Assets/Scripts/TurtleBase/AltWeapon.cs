@@ -5,9 +5,12 @@ using UnityEngine;
 public class AltWeapon : ScriptableObject {
     public float timeBetweenUses = 0.5f;
     public float knockback = 1;
+    public int maxInPlay = 3;
     public Ammo ammo = null;
 
+    public int inPlay { get; set; } = 0;
+
     public void shoot(Vector3 position, Quaternion rotation, Transform parent) {
-        ammo.StartUpAlt(Instantiate(ammo.prefab, position, rotation, parent));
+        ammo.StartUpAlt(Instantiate(ammo.prefab, position, rotation, parent), this);
     }
 }

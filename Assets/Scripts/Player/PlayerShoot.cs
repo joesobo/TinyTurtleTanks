@@ -6,6 +6,7 @@ public class PlayerShoot : MonoBehaviour {
     public Weapon weapon;
     public AltWeapon altWeapon;
     public Transform shootPoint;
+    public Transform dropPoint;
     public Transform parent;
     public Transform altParent;
     private bool mainDelayOn = false;
@@ -18,6 +19,7 @@ public class PlayerShoot : MonoBehaviour {
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
         source = GetComponent<AudioSource>();
+        altWeapon.inPlay = 0;
     }
 
     private void Update() {
@@ -37,12 +39,13 @@ public class PlayerShoot : MonoBehaviour {
                 StartCoroutine(screenShake.Shake());
             }
 
-            if (Input.GetMouseButtonDown(1) && !altDelayOn) {
+            if (Input.GetMouseButtonDown(1) && !altDelayOn && altWeapon.inPlay < altWeapon.maxInPlay) {
                 //start delay for next shot
                 altDelayOn = true;
                 StartCoroutine("AltDelayCo");
                 //create bullet
-                altWeapon.shoot(shootPoint.position, this.transform.rotation, altParent);
+                altWeapon.shoot(dropPoint.position, this.transform.rotation, altParent);
+                altWeapon.inPlay++;
                 //play sound
                 // if (settings.useSound) {
                 //     source.volume = settings.soundVolume;
