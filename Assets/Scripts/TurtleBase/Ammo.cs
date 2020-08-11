@@ -9,8 +9,6 @@ public class Ammo : ScriptableObject {
     public int bounces = 0;                                     // 0-3
     public int decaySpeed = 0;                                  // 0-50
     private BulletMove bulletMove;
-    private BombLaunch bombLaunch;
-    private MineController mineController;
     private AltLaunch altLaunch;
 
     public void StartUpBullet(GameObject bullet) {
