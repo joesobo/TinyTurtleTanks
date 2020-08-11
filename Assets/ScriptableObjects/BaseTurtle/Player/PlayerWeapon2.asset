@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PlayerWeapon2
   m_EditorClassIdentifier: 
   clipSize: 1
-  reloadTime: 1.5
+  reloadTime: 0.1
   timeBetweenShots: 0
   directions: 1
   ammo: {fileID: 11400000, guid: 533f5903819d84340a13a3484c5813ec, type: 2}
+  type: 1

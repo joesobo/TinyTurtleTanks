@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520ee55a9df109d4c94e9b356794b67e, type: 3}
   m_Name: PlayerRocket
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2954808569391310541, guid: 2d374ca75fec3bd43ac51613b4948317, type: 3}
-  speed: 70
+  prefab: {fileID: 6612696590712909507, guid: 2d374ca75fec3bd43ac51613b4948317, type: 3}
+  speed: 50
   damage: 1
   bounces: 0
   decaySpeed: 20
