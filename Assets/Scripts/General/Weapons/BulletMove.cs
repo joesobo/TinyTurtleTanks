@@ -25,6 +25,7 @@ public class BulletMove : MonoBehaviour {
     private Vector3 moveAmount;
     private Vector3 smoothMoveVelocity;
     private bool delayOn = true;
+    private bool hasExploded = false;
 
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
@@ -100,7 +101,8 @@ public class BulletMove : MonoBehaviour {
     }
 
     private void explodeBullet() {
-        if (doesExplode) {
+        if (doesExplode && !hasExploded) {
+            hasExploded = true;
             Explosion explosion = new Explosion(settings, explosionParticlePrefab, bloodParticlePrefab);
             explosion.playExplosion(transform.position, transform.rotation, this.transform);
             explosion.doDamage(damageRadius, knockbackRadius, knockbackForce, damage);
@@ -113,7 +115,7 @@ public class BulletMove : MonoBehaviour {
     }
 
     IEnumerator DelayDeath() {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 

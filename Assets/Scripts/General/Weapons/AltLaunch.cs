@@ -78,7 +78,7 @@ public class AltLaunch : MonoBehaviour {
     }
 
     IEnumerator DeleteObject() {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         Object.Destroy(this.gameObject);
         altWeapon.inPlay--;
     }
