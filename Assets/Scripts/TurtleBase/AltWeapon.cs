@@ -7,10 +7,16 @@ public class AltWeapon : ScriptableObject {
     public float knockback = 1;
     public int maxInPlay = 3;
     public Ammo ammo = null;
+    public BulletType type;
 
     public int inPlay { get; set; } = 0;
 
+    public enum BulletType {
+        Bomb,
+        Mine
+    }
+
     public void shoot(Vector3 position, Quaternion rotation, Transform parent) {
-        ammo.StartUpAlt(Instantiate(ammo.prefab, position, rotation, parent), this);
+        ammo.StartUpAlt(Instantiate(ammo.prefab, position, rotation, parent), this, type);
     }
 }

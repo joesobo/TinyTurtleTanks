@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1750185506979683490}
   - component: {fileID: 1750185506979683491}
   - component: {fileID: 1750185506979683500}
-  - component: {fileID: 1750185506979683501}
   - component: {fileID: 1750185506979683502}
   - component: {fileID: -7245539889065461180}
+  - component: {fileID: 975037786422076947}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -96,28 +96,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1750185506979683501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750185506979683496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8ae32d48d8fec64e8f4cd9a33658df1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  decaySpeed: 0
-  damage: 0
-  damageRadius: 5
-  knockbackRadius: 10
-  knockbackForce: 1500
-  explosionParticlePrefab: {fileID: 7710933089740006782, guid: 0e7e116dd6e65674188f1c137a9d5f1e,
-    type: 3}
-  bloodParticlePrefab: {fileID: 8343780882660272222, guid: 19b2cc45717b8204aad3bdaea8236e47,
-    type: 3}
 --- !u!54 &1750185506979683502
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -147,3 +125,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useGrav: 1
+--- !u!114 &975037786422076947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750185506979683496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c55cf34611f07408ccf3757e17add8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  decaySpeed: 0
+  damage: 0
+  damageRadius: 5
+  knockbackRadius: 10
+  knockbackForce: 2000
+  explosionParticlePrefab: {fileID: 7710933089740006782, guid: 0e7e116dd6e65674188f1c137a9d5f1e,
+    type: 3}
+  bloodParticlePrefab: {fileID: 8343780882660272222, guid: 19b2cc45717b8204aad3bdaea8236e47,
+    type: 3}

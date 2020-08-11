@@ -11,6 +11,7 @@ public class Ammo : ScriptableObject {
     private BulletMove bulletMove;
     private BombLaunch bombLaunch;
     private MineController mineController;
+    private AltLaunch altLaunch;
 
     public void StartUpBullet(GameObject bullet) {
         bulletMove = bullet.GetComponent<BulletMove>();
@@ -19,23 +20,15 @@ public class Ammo : ScriptableObject {
         bulletMove.damage = damage;
     }
 
-    public void StartUpAlt(GameObject bullet, AltWeapon altWeapon) {
-        bombLaunch = bullet.GetComponent<BombLaunch>();
-        mineController = bullet.GetComponent<MineController>();
+    public void StartUpAlt(GameObject bullet, AltWeapon altWeapon, AltWeapon.BulletType type) {
+        altLaunch = bullet.GetComponent<AltLaunch>();
 
-        if (bombLaunch) {
-            bombLaunch.speed = speed;
-            bombLaunch.decaySpeed = decaySpeed;
-            bombLaunch.damage = damage;
+        if (altLaunch) {
+            altLaunch.speed = speed;
+            altLaunch.decaySpeed = decaySpeed;
+            altLaunch.damage = damage;
 
-            bombLaunch.launch(altWeapon);
-        }
-
-        if (mineController) {
-            mineController.decaySpeed = decaySpeed;
-            mineController.damage = damage;
-
-            mineController.launch(altWeapon);
+            altLaunch.launch(altWeapon, type);
         }
     }
 }

@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 6280119818541980151}
   - component: {fileID: 1739600255225014850}
   - component: {fileID: 8375525482477056882}
-  - component: {fileID: 4304436374379145468}
   - component: {fileID: 4287720704216385020}
+  - component: {fileID: 5122931119009075755}
   m_Layer: 0
   m_Name: Mine
   m_TagString: Untagged
@@ -126,27 +126,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.15, z: 0.6}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4304436374379145468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054713760256882872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b4c34e43b753e24e979444ad2a13b37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  decaySpeed: 0
-  damage: 0
-  damageRadius: 5
-  knockbackRadius: 10
-  knockbackForce: 1500
-  explosionParticlePrefab: {fileID: 7710933089740006782, guid: 0e7e116dd6e65674188f1c137a9d5f1e,
-    type: 3}
-  bloodParticlePrefab: {fileID: 8343780882660272222, guid: 19b2cc45717b8204aad3bdaea8236e47,
-    type: 3}
 --- !u!114 &4287720704216385020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -924,3 +903,25 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!114 &5122931119009075755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054713760256882872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c55cf34611f07408ccf3757e17add8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  decaySpeed: 0
+  damage: 0
+  damageRadius: 5
+  knockbackRadius: 10
+  knockbackForce: 1500
+  explosionParticlePrefab: {fileID: 7710933089740006782, guid: 0e7e116dd6e65674188f1c137a9d5f1e,
+    type: 3}
+  bloodParticlePrefab: {fileID: 8343780882660272222, guid: 19b2cc45717b8204aad3bdaea8236e47,
+    type: 3}
