@@ -4,6 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Ammo", menuName = "Turtle/Ammo")]
 public class Ammo : ScriptableObject {
     public GameObject prefab;
+    public int clipSize = 1;                                // 1-5
+    public int currentClip { get; set; }
     public int speed = 0;
     public int damage = 1;                                      // 1-5                   
     public int bounces = 0;                                     // 0-3
@@ -13,13 +15,16 @@ public class Ammo : ScriptableObject {
 
     public void StartUpBullet(GameObject bullet, Weapon.BulletType type) {
         bulletMove = bullet.GetComponent<BulletMove>();
-        bulletMove.speed = speed;
-        bulletMove.decaySpeed = decaySpeed;
-        bulletMove.damage = damage;
-        if (type == Weapon.BulletType.Rocket) {
-            bulletMove.doesExplode = true;
-        } else {
-            bulletMove.doesExplode = false;
+        if (bulletMove) {
+            bulletMove.speed = speed;
+            bulletMove.decaySpeed = decaySpeed;
+            bulletMove.damage = damage;
+            if (type == Weapon.BulletType.Rocket) {
+                bulletMove.doesExplode = true;
+            }
+            else {
+                bulletMove.doesExplode = false;
+            }
         }
     }
 

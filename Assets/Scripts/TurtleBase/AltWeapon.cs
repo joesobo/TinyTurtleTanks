@@ -5,10 +5,10 @@ using UnityEngine;
 public class AltWeapon : ScriptableObject {
     public float timeBetweenUses = 0.5f;
     public float knockback = 1;
-    public int maxInPlay = 3;
     public Ammo ammo = null;
     public BulletType type;
 
+    public int maxInPlay = 3;
     public int inPlay { get; set; } = 0;
 
     public enum BulletType {

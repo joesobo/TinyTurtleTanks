@@ -1,22 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerShoot : MonoBehaviour {
+    [HideInInspector]
     public Weapon weapon;
     [HideInInspector]
     public Weapon newWeapon = null;
     [HideInInspector]
     private Weapon tempWeapon = null;
+    [HideInInspector]
     public bool useNewWeapon = false;
     private int waitForSecondsWeapon = 5;
 
+    [HideInInspector]
     public AltWeapon altWeapon;
     [HideInInspector]
     public AltWeapon newAltWeapon = null;
     [HideInInspector]
     private AltWeapon tempAltWeapon = null;
+    [HideInInspector]
     public bool useNewAlt = false;
     private int waitForSecondsAlt = 5;
 
@@ -27,8 +30,6 @@ public class PlayerShoot : MonoBehaviour {
     private bool mainDelayOn = false;
     private bool altDelayOn = false;
 
-    public TextElement text;
-
     private GameSettings settings;
     private AudioSource source;
     public CameraShake screenShake;
@@ -36,6 +37,7 @@ public class PlayerShoot : MonoBehaviour {
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
         source = GetComponent<AudioSource>();
+        
         altWeapon.inPlay = 0;
     }
 
@@ -88,7 +90,7 @@ public class PlayerShoot : MonoBehaviour {
 
     //Reload and delay shooting
     IEnumerator MainDelayCo() {
-        if (weapon.currentClip-1 > 0) {
+        if (weapon.ammo.currentClip-1 > 0) {
             yield return new WaitForSeconds(weapon.timeBetweenShots);
         }else{
             yield return new WaitForSeconds(weapon.reloadTime);

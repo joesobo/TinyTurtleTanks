@@ -3,14 +3,11 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Turtle/Weapon")]
 public class Weapon : ScriptableObject {
-    public int clipSize = 1;                                // 1-5
     public float reloadTime = 0.5f;
     public float timeBetweenShots = 0.1f;
     public int directions = 1;                              // 1-8
     public Ammo ammo = null;
     public BulletType type;
-
-    public int currentClip { get; set; }
 
     public enum BulletType {
         Lazor,
@@ -18,14 +15,14 @@ public class Weapon : ScriptableObject {
     }
 
     public void useAmmo(int amount) {
-        currentClip -= amount;
-        if(currentClip < 0) {
-            currentClip = 0;
+        ammo.currentClip -= amount;
+        if(ammo.currentClip < 0) {
+            ammo.currentClip = 0;
         }
     }
 
     public void reload() {
-        currentClip = clipSize;
+        ammo.currentClip = ammo.clipSize;
     }
 
     public void shoot(Vector3 position, Quaternion rotation, Transform parent) {

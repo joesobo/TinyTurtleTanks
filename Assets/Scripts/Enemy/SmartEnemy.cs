@@ -175,7 +175,7 @@ public class SmartEnemy : MonoBehaviour {
             ShootAtPoints();
         }
 
-        if (weapon.currentClip > 0) {
+        if (weapon.ammo.currentClip > 0) {
             yield return new WaitForSeconds(weapon.timeBetweenShots);
         }else{
             yield return new WaitForSeconds(weapon.reloadTime);
