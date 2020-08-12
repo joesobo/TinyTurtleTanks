@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3754762435365305190}
   - component: {fileID: -1715654997982435447}
   m_Layer: 0
-  m_Name: Splash Particle 1
+  m_Name: Splash Particle 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -601,7 +601,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 30
+    maxNumParticles: 50
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -976,8 +976,8 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 3
-        scalar: 30
-        minScalar: 20
+        scalar: 50
+        minScalar: 30
         maxCurve:
           serializedVersion: 2
           m_Curve:
