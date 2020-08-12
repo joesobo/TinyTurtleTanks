@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class SettingLoader : MonoBehaviour {
     private GameSettings settings;
@@ -69,10 +69,10 @@ public class SettingLoader : MonoBehaviour {
 
     public void LoadColor(bool condition, Image button) {
         if (condition) {
-            button.color = ActiveColor;
+            button.tintColor = ActiveColor;
         }
         else {
-            button.color = inActiveColor;
+            button.tintColor = inActiveColor;
         }
     }
 }

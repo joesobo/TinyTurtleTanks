@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerShoot : MonoBehaviour {
     public Weapon weapon;
@@ -25,6 +26,8 @@ public class PlayerShoot : MonoBehaviour {
     public Transform altParent;
     private bool mainDelayOn = false;
     private bool altDelayOn = false;
+
+    public TextElement text;
 
     private GameSettings settings;
     private AudioSource source;
