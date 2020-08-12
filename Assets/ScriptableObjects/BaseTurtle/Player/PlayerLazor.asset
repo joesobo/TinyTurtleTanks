@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerLazor
   m_EditorClassIdentifier: 
   prefab: {fileID: 7755037917241053201, guid: 50fde1ffcd4d63746aef8204a558aee1, type: 3}
+  clipSize: 3
   speed: 50
   damage: 1
   bounces: 0
   decaySpeed: 20
-  doesExplode: 0

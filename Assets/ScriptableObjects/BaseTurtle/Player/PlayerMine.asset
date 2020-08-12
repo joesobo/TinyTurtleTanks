@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PlayerMine
   m_EditorClassIdentifier: 
   prefab: {fileID: 1054713760256882872, guid: e911e014dd8a9004287e647ebc1908b7, type: 3}
+  clipSize: 1
   speed: 0
   damage: 1
   bounces: 0
-  decaySpeed: 1
+  decaySpeed: 0
