@@ -13,7 +13,7 @@ public class Breakable : MonoBehaviour {
 
     public void Break() {
         //spawn trap
-        if (Random.Range(0, 3) == 0) {
+        if (Random.Range(0, 5) == 0) {
             int index = Random.Range(0, trapList.Count);
             Instantiate(trapList[index], this.transform.position + (3 * this.transform.position.normalized), this.transform.rotation);
             //spawn pickup
