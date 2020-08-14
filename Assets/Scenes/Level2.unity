@@ -9766,6 +9766,8 @@ GameObject:
   - component: {fileID: 869609816}
   - component: {fileID: 869609818}
   - component: {fileID: 869609817}
+  - component: {fileID: 869609819}
+  - component: {fileID: 869609820}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -9828,6 +9830,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869609815}
   m_CullTransparentMesh: 0
+--- !u!114 &869609819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869609815}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7d5c7431d2ed24ca24266dd87b4ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &869609820
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869609815}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e7ba3233f54875541b4d1377b79227b1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &875001218
 GameObject:
   m_ObjectHideFlags: 0
@@ -10540,7 +10573,7 @@ MonoBehaviour:
   useClouds: 0
   useMoons: 0
   useAtmosphere: 0
-  useWater: 1
+  useWater: 0
   daylightCycle: 0
   soundVolume: 0.5
   useCrates: 0
@@ -11645,7 +11678,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.3210852, y: 0.54895115, z: -0.17453076, w: 0.7517287}
+  m_LocalRotation: {x: 0.3210852, y: 0.5489511, z: -0.17453074, w: 0.7517288}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
