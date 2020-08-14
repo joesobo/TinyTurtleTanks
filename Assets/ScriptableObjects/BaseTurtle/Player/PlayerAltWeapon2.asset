@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenUses: 0.5
   knockback: 0
-  maxInPlay: 3
   ammo: {fileID: 11400000, guid: d75642ff2c87ae743a98f290940423dc, type: 2}
   type: 1
+  icon: {fileID: 21300000, guid: 65540aeea08a0214b84ba17b17bfe938, type: 3}
+  maxInPlay: 3

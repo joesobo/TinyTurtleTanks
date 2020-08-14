@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c419ab8dd3ef1349b033e5796f696c5, type: 3}
   m_Name: PlayerWeapon
   m_EditorClassIdentifier: 
-  clipSize: 3
   reloadTime: 1
   timeBetweenShots: 0.2
   directions: 1
   ammo: {fileID: 11400000, guid: 6d9a97483d1502742a7e436f2ae6ebf2, type: 2}
+  type: 0
+  icon: {fileID: 21300000, guid: ef27695ec8afd2f4e9d294fea295ec81, type: 3}

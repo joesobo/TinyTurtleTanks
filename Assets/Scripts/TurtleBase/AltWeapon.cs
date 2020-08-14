@@ -7,6 +7,7 @@ public class AltWeapon : ScriptableObject {
     public float knockback = 1;
     public Ammo ammo = null;
     public BulletType type;
+    public Sprite icon;
 
     public int maxInPlay = 3;
     public int inPlay { get; set; } = 0;
