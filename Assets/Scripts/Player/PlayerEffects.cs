@@ -72,7 +72,6 @@ public class PlayerEffects : MonoBehaviour {
         findChildByName("Shield").gameObject.SetActive(true);
         yield return new WaitForSeconds(waitForSecondsShield);
         findChildByName("Shield").gameObject.SetActive(false);
-        //toggle pickupDisplay off
         Destroy(particle);
     }
 
