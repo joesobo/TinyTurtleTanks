@@ -8,6 +8,7 @@ public class Weapon : ScriptableObject {
     public int directions = 1;                              // 1-8
     public Ammo ammo = null;
     public BulletType type;
+    public Sprite icon;
 
     public enum BulletType {
         Lazor,

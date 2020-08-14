@@ -15,3 +15,6 @@ MonoBehaviour:
   timeBetweenUses: 0.5
   knockback: 0
   ammo: {fileID: 11400000, guid: a09dee3e3fbbf114794f9475514d2392, type: 2}
+  type: 0
+  icon: {fileID: 21300000, guid: 262ff095d68317d4a878c9d35968ac26, type: 3}
+  maxInPlay: 3
