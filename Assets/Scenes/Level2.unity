@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 24845201}
   - component: {fileID: 24845203}
   - component: {fileID: 24845202}
+  - component: {fileID: 24845204}
   m_Layer: 5
   m_Name: Pickup Panel
   m_TagString: Untagged
@@ -157,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -35, y: 0}
+  m_AnchoredPosition: {x: 35, y: 0}
   m_SizeDelta: {x: 70, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &24845202
@@ -196,6 +197,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24845200}
   m_CullTransparentMesh: 0
+--- !u!95 &24845204
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24845200}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32737eaaf4a90744e84ee414654d4f2c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &39917866
 GameObject:
   m_ObjectHideFlags: 0
@@ -9769,7 +9789,7 @@ GameObject:
   - component: {fileID: 869609819}
   - component: {fileID: 869609820}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Pickup Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9852,7 +9872,7 @@ Animator:
   m_GameObject: {fileID: 869609815}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e7ba3233f54875541b4d1377b79227b1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1e5b53a24de18be42af69427b3fd0c4e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -10576,7 +10596,7 @@ MonoBehaviour:
   useWater: 0
   daylightCycle: 0
   soundVolume: 0.5
-  useCrates: 0
+  useCrates: 1
   useEnvironmentObjects: 0
   useEnemies: 0
   currentLevel: 1
@@ -11752,7 +11772,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.32894215, y: 0.5539686, z: -0.25240368, w: 0.7219476}
+  m_LocalRotation: {x: 0.32894218, y: 0.5539685, z: -0.25240365, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
