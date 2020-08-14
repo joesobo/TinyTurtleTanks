@@ -21,8 +21,10 @@ public class PlayerEffects : MonoBehaviour {
 
     private PlayerController playerController;
     private Health playerHealth;
-
     private GameSettings settings;
+
+    private GameObject particle;
+    private PickupDisplay pickupDisplay;
 
     public GameObject shieldParticles;
     public GameObject speedParticles;
@@ -36,6 +38,7 @@ public class PlayerEffects : MonoBehaviour {
         settings = FindObjectOfType<GameSettings>();
         playerController = GetComponent<PlayerController>();
         playerHealth = GetComponent<Health>();
+        pickupDisplay = FindObjectOfType<PickupDisplay>();
     }
 
     private void Update() {
@@ -64,17 +67,18 @@ public class PlayerEffects : MonoBehaviour {
     }
 
     IEnumerator StartShield() {
-        var particle = Instantiate(shieldParticles, col.transform.position, col.transform.rotation, col.transform);
+        particle = Instantiate(shieldParticles, col.transform.position, col.transform.rotation, col.transform);
+        pickupDisplay.reset(waitForSecondsShield, Color.blue);
         findChildByName("Shield").gameObject.SetActive(true);
-        if (!settings.isPaused) {
-            yield return new WaitForSeconds(waitForSecondsShield);
-        }
+        yield return new WaitForSeconds(waitForSecondsShield);
         findChildByName("Shield").gameObject.SetActive(false);
+        //toggle pickupDisplay off
         Destroy(particle);
     }
 
     IEnumerator StartSpeed() {
-        var particle = Instantiate(speedParticles, col.transform.position, col.transform.rotation, col.transform);
+        particle = Instantiate(speedParticles, col.transform.position, col.transform.rotation, col.transform);
+        pickupDisplay.reset(waitForSecondsShield, Color.blue);
         playerController.speed = 15;
         yield return new WaitForSeconds(waitForSecondsSpeed);
         playerController.speed = saveSpeed;
@@ -82,7 +86,8 @@ public class PlayerEffects : MonoBehaviour {
     }
 
     IEnumerator StartJump() {
-        var particle = Instantiate(jumpParticles, col.transform.position, col.transform.rotation, col.transform);
+        particle = Instantiate(jumpParticles, col.transform.position, col.transform.rotation, col.transform);
+        pickupDisplay.reset(waitForSecondsShield, Color.blue);
         playerController.jumpForce = 1000;
         yield return new WaitForSeconds(waitForSecondsJump);
         playerController.jumpForce = saveJump;
