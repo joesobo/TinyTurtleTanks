@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class PickupDisplay : MonoBehaviour {
     private Image image;
-    private Animator animator;
+    private Animator displayAnimator;
+    private Animator pickupAnimator;
     private float seconds;
 
-    public void reset(float sec, Color color) {
-        animator = GetComponent<Animator>();
-        animator.speed = 1 / sec;
+    public void begin(float sec, Color color) {
+        displayAnimator = transform.parent.GetComponent<Animator>();
+        pickupAnimator = GetComponent<Animator>();
+        pickupAnimator.speed = 1 / sec;
         seconds = sec;
 
         image = GetComponent<Image>();
@@ -20,8 +22,9 @@ public class PickupDisplay : MonoBehaviour {
     }
 
     IEnumerator StartShrink() {
-        animator.SetBool("isShrinking", true);
+        displayAnimator.SetTrigger("SlideIn");
+        pickupAnimator.SetTrigger("isShrinking");
         yield return new WaitForSeconds(seconds);
-        animator.SetBool("isShrinking", false);
+        displayAnimator.SetTrigger("SlideOut");
     }
 }
