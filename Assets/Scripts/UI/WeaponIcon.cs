@@ -15,8 +15,6 @@ public class WeaponIcon : MonoBehaviour {
     private void Start() {
         playerShoot = FindObjectOfType<PlayerShoot>();
         image = GetComponent<Image>();
-
-        assignIcons();
     }
 
     private void Update() {

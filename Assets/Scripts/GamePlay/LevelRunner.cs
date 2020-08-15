@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelRunner : MonoBehaviour {
-    private int numberOfEnemies;
+    [HideInInspector]
+    public int numberOfEnemies;
     [SerializeField]
-    private int enemiesLeft;
+    private int enemiesRemaining;
     public bool isDead;
 
     private LoseMenu loseMenu;
@@ -33,12 +34,21 @@ public class LevelRunner : MonoBehaviour {
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
 
-        loseMenu = FindObjectOfType<LoseMenu>();
-        winMenu = FindObjectOfType<WinMenu>();
+
         quitMenu = FindObjectOfType<QuitMenu>();
 
-        numberOfEnemies = FindObjectsOfType<SmartEnemy>().Length;
-        enemiesLeft = numberOfEnemies;
+        if (settings.useEnemies) {
+            loseMenu = FindObjectOfType<LoseMenu>();
+            winMenu = FindObjectOfType<WinMenu>();
+
+            numberOfEnemies = FindObjectsOfType<SmartEnemy>().Length;
+            enemiesRemaining = numberOfEnemies;
+
+            EnemiesLeft enemiesLeft = FindObjectOfType<EnemiesLeft>();
+
+            enemiesLeft.totalEnemies = numberOfEnemies;
+            enemiesLeft.CreateIcons();
+        }
 
         foreach (ParticleSystem ps in FindObjectsOfType(typeof(ParticleSystem))) {
             ps.Stop();
@@ -75,11 +85,11 @@ public class LevelRunner : MonoBehaviour {
     }
 
     public void DecreaseNumEnemy() {
-        enemiesLeft--;
+        enemiesRemaining--;
     }
 
     public int getNumEnemiesLeft() {
-        return enemiesLeft;
+        return enemiesRemaining;
     }
 
     private void CallSettings() {
