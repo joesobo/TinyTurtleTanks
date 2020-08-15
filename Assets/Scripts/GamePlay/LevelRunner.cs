@@ -34,17 +34,21 @@ public class LevelRunner : MonoBehaviour {
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
 
-        loseMenu = FindObjectOfType<LoseMenu>();
-        winMenu = FindObjectOfType<WinMenu>();
+
         quitMenu = FindObjectOfType<QuitMenu>();
 
-        numberOfEnemies = FindObjectsOfType<SmartEnemy>().Length;
-        enemiesRemaining = numberOfEnemies;
+        if (settings.useEnemies) {
+            loseMenu = FindObjectOfType<LoseMenu>();
+            winMenu = FindObjectOfType<WinMenu>();
 
-        EnemiesLeft enemiesLeft = FindObjectOfType<EnemiesLeft>();
+            numberOfEnemies = FindObjectsOfType<SmartEnemy>().Length;
+            enemiesRemaining = numberOfEnemies;
 
-        enemiesLeft.totalEnemies = numberOfEnemies;
-        enemiesLeft.CreateIcons();
+            EnemiesLeft enemiesLeft = FindObjectOfType<EnemiesLeft>();
+
+            enemiesLeft.totalEnemies = numberOfEnemies;
+            enemiesLeft.CreateIcons();
+        }
 
         foreach (ParticleSystem ps in FindObjectsOfType(typeof(ParticleSystem))) {
             ps.Stop();
