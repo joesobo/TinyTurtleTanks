@@ -5,17 +5,19 @@ using UnityEngine.UIElements;
 
 public class EnemiesLeft : MonoBehaviour {
     private LevelRunner levelRunner;
-    private TextElement text;
-    private int totalEnemies;
+    [HideInInspector]
+    public int totalEnemies;
+    public GameObject enemyIconPrefab;
 
-    private void Start() {
-        levelRunner = FindObjectOfType<LevelRunner>();
-        totalEnemies = levelRunner.numberOfEnemies;
-        
-        
+    public void CreateIcons() {
+        Debug.Log(totalEnemies);
+
+        for (int i = 0; i < totalEnemies; i++) {
+            Instantiate(enemyIconPrefab, Vector3.zero, Quaternion.identity, transform);
+        }
     }
 
     private void Update() {
-        text.text = "Remaining: " + levelRunner.getNumEnemiesLeft();
+        //text.text = "Remaining: " + levelRunner.getNumEnemiesLeft();
     }
 }
