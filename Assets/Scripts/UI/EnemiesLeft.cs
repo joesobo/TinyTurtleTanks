@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EnemiesLeft : MonoBehaviour {
     private LevelRunner levelRunner;
@@ -9,15 +8,26 @@ public class EnemiesLeft : MonoBehaviour {
     public int totalEnemies;
     public GameObject enemyIconPrefab;
 
-    public void CreateIcons() {
-        Debug.Log(totalEnemies);
+    private List<GameObject> iconList = new List<GameObject>();
+    private int activeIndex = 0;
 
+    private void Start() {
+        levelRunner = FindObjectOfType<LevelRunner>();
+    }
+
+    public void CreateIcons() {
         for (int i = 0; i < totalEnemies; i++) {
-            Instantiate(enemyIconPrefab, Vector3.zero, Quaternion.identity, transform);
+            iconList.Add(Instantiate(enemyIconPrefab, Vector3.zero, Quaternion.identity, transform));
         }
     }
 
     private void Update() {
-        //text.text = "Remaining: " + levelRunner.getNumEnemiesLeft();
+        if (totalEnemies != levelRunner.getNumEnemiesLeft()) {
+            totalEnemies = levelRunner.getNumEnemiesLeft();
+
+            transform.GetChild(activeIndex).GetChild(0).gameObject.SetActive(true);
+
+            activeIndex++;
+        }
     }
 }
