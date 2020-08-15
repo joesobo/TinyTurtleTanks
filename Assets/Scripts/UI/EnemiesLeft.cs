@@ -6,10 +6,13 @@ using UnityEngine.UIElements;
 public class EnemiesLeft : MonoBehaviour {
     private LevelRunner levelRunner;
     private TextElement text;
+    private int totalEnemies;
 
     private void Start() {
         levelRunner = FindObjectOfType<LevelRunner>();
-        text = transform.GetChild(1).GetComponent<TextElement>();
+        totalEnemies = levelRunner.numberOfEnemies;
+        
+        
     }
 
     private void Update() {

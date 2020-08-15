@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelRunner : MonoBehaviour {
-    private int numberOfEnemies;
+    [HideInInspector]
+    public int numberOfEnemies;
     [SerializeField]
     private int enemiesLeft;
     public bool isDead;
