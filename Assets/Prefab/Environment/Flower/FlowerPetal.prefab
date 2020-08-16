@@ -1296,7 +1296,7 @@ GameObject:
   - component: {fileID: 5847630831683095802}
   m_Layer: 11
   m_Name: FlowerPetal
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4480,4 +4480,4 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.8126297, z: 0.3}
-  m_Center: {x: -0.049999997, y: 75.89369, z: -0.049999997}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -154,7 +154,7 @@ public class RaySpawnerEditor : Editor
             GUILayout.Space(15);
             EditorGUILayout.BeginVertical();
 
-            raySpawner.keepColliders = GUILayout.Toggle(raySpawner.keepColliders, "Use Colliders");
+            raySpawner.useColliders = GUILayout.Toggle(raySpawner.useColliders, "Use Colliders");
             raySpawner.useRandomRotation = GUILayout.Toggle(raySpawner.useRandomRotation, "Use Random Rotation");
             raySpawner.useRandomColor = GUILayout.Toggle(raySpawner.useRandomColor, "Use Random Color");
 

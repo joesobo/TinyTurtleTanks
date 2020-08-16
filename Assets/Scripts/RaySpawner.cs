@@ -24,7 +24,7 @@ public class RaySpawner : MonoBehaviour {
     private int maxTries = 60;
     private int currentTries = 0;
 
-    public bool keepColliders = true;
+    public bool useColliders = true;
     public bool spawnTopDown = false;
     public bool useGizmoRadius = false;
     public bool useGizmoHeight = false;
@@ -58,7 +58,7 @@ public class RaySpawner : MonoBehaviour {
             GenerateObject();
         }
 
-        if (!keepColliders) {
+        if (!useColliders) {
             TurnOffColliders();
         }
     }
@@ -157,7 +157,7 @@ public class RaySpawner : MonoBehaviour {
             //count
             gameDataWriter.Write(objects.Count);
             //collider
-            if (keepColliders) {
+            if (useColliders) {
                 gameDataWriter.Write(1);
             }
             else {
@@ -224,7 +224,7 @@ public class RaySpawner : MonoBehaviour {
 
     private void TurnOffColliders() {
         foreach (GameObject g in objects) {
-            DestroyImmediate(g.GetComponent<BoxCollider>());
+            g.GetComponent<BoxCollider>().size = Vector3.zero;
         }
     }
 

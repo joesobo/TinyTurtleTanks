@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2648636985805720747}
   - component: {fileID: 3350987935170009208}
   - component: {fileID: 6315096764901815432}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,9 +88,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5525642417441283987}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Shroom0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

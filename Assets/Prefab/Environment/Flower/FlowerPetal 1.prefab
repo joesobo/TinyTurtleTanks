@@ -15,10 +15,10 @@ GameObject:
   - component: {fileID: 3861679144173227623}
   m_Layer: 11
   m_Name: FlowerPetal 1
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4383761823505154414
 Transform:
@@ -3199,7 +3199,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.8126297, z: 0.3}
-  m_Center: {x: -0.049999997, y: 75.89369, z: -0.049999997}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6200281749556550916
 GameObject:
   m_ObjectHideFlags: 0
@@ -3217,7 +3217,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6355177068162685362
 Transform:
