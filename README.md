@@ -24,7 +24,8 @@ Jump, shoot, and collect powerups to win the game (just be careful not to shoot 
 
 WASD - Move  
 Space - Jump  
-Enter - Shoot  
+Left Click - Shoot  
+Right Click - Shoot Alt
 Escape - Menu  
 
 - - - - 
