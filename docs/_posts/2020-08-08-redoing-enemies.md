@@ -37,7 +37,7 @@ To start with this I decided to go with Scriptable Objects. I've been playing wi
 After working up the design for the Base Player and all the sub classes I added the Scriptable Object as a public parameter in both the enemy and player class. At the beginning of the game they will pull all of the information out of the Scriptable Object and use it to control all the aspects of the turtle.
 
 If I want to make a new enemy, it's easy. Just create a new Scriptable Object. Play with the health, add a new weapon. Maybe add a side weapon.
-Maybe I need to tweak the player attributes. Thanks to Scriptable Objects, I can do just that **_during runtime, and have it all saved when I exit_**. Can't do that with prefabs.
+Maybe I need to tweak the player attributes. Thanks to Scriptable Objects, I can do just that **_during runtime, and have it all saved when I exit_**.
 
 ## Thoughts
 

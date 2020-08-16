@@ -1196,7 +1196,7 @@ MonoBehaviour:
   objectMask:
     serializedVersion: 2
     m_Bits: 2048
-  keepColliders: 1
+  useColliders: 1
   spawnTopDown: 1
   useGizmoRadius: 0
   useGizmoHeight: 0
@@ -1240,7 +1240,7 @@ MonoBehaviour:
   objectMask:
     serializedVersion: 2
     m_Bits: 2048
-  keepColliders: 1
+  useColliders: 0
   spawnTopDown: 0
   useGizmoRadius: 0
   useGizmoHeight: 0
@@ -1284,7 +1284,7 @@ MonoBehaviour:
   objectMask:
     serializedVersion: 2
     m_Bits: 2048
-  keepColliders: 1
+  useColliders: 1
   spawnTopDown: 1
   useGizmoRadius: 0
   useGizmoHeight: 0
@@ -1330,7 +1330,7 @@ MonoBehaviour:
   objectMask:
     serializedVersion: 2
     m_Bits: 2048
-  keepColliders: 0
+  useColliders: 0
   spawnTopDown: 1
   useGizmoRadius: 0
   useGizmoHeight: 0
@@ -1374,7 +1374,7 @@ MonoBehaviour:
   objectMask:
     serializedVersion: 2
     m_Bits: 2048
-  keepColliders: 0
+  useColliders: 0
   spawnTopDown: 1
   useGizmoRadius: 0
   useGizmoHeight: 1
@@ -1418,7 +1418,7 @@ MonoBehaviour:
   objectMask:
     serializedVersion: 2
     m_Bits: 2048
-  keepColliders: 0
+  useColliders: 0
   spawnTopDown: 1
   useGizmoRadius: 0
   useGizmoHeight: 1
@@ -9440,7 +9440,7 @@ MonoBehaviour:
   daylightCycle: 0
   soundVolume: 0.5
   useCrates: 1
-  useEnvironmentObjects: 1
+  useEnvironmentObjects: 0
   useEnemies: 0
   currentLevel: 1
 --- !u!4 &1000687953
