@@ -37,8 +37,12 @@ public class Explosion : MonoBehaviour {
                 damageCollider(col, damage);
             }
 
-            if (col.gameObject.tag == "Obstacle") {
+            else if (col.gameObject.tag == "Obstacle") {
                 Destroy(col.gameObject);
+            }
+
+            else if (col.gameObject.tag == "Breakable") {
+                col.gameObject.GetComponent<Breakable>().Break();
             }
         }
     }
