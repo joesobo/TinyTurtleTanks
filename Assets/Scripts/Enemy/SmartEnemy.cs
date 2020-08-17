@@ -109,7 +109,7 @@ public class SmartEnemy : MonoBehaviour {
                     curSpeed = speed / 2;
                     if (canShoot) {
                         canShoot = false;
-                        StartCoroutine("StartShoot");
+                        fireRandomWeapon();
                     }
                 }
 
@@ -155,6 +155,20 @@ public class SmartEnemy : MonoBehaviour {
         }
     }
 
+    private void fireRandomWeapon() {
+        if (Random.Range(0, 2) == 0) {
+            StartCoroutine("StartShootWeapon");
+        }
+        else {
+            if (altWeapon.inPlay < altWeapon.maxInPlay) {
+                StartCoroutine("StartShootAlt");
+            }
+            else {
+                StartCoroutine("StartShootWeapon");
+            }
+        }
+    }
+
     IEnumerator StartRotate() {
         curRotate = rotateSpeed;
         lockRotation = false;
@@ -175,14 +189,9 @@ public class SmartEnemy : MonoBehaviour {
         StartCoroutine("StartRotate");
     }
 
-    IEnumerator StartShoot() {
+    IEnumerator StartShootWeapon() {
         if (!settings.isPaused) {
-            if (Random.Range(0, 2) == 0) {
-                ShootWeaponAtPoints();
-            }
-            else {
-                ShootAltWeaponAtPoints();
-            }
+            ShootWeaponAtPoints();
         }
 
         if (weapon.ammo.currentClip > 0) {
@@ -192,6 +201,16 @@ public class SmartEnemy : MonoBehaviour {
             yield return new WaitForSeconds(weapon.reloadTime);
             weapon.reload();
         }
+
+        canShoot = true;
+    }
+
+    IEnumerator StartShootAlt() {
+        if (!settings.isPaused) {
+            ShootAltWeaponAtPoints();
+        }
+
+        yield return new WaitForSeconds(altWeapon.timeBetweenUses);
 
         canShoot = true;
     }
