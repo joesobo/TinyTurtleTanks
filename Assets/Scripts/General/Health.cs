@@ -41,7 +41,9 @@ public abstract class Health : MonoBehaviour {
             curHealth = 0;
         }
         UpdateHealthBar();
-        DamageFlash();
+        if (curHealth > 0) {
+            DamageFlash();
+        }
     }
 
     public int getCurHealth() {
@@ -75,10 +77,9 @@ public abstract class Health : MonoBehaviour {
         }
         yield return new WaitForSeconds(flashTime);
         //reset materials to old
-        if (curHealth > 0) {
-            for (int index = 0; index < meshRenderers.Length; index++) {
-                meshRenderers[index].material = tempMaterials[index];
-            }
+
+        for (int index = 0; index < meshRenderers.Length; index++) {
+            meshRenderers[index].material = tempMaterials[index];
         }
         tempMaterials.Clear();
     }

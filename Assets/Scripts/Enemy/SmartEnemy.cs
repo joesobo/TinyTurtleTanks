@@ -156,15 +156,25 @@ public class SmartEnemy : MonoBehaviour {
     }
 
     private void fireRandomWeapon() {
-        if (Random.Range(0, 2) == 0) {
-            StartCoroutine("StartShootWeapon");
+        List<string> activeWeapons = new List<string>();
+        if (weapon) {
+            activeWeapons.Add("Weapon");
         }
-        else {
-            if (altWeapon.inPlay < altWeapon.maxInPlay) {
-                StartCoroutine("StartShootAlt");
+        if (altWeapon) {
+            activeWeapons.Add("AltWeapon");
+        }
+
+        if (activeWeapons.Count > 0) {
+            if (activeWeapons[Random.Range(0, activeWeapons.Count)] == "Weapon") {
+                StartCoroutine("StartShootWeapon");
             }
             else {
-                StartCoroutine("StartShootWeapon");
+                if (altWeapon.inPlay < altWeapon.maxInPlay) {
+                    StartCoroutine("StartShootAlt");
+                }
+                else if (weapon) {
+                    StartCoroutine("StartShootWeapon");
+                }
             }
         }
     }
