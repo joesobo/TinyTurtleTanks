@@ -49,7 +49,9 @@ public class PlayerController : MonoBehaviour {
         playerShoot.weapon = BaseTurtle.weapon;
         playerShoot.altWeapon = BaseTurtle.altWeapon;
 
-        BaseTurtle.weapon.reload();
+        if (BaseTurtle.weapon) {
+            BaseTurtle.weapon.reload();
+        }
 
         rb = GetComponent<Rigidbody>();
         settings = FindObjectOfType<GameSettings>();

@@ -13,6 +13,10 @@ public class AltAmmoText : MonoBehaviour {
     }
 
     private void Update() {
-        text.text = "x" + (playerShoot.altWeapon.maxInPlay - playerShoot.altWeapon.inPlay);
+        if (playerShoot.altWeapon) {
+            text.text = "x" + (playerShoot.altWeapon.maxInPlay - playerShoot.altWeapon.inPlay);
+        } else {
+            text.text = "x0";
+        }
     }
 }
