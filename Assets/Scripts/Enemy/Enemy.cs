@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour {
             smartEnemy.rotateSpeed = BaseTurtle.rotateSpeed;
             smartEnemy.jumpForce = BaseTurtle.jumpForce;
             smartEnemy.weapon = BaseTurtle.weapon;
+            smartEnemy.altWeapon = BaseTurtle.altWeapon;
 
             BaseTurtle.weapon.reload();
         }

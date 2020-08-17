@@ -24,9 +24,13 @@ public class SmartEnemy : MonoBehaviour {
     public float playerShootRadius = 2;
     private bool lockPlayer = false;
     private bool shootPlayer = false;
+    [HideInInspector]
     public Weapon weapon;
+    [HideInInspector]
+    public AltWeapon altWeapon;
     public List<Transform> shootPoints;
     private Transform parent;
+    private Transform altParent;
     private bool canShoot = false;
     private bool canJump = false;
     public float jumpForce = 200;
@@ -42,6 +46,7 @@ public class SmartEnemy : MonoBehaviour {
         settings = FindObjectOfType<GameSettings>();
         source = GetComponent<AudioSource>();
         parent = FindObjectOfType<BulletController>().transform;
+        altParent = GameObject.Find("BombController").transform;
 
         randomTimes();
         StartCoroutine("StartRotate");
@@ -68,7 +73,7 @@ public class SmartEnemy : MonoBehaviour {
                 shootPlayer = false;
             }
 
-            
+
             //grounded check
             Ray ray = new Ray(transform.position, -transform.up);
             RaycastHit groundHit;
@@ -172,16 +177,22 @@ public class SmartEnemy : MonoBehaviour {
 
     IEnumerator StartShoot() {
         if (!settings.isPaused) {
-            ShootAtPoints();
+            if (Random.Range(0, 2) == 0) {
+                ShootWeaponAtPoints();
+            }
+            else {
+                ShootAltWeaponAtPoints();
+            }
         }
 
         if (weapon.ammo.currentClip > 0) {
             yield return new WaitForSeconds(weapon.timeBetweenShots);
-        }else{
+        }
+        else {
             yield return new WaitForSeconds(weapon.reloadTime);
             weapon.reload();
         }
-        
+
         canShoot = true;
     }
 
@@ -195,7 +206,7 @@ public class SmartEnemy : MonoBehaviour {
         return false;
     }
 
-    private void ShootAtPoints() {
+    private void ShootWeaponAtPoints() {
         foreach (Transform shootPoint in shootPoints) {
             weapon.shoot(shootPoint.position, this.transform.rotation, parent);
         }
@@ -203,6 +214,16 @@ public class SmartEnemy : MonoBehaviour {
             source.volume = settings.soundVolume;
             source.Play();
         }
+    }
+
+    private void ShootAltWeaponAtPoints() {
+        foreach (Transform shootPoint in shootPoints) {
+            altWeapon.shoot(shootPoint.position, this.transform.rotation, altParent);
+        }
+        // if (settings.useSound) {
+        //     source.volume = settings.soundVolume;
+        //     source.Play();
+        // }
     }
 
     private void randomTimes() {
