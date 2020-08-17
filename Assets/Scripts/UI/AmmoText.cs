@@ -13,6 +13,10 @@ public class AmmoText : MonoBehaviour {
     }
 
     private void Update() {
-        text.text = "x" + playerShoot.weapon.ammo.currentClip;
+        if (playerShoot.weapon) {
+            text.text = "x" + playerShoot.weapon.ammo.currentClip;
+        } else {
+            text.text = "x0";
+        }
     }
 }

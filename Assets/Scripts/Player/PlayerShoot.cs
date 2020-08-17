@@ -37,8 +37,10 @@ public class PlayerShoot : MonoBehaviour {
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
         source = GetComponent<AudioSource>();
-        
-        altWeapon.inPlay = 0;
+
+        if (altWeapon) {
+            altWeapon.inPlay = 0;
+        }
     }
 
     private void Update() {
@@ -55,7 +57,7 @@ public class PlayerShoot : MonoBehaviour {
 
         //Shooting
         if (!settings.isPaused) {
-            if (Input.GetMouseButtonDown(0) && !mainDelayOn) {
+            if (weapon && Input.GetMouseButtonDown(0) && !mainDelayOn) {
                 //start delay for next shot
                 mainDelayOn = true;
                 StartCoroutine("MainDelayCo");
@@ -70,7 +72,7 @@ public class PlayerShoot : MonoBehaviour {
                 StartCoroutine(screenShake.Shake());
             }
 
-            if (Input.GetMouseButtonDown(1) && !altDelayOn && altWeapon.inPlay < altWeapon.maxInPlay) {
+            if (altWeapon && Input.GetMouseButtonDown(1) && !altDelayOn && altWeapon.inPlay < altWeapon.maxInPlay) {
                 //start delay for next shot
                 altDelayOn = true;
                 StartCoroutine("AltDelayCo");
@@ -90,9 +92,10 @@ public class PlayerShoot : MonoBehaviour {
 
     //Reload and delay shooting
     IEnumerator MainDelayCo() {
-        if (weapon.ammo.currentClip-1 > 0) {
+        if (weapon.ammo.currentClip - 1 > 0) {
             yield return new WaitForSeconds(weapon.timeBetweenShots);
-        }else{
+        }
+        else {
             yield return new WaitForSeconds(weapon.reloadTime);
             weapon.reload();
         }

@@ -18,20 +18,28 @@ public class WeaponIcon : MonoBehaviour {
     }
 
     private void Update() {
-        if (weaponIcon != playerShoot.weapon.icon || altWeaponIcon != playerShoot.altWeapon.icon) {
-            assignIcons();
+        if (playerShoot.weapon && !isAltWeapon) {
+            if (weaponIcon != playerShoot.weapon.icon) {
+                weaponIcon = playerShoot.weapon.icon;
+                assignIcons(weaponIcon, isAltWeapon);
+            }
+        }
+
+        else if (playerShoot.altWeapon && isAltWeapon) {
+            if (altWeaponIcon != playerShoot.altWeapon.icon) {
+                altWeaponIcon = playerShoot.altWeapon.icon;
+                assignIcons(altWeaponIcon, isAltWeapon);
+            }
         }
     }
 
-    private void assignIcons() {
-        weaponIcon = playerShoot.weapon.icon;
-        altWeaponIcon = playerShoot.altWeapon.icon;
-
-        if (isAltWeapon) {
-            image.sprite = altWeaponIcon;
+    private void assignIcons(Sprite sprite, bool isAlt) {
+        image.color = Color.white;
+        if (isAlt) {
+            image.sprite = sprite;
         }
         else {
-            image.sprite = weaponIcon;
+            image.sprite = sprite;
         }
     }
 }
