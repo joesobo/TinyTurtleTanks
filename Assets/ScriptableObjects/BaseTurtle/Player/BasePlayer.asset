@@ -17,5 +17,5 @@ MonoBehaviour:
   rotateSpeed: 100
   jumpForce: 750
   weapon: {fileID: 11400000, guid: bbe38aaea4344414f85e495a5afed2dd, type: 2}
-  altWeapon: {fileID: 11400000, guid: fa23cba9bc73c4e4da032e77383718b7, type: 2}
+  altWeapon: {fileID: 11400000, guid: c9f96216be9c7f24998a2491723a3831, type: 2}
   prefab: {fileID: 0}

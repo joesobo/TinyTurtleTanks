@@ -12,6 +12,11 @@ public class PlayerEffects : MonoBehaviour {
     [HideInInspector]
     public bool health = false;
 
+    private bool shieldLock = false;
+    private bool speedLock = false;
+    private bool jumpLock = false;
+    private bool healthLock = false;
+
     private float saveSpeed;
     private float saveJump;
 
@@ -42,27 +47,28 @@ public class PlayerEffects : MonoBehaviour {
     }
 
     private void Update() {
-        if (shield) {
-            shield = false;
+        if (shield && shieldLock) {
+            shieldLock = false;
             StartCoroutine("StartShield");
         }
 
-        if (speed) {
-            speed = false;
+        if (speed && speedLock) {
+            speedLock = false;
             saveSpeed = playerController.speed;
             StartCoroutine("StartSpeed");
         }
 
-        if (jump) {
-            jump = false;
+        if (jump && jumpLock) {
+            jumpLock = false;
             saveJump = playerController.jumpForce;
             StartCoroutine("StartJump");
         }
 
-        if (health) {
-            health = false;
+        if (health && healthLock) {
+            healthLock = false;
             playerHealth.increaseHealth(1);
             Instantiate(healthParticles, col.transform.position, col.transform.rotation, col.transform);
+            health = false;
         }
     }
 
@@ -72,6 +78,7 @@ public class PlayerEffects : MonoBehaviour {
         findChildByName("Shield").gameObject.SetActive(true);
         yield return new WaitForSeconds(waitForSecondsShield);
         findChildByName("Shield").gameObject.SetActive(false);
+        shield = false;
         Destroy(particle);
     }
 
@@ -81,6 +88,7 @@ public class PlayerEffects : MonoBehaviour {
         playerController.speed = 15;
         yield return new WaitForSeconds(waitForSecondsSpeed);
         playerController.speed = saveSpeed;
+        speed = false;
         Destroy(particle);
     }
 
@@ -90,6 +98,7 @@ public class PlayerEffects : MonoBehaviour {
         playerController.jumpForce = 1000;
         yield return new WaitForSeconds(waitForSecondsJump);
         playerController.jumpForce = saveJump;
+        jump = false;
         Destroy(particle);
     }
 
@@ -103,5 +112,25 @@ public class PlayerEffects : MonoBehaviour {
         }
 
         return saveChild;
+    }
+
+    public void ActivateShield() {
+        shield = true;
+        shieldLock = true;
+    }
+
+    public void ActivateSpeed() {
+        speed = true;
+        speedLock = true;
+    }
+
+    public void ActivateJump() {
+        jump = true;
+        jumpLock = true;
+    }
+
+    public void ActivateHealth() {
+        health = true;
+        healthLock = true;
     }
 }

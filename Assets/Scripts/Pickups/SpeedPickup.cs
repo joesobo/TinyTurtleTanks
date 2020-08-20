@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class SpeedPickup : Pickup {
     protected override void applyEffect(Collider col) {
-        col.gameObject.GetComponent<PlayerEffects>().speed = true;
+        col.gameObject.GetComponent<PlayerEffects>().ActivateSpeed();
     }
 }

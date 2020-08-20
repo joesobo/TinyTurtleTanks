@@ -33,7 +33,14 @@ public class Explosion : MonoBehaviour {
     private void damageObjectsInRadius(float damageRadius, int damage) {
         Collider[] hitColliders = Physics.OverlapSphere(position, damageRadius);
         foreach (Collider col in hitColliders) {
-            if (col.tag == "Player" || col.tag == "Enemy") {
+            if (col.tag == "Player") {
+                PlayerEffects playerEffects = FindObjectOfType<PlayerEffects>();
+                if (!playerEffects.shield) {
+                    damageCollider(col, damage);
+                }
+            }
+
+            else if (col.tag == "Enemy") {
                 damageCollider(col, damage);
             }
 

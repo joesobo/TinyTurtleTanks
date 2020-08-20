@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class JumpPickup : Pickup {
     protected override void applyEffect(Collider col) {
-        col.gameObject.GetComponent<PlayerEffects>().jump = true;
+        col.gameObject.GetComponent<PlayerEffects>().ActivateJump();
     }
 }
