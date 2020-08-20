@@ -29,7 +29,6 @@ public class Enemy : MonoBehaviour {
             if (BaseTurtle.weapon) {
                 BaseTurtle.weapon.reload();
             }
-            
         }
     }
 }
