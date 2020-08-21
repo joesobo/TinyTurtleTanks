@@ -13,7 +13,6 @@ public class FishMovement : MonoBehaviour {
     private float curRotate = 0;
 
     private bool lockRotation = true;
-    private bool lockEntity = false;
     private Vector3 moveAmount;
     private Vector3 smoothMoveVelocity;
     private Rigidbody rb;
@@ -36,35 +35,11 @@ public class FishMovement : MonoBehaviour {
 
     private void Update() {
         if (!settings.isPaused) {
-            if (!isInsideRadius(transform.position)) {
-                gravityBody.useGrav = true;
-            }
-            else {
-                gravityBody.useGrav = false;
-            }
+            CheckOutOfWater();
 
-            //calculate move if speed
-            Vector3 targetMoveAmount = Vector3.forward * curSpeed;
-            moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
-
-            RaycastHit hit;
-            if (Physics.Raycast(raycastOrigin + transform.position, transform.TransformDirection(Vector3.forward), out hit, 2, objectLayerMask)) {
-                Debug.DrawRay(raycastOrigin + transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                curRotate = rotateSpeed;
-            }
-            else {
-                Debug.DrawRay(raycastOrigin + transform.position, transform.TransformDirection(Vector3.forward) * 2, Color.white);
-                if (lockRotation) {
-                    curRotate = 0;
-                }
-            }
-
-            lockEntity = false;
+            CalculateMove();
+            CalculateRotate();
         }
-    }
-
-    bool isInsideRadius(Vector3 point) {
-        return Mathf.Pow(point.x, 2) + Mathf.Pow(point.y, 2) + Mathf.Pow(point.z, 2) < Mathf.Pow(waterRadius, 2);
     }
 
     private void FixedUpdate() {
@@ -76,6 +51,38 @@ public class FishMovement : MonoBehaviour {
             //rotate
             transform.Rotate(0, 1 * curRotate * Time.deltaTime, 0);
         }
+    }
+
+    private void CalculateRotate() {
+        RaycastHit hit;
+        if (Physics.Raycast(raycastOrigin + transform.position, transform.TransformDirection(Vector3.forward), out hit, 2, objectLayerMask)) {
+            Debug.DrawRay(raycastOrigin + transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            curRotate = rotateSpeed;
+        }
+        else {
+            Debug.DrawRay(raycastOrigin + transform.position, transform.TransformDirection(Vector3.forward) * 2, Color.white);
+            if (lockRotation) {
+                curRotate = 0;
+            }
+        }
+    }
+
+    private void CalculateMove() {
+        Vector3 targetMoveAmount = Vector3.forward * curSpeed;
+        moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
+    }
+
+    private void CheckOutOfWater() {
+        if (!IsInsideRadius(transform.position)) {
+            gravityBody.useGrav = true;
+        }
+        else {
+            gravityBody.useGrav = false;
+        }
+    }
+
+    bool IsInsideRadius(Vector3 point) {
+        return Mathf.Pow(point.x, 2) + Mathf.Pow(point.y, 2) + Mathf.Pow(point.z, 2) < Mathf.Pow(waterRadius, 2);
     }
 
     IEnumerator StartRotate() {
