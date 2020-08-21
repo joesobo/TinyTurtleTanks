@@ -59,73 +59,94 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Update() {
+        FreezePlayer();
+
+        if (!settings.isPaused) {
+            SolveForMovement();
+
+            SolveForRotation();
+
+            GroundCheck();
+
+            Jump();
+        }
+        else {
+            animator.SetBool("Walking", false);
+        }
+    }
+
+    private void Jump() {
+        if (Input.GetButtonDown("Jump")) {
+            if (grounded) {
+                rb.AddForce(transform.up * jumpForce);
+            }
+        }
+    }
+
+    private void GroundCheck() {
+        ray = new Ray(transform.position, -transform.up);
+        Debug.DrawRay(transform.position, -transform.up * .85f, Color.red);
+        if (Physics.Raycast(ray, out hit, .85f, groundMask)) {
+            grounded = true;
+
+            if (settings.useParticle && !landParticleSpawned) {
+                ps = Instantiate(landParticles, transform.position, transform.rotation);
+                settings.SetParticleValues(ps);
+                landParticleSpawned = true;
+            }
+        }
+        else {
+            grounded = false;
+            landParticleSpawned = false;
+        }
+    }
+
+    private void SolveForRotation() {
+        inputX = Input.GetAxisRaw("Horizontal");
+        if (inputX > 0) {
+            rotateSpeed = maxRotateSpeed;
+        }
+        else if (inputX < 0) {
+            rotateSpeed = -maxRotateSpeed;
+        }
+        else {
+            rotateSpeed = 0;
+        }
+        transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
+
+        if (settings.useParticle) {
+            if (settings.isPaused) {
+                trailParticles.Pause();
+            }
+            else {
+                if (inputX != 0 || inputY != 0) {
+                    trailParticles.Play();
+                }
+            }
+        }
+    }
+
+    private void SolveForMovement() {
+        inputY = Input.GetAxisRaw("Vertical");
+
+        if (inputY != 0) {
+            animator.SetBool("Walking", true);
+        }
+        else {
+            animator.SetBool("Walking", false);
+        }
+
+        moveDir = new Vector3(0, 0, inputY).normalized;
+        targetMoveAmount = moveDir * speed;
+        moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
+    }
+
+    private void FreezePlayer() {
         if (settings.isPaused && rb.constraints == RigidbodyConstraints.FreezeRotation) {
             rb.constraints = RigidbodyConstraints.FreezeAll;
         }
         else if (rb.constraints == RigidbodyConstraints.FreezeAll) {
             rb.constraints = RigidbodyConstraints.FreezeRotation;
-        }
-
-        animator.SetBool("Walking", false);
-        if (!settings.isPaused) {
-            //calculate movement
-            inputY = Input.GetAxisRaw("Vertical");
-
-            if (inputY != 0) {
-                animator.SetBool("Walking", true);
-            }
-
-            moveDir = new Vector3(0, 0, inputY).normalized;
-            targetMoveAmount = moveDir * speed;
-            moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
-
-            //calculate rotation
-            inputX = Input.GetAxisRaw("Horizontal");
-            if (inputX > 0) {
-                rotateSpeed = maxRotateSpeed;
-            }
-            else if (inputX < 0) {
-                rotateSpeed = -maxRotateSpeed;
-            }
-            else {
-                rotateSpeed = 0;
-            }
-            transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
-
-            if (settings.useParticle) {
-                if (settings.isPaused) {
-                    trailParticles.Pause();
-                }
-                else {
-                    if (inputX != 0 || inputY != 0) {
-                        trailParticles.Play();
-                    }
-                }
-            }
-            
-            //grounded check
-            ray = new Ray(transform.position, -transform.up);
-            Debug.DrawRay(transform.position, -transform.up * .85f, Color.red);
-            if (Physics.Raycast(ray, out hit, .85f, groundMask)) {
-                grounded = true;
-
-                if (settings.useParticle && !landParticleSpawned) {
-                    ps = Instantiate(landParticles, transform.position, transform.rotation);
-                    settings.SetParticleValues(ps);
-                    landParticleSpawned = true;
-                }
-            }
-            else {
-                grounded = false;
-                landParticleSpawned = false;
-            }
-
-            //calculate jump
-            if (Input.GetButtonDown("Jump")) {
-                if (grounded) {
-                    rb.AddForce(transform.up * jumpForce);
-                }
-            }
         }
     }
 
@@ -138,7 +159,7 @@ public class PlayerController : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Water") {
-            if (settings.useParticle ) {
+            if (settings.useParticle) {
                 ps = Instantiate(waterParticles, transform.position, transform.rotation);
                 settings.SetParticleValues(ps);
             }
