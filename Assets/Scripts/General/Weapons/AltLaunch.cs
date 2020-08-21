@@ -86,7 +86,7 @@ public class AltLaunch : MonoBehaviour {
     private Collider CheckNearby() {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, damageRadius);
         foreach (Collider collider in hitColliders) {
-            if (collider.tag == "Player" || collider.tag == "Enemy") {
+            if (collider.tag == "Player" || collider.tag == "Enemy" || collider.tag == "Fish") {
                 return collider;
             }
         }
