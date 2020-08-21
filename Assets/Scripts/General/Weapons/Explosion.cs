@@ -24,9 +24,7 @@ public class Explosion : MonoBehaviour {
     }
 
     public void DoDamage(float damageRadius, float knockbackRadius, float knockbackForce, int damage) {
-        //check radius for objects to damage
         DamageObjectsInRadius(damageRadius, damage);
-        //check radius for object to knockback
         KnockbackObjectsInRadius(knockbackRadius, knockbackForce);
     }
 
@@ -42,6 +40,14 @@ public class Explosion : MonoBehaviour {
 
             else if (col.tag == "Enemy") {
                 DamageCollider(col, damage);
+            }
+
+            else if (col.tag == "Fish") {
+                if (settings.useParticle) {
+                    Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
+                }
+
+                Destroy(col.gameObject);
             }
 
             else if (col.gameObject.tag == "Obstacle") {
