@@ -44,7 +44,50 @@ public class PlayerShoot : MonoBehaviour {
     }
 
     private void Update() {
-        //Temp switch weapons
+        CheckSwitchWeapons();
+
+        if (!settings.isPaused) {
+            MainShoot();
+            AltShoot();
+        }
+    }
+
+    private void AltShoot() {
+        if (altWeapon && Input.GetMouseButtonDown(1) && !altDelayOn && altWeapon.inPlay < altWeapon.maxInPlay) {
+            //start delay for next shot
+            altDelayOn = true;
+            StartCoroutine("AltDelayCo");
+            //create bullet
+            altWeapon.shoot(dropPoint.position, this.transform.rotation, altParent);
+            altWeapon.inPlay++;
+            //play sound
+            if (settings.useSound) {
+                // source.volume = settings.soundVolume;
+                // source.Play();
+            }
+            //apply screen shake
+            StartCoroutine(screenShake.Shake());
+        }
+    }
+
+    private void MainShoot() {
+        if (weapon && Input.GetMouseButtonDown(0) && !mainDelayOn) {
+            //start delay for next shot
+            mainDelayOn = true;
+            StartCoroutine("MainDelayCo");
+            //create bullet
+            weapon.shoot(shootPoint.position, this.transform.rotation, parent);
+            //play sound
+            if (settings.useSound) {
+                source.volume = settings.soundVolume;
+                source.Play();
+            }
+            //apply screen shake
+            StartCoroutine(screenShake.Shake());
+        }
+    }
+
+    private void CheckSwitchWeapons() {
         if (useNewWeapon) {
             useNewWeapon = false;
             StartCoroutine("UseNewWeapon");
@@ -53,40 +96,6 @@ public class PlayerShoot : MonoBehaviour {
         if (useNewAlt) {
             useNewAlt = false;
             StartCoroutine("UseNewAltWeapon");
-        }
-
-        //Shooting
-        if (!settings.isPaused) {
-            if (weapon && Input.GetMouseButtonDown(0) && !mainDelayOn) {
-                //start delay for next shot
-                mainDelayOn = true;
-                StartCoroutine("MainDelayCo");
-                //create bullet
-                weapon.shoot(shootPoint.position, this.transform.rotation, parent);
-                //play sound
-                if (settings.useSound) {
-                    source.volume = settings.soundVolume;
-                    source.Play();
-                }
-                //apply screen shake
-                StartCoroutine(screenShake.Shake());
-            }
-
-            if (altWeapon && Input.GetMouseButtonDown(1) && !altDelayOn && altWeapon.inPlay < altWeapon.maxInPlay) {
-                //start delay for next shot
-                altDelayOn = true;
-                StartCoroutine("AltDelayCo");
-                //create bullet
-                altWeapon.shoot(dropPoint.position, this.transform.rotation, altParent);
-                altWeapon.inPlay++;
-                //play sound
-                if (settings.useSound) {
-                    // source.volume = settings.soundVolume;
-                    // source.Play();
-                }
-                //apply screen shake
-                StartCoroutine(screenShake.Shake());
-            }
         }
     }
 
