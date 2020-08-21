@@ -48,97 +48,32 @@ public class SmartEnemy : MonoBehaviour {
         parent = FindObjectOfType<BulletController>().transform;
         altParent = GameObject.Find("BombController").transform;
 
-        randomTimes();
+        GenerateRandomTimes();
         StartCoroutine("StartRotate");
     }
 
     private void Update() {
         if (!settings.isPaused) {
-            //check for player in look radius
-            if (isPlayerInRadius(playerLookRadius)) {
-                lockPlayer = true;
-            }
-            else {
-                lockPlayer = false;
-            }
+            GroundCheck();
 
-            //check for player in shoot radius
-            if (isPlayerInRadius(playerShootRadius)) {
-                if (!shootPlayer) {
-                    canShoot = true;
-                }
-                shootPlayer = true;
-            }
-            else {
-                shootPlayer = false;
-            }
-
-
-            //grounded check
-            Ray ray = new Ray(transform.position, -transform.up);
-            RaycastHit groundHit;
-
-            Debug.DrawRay(transform.position, -transform.up * .85f, Color.red);
-            if (Physics.Raycast(ray, out groundHit, .85f, groundMask)) {
-                grounded = true;
-            }
-            else {
-                grounded = false;
-            }
-
-            //check for player above to enable jumping
-            float playerDist = Vector3.Distance(Vector3.zero, player.transform.position);
-            float enemyDist = Vector3.Distance(Vector3.zero, transform.position);
-
-            if (Mathf.Abs(playerDist - enemyDist) > 1 && grounded) {
-                canJump = true;
-            }
-            else {
-                canJump = false;
-            }
+            JumpCheck();
 
             //looking and moving towards player
-            if (lockPlayer) {
-                Vector3 groundNormal = transform.position;
-                Vector3 forwardVector = Vector3.Cross(groundNormal, player.transform.position);
-                Vector3 rotatedVector = Quaternion.AngleAxis(-90, transform.up) * forwardVector;
-                transform.rotation = Quaternion.LookRotation(rotatedVector, groundNormal);
+            if (IsPlayerInRadius(playerLookRadius)) {
+                RotateTowardsPlayer();
 
-                //stop moving and shoot at player
-                if (shootPlayer) {
-                    curSpeed = speed / 2;
-                    if (canShoot) {
-                        canShoot = false;
-                        fireRandomWeapon();
-                    }
-                }
+                CheckCanShootPlayer();
 
-                //stop moving and shoot at player
-                if (canJump) {
-                    canJump = false;
-                    rb.AddForce(transform.up * jumpForce);
-                }
+                SlowAndShoot();
+
+                Jump();
             }
             //auto moving state
             else {
-                //calculate move if speed
-                Vector3 targetMoveAmount = Vector3.forward * curSpeed;
-                moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
+                CalculateMove();
 
-                offsetPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
-                RaycastHit hit;
-                if (Physics.Raycast(offsetPosition, transform.TransformDirection(Vector3.forward), out hit, 2, objectLayerMask)) {
-                    Debug.DrawRay(offsetPosition, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                    curRotate = rotateSpeed;
-                }
-                else {
-                    Debug.DrawRay(offsetPosition, transform.TransformDirection(Vector3.forward) * 2, Color.white);
-                    if (lockRotation) {
-                        curRotate = 0;
-                    }
-                }
+                CollisionRotation();
 
-                lockPlayer = false;
                 shootPlayer = false;
             }
         }
@@ -155,7 +90,88 @@ public class SmartEnemy : MonoBehaviour {
         }
     }
 
-    private void fireRandomWeapon() {
+    private void CalculateMove() {
+        Vector3 targetMoveAmount = Vector3.forward * curSpeed;
+        moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
+    }
+
+    private void CollisionRotation() {
+        offsetPosition = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+        RaycastHit hit;
+        if (Physics.Raycast(offsetPosition, transform.TransformDirection(Vector3.forward), out hit, 2, objectLayerMask)) {
+            Debug.DrawRay(offsetPosition, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            curRotate = rotateSpeed;
+        }
+        else {
+            Debug.DrawRay(offsetPosition, transform.TransformDirection(Vector3.forward) * 2, Color.white);
+            if (lockRotation) {
+                curRotate = 0;
+            }
+        }
+    }
+
+    private void Jump() {
+        if (canJump) {
+            canJump = false;
+            rb.AddForce(transform.up * jumpForce);
+        }
+    }
+
+    private void RotateTowardsPlayer() {
+        Vector3 groundNormal = transform.position;
+        Vector3 forwardVector = Vector3.Cross(groundNormal, player.transform.position);
+        Vector3 rotatedVector = Quaternion.AngleAxis(-90, transform.up) * forwardVector;
+        transform.rotation = Quaternion.LookRotation(rotatedVector, groundNormal);
+    }
+
+    private void SlowAndShoot() {
+        if (shootPlayer) {
+            curSpeed = speed / 2;
+            if (canShoot) {
+                canShoot = false;
+                FireRandomWeapon();
+            }
+        }
+    }
+
+    private void JumpCheck() {
+        float playerDist = Vector3.Distance(Vector3.zero, player.transform.position);
+        float enemyDist = Vector3.Distance(Vector3.zero, transform.position);
+
+        if (Mathf.Abs(playerDist - enemyDist) > 1 && grounded) {
+            canJump = true;
+        }
+        else {
+            canJump = false;
+        }
+    }
+
+    private void GroundCheck() {
+        Ray ray = new Ray(transform.position, -transform.up);
+        RaycastHit groundHit;
+
+        Debug.DrawRay(transform.position, -transform.up * .85f, Color.red);
+        if (Physics.Raycast(ray, out groundHit, .85f, groundMask)) {
+            grounded = true;
+        }
+        else {
+            grounded = false;
+        }
+    }
+
+    private void CheckCanShootPlayer() {
+        if (IsPlayerInRadius(playerShootRadius)) {
+            if (!shootPlayer) {
+                canShoot = true;
+            }
+            shootPlayer = true;
+        }
+        else {
+            shootPlayer = false;
+        }
+    }
+
+    private void FireRandomWeapon() {
         List<string> activeWeapons = new List<string>();
         if (weapon) {
             activeWeapons.Add("Weapon");
@@ -186,7 +202,7 @@ public class SmartEnemy : MonoBehaviour {
         lockRotation = true;
         curRotate = 0;
 
-        randomTimes();
+        GenerateRandomTimes();
         StartCoroutine("StartMove");
     }
 
@@ -195,7 +211,7 @@ public class SmartEnemy : MonoBehaviour {
         yield return new WaitForSeconds(moveSeconds);
         curSpeed = 0;
 
-        randomTimes();
+        GenerateRandomTimes();
         StartCoroutine("StartRotate");
     }
 
@@ -225,7 +241,7 @@ public class SmartEnemy : MonoBehaviour {
         canShoot = true;
     }
 
-    private bool isPlayerInRadius(float radius) {
+    private bool IsPlayerInRadius(float radius) {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider collider in hitColliders) {
             if (collider.tag == "Player") {
@@ -255,7 +271,7 @@ public class SmartEnemy : MonoBehaviour {
         // }
     }
 
-    private void randomTimes() {
+    private void GenerateRandomTimes() {
         moveSeconds = Random.Range(1, 7);
         rotateSeconds = Random.Range(1, 5);
     }
