@@ -28,12 +28,12 @@ public class BreakableSpawner : MonoBehaviour {
 
     private void SpawnAtPoint() {
         if (totalCrates < maxTotalCrates) {
-            Instantiate(breakablePrefab, randPos(radius), this.transform.rotation, this.transform);
+            Instantiate(breakablePrefab, RandomPosition(radius), this.transform.rotation, this.transform);
             totalCrates++;
         }
     }
 
-    private Vector3 randPos(int r) {
+    private Vector3 RandomPosition(int r) {
         return Random.onUnitSphere * r;
     }
 }

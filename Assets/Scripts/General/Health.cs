@@ -27,7 +27,7 @@ public abstract class Health : MonoBehaviour {
         curHealth = MAXHEALTH;
     }
 
-    public void increaseHealth(int amount) {
+    public void IncreaseHealth(int amount) {
         curHealth += amount;
         if (curHealth > MAXHEALTH) {
             curHealth = MAXHEALTH;
@@ -35,7 +35,7 @@ public abstract class Health : MonoBehaviour {
         UpdateHealthBar();
     }
 
-    public void decreaseHealth(int amount) {
+    public void DecreaseHealth(int amount) {
         curHealth -= amount;
         if (curHealth < 0) {
             curHealth = 0;
@@ -46,7 +46,7 @@ public abstract class Health : MonoBehaviour {
         }
     }
 
-    public int getCurHealth() {
+    public int GetCurHealth() {
         return curHealth;
     }
 
@@ -89,10 +89,10 @@ public abstract class Health : MonoBehaviour {
             isDead = true;
 
             if (settings.useEnemies) {
-                onDeath();
+                OnDeath();
             }
         }
     }
 
-    protected abstract void onDeath();
+    protected abstract void OnDeath();
 }

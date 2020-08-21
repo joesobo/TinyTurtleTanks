@@ -5,7 +5,7 @@ using UnityEngine;
 public class RocketPickup : Pickup {
     public Weapon rocket;
 
-    protected override void applyEffect(Collider col) {
+    protected override void ApplyEffect(Collider col) {
         PlayerShoot playerShoot = col.gameObject.GetComponent<PlayerShoot>();
 
         playerShoot.newWeapon = rocket;

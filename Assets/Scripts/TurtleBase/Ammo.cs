@@ -36,7 +36,7 @@ public class Ammo : ScriptableObject {
             altLaunch.decaySpeed = decaySpeed;
             altLaunch.damage = damage;
 
-            altLaunch.launch(altWeapon, type);
+            altLaunch.Launch(altWeapon, type);
         }
     }
 }

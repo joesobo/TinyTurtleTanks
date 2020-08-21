@@ -27,7 +27,7 @@ public class GravityBody : MonoBehaviour {
         }
     }
 
-    public Rigidbody getRb() {
+    public Rigidbody GetRb() {
         return rb;
     }
 }

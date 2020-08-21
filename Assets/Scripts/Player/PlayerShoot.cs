@@ -58,7 +58,7 @@ public class PlayerShoot : MonoBehaviour {
             altDelayOn = true;
             StartCoroutine("AltDelayCo");
             //create bullet
-            altWeapon.shoot(dropPoint.position, this.transform.rotation, altParent);
+            altWeapon.Shoot(dropPoint.position, this.transform.rotation, altParent);
             altWeapon.inPlay++;
             //play sound
             if (settings.useSound) {
@@ -76,7 +76,7 @@ public class PlayerShoot : MonoBehaviour {
             mainDelayOn = true;
             StartCoroutine("MainDelayCo");
             //create bullet
-            weapon.shoot(shootPoint.position, this.transform.rotation, parent);
+            weapon.Shoot(shootPoint.position, this.transform.rotation, parent);
             //play sound
             if (settings.useSound) {
                 source.volume = settings.soundVolume;
@@ -106,7 +106,7 @@ public class PlayerShoot : MonoBehaviour {
         }
         else {
             yield return new WaitForSeconds(weapon.reloadTime);
-            weapon.reload();
+            weapon.Reload();
         }
         mainDelayOn = false;
     }

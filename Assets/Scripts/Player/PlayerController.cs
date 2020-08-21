@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
         playerShoot.altWeapon = BaseTurtle.altWeapon;
 
         if (BaseTurtle.weapon) {
-            BaseTurtle.weapon.reload();
+            BaseTurtle.weapon.Reload();
         }
 
         rb = GetComponent<Rigidbody>();

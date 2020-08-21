@@ -6,7 +6,7 @@ public class TrapCollision : MonoBehaviour {
     void OnTriggerEnter(Collider col) {
         if (col.gameObject.tag == "Player") {
             Debug.Log("Trap hit player");
-            col.gameObject.GetComponent<Health>().decreaseHealth(1);
+            col.gameObject.GetComponent<Health>().DecreaseHealth(1);
             gameObject.transform.parent.GetComponent<ActivateTrap>().Delete();
         }
     }

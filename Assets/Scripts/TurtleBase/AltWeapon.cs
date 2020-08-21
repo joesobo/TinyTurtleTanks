@@ -17,7 +17,7 @@ public class AltWeapon : ScriptableObject {
         Mine
     }
 
-    public void shoot(Vector3 position, Quaternion rotation, Transform parent) {
+    public void Shoot(Vector3 position, Quaternion rotation, Transform parent) {
         ammo.StartUpAlt(Instantiate(ammo.prefab, position, rotation, parent), this, type);
     }
 }

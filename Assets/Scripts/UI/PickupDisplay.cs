@@ -9,7 +9,7 @@ public class PickupDisplay : MonoBehaviour {
     private Animator pickupAnimator;
     private float seconds;
 
-    public void begin(float sec, Color color) {
+    public void Begin(float sec, Color color) {
         displayAnimator = transform.parent.GetComponent<Animator>();
         pickupAnimator = GetComponent<Animator>();
         pickupAnimator.speed = 1 / sec;

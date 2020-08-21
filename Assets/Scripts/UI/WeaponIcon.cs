@@ -21,19 +21,19 @@ public class WeaponIcon : MonoBehaviour {
         if (playerShoot.weapon && !isAltWeapon) {
             if (weaponIcon != playerShoot.weapon.icon) {
                 weaponIcon = playerShoot.weapon.icon;
-                assignIcons(weaponIcon, isAltWeapon);
+                AssignIcons(weaponIcon, isAltWeapon);
             }
         }
 
         else if (playerShoot.altWeapon && isAltWeapon) {
             if (altWeaponIcon != playerShoot.altWeapon.icon) {
                 altWeaponIcon = playerShoot.altWeapon.icon;
-                assignIcons(altWeaponIcon, isAltWeapon);
+                AssignIcons(altWeaponIcon, isAltWeapon);
             }
         }
     }
 
-    private void assignIcons(Sprite sprite, bool isAlt) {
+    private void AssignIcons(Sprite sprite, bool isAlt) {
         image.color = Color.white;
         if (isAlt) {
             image.sprite = sprite;

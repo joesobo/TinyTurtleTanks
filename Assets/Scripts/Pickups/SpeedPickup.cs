@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpeedPickup : Pickup {
-    protected override void applyEffect(Collider col) {
+    protected override void ApplyEffect(Collider col) {
         col.gameObject.GetComponent<PlayerEffects>().ActivateSpeed();
     }
 }

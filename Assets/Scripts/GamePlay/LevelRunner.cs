@@ -64,7 +64,7 @@ public class LevelRunner : MonoBehaviour {
                 loseMenu.ActivateLose();
             }
 
-            else if (getNumEnemiesLeft() <= 0 && activeWin && activeLose) {
+            else if (GetNumEnemiesLeft() <= 0 && activeWin && activeLose) {
                 activeWin = false;
                 winMenu.ActivateWin();
             }
@@ -88,7 +88,7 @@ public class LevelRunner : MonoBehaviour {
         enemiesRemaining--;
     }
 
-    public int getNumEnemiesLeft() {
+    public int GetNumEnemiesLeft() {
         return enemiesRemaining;
     }
 

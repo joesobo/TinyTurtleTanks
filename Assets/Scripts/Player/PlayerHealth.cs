@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : Health {
-    protected override void onDeath() {
+    protected override void OnDeath() {
         if (settings.useParticle) {
             Instantiate(deathParticles, transform.position, transform.rotation);
         }

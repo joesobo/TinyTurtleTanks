@@ -8,7 +8,7 @@ public abstract class BaseMenu : MonoBehaviour {
 
     }
 
-    public void onMenu() {
+    public void OnMenu() {
         SceneManager.LoadScene(0);
     }
 

@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour {
             smartEnemy.altWeapon = BaseTurtle.altWeapon;
 
             if (BaseTurtle.weapon) {
-                BaseTurtle.weapon.reload();
+                BaseTurtle.weapon.Reload();
             }
         }
     }

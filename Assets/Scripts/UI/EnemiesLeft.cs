@@ -22,8 +22,8 @@ public class EnemiesLeft : MonoBehaviour {
     }
 
     private void Update() {
-        if (totalEnemies != levelRunner.getNumEnemiesLeft()) {
-            totalEnemies = levelRunner.getNumEnemiesLeft();
+        if (totalEnemies != levelRunner.GetNumEnemiesLeft()) {
+            totalEnemies = levelRunner.GetNumEnemiesLeft();
 
             transform.GetChild(activeIndex).GetChild(0).gameObject.SetActive(true);
 

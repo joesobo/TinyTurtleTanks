@@ -43,7 +43,7 @@ public class LoseMenu : BaseMenu {
         LeanTween.scale(quitMenu.gameObject, Vector3.zero, 0.4f);
     }
 
-    public void onRestart() {
+    public void OnRestart() {
         SceneManager.LoadScene(1);
     }
 }

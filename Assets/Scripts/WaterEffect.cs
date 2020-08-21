@@ -22,7 +22,6 @@ public class WaterEffect : MonoBehaviour {
         else if (other.tag == "Enemy") {
             enemyController = other.gameObject.GetComponent<SmartEnemy>();
             enemyController.speed -= changeSpeed;
-            //enemyController.jumpForce -= changeJump;
         }
     }
 
@@ -34,7 +33,6 @@ public class WaterEffect : MonoBehaviour {
         else if (other.tag == "Enemy") {
             enemyController = other.gameObject.GetComponent<SmartEnemy>();
             enemyController.speed += changeSpeed;
-            //enemyController.jumpForce += changeJump;
         }
     }
 }

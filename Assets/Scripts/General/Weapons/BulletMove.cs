@@ -46,8 +46,8 @@ public class BulletMove : MonoBehaviour {
         if (!delayOn) {
             if (col.gameObject.tag == "Player") {
                 Debug.Log("Hit Player");
-                col.gameObject.GetComponent<Health>().decreaseHealth(damage);
-                explodeBullet();
+                col.gameObject.GetComponent<Health>().DecreaseHealth(damage);
+                ExplodeBullet();
             }
         }
 
@@ -57,12 +57,12 @@ public class BulletMove : MonoBehaviour {
                 source.volume = settings.soundVolume;
                 source.Play();
             }
-            explodeBullet();
+            ExplodeBullet();
         }
 
         else if (col.gameObject.tag == "Enemy") {
             Debug.Log("Hit Enemy");
-            col.gameObject.GetComponent<Health>().decreaseHealth(damage);
+            col.gameObject.GetComponent<Health>().DecreaseHealth(damage);
             if (settings.useParticle) {
                 Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
             }
@@ -71,7 +71,7 @@ public class BulletMove : MonoBehaviour {
                 source.volume = settings.soundVolume;
                 source.Play();
             }
-            explodeBullet();
+            ExplodeBullet();
         }
 
         else if (col.gameObject.tag == "Breakable") {
@@ -81,7 +81,7 @@ public class BulletMove : MonoBehaviour {
                 source.volume = settings.soundVolume;
                 source.Play();
             }
-            explodeBullet();
+            ExplodeBullet();
         }
 
         else if (col.gameObject.tag == "Fish") {
@@ -96,16 +96,16 @@ public class BulletMove : MonoBehaviour {
             }
 
             Destroy(col.gameObject);
-            explodeBullet();
+            ExplodeBullet();
         }
     }
 
-    private void explodeBullet() {
+    private void ExplodeBullet() {
         if (doesExplode && !hasExploded) {
             hasExploded = true;
             Explosion explosion = new Explosion(settings, explosionParticlePrefab, bloodParticlePrefab);
-            explosion.playExplosion(transform.position, transform.rotation, this.transform);
-            explosion.doDamage(damageRadius, knockbackRadius, knockbackForce, damage);
+            explosion.PlayExplosion(transform.position, transform.rotation, this.transform);
+            explosion.DoDamage(damageRadius, knockbackRadius, knockbackForce, damage);
 
             StartCoroutine("DelayDeath");
         }

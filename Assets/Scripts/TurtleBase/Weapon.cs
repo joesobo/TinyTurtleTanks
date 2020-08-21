@@ -15,19 +15,19 @@ public class Weapon : ScriptableObject {
         Rocket
     }
 
-    public void useAmmo(int amount) {
+    public void UseAmmo(int amount) {
         ammo.currentClip -= amount;
         if(ammo.currentClip < 0) {
             ammo.currentClip = 0;
         }
     }
 
-    public void reload() {
+    public void Reload() {
         ammo.currentClip = ammo.clipSize;
     }
 
-    public void shoot(Vector3 position, Quaternion rotation, Transform parent) {
+    public void Shoot(Vector3 position, Quaternion rotation, Transform parent) {
         ammo.StartUpBullet(Instantiate(ammo.prefab, position, rotation, parent), type);
-        useAmmo(1);
+        UseAmmo(1);
     }
 }

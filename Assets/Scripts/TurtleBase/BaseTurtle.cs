@@ -10,12 +10,4 @@ public class BaseTurtle : ScriptableObject {
     public Weapon weapon = null;                    // Lazor / Rocket
     public AltWeapon altWeapon = null;              // Bomb / Mine
     public GameObject prefab;
-
-    // public BaseTurtle(int health, int moveSpeed, int jumpForce, Weapon weapon, AltWeapon altWeapon) {
-    //     this.health = health;
-    //     this.moveSpeed = moveSpeed;
-    //     this.jumpForce = jumpForce;
-    //     this.weapon = weapon;
-    //     this.altWeapon = altWeapon;
-    // }
 }

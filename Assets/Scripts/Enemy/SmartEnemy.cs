@@ -225,7 +225,7 @@ public class SmartEnemy : MonoBehaviour {
         }
         else {
             yield return new WaitForSeconds(weapon.reloadTime);
-            weapon.reload();
+            weapon.Reload();
         }
 
         canShoot = true;
@@ -253,7 +253,7 @@ public class SmartEnemy : MonoBehaviour {
 
     private void ShootWeaponAtPoints() {
         foreach (Transform shootPoint in shootPoints) {
-            weapon.shoot(shootPoint.position, this.transform.rotation, parent);
+            weapon.Shoot(shootPoint.position, this.transform.rotation, parent);
         }
         if (settings.useSound) {
             source.volume = settings.soundVolume;
@@ -263,7 +263,7 @@ public class SmartEnemy : MonoBehaviour {
 
     private void ShootAltWeaponAtPoints() {
         foreach (Transform shootPoint in shootPoints) {
-            altWeapon.shoot(shootPoint.position, this.transform.rotation, altParent);
+            altWeapon.Shoot(shootPoint.position, this.transform.rotation, altParent);
         }
         // if (settings.useSound) {
         //     source.volume = settings.soundVolume;

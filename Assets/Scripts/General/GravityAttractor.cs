@@ -17,7 +17,7 @@ public class GravityAttractor : MonoBehaviour {
         body.transform.rotation = Quaternion.FromToRotation(bodyUp, targetDir) * body.transform.rotation;
         if (!settings.isPaused) {
             if (body.useGrav) {
-                body.getRb().AddForce(targetDir * gravity);
+                body.GetRb().AddForce(targetDir * gravity);
             }
         }
     }

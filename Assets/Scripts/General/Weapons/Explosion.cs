@@ -14,7 +14,7 @@ public class Explosion : MonoBehaviour {
         this.bloodParticlePrefab = bloodParticles;
     }
 
-    public void playExplosion(Vector3 position, Quaternion rotation, Transform parent) {
+    public void PlayExplosion(Vector3 position, Quaternion rotation, Transform parent) {
         this.position = position;
 
         //play explosion
@@ -23,25 +23,25 @@ public class Explosion : MonoBehaviour {
         }
     }
 
-    public void doDamage(float damageRadius, float knockbackRadius, float knockbackForce, int damage) {
+    public void DoDamage(float damageRadius, float knockbackRadius, float knockbackForce, int damage) {
         //check radius for objects to damage
-        damageObjectsInRadius(damageRadius, damage);
+        DamageObjectsInRadius(damageRadius, damage);
         //check radius for object to knockback
-        knockbackObjectsInRadius(knockbackRadius, knockbackForce);
+        KnockbackObjectsInRadius(knockbackRadius, knockbackForce);
     }
 
-    private void damageObjectsInRadius(float damageRadius, int damage) {
+    private void DamageObjectsInRadius(float damageRadius, int damage) {
         Collider[] hitColliders = Physics.OverlapSphere(position, damageRadius);
         foreach (Collider col in hitColliders) {
             if (col.tag == "Player") {
                 PlayerEffects playerEffects = FindObjectOfType<PlayerEffects>();
                 if (!playerEffects.shield) {
-                    damageCollider(col, damage);
+                    DamageCollider(col, damage);
                 }
             }
 
             else if (col.tag == "Enemy") {
-                damageCollider(col, damage);
+                DamageCollider(col, damage);
             }
 
             else if (col.gameObject.tag == "Obstacle") {
@@ -54,7 +54,7 @@ public class Explosion : MonoBehaviour {
         }
     }
 
-    private void knockbackObjectsInRadius(float knockbackRadius, float knockbackForce) {
+    private void KnockbackObjectsInRadius(float knockbackRadius, float knockbackForce) {
         Collider[] hitColliders = Physics.OverlapSphere(position, knockbackRadius);
         foreach (Collider col in hitColliders) {
             if (col.tag == "Player" || col.tag == "Enemy") {
@@ -64,8 +64,8 @@ public class Explosion : MonoBehaviour {
         }
     }
 
-    private void damageCollider(Collider col, int damage) {
-        col.gameObject.GetComponent<Health>().decreaseHealth(damage);
+    private void DamageCollider(Collider col, int damage) {
+        col.gameObject.GetComponent<Health>().DecreaseHealth(damage);
 
         if (settings.useParticle) {
             Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);

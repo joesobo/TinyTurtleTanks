@@ -30,14 +30,14 @@ public class AltLaunch : MonoBehaviour {
     }
 
     private void Update() {
-        col = checkNearby();
+        col = CheckNearby();
         if (col && checkToExplode) {
-            explode(col);
+            Explode(col);
             checkToExplode = false;
         }
     }
 
-    public void launch(AltWeapon altWeap, AltWeapon.BulletType type) {
+    public void Launch(AltWeapon altWeap, AltWeapon.BulletType type) {
         altWeapon = altWeap;
 
         if (!rb) {
@@ -71,8 +71,8 @@ public class AltLaunch : MonoBehaviour {
         //turn off renderer
         GetComponent<MeshRenderer>().enabled = false;
 
-        explosion.playExplosion(transform.position, transform.rotation, this.transform);
-        explosion.doDamage(damageRadius, knockbackRadius, knockbackForce, damage);
+        explosion.PlayExplosion(transform.position, transform.rotation, this.transform);
+        explosion.DoDamage(damageRadius, knockbackRadius, knockbackForce, damage);
         //delete object
         StartCoroutine("DeleteObject");
     }
@@ -83,7 +83,7 @@ public class AltLaunch : MonoBehaviour {
         altWeapon.inPlay--;
     }
 
-    private Collider checkNearby() {
+    private Collider CheckNearby() {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, damageRadius);
         foreach (Collider collider in hitColliders) {
             if (collider.tag == "Player" || collider.tag == "Enemy") {
@@ -93,10 +93,10 @@ public class AltLaunch : MonoBehaviour {
         return null;
     }
 
-    private void explode(Collider collider) {
+    private void Explode(Collider collider) {
         if (collider) {
-            explosion.playExplosion(transform.position, transform.rotation, this.transform);
-            explosion.doDamage(damageRadius, knockbackRadius, knockbackForce, damage);
+            explosion.PlayExplosion(transform.position, transform.rotation, this.transform);
+            explosion.DoDamage(damageRadius, knockbackRadius, knockbackForce, damage);
             //delete object
             StartCoroutine("DeleteObject");
         }
