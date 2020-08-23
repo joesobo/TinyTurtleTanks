@@ -72,9 +72,5 @@ public class Explosion : MonoBehaviour {
 
     private void DamageCollider(Collider col, int damage) {
         col.gameObject.GetComponent<Health>().DecreaseHealth(damage);
-
-        if (settings.useParticle) {
-            Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
-        }
     }
 }

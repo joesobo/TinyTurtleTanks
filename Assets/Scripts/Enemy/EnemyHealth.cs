@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class EnemyHealth : Health {
     protected override void OnDeath() {
-        if (settings.useParticle) {
-            Instantiate(deathParticles, transform.position, transform.rotation);
-        }
+        Explosion explosion = new Explosion(settings, deathParticles, bloodParticles);
+        explosion.PlayExplosion(transform.position, transform.rotation, this.transform);
+
+        transform.GetChild(0).gameObject.SetActive(false);
+
         FindObjectOfType<LevelRunner>().DecreaseNumEnemy();
+
+        StartCoroutine("KillObject");
+    }
+
+    IEnumerator KillObject() {
+        yield return new WaitForSeconds(1);
         Destroy(gameObject);
     }
 }

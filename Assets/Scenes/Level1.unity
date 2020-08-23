@@ -9439,9 +9439,9 @@ MonoBehaviour:
   useWater: 0
   daylightCycle: 0
   soundVolume: 0.5
-  useCrates: 1
+  useCrates: 0
   useEnvironmentObjects: 0
-  useEnemies: 0
+  useEnemies: 1
   currentLevel: 1
 --- !u!4 &1000687953
 Transform:
@@ -10621,7 +10621,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.7219476}
+  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.72194755}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -45106,6 +45106,8 @@ MonoBehaviour:
   MAXHEALTH: 3
   curHealth: 0
   curHealthBar: {fileID: 220808437}
+  bloodParticles: {fileID: 8343780882660272222, guid: 19b2cc45717b8204aad3bdaea8236e47,
+    type: 3}
   deathParticles: {fileID: 7710933089740006782, guid: 0e7e116dd6e65674188f1c137a9d5f1e,
     type: 3}
   settings: {fileID: 0}

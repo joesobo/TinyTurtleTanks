@@ -11,6 +11,7 @@ public abstract class Health : MonoBehaviour {
     private float barMax = 0.95f;
     private float barMin = 0;
     private LevelRunner levelRunner;
+    public GameObject bloodParticles;
     public GameObject deathParticles;
     public GameSettings settings;
     private MeshRenderer[] meshRenderers;
@@ -43,6 +44,10 @@ public abstract class Health : MonoBehaviour {
         UpdateHealthBar();
         if (curHealth > 0) {
             DamageFlash();
+            
+            if (settings.useParticle) {
+                Instantiate(bloodParticles, transform.position, transform.rotation);
+            }
         }
     }
 
