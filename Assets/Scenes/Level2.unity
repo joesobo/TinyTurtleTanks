@@ -9608,11 +9608,11 @@ MonoBehaviour:
   particleSlider: 1
   useGrass: 0
   useSeaweed: 0
-  useFootPrints: 0
+  useFootPrints: 1
   useClouds: 0
   useMoons: 0
   useAtmosphere: 0
-  useWater: 0
+  useWater: 1
   daylightCycle: 0
   soundVolume: 0.5
   useCrates: 0
@@ -10759,7 +10759,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.32894215, y: 0.5539686, z: -0.25240368, w: 0.7219476}
+  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
