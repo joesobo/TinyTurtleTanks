@@ -14,3 +14,7 @@ If your main camera has a CinemachineBrain component attached to it, the camera 
 
 Open the ScreenshotTool.cs file and uncomment the first line (#define CINEMACHINE). 
 This will temporarily disable the CinemachineBrain component when capturing.
+
+KeyCode:
+---------------------
+Left Alt + S to take screenshot.
