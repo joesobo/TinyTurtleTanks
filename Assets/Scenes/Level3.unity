@@ -694,7 +694,7 @@ MonoBehaviour:
   offsetScale: -0.25
   maxDensity: 1
   minScale: 0.75
-  maxScale: 2.5
+  maxScale: 3
   layerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -734,7 +734,7 @@ MonoBehaviour:
   - {fileID: 6116043750764848018, guid: 792a3347fbd26444398ea14007b5bcc4, type: 3}
   - {fileID: 7236413856333625363, guid: 346912ba45140394a9f3a65ddc4670b6, type: 3}
   parent: {fileID: 751865555}
-  num: 200
+  num: 150
   radius: 100
   checkDst: 150
   offsetScale: 2.5
@@ -10365,7 +10365,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.7219476}
+  m_LocalRotation: {x: 0.32894218, y: 0.5539685, z: -0.25240365, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10853,11 +10853,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orbitalPrefab: {fileID: 5831345753078639895, guid: 4f4665a93a205774191b4c2210c7e5d7,
     type: 3}
-  minRadius: 175
+  minRadius: 150
   maxRadius: 250
-  numOfOrbitals: 10
-  minScale: 0.25
-  maxScale: 0.7
+  numOfOrbitals: 3
+  minScale: 0.5
+  maxScale: 0.75
 --- !u!1 &1507705202
 GameObject:
   m_ObjectHideFlags: 0

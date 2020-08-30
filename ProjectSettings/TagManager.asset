@@ -10,6 +10,7 @@ TagManager:
   - Breakable
   - Fish
   - Water
+  - Ice
   layers:
   - Default
   - TransparentFX
