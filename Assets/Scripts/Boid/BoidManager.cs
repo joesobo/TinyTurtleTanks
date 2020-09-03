@@ -4,6 +4,8 @@ using System.Linq;
 using UnityEngine;
 
 public class BoidManager : MonoBehaviour {
+    //private GameSettings gameSettings;
+
     public enum GizmoType { Never, SelectedOnly, Always }
 
     public BoidSettings settings;
@@ -23,6 +25,7 @@ public class BoidManager : MonoBehaviour {
     private BoidSpawner boidSpawner;
 
     private void Start() {
+        //gameSettings = FindObjectOfType<GameSettings>();
         boidSpawner = FindObjectOfType<BoidSpawner>();
         boidSpawner.StartSpawner(settings);
         boids = FindObjectsOfType<Boid>().ToList();
