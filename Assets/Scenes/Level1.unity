@@ -10271,7 +10271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ab209b684bcdc4ab6838444af543f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 9103276628811403039, guid: 3d4d634c1a3202b429bca671dbeae188, type: 3}
+  prefab: {fileID: 5789068881125539350, guid: 3d4d634c1a3202b429bca671dbeae188, type: 3}
   minSpawnRadius: 100
   maxSpawnRadius: 175
   center: {x: 0, y: 0, z: 0}

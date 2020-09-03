@@ -50,6 +50,17 @@ public class Explosion : MonoBehaviour {
                 Destroy(col.gameObject);
             }
 
+            else if (col.tag == "Boid") {
+                if (settings.useParticle) {
+                    Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
+                }
+
+                BoidManager boidManager = FindObjectOfType<BoidManager>();
+                boidManager.RemoveBoid(col.gameObject.GetComponentInChildren<Boid>());
+
+                Destroy(col.gameObject);
+            }
+
             else if (col.gameObject.tag == "Obstacle") {
                 Destroy(col.gameObject);
             }
