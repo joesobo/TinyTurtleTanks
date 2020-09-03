@@ -294,7 +294,7 @@ public sealed class ScreenshotTool : EditorWindow
             {
                 using (new EditorGUILayout.HorizontalScope())
                 {
-                    if (GUILayout.Button("Capture", GUILayout.MinHeight(25)) || (Input.GetKey(KeyCode.LeftAlt) && Input.GetKey(KeyCode.S)))
+                    if (GUILayout.Button("Capture", GUILayout.MinHeight(25)) || (Input.GetKey(KeyCode.RightAlt) && Input.GetKey(KeyCode.S)))
                     {
                         RenderScreenshot();
                     }

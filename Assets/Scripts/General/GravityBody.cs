@@ -22,9 +22,9 @@ public class GravityBody : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (!settings.isPaused) {
+        //if (!settings.isPaused) {
             planet.Attract(this);
-        }
+        //}
     }
 
     public Rigidbody GetRb() {

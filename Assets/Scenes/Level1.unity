@@ -9053,7 +9053,7 @@ MonoBehaviour:
   soundVolume: 0.5
   useCrates: 0
   useEnvironmentObjects: 0
-  useEnemies: 1
+  useEnemies: 0
   currentLevel: 1
 --- !u!4 &1000687953
 Transform:
@@ -10233,7 +10233,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.32894218, y: 0.5539685, z: -0.25240365, w: 0.7219476}
+  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.72194755}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10250,6 +10250,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1260068794}
+  - component: {fileID: 1260068795}
+  - component: {fileID: 1260068793}
   m_Layer: 0
   m_Name: Boid Manager
   m_TagString: Untagged
@@ -10257,6 +10259,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1260068793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260068792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ab209b684bcdc4ab6838444af543f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 9103276628811403039, guid: 3d4d634c1a3202b429bca671dbeae188, type: 3}
+  minSpawnRadius: 100
+  maxSpawnRadius: 175
+  center: {x: 0, y: 0, z: 0}
+  spawnCount: 100
+  color1: {r: 0, g: 0, b: 0, a: 0}
+  color2: {r: 1, g: 1, b: 1, a: 1}
+  showSpawnRegion: 1
 --- !u!4 &1260068794
 Transform:
   m_ObjectHideFlags: 0
@@ -10271,6 +10293,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1260068795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260068792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faddb7646c731a042a1513459ab3c027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 576f064cdcfd5314b89063d9153b31ad, type: 2}
+  showSpawnRegion: 0
+  target: {fileID: 6939802438092130745}
+  avoidTarget: {fileID: 4566354625369546602}
+  totalBoids: 0
 --- !u!1 &1261682978
 GameObject:
   m_ObjectHideFlags: 0
@@ -13649,6 +13688,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainPlanet1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3241814195830105952, guid: 3829860b8eec89846bb6842029057624,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8856685463096299766, guid: 3829860b8eec89846bb6842029057624,
         type: 3}
