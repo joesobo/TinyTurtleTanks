@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoidSpawner : MonoBehaviour {
     public enum GizmoType { Never, SelectedOnly, Always }
 
-    public GameObject prefab;
+    public Boid prefab;
     public int minSpawnRadius;
     public int maxSpawnRadius;
     public Vector3 center = Vector3.zero;
@@ -33,12 +33,10 @@ public class BoidSpawner : MonoBehaviour {
     }
 
     public Boid CreateBoid(Vector3 pos) {
-        GameObject go = Instantiate(prefab, pos, Quaternion.identity);
+        Boid boid = Instantiate(prefab, pos, Quaternion.identity);
 
-        go.transform.localScale = Vector3.one;
-        go.transform.parent = this.transform;
-
-        Boid boid = go.GetComponentInChildren<Boid>();
+        boid.transform.localScale = Vector3.one;
+        boid.transform.parent = this.transform;
 
         boid.SetColor(RandomColor(color1, color2));
 

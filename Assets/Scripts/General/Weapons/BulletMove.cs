@@ -98,6 +98,24 @@ public class BulletMove : MonoBehaviour {
             Destroy(col.gameObject);
             ExplodeBullet();
         }
+
+        else if (col.gameObject.tag == "Boid") {
+            Debug.Log("Hit Boid");
+            if (settings.useParticle) {
+                Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
+            }
+
+            if (settings.useSound) {
+                source.volume = settings.soundVolume;
+                source.Play();
+            }
+
+            BoidManager boidManager = FindObjectOfType<BoidManager>();
+            boidManager.RemoveBoid(col.gameObject.GetComponentInChildren<Boid>());
+
+            Destroy(col.gameObject);
+            ExplodeBullet();
+        }
     }
 
     private void ExplodeBullet() {

@@ -64,7 +64,6 @@ public class Boid : MonoBehaviour {
             if (offsetToTarget.magnitude < settings.avoidanceRadius) {
                 acceleration += SteerTowards(-offsetToTarget) * settings.avoidTargetWeight;
             }
-
         }
 
         //Target Behavior

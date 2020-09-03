@@ -11,6 +11,7 @@ TagManager:
   - Fish
   - Water
   - Ice
+  - Boid
   layers:
   - Default
   - TransparentFX

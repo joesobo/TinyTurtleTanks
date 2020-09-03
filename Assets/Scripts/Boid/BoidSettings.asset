@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BoidSettings
   m_EditorClassIdentifier: 
   minSpeedRange: {x: 2.5, y: 5}
-  maxSpeedRange: {x: 10, y: 15}
+  maxSpeedRange: {x: 5, y: 10}
   perceptionRadius: 15
   avoidanceRadius: 5
   maxSteerForce: 20
@@ -22,7 +22,7 @@ MonoBehaviour:
   cohesionWeight: 0.2
   seperateWeight: 5
   targetWeight: 0.3
-  avoidTargetWeight: 10
+  avoidTargetWeight: 0
   edgeWeight: 0
   boundSize: {x: 200, y: 200, z: 200}
   center: {x: 0, y: 0, z: 0}
