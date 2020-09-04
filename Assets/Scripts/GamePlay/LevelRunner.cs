@@ -22,6 +22,7 @@ public class LevelRunner : MonoBehaviour {
     public GameObject backgroundMusic;
     public GameObject cloudSpawner;
     public GameObject moonSpawner;
+    public GameObject boidManager;
     public GameObject atmosphere;
     public GameObject crateSpawner;
     public GameObject obstacleList;
@@ -102,6 +103,7 @@ public class LevelRunner : MonoBehaviour {
         //Obstacles and Environment
         if (cloudSpawner) cloudSpawner.SetActive(settings.useClouds);
         if (moonSpawner) moonSpawner.SetActive(settings.useMoons);
+        if (boidManager) boidManager.SetActive(settings.useBirds);
         if (atmosphere) atmosphere.SetActive(settings.useAtmosphere);
         if (crateSpawner) crateSpawner.SetActive(settings.useCrates);
         obstacleList.SetActive(settings.useEnvironmentObjects);

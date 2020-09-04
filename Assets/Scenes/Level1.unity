@@ -1623,6 +1623,7 @@ Transform:
   - {fileID: 1681107141}
   - {fileID: 1457015565}
   - {fileID: 2029102070}
+  - {fileID: 1260068794}
   - {fileID: 1565448508}
   - {fileID: 288500923}
   - {fileID: 580573762}
@@ -1833,7 +1834,7 @@ Transform:
   m_LocalScale: {x: 1.65, y: 1.65, z: 1.65}
   m_Children: []
   m_Father: {fileID: 237689038}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &288500924
 ParticleSystemRenderer:
@@ -7237,7 +7238,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 237689038}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &557920417
 AudioSource:
@@ -8293,7 +8294,7 @@ Transform:
   - {fileID: 1079151834}
   - {fileID: 714160608}
   m_Father: {fileID: 237689038}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &775887731
 GameObject:
@@ -9044,9 +9045,10 @@ MonoBehaviour:
   particleSlider: 1
   useGrass: 1
   useSeaweed: 0
-  useFootPrints: 1
+  useFootPrints: 0
   useClouds: 0
   useMoons: 0
+  useBirds: 0
   useAtmosphere: 1
   useWater: 1
   daylightCycle: 0
@@ -10159,7 +10161,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.3210852, y: 0.54895115, z: -0.17453076, w: 0.7517287}
+  m_LocalRotation: {x: 0.3210852, y: 0.5489511, z: -0.17453074, w: 0.7517288}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10233,7 +10235,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.32894215, y: 0.5539686, z: -0.25240368, w: 0.7219476}
+  m_LocalRotation: {x: 0.32894218, y: 0.5539685, z: -0.25240365, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10258,7 +10260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1260068793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10284,12 +10286,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260068792}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 237689038}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1260068795
 MonoBehaviour:
@@ -11063,7 +11065,7 @@ Transform:
   m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_Children: []
   m_Father: {fileID: 237689038}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1565448509
 MeshRenderer:
@@ -11332,6 +11334,7 @@ MonoBehaviour:
   backgroundMusic: {fileID: 557920415}
   cloudSpawner: {fileID: 288500922}
   moonSpawner: {fileID: 1457015564}
+  boidManager: {fileID: 1260068792}
   atmosphere: {fileID: 1565448507}
   crateSpawner: {fileID: 2029102068}
   obstacleList: {fileID: 768355268}
@@ -12966,7 +12969,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 237689038}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1997143686
 GameObject:
@@ -13287,7 +13290,7 @@ PrefabInstance:
     - target: {fileID: 1175301207931935393, guid: 5b3d415d4ea18cb4583874cf1e574af2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1175301207931935393, guid: 5b3d415d4ea18cb4583874cf1e574af2,
         type: 3}
@@ -13476,7 +13479,7 @@ PrefabInstance:
     - target: {fileID: 4174170604990565247, guid: fec1a7c7db4254643839dd13aeed6919,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4174170604990565247, guid: fec1a7c7db4254643839dd13aeed6919,
         type: 3}
