@@ -23,9 +23,9 @@ MonoBehaviour:
   seperateWeight: 5
   targetWeight: 0.3
   avoidTargetWeight: 0
-  edgeWeight: 0
-  boundSize: {x: 200, y: 200, z: 200}
-  center: {x: 0, y: 0, z: 0}
+  edgeWeight: 10
+  spawnRange: {x: 50, y: 75}
+  moveRange: {x: 45, y: 100}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 7952

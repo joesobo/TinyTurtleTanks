@@ -4,8 +4,6 @@ using System.Linq;
 using UnityEngine;
 
 public class BoidManager : MonoBehaviour {
-    //private GameSettings gameSettings;
-
     public enum GizmoType { Never, SelectedOnly, Always }
 
     public BoidSettings settings;
@@ -15,8 +13,7 @@ public class BoidManager : MonoBehaviour {
     private float avoidRadius;
 
     public GizmoType showSpawnRegion;
-    private Vector3 boundSize;
-    private Vector3 center;
+    private Vector2 minMaxBoidRange;
 
     public Transform target;
     public Transform avoidTarget;
@@ -25,7 +22,6 @@ public class BoidManager : MonoBehaviour {
     private BoidSpawner boidSpawner;
 
     private void Start() {
-        //gameSettings = FindObjectOfType<GameSettings>();
         boidSpawner = FindObjectOfType<BoidSpawner>();
         boidSpawner.StartSpawner(settings);
         boids = FindObjectsOfType<Boid>().ToList();
@@ -34,8 +30,7 @@ public class BoidManager : MonoBehaviour {
             totalBoids++;
         }
 
-        boundSize = settings.boundSize;
-        center = settings.center;
+        minMaxBoidRange = settings.moveRange;
         viewRadius = settings.perceptionRadius;
         avoidRadius = settings.avoidanceRadius;
     }
@@ -120,7 +115,9 @@ public class BoidManager : MonoBehaviour {
 
     private void DrawGizmos() {
         Gizmos.color = new Color(0, 0.5f, 1, 0.3f);
-        Gizmos.DrawCube(center, boundSize);
+        Gizmos.DrawSphere(Vector3.zero, minMaxBoidRange.x);
+        Gizmos.color = new Color(1, 0.5f, 0, 0.3f);
+        Gizmos.DrawSphere(Vector3.zero, minMaxBoidRange.y);
     }
 
     public void CreateBoid(Vector3 pos) {

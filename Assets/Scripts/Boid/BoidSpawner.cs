@@ -6,8 +6,6 @@ public class BoidSpawner : MonoBehaviour {
     public enum GizmoType { Never, SelectedOnly, Always }
 
     public Boid prefab;
-    public int minSpawnRadius;
-    public int maxSpawnRadius;
     public Vector3 center = Vector3.zero;
     public int spawnCount;
     public Color color1;
@@ -27,8 +25,8 @@ public class BoidSpawner : MonoBehaviour {
         this.settings = settings;
 
         for (int i = 0; i < spawnCount; i++) {
-            float randomSpawnRange = Random.Range(minSpawnRadius, maxSpawnRadius);
-            CreateBoid((UnityEngine.Random.insideUnitSphere * (randomSpawnRange / 2)) + center);
+            float randomSpawnRange = Random.Range(settings.spawnRange.x, settings.spawnRange.y);
+            CreateBoid((UnityEngine.Random.insideUnitSphere * randomSpawnRange) + center);
         }
     }
 
@@ -67,8 +65,8 @@ public class BoidSpawner : MonoBehaviour {
 
     private void DrawGizmos() {
         Gizmos.color = new Color(1, 0.5f, 0, 0.3f);
-        Gizmos.DrawSphere(transform.position + center, minSpawnRadius / 2);
+        Gizmos.DrawSphere(transform.position + center, settings.spawnRange.x);
         Gizmos.color = new Color(1, 0, 0.5f, 0.3f);
-        Gizmos.DrawSphere(transform.position + center, maxSpawnRadius / 2);
+        Gizmos.DrawSphere(transform.position + center, settings.spawnRange.y);
     }
 }

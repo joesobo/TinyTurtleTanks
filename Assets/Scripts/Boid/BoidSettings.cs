@@ -6,7 +6,7 @@ using UnityEngine;
 public class BoidSettings : ScriptableObject {
     [Header("Boid Settings")]
     [MinTo(0, 10)] public Vector2 minSpeedRange;
-    [MinTo(0, 10)] public Vector2 maxSpeedRange;
+    [MinTo(0, 20)] public Vector2 maxSpeedRange;
     private float minSpeed = -1;
     private float maxSpeed = -1;
     public float perceptionRadius = 2.5f;
@@ -24,8 +24,8 @@ public class BoidSettings : ScriptableObject {
     public float edgeWeight = 1;
 
     [Header("Area Bounds")]
-    public Vector3 boundSize;
-    public Vector3 center = Vector3.zero;
+    [MinTo(0, 200)] public Vector2 spawnRange;
+    [MinTo(0, 200)] public Vector2 moveRange;
 
     [Header("Collisions")]
     public LayerMask obstacleMask;

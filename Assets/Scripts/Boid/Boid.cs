@@ -33,7 +33,7 @@ public class Boid : MonoBehaviour {
 
     private void Awake() {
         gameSettings = FindObjectOfType<GameSettings>();
-        rb = transform.GetComponent<Rigidbody>();
+        rb = transform.GetComponentInChildren<Rigidbody>();
         boidMat = transform.GetComponentInChildren<MeshRenderer>();
         cachedTransform = transform;
     }
@@ -72,50 +72,14 @@ public class Boid : MonoBehaviour {
         Vector3 acceleration = Vector3.zero;
         FreezeBoid();
 
-        if (!gameSettings.isPaused) {
-            //Avoid Target Behavior
-            if (avoidTarget != null) {
-                Vector3 offsetToTarget = (avoidTarget.position - position);
-                if (offsetToTarget.magnitude < boidSettings.avoidanceRadius) {
-                    acceleration += SteerTowards(-offsetToTarget) * boidSettings.avoidTargetWeight;
-                }
-            }
+        //if (!gameSettings.isPaused) {
+            acceleration = TargetBehavior(acceleration);
 
-            //Target Behavior
-            if (target != null) {
-                Vector3 offsetToTarget = (target.position - position);
-                acceleration += SteerTowards(offsetToTarget) * boidSettings.targetWeight;
-            }
+            acceleration = NormalBehavior(acceleration);
 
-            //Normal Behavior
-            if (numPerceivedFlockmates != 0) {
-                centerOfFlockmates /= numPerceivedFlockmates;
+            acceleration = CollisonBehavior(acceleration);
 
-                Vector3 offsetToFlockmatesCenter = (centerOfFlockmates - position);
-
-                Vector3 alignmentForce = SteerTowards(avgFlockHeading) * boidSettings.alignWeight;
-
-                Vector3 cohesionForce = SteerTowards(offsetToFlockmatesCenter) * boidSettings.cohesionWeight;
-
-                Vector3 seperationForce = SteerTowards(avgAvoidanceHeading) * boidSettings.seperateWeight;
-
-                //debug rays
-                DebugBehaviorRays(alignmentForce, cohesionForce, seperationForce);
-
-                acceleration += alignmentForce;
-                acceleration += cohesionForce;
-                acceleration += seperationForce;
-            }
-
-            //Collision Behavior
-            if (IsHeadingForCollision()) {
-                Vector3 collisionAvoidDir = ObstacleRays();
-                Vector3 collisionAvoidForce = SteerTowards(collisionAvoidDir) * boidSettings.avoidCollisonWeight;
-                acceleration += collisionAvoidForce;
-            }
-
-            //Edge Behavior
-            //acceleration += EdgeDetection();
+            acceleration = EdgeBehavior(acceleration);
 
             //update values
             velocity += acceleration * Time.deltaTime;
@@ -133,7 +97,73 @@ public class Boid : MonoBehaviour {
 
             position = cachedTransform.position;
             forward = dir;
+        //}
+    }
+
+    private Vector3 EdgeBehavior(Vector3 acceleration) {
+         Vector3 heading = Vector3.zero - transform.position;
+        //Too low
+        if (Vector3.Distance(Vector3.zero, transform.position) < boidSettings.moveRange.x) {
+            Vector3 edgeAvoidForce = SteerTowards(-heading) * boidSettings.edgeWeight;
+            acceleration += edgeAvoidForce;
         }
+
+        //Too high
+        if (Vector3.Distance(Vector3.zero, transform.position) > boidSettings.moveRange.y) {
+            Vector3 edgeAvoidForce = SteerTowards(heading) * boidSettings.edgeWeight;
+            acceleration += edgeAvoidForce;
+        }
+
+        return acceleration;
+    }
+
+    private Vector3 CollisonBehavior(Vector3 acceleration) {
+        if (IsHeadingForCollision()) {
+            Vector3 collisionAvoidDir = ObstacleRays();
+            Vector3 collisionAvoidForce = SteerTowards(collisionAvoidDir) * boidSettings.avoidCollisonWeight;
+            acceleration += collisionAvoidForce;
+        }
+
+        return acceleration;
+    }
+
+    private Vector3 NormalBehavior(Vector3 acceleration) {
+        if (numPerceivedFlockmates != 0) {
+            centerOfFlockmates /= numPerceivedFlockmates;
+
+            Vector3 offsetToFlockmatesCenter = (centerOfFlockmates - position);
+
+            Vector3 alignmentForce = SteerTowards(avgFlockHeading) * boidSettings.alignWeight;
+
+            Vector3 cohesionForce = SteerTowards(offsetToFlockmatesCenter) * boidSettings.cohesionWeight;
+
+            Vector3 seperationForce = SteerTowards(avgAvoidanceHeading) * boidSettings.seperateWeight;
+
+            //debug rays
+            DebugBehaviorRays(alignmentForce, cohesionForce, seperationForce);
+
+            acceleration += alignmentForce;
+            acceleration += cohesionForce;
+            acceleration += seperationForce;
+        }
+
+        return acceleration;
+    }
+
+    private Vector3 TargetBehavior(Vector3 acceleration) {
+        if (avoidTarget != null) {
+            Vector3 offsetToTarget = (avoidTarget.position - position);
+            if (offsetToTarget.magnitude < boidSettings.avoidanceRadius) {
+                acceleration += SteerTowards(-offsetToTarget) * boidSettings.avoidTargetWeight;
+            }
+        }
+
+        if (target != null) {
+            Vector3 offsetToTarget = (target.position - position);
+            acceleration += SteerTowards(offsetToTarget) * boidSettings.targetWeight;
+        }
+
+        return acceleration;
     }
 
     private void DebugBehaviorRays(Vector3 alignmentForce, Vector3 cohesionForce, Vector3 seperationForce) {
@@ -149,22 +179,6 @@ public class Boid : MonoBehaviour {
         if (boidSettings.seperationRays) {
             Debug.DrawRay(position, seperationForce, Color.red);
         }
-    }
-
-    private Vector3 EdgeDetection() {
-        Vector3 edgeAvoidForce;
-        Vector3 centerOffset = boidSettings.center - this.transform.position;
-        float t = centerOffset.magnitude / (boidSettings.boundSize.x / 2);
-
-        //within majority of radius so no influence
-        if (t < boidSettings.edgeRadiusAvoidance) {
-            edgeAvoidForce = Vector3.zero;
-        }
-        else {
-            edgeAvoidForce = centerOffset * t * t;
-        }
-
-        return edgeAvoidForce * boidSettings.edgeWeight;
     }
 
     private Vector3 SteerTowards(Vector3 vector) {
