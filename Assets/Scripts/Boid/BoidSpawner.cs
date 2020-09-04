@@ -33,7 +33,7 @@ public class BoidSpawner : MonoBehaviour {
     public Boid CreateBoid(Vector3 pos) {
         Boid boid = Instantiate(prefab, pos, Quaternion.identity);
 
-        boid.transform.localScale = Vector3.one;
+        boid.transform.localScale = Vector3.one * Random.Range(settings.scaleRange.x, settings.scaleRange.y);
         boid.transform.parent = this.transform;
 
         boid.SetColor(RandomColor(color1, color2));

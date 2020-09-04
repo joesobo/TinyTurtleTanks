@@ -7,6 +7,7 @@ public class BoidSettings : ScriptableObject {
     [Header("Boid Settings")]
     [MinTo(0, 10)] public Vector2 minSpeedRange;
     [MinTo(0, 20)] public Vector2 maxSpeedRange;
+    [MinTo(0, 5)] public Vector2 scaleRange;
     private float minSpeed = -1;
     private float maxSpeed = -1;
     public float perceptionRadius = 2.5f;

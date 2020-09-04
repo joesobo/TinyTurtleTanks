@@ -9042,15 +9042,15 @@ MonoBehaviour:
   useVFX: 1
   useSound: 0
   useParticle: 1
-  particleSlider: 1
-  useGrass: 1
+  particleSlider: 0
+  useGrass: 0
   useSeaweed: 0
   useFootPrints: 0
   useClouds: 0
   useMoons: 0
-  useBirds: 0
-  useAtmosphere: 1
-  useWater: 1
+  useBirds: 1
+  useAtmosphere: 0
+  useWater: 0
   daylightCycle: 0
   soundVolume: 0.5
   useCrates: 0
@@ -10161,7 +10161,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.3210852, y: 0.5489511, z: -0.17453074, w: 0.7517288}
+  m_LocalRotation: {x: 0.3210852, y: 0.54895115, z: -0.17453076, w: 0.7517287}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10235,7 +10235,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.32894218, y: 0.5539685, z: -0.25240365, w: 0.7219476}
+  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.72194755}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10273,10 +10273,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ab209b684bcdc4ab6838444af543f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4392849844510481747, guid: cf2c9e4d9ca963e4a990e4e10b9613b7, type: 3}
+  prefab: {fileID: 4392849844510481747, guid: 1d292c33b8e9d5a438671c2a06028f1e, type: 3}
   center: {x: 0, y: 0, z: 0}
   spawnCount: 100
-  color1: {r: 1, g: 1, b: 1, a: 1}
+  color1: {r: 0.2971698, g: 0.71866244, b: 1, a: 1}
   color2: {r: 1, g: 1, b: 1, a: 1}
   showSpawnRegion: 0
 --- !u!4 &1260068794

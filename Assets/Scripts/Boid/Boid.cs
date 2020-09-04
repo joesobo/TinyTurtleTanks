@@ -72,7 +72,7 @@ public class Boid : MonoBehaviour {
         Vector3 acceleration = Vector3.zero;
         FreezeBoid();
 
-        //if (!gameSettings.isPaused) {
+        if (!gameSettings.isPaused) {
             acceleration = TargetBehavior(acceleration);
 
             acceleration = NormalBehavior(acceleration);
@@ -97,7 +97,7 @@ public class Boid : MonoBehaviour {
 
             position = cachedTransform.position;
             forward = dir;
-        //}
+        }
     }
 
     private Vector3 EdgeBehavior(Vector3 acceleration) {
