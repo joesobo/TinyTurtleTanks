@@ -7,8 +7,11 @@ public class RocketPickup : Pickup {
 
     protected override void ApplyEffect(Collider col) {
         PlayerShoot playerShoot = col.gameObject.GetComponent<PlayerShoot>();
+        if (playerShoot.newWeapon != rocket) {
+            playerShoot.newWeapon = rocket;
+            playerShoot.useNewWeapon = true;
+            Destroy(transform.parent.gameObject);
+        }
 
-        playerShoot.newWeapon = rocket;
-        playerShoot.useNewWeapon = true;
     }
 }

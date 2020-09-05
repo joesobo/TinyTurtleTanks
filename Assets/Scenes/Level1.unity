@@ -9042,7 +9042,7 @@ MonoBehaviour:
   useVFX: 1
   useSound: 0
   useParticle: 1
-  particleSlider: 0
+  particleSlider: 1
   useGrass: 0
   useSeaweed: 0
   useFootPrints: 0
@@ -9053,7 +9053,7 @@ MonoBehaviour:
   useWater: 0
   daylightCycle: 0
   soundVolume: 0.5
-  useCrates: 0
+  useCrates: 1
   useEnvironmentObjects: 0
   useEnemies: 0
   currentLevel: 1
@@ -10161,7 +10161,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.3210852, y: 0.54895115, z: -0.17453076, w: 0.7517287}
+  m_LocalRotation: {x: 0.3210852, y: 0.5489511, z: -0.17453074, w: 0.7517288}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10235,7 +10235,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.72194755}
+  m_LocalRotation: {x: 0.32894218, y: 0.5539685, z: -0.25240365, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11618,7 +11618,6 @@ MonoBehaviour:
     type: 3}
   healthParticles: {fileID: 1316538544476190114, guid: cc3d1e6aeb6a9f04890b30f40de859e8,
     type: 3}
-  col: {fileID: 0}
 --- !u!114 &1681413304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13630,6 +13629,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 237689038}
     m_Modifications:
+    - target: {fileID: 704999808023482992, guid: 3829860b8eec89846bb6842029057624,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1920333398666335603, guid: 3829860b8eec89846bb6842029057624,
         type: 3}
       propertyPath: m_LocalPosition.x

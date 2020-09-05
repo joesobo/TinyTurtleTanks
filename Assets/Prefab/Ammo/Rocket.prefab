@@ -7074,6 +7074,8 @@ MonoBehaviour:
   damageRadius: 5
   knockbackRadius: 10
   knockbackForce: 1500
+  explosion: {fileID: 5382056734341715978, guid: 728c882ae4d577341a7bdc127af0a6ae,
+    type: 3}
   explosionParticlePrefab: {fileID: 7710933089740006782, guid: 0e7e116dd6e65674188f1c137a9d5f1e,
     type: 3}
   bloodParticlePrefab: {fileID: 8343780882660272222, guid: 19b2cc45717b8204aad3bdaea8236e47,

@@ -36,9 +36,6 @@ public class PlayerEffects : MonoBehaviour {
     public GameObject jumpParticles;
     public GameObject healthParticles;
 
-    [HideInInspector]
-    public Collider col;
-
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
         playerController = GetComponent<PlayerController>();
@@ -67,13 +64,13 @@ public class PlayerEffects : MonoBehaviour {
         if (health && healthLock) {
             healthLock = false;
             playerHealth.IncreaseHealth(1);
-            Instantiate(healthParticles, col.transform.position, col.transform.rotation, col.transform);
+            Instantiate(healthParticles, transform.position, transform.rotation, transform);
             health = false;
         }
     }
 
     IEnumerator StartShield() {
-        particle = Instantiate(shieldParticles, col.transform.position, col.transform.rotation, col.transform);
+        particle = Instantiate(shieldParticles, transform.position, transform.rotation, transform);
         pickupDisplay.Begin(waitForSecondsShield, new Color32(52, 179, 217, 85));
         findChildByName("Shield").gameObject.SetActive(true);
         yield return new WaitForSeconds(waitForSecondsShield);
@@ -83,7 +80,7 @@ public class PlayerEffects : MonoBehaviour {
     }
 
     IEnumerator StartSpeed() {
-        particle = Instantiate(speedParticles, col.transform.position, col.transform.rotation, col.transform);
+        particle = Instantiate(speedParticles, transform.position, transform.rotation, transform);
         pickupDisplay.Begin(waitForSecondsShield, new Color32(217, 210, 0, 85));
         playerController.speed = 15;
         yield return new WaitForSeconds(waitForSecondsSpeed);
@@ -93,7 +90,7 @@ public class PlayerEffects : MonoBehaviour {
     }
 
     IEnumerator StartJump() {
-        particle = Instantiate(jumpParticles, col.transform.position, col.transform.rotation, col.transform);
+        particle = Instantiate(jumpParticles, transform.position, transform.rotation, transform);
         pickupDisplay.Begin(waitForSecondsShield, new Color32(97, 194, 82, 76));
         playerController.jumpForce = 1000;
         yield return new WaitForSeconds(waitForSecondsJump);

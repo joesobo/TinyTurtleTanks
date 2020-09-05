@@ -71,16 +71,11 @@ public class AltLaunch : MonoBehaviour {
         //turn off renderer
         GetComponent<MeshRenderer>().enabled = false;
 
-        explosion.PlayExplosion(transform.position, transform.rotation, this.transform);
+        explosion.PlayExplosion(transform.position, transform.rotation);
         explosion.DoDamage(damageRadius, knockbackRadius, knockbackForce, damage);
         //delete object
-        StartCoroutine("DeleteObject");
-    }
-
-    IEnumerator DeleteObject() {
-        yield return new WaitForSeconds(1f);
-        Object.Destroy(this.gameObject);
         altWeapon.inPlay--;
+        Destroy(this.gameObject);
     }
 
     private Collider CheckNearby() {
@@ -95,10 +90,11 @@ public class AltLaunch : MonoBehaviour {
 
     private void Explode(Collider collider) {
         if (collider) {
-            explosion.PlayExplosion(transform.position, transform.rotation, this.transform);
+            explosion.PlayExplosion(transform.position, transform.rotation);
             explosion.DoDamage(damageRadius, knockbackRadius, knockbackForce, damage);
             //delete object
-            StartCoroutine("DeleteObject");
+            altWeapon.inPlay--;
+            Destroy(this.gameObject);
         }
     }
 

@@ -7,9 +7,6 @@ public abstract class Pickup : MonoBehaviour {
         if (col.gameObject.tag == "Player") {
             Debug.Log("Player got pickup");
             ApplyEffect(col);
-            col.gameObject.GetComponent<PlayerEffects>().col = col;
-
-            Destroy(transform.parent.gameObject);
         }
     }
 

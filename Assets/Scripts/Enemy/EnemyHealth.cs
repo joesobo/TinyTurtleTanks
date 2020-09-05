@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : Health {
     protected override void OnDeath() {
         Explosion explosion = new Explosion(settings, deathParticles, bloodParticles);
-        explosion.PlayExplosion(transform.position, transform.rotation, this.transform);
+        explosion.PlayExplosion(transform.position, transform.rotation);
 
         transform.GetChild(0).gameObject.SetActive(false);
 

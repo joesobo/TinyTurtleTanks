@@ -14,12 +14,12 @@ public class Explosion : MonoBehaviour {
         this.bloodParticlePrefab = bloodParticles;
     }
 
-    public void PlayExplosion(Vector3 position, Quaternion rotation, Transform parent) {
+    public void PlayExplosion(Vector3 position, Quaternion rotation) {
         this.position = position;
 
         //play explosion
         if (settings.useParticle) {
-            Instantiate(explosionParticles, position, rotation, parent);
+            Instantiate(explosionParticles, position, rotation);
         }
     }
 

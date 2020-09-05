@@ -8,7 +8,11 @@ public class BombPickup : Pickup {
     protected override void ApplyEffect(Collider col) {
         PlayerShoot playerShoot = col.gameObject.GetComponent<PlayerShoot>();
 
-        playerShoot.newAltWeapon = bomb;
-        playerShoot.useNewAlt = true;
+        if (playerShoot.newAltWeapon != bomb) {
+            playerShoot.newAltWeapon = bomb;
+            playerShoot.useNewAlt = true;
+
+            Destroy(transform.parent.gameObject);
+        }
     }
 }

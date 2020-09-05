@@ -122,18 +122,9 @@ public class BulletMove : MonoBehaviour {
         if (doesExplode && !hasExploded) {
             hasExploded = true;
             Explosion explosion = new Explosion(settings, explosionParticlePrefab, bloodParticlePrefab);
-            explosion.PlayExplosion(transform.position, transform.rotation, this.transform);
+            explosion.PlayExplosion(transform.position, transform.rotation);
             explosion.DoDamage(damageRadius, knockbackRadius, knockbackForce, damage);
-
-            StartCoroutine("DelayDeath");
         }
-        else {
-            Destroy(gameObject);
-        }
-    }
-
-    IEnumerator DelayDeath() {
-        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 

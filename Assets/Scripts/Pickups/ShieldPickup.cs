@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ShieldPickup : Pickup {
     protected override void ApplyEffect(Collider col) {
-        col.gameObject.GetComponent<PlayerEffects>().ActivateShield();
+        PlayerEffects playerEffects = col.gameObject.GetComponent<PlayerEffects>();
+        if (!playerEffects.shield && !playerEffects.speed && !playerEffects.jump) {
+            playerEffects.ActivateShield();
+            Destroy(transform.parent.gameObject);
+        }
     }
 }
