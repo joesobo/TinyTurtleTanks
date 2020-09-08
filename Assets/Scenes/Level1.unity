@@ -799,7 +799,7 @@ GameObject:
   - component: {fileID: 144047373}
   m_Layer: 0
   m_Name: Shield
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8856,7 +8856,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.30798948, y: 0.56101626, z: -0.2363286, w: 0.7311306}
+  m_LocalRotation: {x: 0.3079895, y: 0.56101626, z: -0.23632859, w: 0.7311307}
   m_LocalPosition: {x: -11.359258, y: 40.66, z: -0.88819146}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -9043,19 +9043,19 @@ MonoBehaviour:
   useSound: 0
   useParticle: 1
   particleSlider: 1
-  useGrass: 1
-  useSeaweed: 1
-  useFootPrints: 1
-  useClouds: 1
-  useMoons: 1
-  useBirds: 1
-  useAtmosphere: 1
-  useWater: 1
-  daylightCycle: 1
+  useGrass: 0
+  useSeaweed: 0
+  useFootPrints: 0
+  useClouds: 0
+  useMoons: 0
+  useBirds: 0
+  useAtmosphere: 0
+  useWater: 0
+  daylightCycle: 0
   soundVolume: 0.5
   useCrates: 1
-  useEnvironmentObjects: 1
-  useEnemies: 1
+  useEnvironmentObjects: 0
+  useEnemies: 0
   currentLevel: 1
 --- !u!4 &1000687953
 Transform:
@@ -9704,7 +9704,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149512827}
-  m_LocalRotation: {x: 0.3586169, y: 0.53008544, z: -0.16760945, w: 0.7498737}
+  m_LocalRotation: {x: 0.35861695, y: 0.5300854, z: -0.16760942, w: 0.74987364}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10161,7 +10161,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.3210852, y: 0.54895115, z: -0.17453076, w: 0.7517287}
+  m_LocalRotation: {x: 0.3210853, y: 0.5489511, z: -0.17453071, w: 0.75172865}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10235,7 +10235,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.7219476}
+  m_LocalRotation: {x: 0.32894218, y: 0.55396855, z: -0.25240374, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11436,7 +11436,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1681413299
 BoxCollider:

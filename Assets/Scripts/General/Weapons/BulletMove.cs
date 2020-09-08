@@ -46,6 +46,11 @@ public class BulletMove : MonoBehaviour {
             col.gameObject.GetComponent<Health>().DecreaseHealth(damage);
             ExplodeBullet();
         }
+        if (col.gameObject.tag == "Shield" && !delayOn) {
+            Debug.Log("Hit Shield");
+            ExplodeBullet();
+        }
+        
         if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Planet") {
             Debug.Log("Hit Obstacle");
             if (settings.useSound) {

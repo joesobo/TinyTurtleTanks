@@ -13,6 +13,7 @@ TagManager:
   - Ice
   - Boid
   - Unbreakable
+  - Shield
   layers:
   - Default
   - TransparentFX
