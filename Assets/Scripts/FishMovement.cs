@@ -17,7 +17,6 @@ public class FishMovement : MonoBehaviour {
     private Vector3 smoothMoveVelocity;
     private Rigidbody rb;
     private GravityBody gravityBody;
-    private GameSettings settings;
     private float moveSeconds;
     private float rotateSeconds;
 
@@ -26,7 +25,6 @@ public class FishMovement : MonoBehaviour {
     private void Start() {
         rb = GetComponent<Rigidbody>();
         gravityBody = GetComponent<GravityBody>();
-        settings = FindObjectOfType<GameSettings>();
 
         raycastOrigin = raycastPoint.GetComponent<Transform>().localPosition;
 
@@ -34,23 +32,19 @@ public class FishMovement : MonoBehaviour {
     }
 
     private void Update() {
-        if (!settings.isPaused) {
-            CheckOutOfWater();
+        CheckOutOfWater();
 
-            CalculateMove();
-            CalculateRotate();
-        }
+        CalculateMove();
+        CalculateRotate();
     }
 
     private void FixedUpdate() {
-        if (!settings.isPaused) {
-            //move
-            Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
-            rb.MovePosition(rb.position + localMove);
+        //move
+        Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
+        rb.MovePosition(rb.position + localMove);
 
-            //rotate
-            transform.Rotate(0, 1 * curRotate * Time.deltaTime, 0);
-        }
+        //rotate
+        transform.Rotate(0, 1 * curRotate * Time.deltaTime, 0);
     }
 
     private void CalculateRotate() {

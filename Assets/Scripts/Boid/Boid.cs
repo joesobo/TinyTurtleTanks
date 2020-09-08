@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Boid : MonoBehaviour {
     private BoidSettings boidSettings;
-    private GameSettings gameSettings;
     private Rigidbody rb;
 
     //State
@@ -32,7 +31,6 @@ public class Boid : MonoBehaviour {
     Transform avoidTarget;
 
     private void Awake() {
-        gameSettings = FindObjectOfType<GameSettings>();
         rb = transform.GetComponentInChildren<Rigidbody>();
         boidMat = transform.GetComponentInChildren<MeshRenderer>();
         cachedTransform = transform;
@@ -53,15 +51,6 @@ public class Boid : MonoBehaviour {
         velocity = transform.forward * startSpeed;
     }
 
-    private void FreezeBoid() {
-        if (gameSettings.isPaused && rb.constraints == RigidbodyConstraints.FreezeRotation) {
-            rb.constraints = RigidbodyConstraints.FreezeAll;
-        }
-        else if (rb.constraints == RigidbodyConstraints.FreezeAll) {
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
-        }
-    }
-
     public void SetColor(Color col) {
         if (boidMat != null) {
             boidMat.material.color = col;
@@ -70,38 +59,35 @@ public class Boid : MonoBehaviour {
 
     public void UpdateBoid() {
         Vector3 acceleration = Vector3.zero;
-        FreezeBoid();
 
-        if (!gameSettings.isPaused) {
-            acceleration = TargetBehavior(acceleration);
+        acceleration = TargetBehavior(acceleration);
 
-            acceleration = NormalBehavior(acceleration);
+        acceleration = NormalBehavior(acceleration);
 
-            acceleration = CollisonBehavior(acceleration);
+        acceleration = CollisonBehavior(acceleration);
 
-            acceleration = EdgeBehavior(acceleration);
+        acceleration = EdgeBehavior(acceleration);
 
-            //update values
-            velocity += acceleration * Time.deltaTime;
-            float speed = velocity.magnitude;
-            Vector3 dir = velocity / speed;
-            speed = Mathf.Clamp(speed, boidSettings.GetMinSpeed(), boidSettings.GetMaxSpeed());
-            velocity = dir * speed;
+        //update values
+        velocity += acceleration * Time.deltaTime;
+        float speed = velocity.magnitude;
+        Vector3 dir = velocity / speed;
+        speed = Mathf.Clamp(speed, boidSettings.GetMinSpeed(), boidSettings.GetMaxSpeed());
+        velocity = dir * speed;
 
-            //update positions
-            cachedTransform.position += velocity * Time.deltaTime;
-            cachedTransform.forward = dir;
+        //update positions
+        cachedTransform.position += velocity * Time.deltaTime;
+        cachedTransform.forward = dir;
 
-            transform.position = cachedTransform.position;
-            transform.forward = dir;
+        transform.position = cachedTransform.position;
+        transform.forward = dir;
 
-            position = cachedTransform.position;
-            forward = dir;
-        }
+        position = cachedTransform.position;
+        forward = dir;
     }
 
     private Vector3 EdgeBehavior(Vector3 acceleration) {
-         Vector3 heading = Vector3.zero - transform.position;
+        Vector3 heading = Vector3.zero - transform.position;
         //Too low
         if (Vector3.Distance(Vector3.zero, transform.position) < boidSettings.moveRange.x) {
             Vector3 edgeAvoidForce = SteerTowards(-heading) * boidSettings.edgeWeight;

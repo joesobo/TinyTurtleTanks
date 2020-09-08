@@ -46,10 +46,8 @@ public class PlayerShoot : MonoBehaviour {
     private void Update() {
         CheckSwitchWeapons();
 
-        if (!settings.isPaused) {
-            MainShoot();
-            AltShoot();
-        }
+        MainShoot();
+        AltShoot();
     }
 
     private void AltShoot() {

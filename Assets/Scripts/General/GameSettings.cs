@@ -42,6 +42,15 @@ public class GameSettings : MonoBehaviour {
         }
     }
 
+    void Update() {
+        if (isPaused) {
+            Time.timeScale = 0;
+        }
+        else {
+            Time.timeScale = 1;
+        }
+    }
+
     public void SetParticleValues(ParticleSystem ps) {
         if (ps != null) {
             var main = ps.main;

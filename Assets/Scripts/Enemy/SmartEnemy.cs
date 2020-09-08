@@ -43,51 +43,48 @@ public class SmartEnemy : MonoBehaviour {
     private void Start() {
         rb = GetComponent<Rigidbody>();
         player = FindObjectOfType<PlayerController>().gameObject;
-        settings = FindObjectOfType<GameSettings>();
         source = GetComponent<AudioSource>();
         parent = FindObjectOfType<BulletController>().transform;
         altParent = GameObject.Find("BombController").transform;
+        settings = FindObjectOfType<GameSettings>();
 
         GenerateRandomTimes();
         StartCoroutine("StartRotate");
     }
 
     private void Update() {
-        if (!settings.isPaused) {
-            GroundCheck();
+        GroundCheck();
 
-            JumpCheck();
+        JumpCheck();
 
-            //looking and moving towards player
-            if (IsPlayerInRadius(playerLookRadius)) {
-                RotateTowardsPlayer();
+        //looking and moving towards player
+        if (IsPlayerInRadius(playerLookRadius)) {
+            RotateTowardsPlayer();
 
-                CheckCanShootPlayer();
+            CheckCanShootPlayer();
 
-                SlowAndShoot();
+            SlowAndShoot();
 
-                Jump();
-            }
-            //auto moving state
-            else {
-                CalculateMove();
+            Jump();
+        }
+        //auto moving state
+        else {
+            CalculateMove();
 
-                CollisionRotation();
+            CollisionRotation();
 
-                shootPlayer = false;
-            }
+            shootPlayer = false;
         }
     }
 
     private void FixedUpdate() {
-        if (!settings.isPaused) {
-            //move
-            Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
-            rb.MovePosition(rb.position + localMove);
+        //move
+        Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
+        rb.MovePosition(rb.position + localMove);
 
-            //rotate
-            transform.Rotate(0, 1 * curRotate * Time.deltaTime, 0);
-        }
+        //rotate
+        transform.Rotate(0, 1 * curRotate * Time.deltaTime, 0);
+
     }
 
     private void CalculateMove() {
@@ -216,9 +213,8 @@ public class SmartEnemy : MonoBehaviour {
     }
 
     IEnumerator StartShootWeapon() {
-        if (!settings.isPaused) {
-            ShootWeaponAtPoints();
-        }
+        ShootWeaponAtPoints();
+
 
         if (weapon.ammo.currentClip > 0) {
             yield return new WaitForSeconds(weapon.timeBetweenShots);
@@ -232,9 +228,7 @@ public class SmartEnemy : MonoBehaviour {
     }
 
     IEnumerator StartShootAlt() {
-        if (!settings.isPaused) {
-            ShootAltWeaponAtPoints();
-        }
+        ShootAltWeaponAtPoints();
 
         yield return new WaitForSeconds(altWeapon.timeBetweenUses);
 

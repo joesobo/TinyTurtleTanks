@@ -59,20 +59,15 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Update() {
-        FreezePlayer();
+        SolveForMovement();
 
-        if (!settings.isPaused) {
-            SolveForMovement();
+        SolveForRotation();
 
-            SolveForRotation();
+        GroundCheck();
 
-            GroundCheck();
+        Jump();
 
-            Jump();
-        }
-        else {
-            animator.SetBool("Walking", false);
-        }
+        animator.SetBool("Walking", false);
     }
 
     private void Jump() {
@@ -115,13 +110,8 @@ public class PlayerController : MonoBehaviour {
         transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
 
         if (settings.useParticle) {
-            if (settings.isPaused) {
-                trailParticles.Pause();
-            }
-            else {
-                if (inputX != 0 || inputY != 0) {
-                    trailParticles.Play();
-                }
+            if (inputX != 0 || inputY != 0) {
+                trailParticles.Play();
             }
         }
     }
@@ -141,20 +131,9 @@ public class PlayerController : MonoBehaviour {
         moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
     }
 
-    private void FreezePlayer() {
-        if (settings.isPaused && rb.constraints == RigidbodyConstraints.FreezeRotation) {
-            rb.constraints = RigidbodyConstraints.FreezeAll;
-        }
-        else if (rb.constraints == RigidbodyConstraints.FreezeAll) {
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
-        }
-    }
-
     private void FixedUpdate() {
-        if (!settings.isPaused) {
-            localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
-            rb.MovePosition(rb.position + localMove);
-        }
+        localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
+        rb.MovePosition(rb.position + localMove);
     }
 
     void OnTriggerEnter(Collider other) {

@@ -9,10 +9,7 @@ public class GravityBody : MonoBehaviour {
     Rigidbody rb;
     public bool useGrav = true;
 
-    private GameSettings settings;
-
     private void Awake() {
-        settings = FindObjectOfType<GameSettings>();
         planet = GameObject.FindGameObjectWithTag("Planet").GetComponent<GravityAttractor>();
 
         rb = GetComponent<Rigidbody>();
@@ -22,9 +19,7 @@ public class GravityBody : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        //if (!settings.isPaused) {
-            planet.Attract(this);
-        //}
+        planet.Attract(this);
     }
 
     public Rigidbody GetRb() {

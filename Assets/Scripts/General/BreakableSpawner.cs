@@ -19,9 +19,8 @@ public class BreakableSpawner : MonoBehaviour {
 
     IEnumerator StartSpawn() {
         while (true) {
-            if (!settings.isPaused) {
-                SpawnAtPoint();
-            }
+            SpawnAtPoint();
+
             yield return new WaitForSeconds(waitForSeconds);
         }
     }

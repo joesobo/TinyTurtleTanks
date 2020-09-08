@@ -8,16 +8,8 @@ public class ActivateTrap : MonoBehaviour {
     private bool moveSpike = false;
     private float maxSpike = -0.25f;
 
-    private GameSettings settings;
-
-    private void Start() {
-        settings = FindObjectOfType<GameSettings>();
-    }
-
     private void Update() {
-        if (!settings.isPaused) {
-            AnimateSpikes();
-        }
+        AnimateSpikes();
     }
 
     private void AnimateSpikes() {

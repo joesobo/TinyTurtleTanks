@@ -31,7 +31,7 @@ public class PauseMenu : BaseMenu {
                     stopScale = true;
                 }
                 if (!stopScale) {
-                    LeanTween.scale(gameObject, Vector3.one, 0.4f);
+                    LeanTween.scale(gameObject, Vector3.one, 0.4f).setIgnoreTimeScale(true);
                 }
             }
             else {
@@ -41,7 +41,7 @@ public class PauseMenu : BaseMenu {
     }
 
     public void OnClose() {
-        LeanTween.scale(gameObject, Vector3.zero, 0.4f);
+        LeanTween.scale(gameObject, Vector3.zero, 0.4f).setIgnoreTimeScale(true);
         if (settings.isPaused) {
             settings.isPaused = false;
         }
@@ -52,12 +52,12 @@ public class PauseMenu : BaseMenu {
 
     public override void OpenQuit() {
         quitMenu.menu = this;
-        LeanTween.scale(gameObject, Vector3.zero, 0.4f);
-        LeanTween.scale(quitMenu.gameObject, Vector3.one, 0.4f);
+        LeanTween.scale(gameObject, Vector3.zero, 0.4f).setIgnoreTimeScale(true);
+        LeanTween.scale(quitMenu.gameObject, Vector3.one, 0.4f).setIgnoreTimeScale(true);
     }
 
     public override void CloseQuit() {
-        LeanTween.scale(gameObject, Vector3.one, 0.4f);
-        LeanTween.scale(quitMenu.gameObject, Vector3.zero, 0.4f);
+        LeanTween.scale(gameObject, Vector3.one, 0.4f).setIgnoreTimeScale(true);
+        LeanTween.scale(quitMenu.gameObject, Vector3.zero, 0.4f).setIgnoreTimeScale(true);
     }
 }
