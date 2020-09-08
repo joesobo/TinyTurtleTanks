@@ -1273,6 +1273,7 @@ Transform:
   - {fileID: 1457015565}
   - {fileID: 2029102070}
   - {fileID: 288500923}
+  - {fileID: 385413397}
   - {fileID: 1708068063}
   - {fileID: 768355269}
   - {fileID: 557920416}
@@ -6793,8 +6794,75 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &385413396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 385413397}
+  - component: {fileID: 385413399}
+  - component: {fileID: 385413398}
+  m_Layer: 0
+  m_Name: Boid Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &385413397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385413396}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 237689038}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &385413398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385413396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ab209b684bcdc4ab6838444af543f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4392849844510481747, guid: 1d292c33b8e9d5a438671c2a06028f1e, type: 3}
+  center: {x: 0, y: 0, z: 0}
+  spawnCount: 75
+  color1: {r: 0.2971698, g: 0.71866244, b: 1, a: 1}
+  color2: {r: 1, g: 1, b: 1, a: 1}
+  showSpawnRegion: 0
+--- !u!114 &385413399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385413396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faddb7646c731a042a1513459ab3c027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 576f064cdcfd5314b89063d9153b31ad, type: 2}
+  showSpawnRegion: 2
+  target: {fileID: 0}
+  avoidTarget: {fileID: 4566354625369546602}
+  totalBoids: 0
 --- !u!1 &416145571
 GameObject:
   m_ObjectHideFlags: 0
@@ -7296,7 +7364,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 237689038}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &557920417
 AudioSource:
@@ -7498,7 +7566,7 @@ PrefabInstance:
     - target: {fileID: 1679096175235271754, guid: f41abfa87a2e71947af02b0c0dec42cf,
         type: 3}
       propertyPath: m_TagString
-      value: Planet
+      value: Unbreakable
       objectReference: {fileID: 0}
     - target: {fileID: 5134406750579288535, guid: f41abfa87a2e71947af02b0c0dec42cf,
         type: 3}
@@ -7513,7 +7581,12 @@ PrefabInstance:
     - target: {fileID: 5134406750579288535, guid: f41abfa87a2e71947af02b0c0dec42cf,
         type: 3}
       propertyPath: m_TagString
-      value: Planet
+      value: Unbreakable
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134406750579288535, guid: f41abfa87a2e71947af02b0c0dec42cf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8149908270836063172, guid: f41abfa87a2e71947af02b0c0dec42cf,
         type: 3}
@@ -8472,7 +8545,7 @@ Transform:
   - {fileID: 1079151834}
   - {fileID: 714160608}
   m_Father: {fileID: 237689038}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &776356770
 GameObject:
@@ -9608,9 +9681,10 @@ MonoBehaviour:
   particleSlider: 1
   useGrass: 0
   useSeaweed: 0
-  useFootPrints: 1
+  useFootPrints: 0
   useClouds: 0
   useMoons: 0
+  useBirds: 1
   useAtmosphere: 0
   useWater: 1
   daylightCycle: 0
@@ -10759,7 +10833,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.7219476}
+  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.72194755}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10921,36 +10995,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256867690}
   m_CullTransparentMesh: 0
---- !u!1 &1260068792
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1260068794}
-  m_Layer: 0
-  m_Name: Boid Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1260068794
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1260068792}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1261682978
 GameObject:
   m_ObjectHideFlags: 0
@@ -16526,14 +16570,15 @@ MonoBehaviour:
   backgroundMusic: {fileID: 557920415}
   cloudSpawner: {fileID: 288500922}
   moonSpawner: {fileID: 1457015564}
+  boidManager: {fileID: 385413396}
   atmosphere: {fileID: 0}
   crateSpawner: {fileID: 2029102068}
   obstacleList: {fileID: 768355268}
   footprints: {fileID: 1969841753}
   enemyStuffList:
-  - {fileID: 0}
+  - {fileID: 558591791}
   - {fileID: 1681107140}
-  - {fileID: 0}
+  - {fileID: 319896945}
   particleList:
   - {fileID: 1416507445}
   - {fileID: 1708068062}
@@ -17133,7 +17178,8 @@ MonoBehaviour:
   MAXHEALTH: 3
   curHealth: 0
   curHealthBar: {fileID: 220808437}
-  bloodParticles: {fileID: 0}
+  bloodParticles: {fileID: 8343780882660272222, guid: 19b2cc45717b8204aad3bdaea8236e47,
+    type: 3}
   deathParticles: {fileID: 7710933089740006782, guid: 0e7e116dd6e65674188f1c137a9d5f1e,
     type: 3}
   settings: {fileID: 0}
@@ -17165,7 +17211,6 @@ MonoBehaviour:
     type: 3}
   healthParticles: {fileID: 1316538544476190114, guid: cc3d1e6aeb6a9f04890b30f40de859e8,
     type: 3}
-  col: {fileID: 0}
 --- !u!114 &1681413304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18023,7 +18068,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 237689038}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1997556994
 GameObject:
@@ -18718,7 +18763,7 @@ PrefabInstance:
     - target: {fileID: 4174170604990565247, guid: fec1a7c7db4254643839dd13aeed6919,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4174170604990565247, guid: fec1a7c7db4254643839dd13aeed6919,
         type: 3}

@@ -16,6 +16,7 @@ public abstract class Health : MonoBehaviour {
     public GameSettings settings;
     private MeshRenderer[] meshRenderers;
     public Material flashMaterial;
+    private bool flashInProgress = false;
     private List<Material> tempMaterials = new List<Material>();
 
     private float flashTime = 0.15f;
@@ -43,8 +44,11 @@ public abstract class Health : MonoBehaviour {
         }
         UpdateHealthBar();
         if (curHealth > 0) {
-            DamageFlash();
-            
+            if (!flashInProgress) {
+                StartCoroutine("DamageFlash");
+            }
+
+
             if (settings.useParticle) {
                 Instantiate(bloodParticles, transform.position, transform.rotation);
             }
@@ -70,11 +74,8 @@ public abstract class Health : MonoBehaviour {
         curHealthBar.transform.localScale = (new Vector3(barMax * healthPercent + barMin, .8f, 1));
     }
 
-    private void DamageFlash() {
-        StartCoroutine("StartRotate");
-    }
-
-    IEnumerator StartRotate() {
+    IEnumerator DamageFlash() {
+        flashInProgress = true;
         //save old materials and set to white
         foreach (MeshRenderer renderer in meshRenderers) {
             tempMaterials.Add(renderer.material);
@@ -87,6 +88,7 @@ public abstract class Health : MonoBehaviour {
             meshRenderers[index].material = tempMaterials[index];
         }
         tempMaterials.Clear();
+        flashInProgress = false;
     }
 
     private void Update() {

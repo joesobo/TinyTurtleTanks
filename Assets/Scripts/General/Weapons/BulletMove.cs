@@ -43,14 +43,11 @@ public class BulletMove : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider col) {
-        if (!delayOn) {
-            if (col.gameObject.tag == "Player") {
-                Debug.Log("Hit Player");
-                col.gameObject.GetComponent<Health>().DecreaseHealth(damage);
-                ExplodeBullet();
-            }
+        if (col.gameObject.tag == "Player" && !delayOn) {
+            Debug.Log("Hit Player");
+            col.gameObject.GetComponent<Health>().DecreaseHealth(damage);
+            ExplodeBullet();
         }
-
         if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Planet") {
             Debug.Log("Hit Obstacle");
             if (settings.useSound) {
@@ -59,7 +56,6 @@ public class BulletMove : MonoBehaviour {
             }
             ExplodeBullet();
         }
-
         else if (col.gameObject.tag == "Enemy") {
             Debug.Log("Hit Enemy");
             col.gameObject.GetComponent<Health>().DecreaseHealth(damage);
@@ -73,7 +69,6 @@ public class BulletMove : MonoBehaviour {
             }
             ExplodeBullet();
         }
-
         else if (col.gameObject.tag == "Breakable") {
             Debug.Log("Hit Breakable");
             col.gameObject.GetComponent<Breakable>().Break();
@@ -83,7 +78,6 @@ public class BulletMove : MonoBehaviour {
             }
             ExplodeBullet();
         }
-
         else if (col.gameObject.tag == "Fish") {
             Debug.Log("Hit Fish");
             if (settings.useParticle) {
@@ -94,11 +88,9 @@ public class BulletMove : MonoBehaviour {
                 source.volume = settings.soundVolume;
                 source.Play();
             }
-
-            Destroy(col.gameObject);
             ExplodeBullet();
+            Destroy(col.gameObject);
         }
-
         else if (col.gameObject.tag == "Boid") {
             Debug.Log("Hit Boid");
             if (settings.useParticle) {
@@ -113,7 +105,15 @@ public class BulletMove : MonoBehaviour {
             BoidManager boidManager = FindObjectOfType<BoidManager>();
             boidManager.RemoveBoid(col.gameObject.GetComponentInChildren<Boid>());
 
+            ExplodeBullet();
             Destroy(col.gameObject);
+        }
+        else if (col.gameObject.tag == "Unbreakable") {
+            Debug.Log("Hit Unbreakable");
+            if (settings.useSound) {
+                source.volume = settings.soundVolume;
+                source.Play();
+            }
             ExplodeBullet();
         }
     }

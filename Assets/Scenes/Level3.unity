@@ -1261,6 +1261,7 @@ Transform:
   - {fileID: 557920416}
   - {fileID: 1708068063}
   - {fileID: 1969841754}
+  - {fileID: 1643341812}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7211,12 +7212,17 @@ PrefabInstance:
     - target: {fileID: 1679096175235271754, guid: f41abfa87a2e71947af02b0c0dec42cf,
         type: 3}
       propertyPath: m_TagString
-      value: Planet
+      value: Unbreakable
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679096175235271754, guid: f41abfa87a2e71947af02b0c0dec42cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5134406750579288535, guid: f41abfa87a2e71947af02b0c0dec42cf,
         type: 3}
       propertyPath: m_Name
-      value: Grass2
+      value: Grass3
       objectReference: {fileID: 0}
     - target: {fileID: 5134406750579288535, guid: f41abfa87a2e71947af02b0c0dec42cf,
         type: 3}
@@ -7226,13 +7232,23 @@ PrefabInstance:
     - target: {fileID: 5134406750579288535, guid: f41abfa87a2e71947af02b0c0dec42cf,
         type: 3}
       propertyPath: m_TagString
-      value: Planet
+      value: Unbreakable
       objectReference: {fileID: 0}
     - target: {fileID: 5134406750579288535, guid: f41abfa87a2e71947af02b0c0dec42cf,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5134406750579288535, guid: f41abfa87a2e71947af02b0c0dec42cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7644569994627936479, guid: f41abfa87a2e71947af02b0c0dec42cf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 60ea112072b52624187351e05c356e26, type: 2}
     - target: {fileID: 8149908270836063172, guid: f41abfa87a2e71947af02b0c0dec42cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7695,6 +7711,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Planet
       objectReference: {fileID: 0}
+    - target: {fileID: 4344836168205189407, guid: 2357ae7ea92d30649be0aae0b1381dae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6493317713963636369, guid: 2357ae7ea92d30649be0aae0b1381dae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7753,7 +7774,7 @@ PrefabInstance:
     - target: {fileID: 7802415805909116034, guid: 2357ae7ea92d30649be0aae0b1381dae,
         type: 3}
       propertyPath: m_Name
-      value: Ground2
+      value: Ground3
       objectReference: {fileID: 0}
     - target: {fileID: 7802415805909116034, guid: 2357ae7ea92d30649be0aae0b1381dae,
         type: 3}
@@ -7769,6 +7790,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802415805909116034, guid: 2357ae7ea92d30649be0aae0b1381dae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2357ae7ea92d30649be0aae0b1381dae, type: 3}
@@ -9298,12 +9324,13 @@ MonoBehaviour:
   particleSlider: 1
   useGrass: 1
   useSeaweed: 0
-  useFootPrints: 1
-  useClouds: 1
-  useMoons: 1
+  useFootPrints: 0
+  useClouds: 0
+  useMoons: 0
+  useBirds: 1
   useAtmosphere: 1
   useWater: 0
-  daylightCycle: 1
+  daylightCycle: 0
   soundVolume: 0.5
   useCrates: 0
   useEnvironmentObjects: 1
@@ -10258,7 +10285,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.3210852, y: 0.54895115, z: -0.17453076, w: 0.7517287}
+  m_LocalRotation: {x: 0.3210852, y: 0.5489511, z: -0.17453074, w: 0.7517288}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10365,7 +10392,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.32894218, y: 0.5539685, z: -0.25240365, w: 0.7219476}
+  m_LocalRotation: {x: 0.32894215, y: 0.5539686, z: -0.25240368, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10527,36 +10554,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256867690}
   m_CullTransparentMesh: 0
---- !u!1 &1260068792
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1260068794}
-  m_Layer: 0
-  m_Name: Boid Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1260068794
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1260068792}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1261682978
 GameObject:
   m_ObjectHideFlags: 0
@@ -11378,17 +11375,87 @@ MonoBehaviour:
   backgroundMusic: {fileID: 557920415}
   cloudSpawner: {fileID: 288500922}
   moonSpawner: {fileID: 1457015564}
+  boidManager: {fileID: 1643341811}
   atmosphere: {fileID: 1909013311}
   crateSpawner: {fileID: 2029102068}
   obstacleList: {fileID: 768355268}
   footprints: {fileID: 1969841753}
   enemyStuffList:
+  - {fileID: 558591791}
   - {fileID: 1681107140}
+  - {fileID: 319896945}
   particleList:
   - {fileID: 1223611375}
   - {fileID: 1708068062}
   water: {fileID: 464551887}
   daylightCycle: {fileID: 1261682982}
+--- !u!1 &1643341811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1643341812}
+  - component: {fileID: 1643341814}
+  - component: {fileID: 1643341813}
+  m_Layer: 0
+  m_Name: Boid Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1643341812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643341811}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 237689038}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1643341813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643341811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ab209b684bcdc4ab6838444af543f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4392849844510481747, guid: 1d292c33b8e9d5a438671c2a06028f1e, type: 3}
+  center: {x: 0, y: 0, z: 0}
+  spawnCount: 75
+  color1: {r: 1, g: 0.5481953, b: 0.2980392, a: 1}
+  color2: {r: 1, g: 1, b: 1, a: 1}
+  showSpawnRegion: 0
+--- !u!114 &1643341814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643341811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faddb7646c731a042a1513459ab3c027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 576f064cdcfd5314b89063d9153b31ad, type: 2}
+  showSpawnRegion: 2
+  target: {fileID: 0}
+  avoidTarget: {fileID: 4566354625369546602}
+  totalBoids: 0
 --- !u!1001 &1653625737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12016,7 +12083,6 @@ MonoBehaviour:
     type: 3}
   healthParticles: {fileID: 1316538544476190114, guid: cc3d1e6aeb6a9f04890b30f40de859e8,
     type: 3}
-  col: {fileID: 0}
 --- !u!114 &1681413304
 MonoBehaviour:
   m_ObjectHideFlags: 0

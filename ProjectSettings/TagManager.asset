@@ -12,6 +12,7 @@ TagManager:
   - Water
   - Ice
   - Boid
+  - Unbreakable
   layers:
   - Default
   - TransparentFX
