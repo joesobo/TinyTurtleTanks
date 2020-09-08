@@ -983,7 +983,6 @@ GameObject:
   - component: {fileID: 160200637}
   - component: {fileID: 160200638}
   - component: {fileID: 160200639}
-  - component: {fileID: 160200640}
   m_Layer: 0
   m_Name: Object Spawner
   m_TagString: Untagged
@@ -1018,7 +1017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 4985080452863299158, guid: 9000558bf5983b04897d185ec1427995, type: 3}
+  - {fileID: 4985080452863299158, guid: 198ec49dd2a72d34fb839e3769578491, type: 3}
   parent: {fileID: 1079151834}
   num: 100
   radius: 50
@@ -1062,6 +1061,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
+  - {fileID: 1914589335385969302, guid: 61f9164aa8e9672489538412166ce457, type: 3}
+  - {fileID: 1354066396864169464, guid: a9b948f380223e14a90fae1f40c48af9, type: 3}
+  - {fileID: 6116043750764848018, guid: 792a3347fbd26444398ea14007b5bcc4, type: 3}
   - {fileID: 7236413856333625363, guid: 346912ba45140394a9f3a65ddc4670b6, type: 3}
   parent: {fileID: 751865555}
   num: 300
@@ -1077,7 +1079,7 @@ MonoBehaviour:
   objectMask:
     serializedVersion: 2
     m_Bits: 2048
-  useColliders: 0
+  useColliders: 1
   spawnTopDown: 0
   useGizmoRadius: 0
   useGizmoHeight: 0
@@ -1090,8 +1092,8 @@ MonoBehaviour:
   maxRayHeight: 50
   minHeight: 22.4
   maxHeight: 32.7
-  startColor: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
-  endColor: {r: 0.42346027, g: 0.4435829, b: 0.49056602, a: 1}
+  startColor: {r: 0.56683874, g: 0.6049124, b: 0.6226415, a: 1}
+  endColor: {r: 0.36098257, g: 0.38799658, b: 0.4528302, a: 1}
   slopeCutoff: 0.75
 --- !u!114 &160200637
 MonoBehaviour:
@@ -1100,7 +1102,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160200633}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5dcd6ea01ffef544a18d1990797ad5c, type: 3}
   m_Name: 
@@ -1144,7 +1146,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160200633}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5dcd6ea01ffef544a18d1990797ad5c, type: 3}
   m_Name: 
@@ -1224,52 +1226,8 @@ MonoBehaviour:
   maxRayHeight: 50
   minHeight: 25.704226
   maxHeight: 40
-  startColor: {r: 1, g: 0.97617424, b: 0, a: 1}
-  endColor: {r: 1, g: 0.054250643, b: 0, a: 1}
-  slopeCutoff: 0.75
---- !u!114 &160200640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160200633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5dcd6ea01ffef544a18d1990797ad5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 3670306836811990488, guid: 9a731c3094f8d2c48a52d453e9fc3b2e, type: 3}
-  parent: {fileID: 714160608}
-  num: 200
-  radius: 50
-  checkDst: 150
-  offsetScale: -0.25
-  maxDensity: 1
-  minScale: 1
-  maxScale: 1.5
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  objectMask:
-    serializedVersion: 2
-    m_Bits: 2048
-  useColliders: 0
-  spawnTopDown: 1
-  useGizmoRadius: 0
-  useGizmoHeight: 1
-  useGizmoRayHeight: 0
-  useRandomRotation: 1
-  useRandomColor: 1
-  useSlopeCutoff: 1
-  useRandomScaleAxis: 0
-  minRayHeight: 0
-  maxRayHeight: 50
-  minHeight: 25.704226
-  maxHeight: 40
-  startColor: {r: 0.27687788, g: 0.8725552, b: 0.9622642, a: 1}
-  endColor: {r: 0.8014045, g: 0.4198113, b: 1, a: 1}
+  startColor: {r: 0.546, g: 0.9519293, b: 1, a: 1}
+  endColor: {r: 0.6592156, g: 0.44313726, b: 0.78431374, a: 1}
   slopeCutoff: 0.75
 --- !u!1 &163243923
 GameObject:
@@ -9219,7 +9177,7 @@ MonoBehaviour:
   daylightCycle: 1
   soundVolume: 0.5
   useCrates: 0
-  useEnvironmentObjects: 0
+  useEnvironmentObjects: 1
   useEnemies: 0
   currentLevel: 1
 --- !u!4 &1000687953
@@ -10400,7 +10358,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.32894215, y: 0.5539686, z: -0.25240368, w: 0.7219476}
+  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.72194755}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
