@@ -1102,18 +1102,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160200633}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5dcd6ea01ffef544a18d1990797ad5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 5115293570597932283, guid: ad7d56fa51fe4ab4db7301b78e770430, type: 3}
+  - {fileID: 5115293570597932283, guid: 4bc16d8e63b8aa742bbadb0fc60ac826, type: 3}
   parent: {fileID: 1148741298}
   num: 100
   radius: 50
   checkDst: 150
-  offsetScale: -2
+  offsetScale: 3
   maxDensity: 1
   minScale: 0.5
   maxScale: 1
@@ -1122,8 +1122,8 @@ MonoBehaviour:
     m_Bits: 256
   objectMask:
     serializedVersion: 2
-    m_Bits: 2048
-  useColliders: 1
+    m_Bits: 0
+  useColliders: 0
   spawnTopDown: 1
   useGizmoRadius: 0
   useGizmoHeight: 0
@@ -10358,7 +10358,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.72194755}
+  m_LocalRotation: {x: 0.32894218, y: 0.5539685, z: -0.25240365, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
