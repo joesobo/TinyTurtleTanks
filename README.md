@@ -15,6 +15,8 @@ Just a few things that I'm proud of learning and would like to highlight from my
 * Creating a working menu
 * New art style developed in Blender and MagicaVoxel
 * Polish with VFX and Cinemachine
+* Custom procedural voxel tree editor (not shown in game)
+* Custom implementation of Boids algorithm in 3D
 * and plenty more
 
 - - - - 
