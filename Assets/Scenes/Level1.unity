@@ -9054,7 +9054,7 @@ MonoBehaviour:
   daylightCycle: 0
   soundVolume: 0.5
   useCrates: 0
-  useEnvironmentObjects: 0
+  useEnvironmentObjects: 1
   useEnemies: 0
   currentLevel: 1
 --- !u!4 &1000687953
