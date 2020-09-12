@@ -17,9 +17,11 @@ public abstract class Health : MonoBehaviour {
     private MeshRenderer[] meshRenderers;
     public Material flashMaterial;
     private bool flashInProgress = false;
+    private bool cooldownInProgress = false;
     private List<Material> tempMaterials = new List<Material>();
 
     private float flashTime = 0.15f;
+    private float cooldownTime = 0.5f;
     private bool isDead = false;
 
     void Start() {
@@ -27,6 +29,16 @@ public abstract class Health : MonoBehaviour {
         levelRunner = FindObjectOfType<LevelRunner>();
         meshRenderers = transform.GetChild(0).GetComponentsInChildren<MeshRenderer>();
         curHealth = MAXHEALTH;
+    }
+
+    private void Update() {
+        if (curHealth <= 0 && !isDead) {
+            isDead = true;
+
+            if (settings.useEnemies) {
+                OnDeath();
+            }
+        }
     }
 
     public void IncreaseHealth(int amount) {
@@ -38,19 +50,22 @@ public abstract class Health : MonoBehaviour {
     }
 
     public void DecreaseHealth(int amount) {
-        curHealth -= amount;
-        if (curHealth < 0) {
-            curHealth = 0;
-        }
-        UpdateHealthBar();
-        if (curHealth > 0) {
-            if (!flashInProgress) {
-                StartCoroutine("DamageFlash");
+        if (!cooldownInProgress) {
+            StartCoroutine("DamageCooldown");
+
+            curHealth -= amount;
+            if (curHealth < 0) {
+                curHealth = 0;
             }
+            UpdateHealthBar();
+            if (curHealth > 0) {
+                if (!flashInProgress) {
+                    StartCoroutine("DamageFlash");
+                }
 
-
-            if (settings.useParticle) {
-                Instantiate(bloodParticles, transform.position, transform.rotation);
+                if (settings.useParticle) {
+                    Instantiate(bloodParticles, transform.position, transform.rotation);
+                }
             }
         }
     }
@@ -74,6 +89,12 @@ public abstract class Health : MonoBehaviour {
         curHealthBar.transform.localScale = (new Vector3(barMax * healthPercent + barMin, .8f, 1));
     }
 
+    IEnumerator DamageCooldown() {
+        cooldownInProgress = true;
+        yield return new WaitForSeconds(cooldownTime);
+        cooldownInProgress = false;
+    }
+
     IEnumerator DamageFlash() {
         flashInProgress = true;
         //save old materials and set to white
@@ -89,16 +110,6 @@ public abstract class Health : MonoBehaviour {
         }
         tempMaterials.Clear();
         flashInProgress = false;
-    }
-
-    private void Update() {
-        if (curHealth <= 0 && !isDead) {
-            isDead = true;
-
-            if (settings.useEnemies) {
-                OnDeath();
-            }
-        }
     }
 
     protected abstract void OnDeath();
