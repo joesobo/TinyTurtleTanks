@@ -569,6 +569,7 @@ GameObject:
   - component: {fileID: 160200638}
   - component: {fileID: 160200640}
   - component: {fileID: 160200641}
+  - component: {fileID: 160200642}
   m_Layer: 0
   m_Name: Object Spawner
   m_TagString: Untagged
@@ -651,7 +652,7 @@ MonoBehaviour:
   - {fileID: 6116043750764848018, guid: 792a3347fbd26444398ea14007b5bcc4, type: 3}
   - {fileID: 7236413856333625363, guid: 346912ba45140394a9f3a65ddc4670b6, type: 3}
   parent: {fileID: 751865555}
-  num: 300
+  num: 200
   radius: 100
   checkDst: 150
   offsetScale: 2.5
@@ -739,7 +740,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 6416012242815122448, guid: 36cdf0686361614418ef0bcde4ff88be, type: 3}
   parent: {fileID: 714160608}
-  num: 100
+  num: 75
   radius: 50
   checkDst: 150
   offsetScale: -0.75
@@ -900,6 +901,52 @@ MonoBehaviour:
   maxHeight: 40
   startColor: {r: 1, g: 1, b: 1, a: 1}
   endColor: {r: 1, g: 0.96369815, b: 0.33490568, a: 1}
+  slopeCutoff: 0.75
+--- !u!114 &160200642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160200633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5dcd6ea01ffef544a18d1990797ad5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 1425223668008321616, guid: 0172948d29d9ee74baa0a221f031381e, type: 3}
+  - {fileID: 8673529420311329370, guid: 8d73ad92ea3a1a0439ea489d75e96e4e, type: 3}
+  - {fileID: 4485965615677872560, guid: 7b67e648cb68bf047a037502ea000d76, type: 3}
+  parent: {fileID: 1177254860}
+  num: 100
+  radius: 50
+  checkDst: 150
+  offsetScale: -1
+  maxDensity: 1
+  minScale: 0.5
+  maxScale: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  objectMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  useColliders: 1
+  spawnTopDown: 1
+  useGizmoRadius: 0
+  useGizmoHeight: 0
+  useGizmoRayHeight: 0
+  useRandomRotation: 1
+  useRandomColor: 0
+  useSlopeCutoff: 1
+  useRandomScaleAxis: 0
+  minRayHeight: 0
+  maxRayHeight: 50
+  minHeight: 25.704226
+  maxHeight: 40
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
   slopeCutoff: 0.75
 --- !u!1 &160514032
 GameObject:
@@ -7415,7 +7462,7 @@ MonoBehaviour:
   useDensity: 1
   density: 0.1
   useScattering: 1
-  scattering: 0.5
+  scattering: 0.3
   useAmbientLighting: 1
   ambientLightingStrength: 1
   useColor: 1
@@ -8377,7 +8424,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.63388443, b: 0.514151, a: 1}
+  m_Color: {r: 1, g: 0.7558962, b: 0.6745283, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -8454,7 +8501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 0.2
+  strength: 0.15
   useScattering: 0
   overrideScattering: 0
   overridingScattering: 0.5
@@ -9781,8 +9828,8 @@ MonoBehaviour:
   daylightCycle: 0
   soundVolume: 0.5
   useCrates: 0
-  useEnvironmentObjects: 0
-  useEnemies: 1
+  useEnvironmentObjects: 1
+  useEnemies: 0
   currentLevel: 1
 --- !u!4 &1000687953
 Transform:
@@ -10817,7 +10864,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.3210852, y: 0.54895115, z: -0.17453076, w: 0.7517287}
+  m_LocalRotation: {x: 0.3210852, y: 0.5489511, z: -0.17453074, w: 0.7517288}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10924,7 +10971,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.7219476}
+  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.72194755}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

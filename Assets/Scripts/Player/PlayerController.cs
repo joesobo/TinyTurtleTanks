@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour {
     private float dist;
     private ParticleSystem ps;
 
+    private bool doJump = false;
+
     private PlayerHealth playerHealth;
     private PlayerShoot playerShoot;
 
@@ -61,8 +63,6 @@ public class PlayerController : MonoBehaviour {
     private void Update() {
         SolveForMovement();
 
-        SolveForRotation();
-
         GroundCheck();
 
         Jump();
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour {
     private void Jump() {
         if (Input.GetButtonDown("Jump")) {
             if (grounded) {
-                rb.AddForce(transform.up * jumpForce);
+                doJump = true;
             }
         }
     }
@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void SolveForRotation() {
+    private void RotatePlayer() {
         inputX = Input.GetAxisRaw("Horizontal");
         if (inputX > 0) {
             rotateSpeed = maxRotateSpeed;
@@ -132,8 +132,15 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        RotatePlayer();
+
         localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
         rb.MovePosition(rb.position + localMove);
+
+        if (doJump) {
+            doJump = false;
+            rb.AddForce(transform.up * jumpForce);
+        }
     }
 
     void OnTriggerEnter(Collider other) {
