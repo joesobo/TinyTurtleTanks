@@ -21,8 +21,7 @@ public class PauseMenu : BaseMenu {
     private void Update() {
         if (!levelRunner.isDead) {
             if (!settings.isPaused && Input.GetKeyDown(KeyCode.Escape)) {
-                pauseActive = !pauseActive;
-                menuActive = !menuActive;
+                TogglePauseMenu();
             }
 
             if (pauseActive) {
@@ -34,10 +33,12 @@ public class PauseMenu : BaseMenu {
                     LeanTween.scale(gameObject, Vector3.one, 0.4f).setIgnoreTimeScale(true);
                 }
             }
-            else {
-                OnClose();
-            }
         }
+    }
+
+    private void TogglePauseMenu() {
+        pauseActive = !pauseActive;
+        menuActive = !menuActive;
     }
 
     public void OnClose() {
