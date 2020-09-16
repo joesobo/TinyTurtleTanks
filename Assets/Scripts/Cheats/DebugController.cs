@@ -8,18 +8,24 @@ public class DebugController : MonoBehaviour {
     private string input;
     private GameSettings settings;
     private Vector2 scroll;
+    private Vector3 playerHomePosition;
 
     public static DebugCommand<int> INCREASE_HEALTH;
     public static DebugCommand<int> DECREASE_HEALTH;
     public static DebugCommand HELP;
+    public static DebugCommand HOME;
 
-    public PlayerHealth playerHealth;
+    private PlayerHealth playerHealth;
+    private PlayerController playerController;
 
     public List<DebugCommandBase> commandList;
 
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
         playerHealth = FindObjectOfType<PlayerHealth>();
+        playerController = FindObjectOfType<PlayerController>();
+
+        playerHomePosition = playerController.gameObject.transform.position;
 
         INCREASE_HEALTH = new DebugCommand<int>("heal", "Heals the player by x health", "heal <heal amount>", (x) => {
             playerHealth.IncreaseHealth(x);
@@ -30,11 +36,15 @@ public class DebugController : MonoBehaviour {
         HELP = new DebugCommand("help", "Shows a list of commands", "help", () => {
             showHelp = true;
         });
+        HOME = new DebugCommand("home", "Teleports player to home", "home", () => {
+            playerController.gameObject.transform.position = playerHomePosition;
+        });
 
         commandList = new List<DebugCommandBase> {
             INCREASE_HEALTH,
             DECREASE_HEALTH,
-            HELP
+            HELP,
+            HOME
         };
     }
 
