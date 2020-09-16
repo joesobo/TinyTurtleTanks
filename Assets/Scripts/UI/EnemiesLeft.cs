@@ -23,11 +23,14 @@ public class EnemiesLeft : MonoBehaviour {
 
     private void Update() {
         if (totalEnemies != levelRunner.GetNumEnemiesLeft()) {
+            int difference = totalEnemies - levelRunner.GetNumEnemiesLeft();
             totalEnemies = levelRunner.GetNumEnemiesLeft();
 
-            transform.GetChild(activeIndex).GetChild(0).gameObject.SetActive(true);
+            for (int i = 0; i < difference; i++) {
+                transform.GetChild(activeIndex).GetChild(0).gameObject.SetActive(true);
 
-            activeIndex++;
+                activeIndex++;
+            }
         }
     }
 }

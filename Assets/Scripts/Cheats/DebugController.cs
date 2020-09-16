@@ -15,11 +15,13 @@ public class DebugController : MonoBehaviour {
     public static DebugCommand HELP;
     public static DebugCommand HOME;
     public static DebugCommand KILL_PLAYER;
+    public static DebugCommand KILL_ENEMIES;
     public static DebugCommand<string> EFFECT;
 
     private PlayerHealth playerHealth;
     private PlayerController playerController;
     private PlayerEffects playerEffects;
+    private LevelRunner levelRunner;
 
     public List<DebugCommandBase> commandList;
 
@@ -28,6 +30,7 @@ public class DebugController : MonoBehaviour {
         playerHealth = FindObjectOfType<PlayerHealth>();
         playerController = FindObjectOfType<PlayerController>();
         playerEffects = FindObjectOfType<PlayerEffects>();
+        levelRunner = FindObjectOfType<LevelRunner>();
 
         playerHomePosition = playerController.gameObject.transform.position;
 
@@ -46,6 +49,12 @@ public class DebugController : MonoBehaviour {
         KILL_PLAYER = new DebugCommand("kill_player", "Instantly kills the player", "kill_player", () => {
             playerHealth.DecreaseHealth(playerHealth.MAXHEALTH);
         });
+        KILL_ENEMIES = new DebugCommand("kill_enemies", "Instantly kills all enemies", "kill_enemies", () => {
+            foreach (EnemyHealth enemy in FindObjectsOfType<EnemyHealth>()) {
+                enemy.InstantKillEnemy();
+                levelRunner.DecreaseNumEnemy();
+            }
+        });
         EFFECT = new DebugCommand<string>("effect", "Gives the player speed, jump, shield, or health", "effect <type>", (value) => {
             if (!playerEffects.shield && !playerEffects.speed && !playerEffects.jump) {
                 if (value == "jump") {
@@ -58,7 +67,7 @@ public class DebugController : MonoBehaviour {
                     playerEffects.ActivateShield();
                 }
             }
-            
+
             if (value == "health") {
                 playerEffects.ActivateHealth();
             }
@@ -70,6 +79,7 @@ public class DebugController : MonoBehaviour {
             HELP,
             HOME,
             KILL_PLAYER,
+            KILL_ENEMIES,
             EFFECT
         };
     }

@@ -18,4 +18,9 @@ public class EnemyHealth : Health {
         yield return new WaitForSeconds(1);
         Destroy(gameObject);
     }
+
+    public void InstantKillEnemy() {
+        Debug.Log(1);
+        Destroy(gameObject);
+    }
 }
