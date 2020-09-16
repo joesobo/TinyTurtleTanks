@@ -14,6 +14,7 @@ public class DebugController : MonoBehaviour {
     public static DebugCommand<int> DECREASE_HEALTH;
     public static DebugCommand HELP;
     public static DebugCommand HOME;
+    public static DebugCommand KILL_PLAYER;
 
     private PlayerHealth playerHealth;
     private PlayerController playerController;
@@ -39,12 +40,16 @@ public class DebugController : MonoBehaviour {
         HOME = new DebugCommand("home", "Teleports player to home", "home", () => {
             playerController.gameObject.transform.position = playerHomePosition;
         });
+        KILL_PLAYER = new DebugCommand("kill_player", "Instantly kills the player", "kill_player", () => {
+            playerHealth.DecreaseHealth(playerHealth.MAXHEALTH);
+        });
 
         commandList = new List<DebugCommandBase> {
             INCREASE_HEALTH,
             DECREASE_HEALTH,
             HELP,
-            HOME
+            HOME,
+            KILL_PLAYER
         };
     }
 
@@ -57,8 +62,6 @@ public class DebugController : MonoBehaviour {
         if (showConsole && Input.GetButtonDown("Submit")) {
             HandleInput();
             input = "";
-            // showConsole = false;
-            // settings.isPaused = false;
         }
     }
 
