@@ -9119,7 +9119,7 @@ MonoBehaviour:
   particleSlider: 1
   useGrass: 0
   useSeaweed: 0
-  useFootPrints: 1
+  useFootPrints: 0
   useClouds: 0
   useMoons: 0
   useBirds: 0
@@ -9128,7 +9128,7 @@ MonoBehaviour:
   daylightCycle: 0
   soundVolume: 0.5
   useCrates: 0
-  useEnvironmentObjects: 1
+  useEnvironmentObjects: 0
   useEnemies: 0
   currentLevel: 1
 --- !u!4 &1000687953
@@ -10236,7 +10236,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.28692284, y: 0.5675547, z: -0.22016345, w: 0.73965204}
+  m_LocalRotation: {x: 0.2869228, y: 0.5675547, z: -0.22016345, w: 0.739652}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10311,7 +10311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
   m_LocalRotation: {x: 0.32894218, y: 0.55396855, z: -0.25240374, w: 0.7219476}
-  m_LocalPosition: {x: -0.0000009536765, y: -8.526522e-14, z: 0.0000121593475}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 809841754}

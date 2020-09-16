@@ -15,9 +15,11 @@ public class DebugController : MonoBehaviour {
     public static DebugCommand HELP;
     public static DebugCommand HOME;
     public static DebugCommand KILL_PLAYER;
+    public static DebugCommand<string> EFFECT;
 
     private PlayerHealth playerHealth;
     private PlayerController playerController;
+    private PlayerEffects playerEffects;
 
     public List<DebugCommandBase> commandList;
 
@@ -25,14 +27,15 @@ public class DebugController : MonoBehaviour {
         settings = FindObjectOfType<GameSettings>();
         playerHealth = FindObjectOfType<PlayerHealth>();
         playerController = FindObjectOfType<PlayerController>();
+        playerEffects = FindObjectOfType<PlayerEffects>();
 
         playerHomePosition = playerController.gameObject.transform.position;
 
-        INCREASE_HEALTH = new DebugCommand<int>("heal", "Heals the player by x health", "heal <heal amount>", (x) => {
-            playerHealth.IncreaseHealth(x);
+        INCREASE_HEALTH = new DebugCommand<int>("heal", "Heals the player by x health", "heal <heal amount>", (value) => {
+            playerHealth.IncreaseHealth(value);
         });
-        DECREASE_HEALTH = new DebugCommand<int>("damage", "Damages the player by x health", "damage <damage amount>", (x) => {
-            playerHealth.DecreaseHealth(x);
+        DECREASE_HEALTH = new DebugCommand<int>("damage", "Damages the player by x health", "damage <damage amount>", (value) => {
+            playerHealth.DecreaseHealth(value);
         });
         HELP = new DebugCommand("help", "Shows a list of commands", "help", () => {
             showHelp = true;
@@ -43,13 +46,31 @@ public class DebugController : MonoBehaviour {
         KILL_PLAYER = new DebugCommand("kill_player", "Instantly kills the player", "kill_player", () => {
             playerHealth.DecreaseHealth(playerHealth.MAXHEALTH);
         });
+        EFFECT = new DebugCommand<string>("effect", "Gives the player speed, jump, shield, or health", "effect <type>", (value) => {
+            if (!playerEffects.shield && !playerEffects.speed && !playerEffects.jump) {
+                if (value == "jump") {
+                    playerEffects.ActivateJump();
+                }
+                else if (value == "speed") {
+                    playerEffects.ActivateSpeed();
+                }
+                else if (value == "shield") {
+                    playerEffects.ActivateShield();
+                }
+            }
+            
+            if (value == "health") {
+                playerEffects.ActivateHealth();
+            }
+        });
 
         commandList = new List<DebugCommandBase> {
             INCREASE_HEALTH,
             DECREASE_HEALTH,
             HELP,
             HOME,
-            KILL_PLAYER
+            KILL_PLAYER,
+            EFFECT
         };
     }
 
@@ -72,13 +93,12 @@ public class DebugController : MonoBehaviour {
 
         if (showHelp) {
             GUI.Box(new Rect(0, y, Screen.width, 100), "");
-            
+
             Rect viewport = new Rect(0, 0, Screen.width - 30, 20 * commandList.Count);
 
             scroll = GUI.BeginScrollView(new Rect(0, y + 5f, Screen.width, 90), scroll, viewport);
 
-            for (int i = 0; i < commandList.Count; i++)
-            {
+            for (int i = 0; i < commandList.Count; i++) {
                 DebugCommandBase command = commandList[i];
 
                 string label = $"{command.commandFormat} - {command.commandDescription}";
@@ -99,18 +119,21 @@ public class DebugController : MonoBehaviour {
     }
 
     private void HandleInput() {
-        string[] porperties = input.Split(' ');
+        string[] properties = input.Split(' ');
 
-        for (int i = 0; i < commandList.Count; i++)
-        {
+        for (int i = 0; i < commandList.Count; i++) {
             DebugCommandBase commandBase = commandList[i] as DebugCommandBase;
 
-            if (input.Contains(commandBase.commandId)) {
-                if (commandList[i] is DebugCommand dc) {
-                    dc.Invoke();
+            if (properties[0].Equals(commandBase.commandId)) {
+                //if (input.Contains(commandBase.commandId)) {
+                if (commandList[i] is DebugCommand command) {
+                    command.Invoke();
                 }
-                else if (commandList[i] is DebugCommand<int> dcInt) {
-                    dcInt.Invoke(int.Parse(porperties[1]));
+                else if (commandList[i] is DebugCommand<int> commandInt) {
+                    commandInt.Invoke(int.Parse(properties[1]));
+                }
+                else if (commandList[i] is DebugCommand<string> commandString) {
+                    commandString.Invoke(properties[1]);
                 }
             }
         }
