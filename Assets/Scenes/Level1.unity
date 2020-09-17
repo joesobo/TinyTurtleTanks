@@ -8340,6 +8340,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commandList: []
+  spawnItems:
+  - {fileID: 7939854123928799510, guid: 6ced0f730a7fcb14db1250bbc8248052, type: 3}
+  - {fileID: 1781421707904218462, guid: c2519121044b2554fa963e26bdda04ac, type: 3}
+  - {fileID: 5228362278386801292, guid: 5df144653570b1641b1aabeeb29f60ac, type: 3}
+  - {fileID: 6538454638437463307, guid: 8f4714290b8b6c44b895bc2105a3a504, type: 3}
 --- !u!1 &775887731
 GameObject:
   m_ObjectHideFlags: 0
@@ -9099,7 +9104,7 @@ MonoBehaviour:
   soundVolume: 0.5
   useCrates: 0
   useEnvironmentObjects: 0
-  useEnemies: 1
+  useEnemies: 0
   currentLevel: 1
 --- !u!4 &1000687953
 Transform:
@@ -10206,7 +10211,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.2869228, y: 0.56755465, z: -0.2201634, w: 0.73965204}
+  m_LocalRotation: {x: 0.28692284, y: 0.5675547, z: -0.22016345, w: 0.73965204}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

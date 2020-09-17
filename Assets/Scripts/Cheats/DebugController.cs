@@ -17,6 +17,7 @@ public class DebugController : MonoBehaviour {
     public static DebugCommand KILL_PLAYER;
     public static DebugCommand KILL_ENEMIES;
     public static DebugCommand<string> EFFECT;
+    public static DebugCommand<string> SPAWN;
 
     private PlayerHealth playerHealth;
     private PlayerController playerController;
@@ -24,6 +25,7 @@ public class DebugController : MonoBehaviour {
     private LevelRunner levelRunner;
 
     public List<DebugCommandBase> commandList;
+    public List<GameObject> spawnItems;
 
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
@@ -56,21 +58,10 @@ public class DebugController : MonoBehaviour {
             }
         });
         EFFECT = new DebugCommand<string>("effect", "Gives the player speed, jump, shield, or health", "effect <type>", (value) => {
-            if (!playerEffects.shield && !playerEffects.speed && !playerEffects.jump) {
-                if (value == "jump") {
-                    playerEffects.ActivateJump();
-                }
-                else if (value == "speed") {
-                    playerEffects.ActivateSpeed();
-                }
-                else if (value == "shield") {
-                    playerEffects.ActivateShield();
-                }
-            }
-
-            if (value == "health") {
-                playerEffects.ActivateHealth();
-            }
+            SetEffect(value);
+        });
+        SPAWN = new DebugCommand<string>("spawn", "Spawns a speed, jump, shield, or health pickup near the player", "spawn <type>", (value) => {
+            SpawnItem(value);
         });
 
         commandList = new List<DebugCommandBase> {
@@ -80,7 +71,8 @@ public class DebugController : MonoBehaviour {
             HOME,
             KILL_PLAYER,
             KILL_ENEMIES,
-            EFFECT
+            EFFECT,
+            SPAWN
         };
     }
 
@@ -126,6 +118,39 @@ public class DebugController : MonoBehaviour {
         GUI.Box(new Rect(0, y, Screen.width, 30), "");
         GUI.backgroundColor = new Color(0, 0, 0, 0);
         input = GUI.TextField(new Rect(10f, y + 5f, Screen.width - 20f, 20), input);
+    }
+
+    private void SetEffect(string value) {
+        if (!playerEffects.shield && !playerEffects.speed && !playerEffects.jump) {
+            if (value == "jump") {
+                playerEffects.ActivateJump();
+            }
+            else if (value == "speed") {
+                playerEffects.ActivateSpeed();
+            }
+            else if (value == "shield") {
+                playerEffects.ActivateShield();
+            }
+        }
+
+        if (value == "health") {
+            playerEffects.ActivateHealth();
+        }
+    }
+
+    private void SpawnItem(string value) {
+        if (value == "jump") {
+            Instantiate(spawnItems[0], playerController.gameObject.transform.position, Quaternion.identity);
+        }
+        else if (value == "speed") {
+            Instantiate(spawnItems[1], playerController.gameObject.transform.position, Quaternion.identity);
+        }
+        else if (value == "shield") {
+            Instantiate(spawnItems[2], playerController.gameObject.transform.position, Quaternion.identity);
+        }
+        else if (value == "health") {
+            Instantiate(spawnItems[3], playerController.gameObject.transform.position, Quaternion.identity);
+        }
     }
 
     private void HandleInput() {
