@@ -25,9 +25,12 @@ public class DebugController : MonoBehaviour {
     private Enemy enemyBase;
     private LevelRunner levelRunner;
 
-    public BaseTurtle enemyBaseTurtle;
     public List<DebugCommandBase> commandList;
     public List<GameObject> spawnItems;
+
+    private void Awake() {
+        enemyBase = FindObjectOfType<Enemy>();
+    }
 
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
@@ -35,8 +38,6 @@ public class DebugController : MonoBehaviour {
         playerController = FindObjectOfType<PlayerController>();
         playerEffects = FindObjectOfType<PlayerEffects>();
         levelRunner = FindObjectOfType<LevelRunner>();
-        enemyBase = new Enemy();
-        enemyBase.BaseTurtle = enemyBaseTurtle;
 
         playerHomePosition = playerController.gameObject.transform.position;
 
