@@ -22,8 +22,10 @@ public class DebugController : MonoBehaviour {
     private PlayerHealth playerHealth;
     private PlayerController playerController;
     private PlayerEffects playerEffects;
+    private Enemy enemyBase;
     private LevelRunner levelRunner;
 
+    public BaseTurtle enemyBaseTurtle;
     public List<DebugCommandBase> commandList;
     public List<GameObject> spawnItems;
 
@@ -33,6 +35,8 @@ public class DebugController : MonoBehaviour {
         playerController = FindObjectOfType<PlayerController>();
         playerEffects = FindObjectOfType<PlayerEffects>();
         levelRunner = FindObjectOfType<LevelRunner>();
+        enemyBase = new Enemy();
+        enemyBase.BaseTurtle = enemyBaseTurtle;
 
         playerHomePosition = playerController.gameObject.transform.position;
 
@@ -139,17 +143,29 @@ public class DebugController : MonoBehaviour {
     }
 
     private void SpawnItem(string value) {
+        Vector3 playerPos = playerController.gameObject.transform.position;
+
         if (value == "jump") {
-            Instantiate(spawnItems[0], playerController.gameObject.transform.position, Quaternion.identity);
+            Instantiate(spawnItems[0], playerPos, Quaternion.identity);
         }
         else if (value == "speed") {
-            Instantiate(spawnItems[1], playerController.gameObject.transform.position, Quaternion.identity);
+            Instantiate(spawnItems[1], playerPos, Quaternion.identity);
         }
         else if (value == "shield") {
-            Instantiate(spawnItems[2], playerController.gameObject.transform.position, Quaternion.identity);
+            Instantiate(spawnItems[2], playerPos, Quaternion.identity);
         }
         else if (value == "health") {
-            Instantiate(spawnItems[3], playerController.gameObject.transform.position, Quaternion.identity);
+            Instantiate(spawnItems[3], playerPos, Quaternion.identity);
+        }
+        else if (value == "bomb") {
+            Instantiate(spawnItems[4], playerPos, Quaternion.identity);
+        }
+        else if (value == "rocket") {
+            Instantiate(spawnItems[5], playerPos, Quaternion.identity);
+        }
+        else if (value == "enemy") {
+            Vector3 pos = new Vector3(playerPos.x, playerPos.y + 3, playerPos.z);
+            enemyBase.CreateEnemy(pos);
         }
     }
 

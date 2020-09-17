@@ -22,7 +22,7 @@ public class EnemiesLeft : MonoBehaviour {
     }
 
     private void Update() {
-        if (totalEnemies != levelRunner.GetNumEnemiesLeft()) {
+        if (totalEnemies > 0 && totalEnemies != levelRunner.GetNumEnemiesLeft()) {
             int difference = totalEnemies - levelRunner.GetNumEnemiesLeft();
             totalEnemies = levelRunner.GetNumEnemiesLeft();
 

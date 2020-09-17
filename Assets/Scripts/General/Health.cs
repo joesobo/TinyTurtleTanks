@@ -35,9 +35,7 @@ public abstract class Health : MonoBehaviour {
         if (curHealth <= 0 && !isDead) {
             isDead = true;
 
-            if (settings.useEnemies) {
-                OnDeath();
-            }
+            OnDeath();
         }
     }
 
