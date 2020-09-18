@@ -10,6 +10,7 @@ public class DebugController : MonoBehaviour {
     private Vector2 scroll;
     private Vector3 playerHomePosition;
 
+    public static DebugCommand FULL_HEAL;
     public static DebugCommand<int> INCREASE_HEALTH;
     public static DebugCommand<int> DECREASE_HEALTH;
     public static DebugCommand HELP;
@@ -45,6 +46,9 @@ public class DebugController : MonoBehaviour {
 
         playerHomePosition = playerController.gameObject.transform.position;
 
+        FULL_HEAL = new DebugCommand("full_heal", "Heals the player to full health", "full_heal", () => {
+            playerHealth.IncreaseHealth(playerHealth.MAXHEALTH);
+        });
         INCREASE_HEALTH = new DebugCommand<int>("heal", "Heals the player by x health", "heal <heal amount>", (value) => {
             playerHealth.IncreaseHealth(value);
         });
@@ -74,6 +78,7 @@ public class DebugController : MonoBehaviour {
         });
 
         commandList = new List<DebugCommandBase> {
+            FULL_HEAL,
             INCREASE_HEALTH,
             DECREASE_HEALTH,
             HELP,
@@ -194,7 +199,9 @@ public class DebugController : MonoBehaviour {
                     command.Invoke();
                 }
                 else if (commandList[i] is DebugCommand<int> commandInt) {
-                    commandInt.Invoke(int.Parse(properties[1]));
+                    int number = properties.Length >= 2 ? int.Parse(properties[1]) : 1;
+
+                    commandInt.Invoke(number);
                 }
                 else if (commandList[i] is DebugCommand<string> commandString) {
                     commandString.Invoke(properties[1]);
