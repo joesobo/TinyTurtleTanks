@@ -19,11 +19,9 @@ public class BoidSpawner : MonoBehaviour {
 
     public GizmoType showSpawnRegion;
 
-    private BoidSettings settings;
+    public BoidSettings settings;
 
-    public void StartSpawner(BoidSettings settings) {
-        this.settings = settings;
-
+    public void StartSpawner() {
         for (int i = 0; i < spawnCount; i++) {
             float randomSpawnRange = Random.Range(settings.spawnRange.x, settings.spawnRange.y);
             CreateBoid((UnityEngine.Random.insideUnitSphere * randomSpawnRange) + center);

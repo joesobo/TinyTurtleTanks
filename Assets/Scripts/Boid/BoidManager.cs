@@ -6,7 +6,8 @@ using UnityEngine;
 public class BoidManager : MonoBehaviour {
     public enum GizmoType { Never, SelectedOnly, Always }
 
-    public BoidSettings settings;
+    private GameSettings gameSettings;
+    public BoidSettings boidSettings;
     private List<Boid> boids = new List<Boid>();
 
     private float viewRadius;
@@ -22,17 +23,13 @@ public class BoidManager : MonoBehaviour {
     private BoidSpawner boidSpawner;
 
     private void Start() {
+        gameSettings = FindObjectOfType<GameSettings>();
         boidSpawner = FindObjectOfType<BoidSpawner>();
-        boidSpawner.StartSpawner(settings);
-        boids = FindObjectsOfType<Boid>().ToList();
-        foreach (Boid b in boids) {
-            b.Initialize(target, avoidTarget, settings);
-            totalBoids++;
+        if (gameSettings.useBirds) {
+            boidSpawner.StartSpawner();
         }
 
-        minMaxBoidRange = settings.moveRange;
-        viewRadius = settings.perceptionRadius;
-        avoidRadius = settings.avoidanceRadius;
+        UpdateBirdSettings();
     }
 
     private void Update() {
@@ -45,6 +42,18 @@ public class BoidManager : MonoBehaviour {
                 boid.UpdateBoid();
             }
         }
+    }
+
+    public void UpdateBirdSettings() {
+        boids = FindObjectsOfType<Boid>().ToList();
+        foreach (Boid b in boids) {
+            b.Initialize(target, avoidTarget, boidSettings);
+            totalBoids++;
+        }
+
+        minMaxBoidRange = boidSettings.moveRange;
+        viewRadius = boidSettings.perceptionRadius;
+        avoidRadius = boidSettings.avoidanceRadius;
     }
 
     public int GetFlockSize() {
@@ -83,7 +92,7 @@ public class BoidManager : MonoBehaviour {
     private List<Boid> GetNeighbors(Boid curBoid) {
         List<Boid> allBoidList = boids.ToList();
         List<Boid> neighborList = new List<Boid>();
-        Collider[] contextColliders = Physics.OverlapSphere(curBoid.position, settings.perceptionRadius);
+        Collider[] contextColliders = Physics.OverlapSphere(curBoid.position, boidSettings.perceptionRadius);
 
         Boid newBoid;
         foreach (Collider c in contextColliders) {
@@ -125,7 +134,7 @@ public class BoidManager : MonoBehaviour {
     }
 
     public void AddBoidToList(Boid boid) {
-        boid.Initialize(target, avoidTarget, settings);
+        boid.Initialize(target, avoidTarget, boidSettings);
         boids.Add(boid);
     }
 }

@@ -24,6 +24,8 @@ public class DebugController : MonoBehaviour {
     private PlayerEffects playerEffects;
     private Enemy enemyBase;
     private LevelRunner levelRunner;
+    private BoidSpawner boidSpawner;
+    private BoidManager boidManager;
 
     public List<DebugCommandBase> commandList;
     public List<GameObject> spawnItems;
@@ -38,6 +40,8 @@ public class DebugController : MonoBehaviour {
         playerController = FindObjectOfType<PlayerController>();
         playerEffects = FindObjectOfType<PlayerEffects>();
         levelRunner = FindObjectOfType<LevelRunner>();
+        boidSpawner = FindObjectOfType<BoidSpawner>();
+        boidManager = FindObjectOfType<BoidManager>();
 
         playerHomePosition = playerController.gameObject.transform.position;
 
@@ -172,7 +176,8 @@ public class DebugController : MonoBehaviour {
             Instantiate(spawnItems[6], offsetPos, Quaternion.identity);
         }
         else if (value == "bird") {
-            
+            boidSpawner.CreateBoid(offsetPos);
+            boidManager.UpdateBirdSettings();
         }
     }
 
