@@ -46,6 +46,22 @@ public class DebugController : MonoBehaviour {
 
         playerHomePosition = playerController.gameObject.transform.position;
 
+        SetupCommands();
+    }
+
+    void Update() {
+        if (Input.GetButtonDown("Console")) {
+            showConsole = !showConsole;
+            settings.isPaused = !settings.isPaused;
+        }
+
+        if (showConsole && Input.GetButtonDown("Submit")) {
+            HandleInput();
+            input = "";
+        }
+    }
+
+    private void SetupCommands() {
         FULL_HEAL = new DebugCommand("full_heal", "Heals the player to full health", "full_heal", () => {
             playerHealth.IncreaseHealth(playerHealth.MAXHEALTH);
         });
@@ -88,18 +104,6 @@ public class DebugController : MonoBehaviour {
             EFFECT,
             SPAWN
         };
-    }
-
-    void Update() {
-        if (Input.GetButtonDown("Console")) {
-            showConsole = !showConsole;
-            settings.isPaused = !settings.isPaused;
-        }
-
-        if (showConsole && Input.GetButtonDown("Submit")) {
-            HandleInput();
-            input = "";
-        }
     }
 
     void OnGUI() {
