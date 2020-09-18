@@ -172,7 +172,9 @@ public class DebugController : MonoBehaviour {
 
         GUI.Box(new Rect(0, y, Screen.width, 30), "");
         GUI.backgroundColor = new Color(0, 0, 0, 0);
+        GUI.SetNextControlName("MyTextField");
         input = GUI.TextField(new Rect(10f, y + 5f, Screen.width - 20f, 20), input);
+        GUI.FocusControl("MyTextField");
     }
 
     private void SetEffect(string value) {
