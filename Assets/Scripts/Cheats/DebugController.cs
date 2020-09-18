@@ -109,9 +109,11 @@ public class DebugController : MonoBehaviour {
     void OnGUI() {
         if (!showConsole) { return; }
 
-        float y = Screen.height - 30f;
+        float y;
 
         if (showHelp) {
+            y = Screen.height - 30f - 100f;
+
             GUI.Box(new Rect(0, y, Screen.width, 100), "");
 
             Rect viewport = new Rect(0, 0, Screen.width - 30, 20 * commandList.Count);
@@ -129,9 +131,9 @@ public class DebugController : MonoBehaviour {
             }
 
             GUI.EndScrollView();
-
-            y -= 100;
         }
+
+        y = Screen.height - 30f;
 
         GUI.Box(new Rect(0, y, Screen.width, 30), "");
         GUI.backgroundColor = new Color(0, 0, 0, 0);

@@ -6903,6 +6903,7 @@ MonoBehaviour:
   color1: {r: 0.759434, g: 1, b: 0.99327844, a: 1}
   color2: {r: 1, g: 1, b: 1, a: 1}
   showSpawnRegion: 0
+  settings: {fileID: 0}
 --- !u!114 &468347639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6915,7 +6916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faddb7646c731a042a1513459ab3c027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: 576f064cdcfd5314b89063d9153b31ad, type: 2}
+  boidSettings: {fileID: 0}
   showSpawnRegion: 2
   target: {fileID: 0}
   avoidTarget: {fileID: 4566354625369546602}
