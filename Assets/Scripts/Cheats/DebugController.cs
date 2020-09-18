@@ -145,6 +145,7 @@ public class DebugController : MonoBehaviour {
 
     private void SpawnItem(string value) {
         Vector3 playerPos = playerController.gameObject.transform.position;
+        Vector3 offsetPos = new Vector3(playerPos.x, playerPos.y + 3, playerPos.z);
 
         if (value == "jump") {
             Instantiate(spawnItems[0], playerPos, Quaternion.identity);
@@ -165,8 +166,13 @@ public class DebugController : MonoBehaviour {
             Instantiate(spawnItems[5], playerPos, Quaternion.identity);
         }
         else if (value == "enemy") {
-            Vector3 pos = new Vector3(playerPos.x, playerPos.y + 3, playerPos.z);
-            enemyBase.CreateEnemy(pos);
+            enemyBase.CreateEnemy(offsetPos);
+        }
+        else if (value == "fish") {
+            Instantiate(spawnItems[6], offsetPos, Quaternion.identity);
+        }
+        else if (value == "bird") {
+            
         }
     }
 
