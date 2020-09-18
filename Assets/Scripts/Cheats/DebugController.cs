@@ -17,7 +17,7 @@ public class DebugController : MonoBehaviour {
     public static DebugCommand KILL_PLAYER;
     public static DebugCommand KILL_ENEMIES;
     public static DebugCommand<string> EFFECT;
-    public static DebugCommand<string> SPAWN;
+    public static DebugCommand<string, int> SPAWN;
 
     private PlayerHealth playerHealth;
     private PlayerController playerController;
@@ -69,8 +69,8 @@ public class DebugController : MonoBehaviour {
         EFFECT = new DebugCommand<string>("effect", "Gives the player speed, jump, shield, or health", "effect <type>", (value) => {
             SetEffect(value);
         });
-        SPAWN = new DebugCommand<string>("spawn", "Spawns a speed, jump, shield, or health pickup near the player", "spawn <type>", (value) => {
-            SpawnItem(value);
+        SPAWN = new DebugCommand<string, int>("spawn", "Spawns things near the player", "spawn <type> <num>", (command, numberMod) => {
+            SpawnItem(command, numberMod);
         });
 
         commandList = new List<DebugCommandBase> {
@@ -147,37 +147,39 @@ public class DebugController : MonoBehaviour {
         }
     }
 
-    private void SpawnItem(string value) {
+    private void SpawnItem(string value, int num) {
         Vector3 playerPos = playerController.gameObject.transform.position;
         Vector3 offsetPos = new Vector3(playerPos.x, playerPos.y + 3, playerPos.z);
 
-        if (value == "jump") {
-            Instantiate(spawnItems[0], playerPos, Quaternion.identity);
-        }
-        else if (value == "speed") {
-            Instantiate(spawnItems[1], playerPos, Quaternion.identity);
-        }
-        else if (value == "shield") {
-            Instantiate(spawnItems[2], playerPos, Quaternion.identity);
-        }
-        else if (value == "health") {
-            Instantiate(spawnItems[3], playerPos, Quaternion.identity);
-        }
-        else if (value == "bomb") {
-            Instantiate(spawnItems[4], playerPos, Quaternion.identity);
-        }
-        else if (value == "rocket") {
-            Instantiate(spawnItems[5], playerPos, Quaternion.identity);
-        }
-        else if (value == "enemy") {
-            enemyBase.CreateEnemy(offsetPos);
-        }
-        else if (value == "fish") {
-            Instantiate(spawnItems[6], offsetPos, Quaternion.identity);
-        }
-        else if (value == "bird") {
-            boidSpawner.CreateBoid(offsetPos);
-            boidManager.UpdateBirdSettings();
+        for (int i = 0; i < num; i++) {
+            if (value == "jump") {
+                Instantiate(spawnItems[0], playerPos, Quaternion.identity);
+            }
+            else if (value == "speed") {
+                Instantiate(spawnItems[1], playerPos, Quaternion.identity);
+            }
+            else if (value == "shield") {
+                Instantiate(spawnItems[2], playerPos, Quaternion.identity);
+            }
+            else if (value == "health") {
+                Instantiate(spawnItems[3], playerPos, Quaternion.identity);
+            }
+            else if (value == "bomb") {
+                Instantiate(spawnItems[4], playerPos, Quaternion.identity);
+            }
+            else if (value == "rocket") {
+                Instantiate(spawnItems[5], playerPos, Quaternion.identity);
+            }
+            else if (value == "enemy") {
+                enemyBase.CreateEnemy(offsetPos);
+            }
+            else if (value == "fish") {
+                Instantiate(spawnItems[6], offsetPos, Quaternion.identity);
+            }
+            else if (value == "bird") {
+                boidSpawner.CreateBoid(offsetPos);
+                boidManager.UpdateBirdSettings();
+            }
         }
     }
 
@@ -188,7 +190,6 @@ public class DebugController : MonoBehaviour {
             DebugCommandBase commandBase = commandList[i] as DebugCommandBase;
 
             if (properties[0].Equals(commandBase.commandId)) {
-                //if (input.Contains(commandBase.commandId)) {
                 if (commandList[i] is DebugCommand command) {
                     command.Invoke();
                 }
@@ -197,6 +198,11 @@ public class DebugController : MonoBehaviour {
                 }
                 else if (commandList[i] is DebugCommand<string> commandString) {
                     commandString.Invoke(properties[1]);
+                }
+                else if (commandList[i] is DebugCommand<string, int> commandStringInt) {
+                    int number = properties.Length >= 3 ? int.Parse(properties[2]) : 1;
+
+                    commandStringInt.Invoke(properties[1], number);
                 }
             }
         }
