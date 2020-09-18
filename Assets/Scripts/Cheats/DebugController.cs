@@ -5,15 +5,18 @@ using UnityEngine;
 public class DebugController : MonoBehaviour {
     private bool showConsole = false;
     private bool showHelp = false;
+    private bool showExtraHelp = false;
+
     private string input;
     private GameSettings settings;
     private Vector2 scroll;
     private Vector3 playerHomePosition;
+    private DebugCommandBase extraHelp;
 
     public static DebugCommand FULL_HEAL;
     public static DebugCommand<int> INCREASE_HEALTH;
     public static DebugCommand<int> DECREASE_HEALTH;
-    public static DebugCommand HELP;
+    public static DebugCommand<string> HELP;
     public static DebugCommand HOME;
     public static DebugCommand KILL_PLAYER;
     public static DebugCommand KILL_ENEMIES;
@@ -59,37 +62,48 @@ public class DebugController : MonoBehaviour {
             HandleInput();
             input = "";
         }
+
+        if (!showConsole && (showHelp || showExtraHelp)) {
+            showHelp = false;
+            showExtraHelp = false;
+        }
     }
 
     private void SetupCommands() {
-        FULL_HEAL = new DebugCommand("full_heal", "Heals the player to full health", "full_heal", () => {
+        FULL_HEAL = new DebugCommand("full_heal", "Heals the player to full health", "full_heal", null, () => {
             playerHealth.IncreaseHealth(playerHealth.MAXHEALTH);
         });
-        INCREASE_HEALTH = new DebugCommand<int>("heal", "Heals the player by x health", "heal <heal amount>", (value) => {
+        INCREASE_HEALTH = new DebugCommand<int>("heal", "Heals the player by x health", "heal <heal amount>", null, (value) => {
             playerHealth.IncreaseHealth(value);
         });
-        DECREASE_HEALTH = new DebugCommand<int>("damage", "Damages the player by x health", "damage <damage amount>", (value) => {
+        DECREASE_HEALTH = new DebugCommand<int>("damage", "Damages the player by x health", "damage <damage amount>", null, (value) => {
             playerHealth.DecreaseHealth(value);
         });
-        HELP = new DebugCommand("help", "Shows a list of commands", "help", () => {
-            showHelp = true;
+        HELP = new DebugCommand<string>("help", "Shows a list of commands", "help", null, (value) => {
+            if (value != null) {
+                HandleExtraHelp(value);
+            }
+            else {
+                showHelp = true;
+                showExtraHelp = false;
+            }
         });
-        HOME = new DebugCommand("home", "Teleports player to home", "home", () => {
+        HOME = new DebugCommand("home", "Teleports player to home", "home", null, () => {
             playerController.gameObject.transform.position = playerHomePosition;
         });
-        KILL_PLAYER = new DebugCommand("kill_player", "Instantly kills the player", "kill_player", () => {
+        KILL_PLAYER = new DebugCommand("kill_player", "Instantly kills the player", "kill_player", null, () => {
             playerHealth.DecreaseHealth(playerHealth.MAXHEALTH);
         });
-        KILL_ENEMIES = new DebugCommand("kill_enemies", "Instantly kills all enemies", "kill_enemies", () => {
+        KILL_ENEMIES = new DebugCommand("kill_enemies", "Instantly kills all enemies", "kill_enemies", null, () => {
             foreach (EnemyHealth enemy in FindObjectsOfType<EnemyHealth>()) {
                 enemy.InstantKillEnemy();
                 levelRunner.DecreaseNumEnemy();
             }
         });
-        EFFECT = new DebugCommand<string>("effect", "Gives the player speed, jump, shield, or health", "effect <type>", (value) => {
+        EFFECT = new DebugCommand<string>("effect", "Gives the player an effect", "effect <type>", "Allows user to give themselves the effect of [speed, jump, shield, or health]", (value) => {
             SetEffect(value);
         });
-        SPAWN = new DebugCommand<string, int>("spawn", "Spawns things near the player", "spawn <type> <num>", (command, numberMod) => {
+        SPAWN = new DebugCommand<string, int>("spawn", "Spawns things near the player", "spawn <type> <num>", "Allows user to spawn a pickup [speed, jump, shield, health], weapon [rocket, bomb], enemy, fish, or bird", (command, numberMod) => {
             SpawnItem(command, numberMod);
         });
 
@@ -131,6 +145,27 @@ public class DebugController : MonoBehaviour {
             }
 
             GUI.EndScrollView();
+        }
+
+        else if (showExtraHelp) {
+            y = Screen.height - 30f - 30f;
+
+            GUI.Box(new Rect(0, y, Screen.width, 30), "");
+
+            string description;
+
+            if (extraHelp.extraDescription != null) {
+                description = extraHelp.extraDescription;
+            }
+            else {
+                description = extraHelp.commandDescription;
+            }
+
+            string label = $"{extraHelp.commandFormat} - {description}";
+
+            Rect labelRect = new Rect(5, y + 5, Screen.width - 20f, 30);
+
+            GUI.Label(labelRect, label);
         }
 
         y = Screen.height - 30f;
@@ -210,13 +245,27 @@ public class DebugController : MonoBehaviour {
                     commandInt.Invoke(number);
                 }
                 else if (commandList[i] is DebugCommand<string> commandString) {
-                    commandString.Invoke(properties[1]);
+                    string value = properties.Length >= 2 ? properties[1] : null;
+
+                    commandString.Invoke(value);
                 }
                 else if (commandList[i] is DebugCommand<string, int> commandStringInt) {
                     int number = properties.Length >= 3 ? int.Parse(properties[2]) : 1;
 
                     commandStringInt.Invoke(properties[1], number);
                 }
+            }
+        }
+    }
+
+    private void HandleExtraHelp(string value) {
+        for (int i = 0; i < commandList.Count; i++) {
+            DebugCommandBase commandBase = commandList[i] as DebugCommandBase;
+
+            if (value.Equals(commandBase.commandId)) {
+                extraHelp = commandBase;
+                showExtraHelp = true;
+                showHelp = false;
             }
         }
     }
