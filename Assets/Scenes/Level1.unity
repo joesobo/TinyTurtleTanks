@@ -9094,7 +9094,7 @@ MonoBehaviour:
   useVFX: 1
   useSound: 0
   useParticle: 1
-  particleSlider: 1
+  particleSlider: 0
   useGrass: 0
   useSeaweed: 0
   useFootPrints: 0
@@ -10904,7 +10904,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 35, y: 0}
+  m_AnchoredPosition: {x: 34.99994, y: 0}
   m_SizeDelta: {x: 70, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1440485761

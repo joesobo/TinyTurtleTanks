@@ -53,14 +53,9 @@ public class DebugController : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetButtonDown("Console")) {
+        if (Input.GetKeyDown(KeyCode.BackQuote)) {
             showConsole = !showConsole;
             settings.isPaused = !settings.isPaused;
-        }
-
-        if (showConsole && Input.GetButtonDown("Submit")) {
-            HandleInput();
-            input = "";
         }
 
         if (!showConsole && (showHelp || showExtraHelp)) {
@@ -146,7 +141,6 @@ public class DebugController : MonoBehaviour {
 
             GUI.EndScrollView();
         }
-
         else if (showExtraHelp) {
             y = Screen.height - 30f - 30f;
 
@@ -172,9 +166,21 @@ public class DebugController : MonoBehaviour {
 
         GUI.Box(new Rect(0, y, Screen.width, 30), "");
         GUI.backgroundColor = new Color(0, 0, 0, 0);
-        GUI.SetNextControlName("MyTextField");
-        input = GUI.TextField(new Rect(10f, y + 5f, Screen.width - 20f, 20), input);
-        GUI.FocusControl("MyTextField");
+
+        if (showConsole && Event.current.isKey && Event.current.keyCode == KeyCode.Return) {
+            HandleInput();
+            input = "";
+        }
+        else {
+            GUI.SetNextControlName("MyTextField");
+            input = GUI.TextField(new Rect(10f, y + 5f, Screen.width - 20f, 20), input);
+            GUI.FocusControl("MyTextField");
+            if (input != null && input.Contains("`")) {
+                input = "";
+                showConsole = false;
+                settings.isPaused = false;
+            }
+        }
     }
 
     private void SetEffect(string value) {
