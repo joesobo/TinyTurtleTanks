@@ -28,6 +28,9 @@ public class GameSettings : MonoBehaviour {
     public bool useEnemies = false;
     public int currentLevel = 1;
 
+    [HideInInspector]
+    public float defaultTimeScale = 1;
+
     void Awake() {
         if (Instance == null) {
             DontDestroyOnLoad(gameObject);
@@ -47,7 +50,7 @@ public class GameSettings : MonoBehaviour {
             Time.timeScale = 0;
         }
         else {
-            Time.timeScale = 1;
+            Time.timeScale = defaultTimeScale;
         }
     }
 

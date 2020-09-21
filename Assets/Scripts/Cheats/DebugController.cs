@@ -24,6 +24,7 @@ public class DebugController : MonoBehaviour {
     public static DebugCommand KILL_ENEMIES;
     public static DebugCommand<string> EFFECT;
     public static DebugCommand<string, int> SPAWN;
+    public static DebugCommand<float> TIME;
 
     private PlayerHealth playerHealth;
     private PlayerController playerController;
@@ -111,6 +112,11 @@ public class DebugController : MonoBehaviour {
         SPAWN = new DebugCommand<string, int>("spawn", "Spawns things near the player", "spawn <type> <num>", "Allows user to spawn a pickup [speed, jump, shield, health], weapon [rocket, bomb], enemy, fish, or bird", (command, numberMod) => {
             SpawnItem(command, numberMod);
         });
+        TIME = new DebugCommand<float>("time", "Sets the scale of time [0.25, 0.5, 1, 1.5, 2]", "time <num>", "Speed up or slow down game [0.25, 0.5, 1, 1.5, 2] [default: 1]", (value) => {
+            if (value == 0.25 || value == 0.5 || value == 1 || value == 1.5 || value == 2) {
+                settings.defaultTimeScale = value;
+            }
+        });
 
         commandList = new List<DebugCommandBase> {
             FULL_HEAL,
@@ -121,7 +127,8 @@ public class DebugController : MonoBehaviour {
             KILL_PLAYER,
             KILL_ENEMIES,
             EFFECT,
-            SPAWN
+            SPAWN,
+            TIME
         };
     }
 
@@ -266,6 +273,11 @@ public class DebugController : MonoBehaviour {
                     string value = properties.Length >= 2 ? properties[1] : null;
 
                     commandString.Invoke(value);
+                }
+                else if (commandList[i] is DebugCommand<float> commandFloat) {
+                    float number = properties.Length >= 2 ? float.Parse(properties[1]) : 1f;
+
+                    commandFloat.Invoke(number);
                 }
                 else if (commandList[i] is DebugCommand<string, int> commandStringInt) {
                     int number = properties.Length >= 3 ? int.Parse(properties[2]) : 1;
