@@ -35,7 +35,6 @@ public class LevelRunner : MonoBehaviour {
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
 
-
         quitMenu = FindObjectOfType<QuitMenu>();
 
         if (settings.useEnemies) {
@@ -55,7 +54,7 @@ public class LevelRunner : MonoBehaviour {
             ps.Stop();
         }
 
-        CallSettings();
+        UpdateSettings();
     }
 
     private void Update() {
@@ -93,7 +92,7 @@ public class LevelRunner : MonoBehaviour {
         return enemiesRemaining;
     }
 
-    private void CallSettings() {
+    public void UpdateSettings() {
         //SFX and VFX
         fx.SetActive(settings.useVFX);
         grassSpawner.SetActive(settings.useGrass);
@@ -103,7 +102,6 @@ public class LevelRunner : MonoBehaviour {
         //Obstacles and Environment
         if (cloudSpawner) cloudSpawner.SetActive(settings.useClouds);
         if (moonSpawner) moonSpawner.SetActive(settings.useMoons);
-        //if (boidManager) boidManager.SetActive(settings.useBirds);
         if (atmosphere) atmosphere.SetActive(settings.useAtmosphere);
         if (crateSpawner) crateSpawner.SetActive(settings.useCrates);
         obstacleList.SetActive(settings.useEnvironmentObjects);

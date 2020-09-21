@@ -25,6 +25,7 @@ public class DebugController : MonoBehaviour {
     public static DebugCommand<string> EFFECT;
     public static DebugCommand<string, int> SPAWN;
     public static DebugCommand<float> TIME;
+    public static DebugCommand<string> TOGGLE;
 
     private PlayerHealth playerHealth;
     private PlayerController playerController;
@@ -117,6 +118,9 @@ public class DebugController : MonoBehaviour {
                 settings.defaultTimeScale = value;
             }
         });
+        TOGGLE = new DebugCommand<string>("toggle", "Toggles a game setting. Help for more info", "toggle <type>", "Toggle setting: [grass, water, seasweed, footprints, moons, clouds, atmosphere, crates, vfx, daylight_cycle]", (value) => {
+            ToggleSetting(value);
+        });
 
         commandList = new List<DebugCommandBase> {
             FULL_HEAL,
@@ -128,7 +132,8 @@ public class DebugController : MonoBehaviour {
             KILL_ENEMIES,
             EFFECT,
             SPAWN,
-            TIME
+            TIME,
+            TOGGLE
         };
     }
 
@@ -200,6 +205,52 @@ public class DebugController : MonoBehaviour {
         }
     }
 
+    private void HandleInput() {
+        string[] properties = input.Split(' ');
+
+        for (int i = 0; i < commandList.Count; i++) {
+            DebugCommandBase commandBase = commandList[i] as DebugCommandBase;
+
+            if (properties[0].Equals(commandBase.commandId)) {
+                if (commandList[i] is DebugCommand command) {
+                    command.Invoke();
+                }
+                else if (commandList[i] is DebugCommand<int> commandInt) {
+                    int number = properties.Length >= 2 ? int.Parse(properties[1]) : 1;
+
+                    commandInt.Invoke(number);
+                }
+                else if (commandList[i] is DebugCommand<string> commandString) {
+                    string value = properties.Length >= 2 ? properties[1] : null;
+
+                    commandString.Invoke(value);
+                }
+                else if (commandList[i] is DebugCommand<float> commandFloat) {
+                    float number = properties.Length >= 2 ? float.Parse(properties[1]) : 1f;
+
+                    commandFloat.Invoke(number);
+                }
+                else if (commandList[i] is DebugCommand<string, int> commandStringInt) {
+                    int number = properties.Length >= 3 ? int.Parse(properties[2]) : 1;
+
+                    commandStringInt.Invoke(properties[1], number);
+                }
+            }
+        }
+    }
+
+    private void HandleExtraHelp(string value) {
+        for (int i = 0; i < commandList.Count; i++) {
+            DebugCommandBase commandBase = commandList[i] as DebugCommandBase;
+
+            if (value.Equals(commandBase.commandId)) {
+                extraHelp = commandBase;
+                showExtraHelp = true;
+                showHelp = false;
+            }
+        }
+    }
+
     private void SetEffect(string value) {
         if (!playerEffects.shield && !playerEffects.speed && !playerEffects.jump) {
             if (value == "jump") {
@@ -254,49 +305,38 @@ public class DebugController : MonoBehaviour {
         }
     }
 
-    private void HandleInput() {
-        string[] properties = input.Split(' ');
-
-        for (int i = 0; i < commandList.Count; i++) {
-            DebugCommandBase commandBase = commandList[i] as DebugCommandBase;
-
-            if (properties[0].Equals(commandBase.commandId)) {
-                if (commandList[i] is DebugCommand command) {
-                    command.Invoke();
-                }
-                else if (commandList[i] is DebugCommand<int> commandInt) {
-                    int number = properties.Length >= 2 ? int.Parse(properties[1]) : 1;
-
-                    commandInt.Invoke(number);
-                }
-                else if (commandList[i] is DebugCommand<string> commandString) {
-                    string value = properties.Length >= 2 ? properties[1] : null;
-
-                    commandString.Invoke(value);
-                }
-                else if (commandList[i] is DebugCommand<float> commandFloat) {
-                    float number = properties.Length >= 2 ? float.Parse(properties[1]) : 1f;
-
-                    commandFloat.Invoke(number);
-                }
-                else if (commandList[i] is DebugCommand<string, int> commandStringInt) {
-                    int number = properties.Length >= 3 ? int.Parse(properties[2]) : 1;
-
-                    commandStringInt.Invoke(properties[1], number);
-                }
-            }
+    private void ToggleSetting(string value) {
+        if (value == "grass") {
+            settings.useGrass = !settings.useGrass;
         }
-    }
-
-    private void HandleExtraHelp(string value) {
-        for (int i = 0; i < commandList.Count; i++) {
-            DebugCommandBase commandBase = commandList[i] as DebugCommandBase;
-
-            if (value.Equals(commandBase.commandId)) {
-                extraHelp = commandBase;
-                showExtraHelp = true;
-                showHelp = false;
-            }
+        else if (value == "water") {
+            settings.useWater = !settings.useWater;
         }
+        else if (value == "seaweed") {
+            settings.useSeaweed = !settings.useSeaweed;
+        }
+        else if (value == "footprints") {
+            settings.useFootPrints = !settings.useFootPrints;
+        }
+        else if (value == "moons") {
+            settings.useMoons = !settings.useMoons;
+        }
+        else if (value == "clouds") {
+            settings.useClouds = !settings.useClouds;
+        }
+        else if (value == "atmosphere") {
+            settings.useAtmosphere = !settings.useAtmosphere;
+        }
+        else if (value == "crates") {
+            settings.useCrates = !settings.useCrates;
+        }
+        else if (value == "vfx") {
+            settings.useVFX = !settings.useVFX;
+        }
+        else if (value == "daylight_cycle") {
+            settings.daylightCycle = !settings.daylightCycle;
+        }
+
+        levelRunner.UpdateSettings();
     }
 }
