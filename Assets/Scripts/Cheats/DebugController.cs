@@ -27,6 +27,7 @@ public class DebugController : MonoBehaviour {
     public static DebugCommand<string, int> SPAWN;
     public static DebugCommand<float> TIME;
     public static DebugCommand<string> TOGGLE;
+    public static DebugCommand CLEAR;
 
     private PlayerHealth playerHealth;
     private PlayerController playerController;
@@ -72,8 +73,7 @@ public class DebugController : MonoBehaviour {
         }
 
         if (!showConsole && (showHelp || showExtraHelp)) {
-            showHelp = false;
-            showExtraHelp = false;
+            Clear();
         }
     }
 
@@ -122,6 +122,9 @@ public class DebugController : MonoBehaviour {
         TOGGLE = new DebugCommand<string>("toggle", "Toggles a game setting. Help for more info", "toggle <type>", "Toggle setting: [grass, water, seasweed, footprints, moons, clouds, atmosphere, crates, vfx, daylight_cycle]", (value) => {
             ToggleSetting(value);
         });
+        CLEAR = new DebugCommand("clear", "Clears the help screen", "clear", null, () => {
+            Clear();
+        });
 
         commandList = new List<DebugCommandBase> {
             FULL_HEAL,
@@ -134,7 +137,8 @@ public class DebugController : MonoBehaviour {
             EFFECT,
             SPAWN,
             TIME,
-            TOGGLE
+            TOGGLE,
+            CLEAR
         };
     }
 
@@ -190,7 +194,7 @@ public class DebugController : MonoBehaviour {
         GUI.Box(new Rect(0, y, Screen.width, 30), "");
         GUI.backgroundColor = new Color(0, 0, 0, 0);
 
-        if(showConsole && Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.UpArrow) {
+        if (showConsole && Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.UpArrow) {
             input = lastInput;
         }
 
@@ -309,6 +313,11 @@ public class DebugController : MonoBehaviour {
                 boidManager.UpdateBirdSettings();
             }
         }
+    }
+
+    private void Clear() {
+        showHelp = false;
+        showExtraHelp = false;
     }
 
     private void ToggleSetting(string value) {
