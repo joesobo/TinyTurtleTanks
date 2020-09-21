@@ -9,7 +9,8 @@ public class DebugController : MonoBehaviour {
     private bool showHelp = false;
     private bool showExtraHelp = false;
 
-    private string input;
+    private string input = "";
+    private string lastInput = "";
     private GameSettings settings;
     private Vector2 scroll;
     private Vector3 playerHomePosition;
@@ -189,7 +190,12 @@ public class DebugController : MonoBehaviour {
         GUI.Box(new Rect(0, y, Screen.width, 30), "");
         GUI.backgroundColor = new Color(0, 0, 0, 0);
 
-        if (showConsole && Event.current.isKey && Event.current.keyCode == KeyCode.Return) {
+        if(showConsole && Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.UpArrow) {
+            input = lastInput;
+        }
+
+        if (showConsole && Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.Return) {
+            lastInput = input;
             HandleInput();
             input = "";
         }
