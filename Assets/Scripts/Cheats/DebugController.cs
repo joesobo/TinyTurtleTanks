@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DebugController : MonoBehaviour {
+    public static DebugController Instance;
+
     private bool showConsole = false;
     private bool showHelp = false;
     private bool showExtraHelp = false;
@@ -35,6 +37,14 @@ public class DebugController : MonoBehaviour {
     public List<GameObject> spawnItems;
 
     private void Awake() {
+        if (Instance == null) {
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
+        }
+        else if (Instance != this) {
+            Destroy(gameObject);
+        }
+
         enemyBase = FindObjectOfType<Enemy>();
     }
 
