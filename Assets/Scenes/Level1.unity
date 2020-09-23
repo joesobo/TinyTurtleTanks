@@ -8339,6 +8339,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 193666b3a8e79c241b89ac77c14f95dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texture: {fileID: 2800000, guid: 6528844543d01ae46b1321bdf607bae5, type: 3}
+  textureColor: {r: 0, g: 0, b: 0, a: 0.5019608}
+  spacingColor: {r: 0, g: 0, b: 0, a: 0.7490196}
   commandList: []
   spawnItems:
   - {fileID: 7939854123928799510, guid: 6ced0f730a7fcb14db1250bbc8248052, type: 3}
@@ -9109,6 +9112,7 @@ MonoBehaviour:
   useEnvironmentObjects: 0
   useEnemies: 0
   currentLevel: 1
+  defaultTimeScale: 1
 --- !u!4 &1000687953
 Transform:
   m_ObjectHideFlags: 0
@@ -10216,7 +10220,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.2869228, y: 0.56755465, z: -0.2201634, w: 0.73965204}
+  m_LocalRotation: {x: 0.28692284, y: 0.5675547, z: -0.22016345, w: 0.73965204}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

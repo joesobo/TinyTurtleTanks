@@ -1003,7 +1003,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100216287}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &160200635
 MonoBehaviour:
@@ -9329,6 +9329,7 @@ MonoBehaviour:
   useEnvironmentObjects: 0
   useEnemies: 0
   currentLevel: 1
+  defaultTimeScale: 1
 --- !u!4 &1000687953
 Transform:
   m_ObjectHideFlags: 0
@@ -9712,8 +9713,8 @@ Transform:
   m_Children:
   - {fileID: 1616562864}
   - {fileID: 1000687953}
-  - {fileID: 1605382007}
   - {fileID: 160200634}
+  - {fileID: 1605382007}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11587,7 +11588,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100216287}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1605382008
 MonoBehaviour:
@@ -11601,6 +11602,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 193666b3a8e79c241b89ac77c14f95dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texture: {fileID: 2800000, guid: 6528844543d01ae46b1321bdf607bae5, type: 3}
+  textureColor: {r: 0, g: 0, b: 0, a: 0.5019608}
+  spacingColor: {r: 0, g: 0, b: 0, a: 0.7490196}
   commandList: []
   spawnItems:
   - {fileID: 7939854123928799510, guid: 6ced0f730a7fcb14db1250bbc8248052, type: 3}
