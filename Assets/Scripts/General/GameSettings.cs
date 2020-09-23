@@ -4,6 +4,7 @@ using static UnityEngine.ParticleSystem;
 public class GameSettings : MonoBehaviour {
     public static GameSettings Instance;
     public bool isPaused = false;
+    public bool allowCheats = false;
     public bool useVFX = false;
     public bool useSound = false;
     [HideInInspector]

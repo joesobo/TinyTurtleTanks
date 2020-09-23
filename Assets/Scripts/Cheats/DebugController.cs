@@ -75,13 +75,15 @@ public class DebugController : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.BackQuote)) {
-            showConsole = !showConsole;
-            settings.isPaused = !settings.isPaused;
-        }
+        if (settings.allowCheats) {
+            if (Input.GetKeyDown(KeyCode.BackQuote)) {
+                showConsole = !showConsole;
+                settings.isPaused = !settings.isPaused;
+            }
 
-        if (!showConsole && (showHelp || showExtraHelp)) {
-            Clear();
+            if (!showConsole && (showHelp || showExtraHelp)) {
+                Clear();
+            }
         }
     }
 
