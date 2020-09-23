@@ -8351,6 +8351,11 @@ MonoBehaviour:
   - {fileID: 6538454638437463307, guid: c072a3e8099fb0f4abb3f90a5227b4bb, type: 3}
   - {fileID: 5228362278386801292, guid: aee916b1c91c2024aaffde9c646b9357, type: 3}
   - {fileID: 5115293570597932283, guid: ad7d56fa51fe4ab4db7301b78e770430, type: 3}
+  weaponList:
+  - {fileID: 11400000, guid: bbe38aaea4344414f85e495a5afed2dd, type: 2}
+  - {fileID: 11400000, guid: d601ced5bee932342b28a7ae6e0a30ba, type: 2}
+  - {fileID: 11400000, guid: fa23cba9bc73c4e4da032e77383718b7, type: 2}
+  - {fileID: 11400000, guid: c9f96216be9c7f24998a2491723a3831, type: 2}
 --- !u!1 &775887731
 GameObject:
   m_ObjectHideFlags: 0
@@ -10220,7 +10225,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.28692284, y: 0.5675547, z: -0.22016345, w: 0.73965204}
+  m_LocalRotation: {x: 0.2869228, y: 0.5675547, z: -0.22016345, w: 0.739652}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

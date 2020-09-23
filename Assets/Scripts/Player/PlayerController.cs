@@ -47,13 +47,7 @@ public class PlayerController : MonoBehaviour {
         rotateSpeed = BaseTurtle.rotateSpeed;
         jumpForce = BaseTurtle.jumpForce;
 
-        playerShoot = GetComponent<PlayerShoot>();
-        playerShoot.weapon = BaseTurtle.weapon;
-        playerShoot.altWeapon = BaseTurtle.altWeapon;
-
-        if (BaseTurtle.weapon) {
-            BaseTurtle.weapon.Reload();
-        }
+        SetupWeapons();
 
         rb = GetComponent<Rigidbody>();
         settings = FindObjectOfType<GameSettings>();
@@ -68,6 +62,16 @@ public class PlayerController : MonoBehaviour {
         Jump();
 
         animator.SetBool("Walking", false);
+    }
+
+    public void SetupWeapons() {
+        playerShoot = GetComponent<PlayerShoot>();
+        playerShoot.weapon = BaseTurtle.weapon;
+        playerShoot.altWeapon = BaseTurtle.altWeapon;
+
+        if (BaseTurtle.weapon) {
+            BaseTurtle.weapon.Reload();
+        }
     }
 
     private void Jump() {

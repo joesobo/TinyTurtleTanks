@@ -28,6 +28,7 @@ public class DebugController : MonoBehaviour {
     public static DebugCommand<float> TIME;
     public static DebugCommand<string> TOGGLE;
     public static DebugCommand CLEAR;
+    public static DebugCommand<string> WEAPON;
 
     private PlayerHealth playerHealth;
     private PlayerController playerController;
@@ -43,6 +44,7 @@ public class DebugController : MonoBehaviour {
     [HideInInspector]
     public List<DebugCommandBase> commandList;
     public List<GameObject> spawnItems;
+    public List<ScriptableObject> weaponList;
 
     private int spacingSize = 1;
 
@@ -81,6 +83,12 @@ public class DebugController : MonoBehaviour {
         if (!showConsole && (showHelp || showExtraHelp)) {
             Clear();
         }
+    }
+
+    private void OnApplicationQuit() {
+        playerController.BaseTurtle.weapon = weaponList[1] as Weapon;
+        playerController.BaseTurtle.altWeapon = weaponList[3] as AltWeapon;
+        playerController.SetupWeapons();
     }
 
     private void SetupCommands() {
@@ -131,6 +139,9 @@ public class DebugController : MonoBehaviour {
         CLEAR = new DebugCommand("clear", "Clears the help screen", "clear", null, () => {
             Clear();
         });
+        WEAPON = new DebugCommand<string>("weapon", "Switch the players weapon", "weapon <type>", "Allows user to give themselves the weapon [lazer, rocket, bomb, or mine]", (value) => {
+            SetWeapon(value);
+        });
 
         commandList = new List<DebugCommandBase> {
             FULL_HEAL,
@@ -144,7 +155,8 @@ public class DebugController : MonoBehaviour {
             SPAWN,
             TIME,
             TOGGLE,
-            CLEAR
+            CLEAR,
+            WEAPON
         };
     }
 
@@ -191,7 +203,8 @@ public class DebugController : MonoBehaviour {
             labelRect = new Rect(5, y + 5, Screen.width - 20f, 30);
             GUI.Label(labelRect, label);
             Spacer(Screen.height - 30f - spacingSize - 30f);
-        }else {
+        }
+        else {
             Spacer(Screen.height - 30f - 30f - spacingSize - spacingSize);
         }
 
@@ -328,6 +341,25 @@ public class DebugController : MonoBehaviour {
                 boidSpawner.CreateBoid(offsetPos);
                 boidManager.UpdateBirdSettings();
             }
+        }
+    }
+
+    private void SetWeapon(string value) {
+        if (value == "lazer") {
+            playerController.BaseTurtle.weapon = weaponList[0] as Weapon;
+            playerController.SetupWeapons();
+        }
+        else if (value == "rocket") {
+            playerController.BaseTurtle.weapon = weaponList[1] as Weapon;
+            playerController.SetupWeapons();
+        }
+        else if (value == "bomb") {
+            playerController.BaseTurtle.altWeapon = weaponList[2] as AltWeapon;
+            playerController.SetupWeapons();
+        }
+        else if (value == "mine") {
+            playerController.BaseTurtle.altWeapon = weaponList[3] as AltWeapon;
+            playerController.SetupWeapons();
         }
     }
 
