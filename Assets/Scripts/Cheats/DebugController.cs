@@ -8,6 +8,7 @@ public class DebugController : MonoBehaviour {
     private bool showConsole = false;
     private bool showHelp = false;
     private bool showExtraHelp = false;
+    private bool showLastCommand = false;
 
     private string input = "";
     private string lastInput = "";
@@ -37,6 +38,9 @@ public class DebugController : MonoBehaviour {
     private BoidSpawner boidSpawner;
     private BoidManager boidManager;
 
+    public Texture texture;
+    public Color textureColor;
+    [HideInInspector]
     public List<DebugCommandBase> commandList;
     public List<GameObject> spawnItems;
 
@@ -147,32 +151,33 @@ public class DebugController : MonoBehaviour {
 
         float y;
 
+        if (showLastCommand) {
+            y = Screen.height - 30f - 30f;
+            GUI.DrawTexture(new Rect(0, y, Screen.width, 30), texture, ScaleMode.StretchToFill, true, 0, textureColor, 0, 0);
+
+            string label = $"> {lastInput}";
+            Rect labelRect = new Rect(10, y + 5, Screen.width - 20f, 30);
+            GUI.Label(labelRect, label);
+        }
+
         if (showHelp) {
-            y = Screen.height - 30f - 100f;
-
-            GUI.Box(new Rect(0, y, Screen.width, 100), "");
-
+            y = Screen.height - 30f - 30f - 100f;
+            GUI.DrawTexture(new Rect(0, y, Screen.width, 100), texture, ScaleMode.StretchToFill, true, 0, textureColor, 0, 0);
             Rect viewport = new Rect(0, 0, Screen.width - 30, 20 * commandList.Count);
-
             scroll = GUI.BeginScrollView(new Rect(0, y + 5f, Screen.width, 90), scroll, viewport);
 
             for (int i = 0; i < commandList.Count; i++) {
                 DebugCommandBase command = commandList[i];
-
                 string label = $"{command.commandFormat} - {command.commandDescription}";
-
                 Rect labelRect = new Rect(5, 20 * i, viewport.width - 100, 20);
-
                 GUI.Label(labelRect, label);
             }
 
             GUI.EndScrollView();
         }
         else if (showExtraHelp) {
-            y = Screen.height - 30f - 30f;
-
-            GUI.Box(new Rect(0, y, Screen.width, 30), "");
-
+            y = Screen.height - 30f - 30f - 30f;
+            GUI.DrawTexture(new Rect(0, y, Screen.width, 30), texture, ScaleMode.StretchToFill, true, 0, textureColor, 0, 0);
             string description;
 
             if (extraHelp.extraDescription != null) {
@@ -183,15 +188,12 @@ public class DebugController : MonoBehaviour {
             }
 
             string label = $"{extraHelp.commandFormat} - {description}";
-
             Rect labelRect = new Rect(5, y + 5, Screen.width - 20f, 30);
-
             GUI.Label(labelRect, label);
         }
 
         y = Screen.height - 30f;
-
-        GUI.Box(new Rect(0, y, Screen.width, 30), "");
+        GUI.DrawTexture(new Rect(0, y, Screen.width, 30), texture, ScaleMode.StretchToFill, true, 0, textureColor, 0, 0);
         GUI.backgroundColor = new Color(0, 0, 0, 0);
 
         if (showConsole && Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.UpArrow) {
@@ -202,6 +204,7 @@ public class DebugController : MonoBehaviour {
             lastInput = input;
             HandleInput();
             input = "";
+            showLastCommand = true;
         }
         else {
             GUI.SetNextControlName("MyTextField");
@@ -211,6 +214,7 @@ public class DebugController : MonoBehaviour {
                 input = "";
                 showConsole = false;
                 settings.isPaused = false;
+                showLastCommand = false;
             }
         }
     }
@@ -318,6 +322,7 @@ public class DebugController : MonoBehaviour {
     private void Clear() {
         showHelp = false;
         showExtraHelp = false;
+        showLastCommand = false;
     }
 
     private void ToggleSetting(string value) {
