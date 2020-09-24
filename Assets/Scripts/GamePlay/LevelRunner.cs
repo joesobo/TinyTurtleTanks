@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelRunner : MonoBehaviour {
     [HideInInspector]
-    public int numberOfEnemies;
+    public int numberOfEnemies = 0;
     [SerializeField]
     private int enemiesRemaining;
     public bool isDead;

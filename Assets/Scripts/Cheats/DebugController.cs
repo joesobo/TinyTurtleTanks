@@ -33,7 +33,7 @@ public class DebugController : MonoBehaviour {
     private PlayerHealth playerHealth;
     private PlayerController playerController;
     private PlayerEffects playerEffects;
-    private Enemy enemyBase;
+    private EnemySpawner enemyBase;
     private LevelRunner levelRunner;
     private BoidSpawner boidSpawner;
     private BoidManager boidManager;
@@ -57,7 +57,7 @@ public class DebugController : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        enemyBase = FindObjectOfType<Enemy>();
+        enemyBase = FindObjectOfType<EnemySpawner>();
     }
 
     private void Start() {
