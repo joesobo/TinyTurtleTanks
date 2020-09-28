@@ -1141,11 +1141,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 160200634}
+  - component: {fileID: 160200641}
+  - component: {fileID: 160200639}
   - component: {fileID: 160200636}
   - component: {fileID: 160200635}
   - component: {fileID: 160200637}
   - component: {fileID: 160200638}
-  - component: {fileID: 160200639}
   - component: {fileID: 160200640}
   m_Layer: 0
   m_Name: Object Spawner
@@ -1415,6 +1416,50 @@ MonoBehaviour:
   maxDensity: 1
   minScale: 0.5
   maxScale: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  objectMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  useColliders: 1
+  spawnTopDown: 1
+  useGizmoRadius: 0
+  useGizmoHeight: 0
+  useGizmoRayHeight: 0
+  useRandomRotation: 1
+  useRandomColor: 0
+  useSlopeCutoff: 1
+  useRandomScaleAxis: 0
+  minRayHeight: 0
+  maxRayHeight: 50
+  minHeight: 25
+  maxHeight: 40
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  slopeCutoff: 0.75
+--- !u!114 &160200641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160200633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5dcd6ea01ffef544a18d1990797ad5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 875241698856362599, guid: c9e0e72f0f4585845bc1ece11c445503, type: 3}
+  parent: {fileID: 751865555}
+  num: 10
+  radius: 50
+  checkDst: 150
+  offsetScale: -1.5
+  maxDensity: 1
+  minScale: 1
+  maxScale: 1.5
   layerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -7080,7 +7125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boidSettings: {fileID: 0}
-  boids: []
   showSpawnRegion: 2
   target: {fileID: 0}
   avoidTarget: {fileID: 4566354625369546602}
@@ -9398,14 +9442,14 @@ MonoBehaviour:
   useParticle: 1
   particleSlider: 1
   useGrass: 1
-  useSeaweed: 1
-  useFootPrints: 1
-  useClouds: 1
-  useMoons: 1
-  useBirds: 1
-  useAtmosphere: 1
+  useSeaweed: 0
+  useFootPrints: 0
+  useClouds: 0
+  useMoons: 0
+  useBirds: 0
+  useAtmosphere: 0
   useWater: 1
-  daylightCycle: 1
+  daylightCycle: 0
   soundVolume: 0.5
   useCrates: 0
   useEnvironmentObjects: 1
@@ -36414,7 +36458,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.3210852, y: 0.5489511, z: -0.17453074, w: 0.7517288}
+  m_LocalRotation: {x: 0.3210852, y: 0.54895115, z: -0.17453076, w: 0.7517287}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -36488,7 +36532,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.32894215, y: 0.5539686, z: -0.25240368, w: 0.7219476}
+  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
