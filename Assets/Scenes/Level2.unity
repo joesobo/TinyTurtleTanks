@@ -7162,7 +7162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boidSettings: {fileID: 0}
-  boids: []
   showSpawnRegion: 2
   target: {fileID: 0}
   avoidTarget: {fileID: 4566354625369546602}
@@ -10065,17 +10064,17 @@ MonoBehaviour:
   useParticle: 1
   particleSlider: 1
   useGrass: 1
-  useSeaweed: 0
-  useFootPrints: 0
-  useClouds: 0
-  useMoons: 0
-  useBirds: 0
-  useAtmosphere: 0
-  useWater: 0
-  daylightCycle: 0
+  useSeaweed: 1
+  useFootPrints: 1
+  useClouds: 1
+  useMoons: 1
+  useBirds: 1
+  useAtmosphere: 1
+  useWater: 1
+  daylightCycle: 1
   soundVolume: 0.5
   useCrates: 0
-  useEnvironmentObjects: 0
+  useEnvironmentObjects: 1
   useEnemies: 0
   currentLevel: 1
   defaultTimeScale: 1
@@ -36680,7 +36679,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.72194755}
+  m_LocalRotation: {x: 0.32894218, y: 0.5539685, z: -0.25240365, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
