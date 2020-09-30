@@ -7144,7 +7144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 4392849844510481747, guid: 1d292c33b8e9d5a438671c2a06028f1e, type: 3}
   center: {x: 0, y: 0, z: 0}
-  spawnCount: 75
+  spawnCount: 0
   color1: {r: 0.2971698, g: 0.71866244, b: 1, a: 1}
   color2: {r: 1, g: 1, b: 1, a: 1}
   showSpawnRegion: 0
@@ -36679,7 +36679,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.72194755}
+  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
