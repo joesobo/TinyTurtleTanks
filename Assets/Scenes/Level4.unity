@@ -1148,6 +1148,7 @@ GameObject:
   - component: {fileID: 160200637}
   - component: {fileID: 160200638}
   - component: {fileID: 160200640}
+  - component: {fileID: 160200642}
   m_Layer: 0
   m_Name: Object Spawner
   m_TagString: Untagged
@@ -1459,6 +1460,50 @@ MonoBehaviour:
   offsetScale: -1.5
   maxDensity: 1
   minScale: 1
+  maxScale: 1.5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  objectMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  useColliders: 1
+  spawnTopDown: 1
+  useGizmoRadius: 0
+  useGizmoHeight: 0
+  useGizmoRayHeight: 0
+  useRandomRotation: 1
+  useRandomColor: 0
+  useSlopeCutoff: 1
+  useRandomScaleAxis: 0
+  minRayHeight: 0
+  maxRayHeight: 50
+  minHeight: 25
+  maxHeight: 40
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  slopeCutoff: 0.75
+--- !u!114 &160200642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160200633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5dcd6ea01ffef544a18d1990797ad5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 348094534781759054, guid: e6f40deb554d4af43bca6bcdebe0b41f, type: 3}
+  parent: {fileID: 1079151834}
+  num: 150
+  radius: 50
+  checkDst: 150
+  offsetScale: 0
+  maxDensity: 1
+  minScale: 0.5
   maxScale: 1.5
   layerMask:
     serializedVersion: 2
@@ -36532,7 +36577,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.32894215, y: 0.5539686, z: -0.25240368, w: 0.7219476}
+  m_LocalRotation: {x: 0.32894218, y: 0.5539685, z: -0.25240365, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
