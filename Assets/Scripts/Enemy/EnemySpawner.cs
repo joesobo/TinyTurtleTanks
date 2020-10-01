@@ -25,6 +25,9 @@ public class EnemySpawner : MonoBehaviour {
         enemyHealth.MAXHEALTH = BaseTurtle.health;
 
         smartEnemy = turtle.GetComponent<SmartEnemy>();
+        if (!smartEnemy) {
+            smartEnemy = turtle.GetComponentInChildren<SmartEnemy>();
+        }
         smartEnemy.speed = BaseTurtle.moveSpeed;
         smartEnemy.rotateSpeed = BaseTurtle.rotateSpeed;
         smartEnemy.jumpForce = BaseTurtle.jumpForce;

@@ -80,7 +80,8 @@ public class SmartEnemy : MonoBehaviour {
     private void FixedUpdate() {
         //move
         Vector3 localMove = transform.TransformDirection(moveAmount) * Time.deltaTime;
-        rb.MovePosition(rb.position + localMove);
+        if (rb)
+            rb.MovePosition(rb.position + localMove);
 
         //rotate
         transform.Rotate(0, 1 * curRotate * Time.deltaTime, 0);

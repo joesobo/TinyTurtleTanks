@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfe80a903bc7b00499d4d7bc76e6945b, type: 3}
-  m_Name: BaseTurtle1
+  m_Name: Enemy2
   m_EditorClassIdentifier: 
   health: 3
-  moveSpeed: 5
+  moveSpeed: 0
   rotateSpeed: 100
-  jumpForce: 100
+  jumpForce: 0
   weapon: {fileID: 11400000, guid: 76be9b28f8619a8408a256be4a8d0c89, type: 2}
   altWeapon: {fileID: 11400000, guid: 6e74b8acde773ec48b9a081788ec9425, type: 2}
-  prefab: {fileID: 2163603433509154725, guid: a742e9524385a0743a553d9669d44786, type: 3}
+  prefab: {fileID: 4372139260552336197, guid: ac984139b3d0df54e8fdfb787483eebe, type: 3}

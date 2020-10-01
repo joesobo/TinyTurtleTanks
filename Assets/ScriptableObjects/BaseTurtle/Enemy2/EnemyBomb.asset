@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520ee55a9df109d4c94e9b356794b67e, type: 3}
+  m_Name: EnemyBomb
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1750185506979683496, guid: a45fdcfa5e2b53e4bae3bc98fcfea5db, type: 3}
+  clipSize: 1
+  speed: 650
+  damage: 1
+  bounces: 0
+  decaySpeed: 2
