@@ -4,39 +4,37 @@ using UnityEngine;
 
 public class LevelSelectionController : MonoBehaviour {
     private const int MAXLEVEL = 5;
-    private List<int> unlockedLevels = new List<int>();
+    private int unlockedLevels = 1;
     public List<GameObject> selectors = new List<GameObject>();
     private int activeLevel = 1;
     private GameObject activeSelectorRef;
     private LevelLoader levelLoader;
 
-    private void Start() {
+    private void OnEnable() {
         levelLoader = GetComponent<LevelLoader>();
-
-        unlockedLevels.Add(1);
-        activeSelectorRef = selectors[0];
+        activeSelectorRef = selectors[activeLevel - 1];
     }
 
     public void UnlockNextLevel() {
-        if(unlockedLevels.Count < MAXLEVEL) {
-            unlockedLevels.Add(unlockedLevels.Count + 1);
+        if(unlockedLevels < MAXLEVEL) {
+            unlockedLevels++;
         }
     }
 
     public void Next() {
-        if (activeLevel < unlockedLevels[unlockedLevels.Count-1]) {
+        if (activeLevel < unlockedLevels) {
             activeLevel++;
-        }
 
-        UpdateSelectors();
+            UpdateSelectors();
+        }
     }
 
     public void Previous() {
         if (activeLevel > 1) {
             activeLevel--;
-        }
 
-        UpdateSelectors();
+            UpdateSelectors();
+        }
     }
 
     public void Play() {
