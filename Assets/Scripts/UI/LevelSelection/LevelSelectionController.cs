@@ -16,7 +16,6 @@ public class LevelSelectionController : MonoBehaviour {
         ls = FindObjectOfType<LevelSingleton>();
         settings = FindObjectOfType<GameSettings>();
         levelLoader = GetComponent<LevelLoader>();
-        Debug.Log(ls.activeLevel);
         activeSelectorRef = selectors[ls.activeLevel - 1];
         activeSelectorRef.SetActive(true);
     }
