@@ -6,8 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour {
     public GameObject loadingScreen;
-    public Slider slider;
-    public TextElement textProgress;
+    public UnityEngine.UI.Slider slider;
+    public UnityEngine.UI.Text textProgress;
+
+    private void Start() {
+        UnloadLevelLoader();
+    }
+
+    public void LoadLevelLoader() {
+        this.gameObject.SetActive(true);
+    }
+
+    public void UnloadLevelLoader() {
+        this.gameObject.SetActive(false);
+    }
 
     public void LoadLevel(int sceneIndex) {
         StartCoroutine(LoadLevelAsynchronously(sceneIndex));

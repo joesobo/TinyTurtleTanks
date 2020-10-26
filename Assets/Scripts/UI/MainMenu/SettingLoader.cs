@@ -20,6 +20,10 @@ public class SettingLoader : MonoBehaviour {
         SetupSettings();
     }
 
+    private void Start() {
+        UnloadSettings();
+    }
+
     public void SetupSettings() {
         LoadColor(settings.useVFX, vfxButton);
         LoadColor(settings.useSound, soundButton);
