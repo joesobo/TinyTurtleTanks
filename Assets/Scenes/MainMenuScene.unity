@@ -1393,7 +1393,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1370888465}
+      - m_Target: {fileID: 1579133634}
         m_MethodName: Previous
         m_Mode: 1
         m_Arguments:
@@ -2216,12 +2216,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1579133632}
-        m_MethodName: LoadLevel
-        m_Mode: 3
+        m_MethodName: LoadLevelLoader
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1579133634}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4380,7 +4391,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1370888467}
+      - m_Target: {fileID: 1579133632}
         m_MethodName: LoadLevelLoader
         m_Mode: 1
         m_Arguments:
@@ -4391,7 +4402,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1370888465}
+      - m_Target: {fileID: 1579133634}
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -5310,7 +5321,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1370888465}
+      - m_Target: {fileID: 1579133634}
         m_MethodName: Next
         m_Mode: 1
         m_Arguments:
@@ -7607,7 +7618,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370888462}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 447e30e3a6774e94ab9de55a65fdee1a, type: 3}
   m_Name: 
@@ -8808,6 +8819,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1579133633}
   - component: {fileID: 1579133632}
+  - component: {fileID: 1579133634}
   m_Layer: 0
   m_Name: LevelLoader
   m_TagString: Untagged
@@ -8828,8 +8840,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 1659392800}
-  slider: {fileID: 0}
-  textProgress: {fileID: 0}
+  slider: {fileID: 1062772843}
+  textProgress: {fileID: 44796844}
 --- !u!4 &1579133633
 Transform:
   m_ObjectHideFlags: 0
@@ -8844,6 +8856,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1579133634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579133631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 447e30e3a6774e94ab9de55a65fdee1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectors:
+  - {fileID: 603235477}
+  - {fileID: 1712891908}
+  - {fileID: 354408329}
+  - {fileID: 1296861349}
+  - {fileID: 6727612}
 --- !u!1 &1588207033
 GameObject:
   m_ObjectHideFlags: 0
@@ -8926,7 +8956,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1370888465}
+      - m_Target: {fileID: 1579133634}
         m_MethodName: UnlockNextLevel
         m_Mode: 1
         m_Arguments:
