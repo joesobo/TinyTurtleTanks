@@ -9,8 +9,10 @@ public class LevelSelectionController : MonoBehaviour {
     private int activeLevel = 1;
     private GameObject activeSelectorRef;
     private LevelLoader levelLoader;
+    private GameSettings settings;
 
     private void OnEnable() {
+        settings = FindObjectOfType<GameSettings>();
         levelLoader = GetComponent<LevelLoader>();
         activeSelectorRef = selectors[activeLevel - 1];
     }
@@ -38,6 +40,7 @@ public class LevelSelectionController : MonoBehaviour {
     }
 
     public void Play() {
+        settings.isPaused = false;
         levelLoader.LoadLevel(activeLevel);
     }
 

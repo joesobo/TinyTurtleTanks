@@ -7564,7 +7564,6 @@ GameObject:
   - component: {fileID: 1370888463}
   - component: {fileID: 1370888466}
   - component: {fileID: 1370888464}
-  - component: {fileID: 1370888465}
   - component: {fileID: 1370888467}
   m_Layer: 5
   m_Name: LevelSelectionPanel
@@ -7611,24 +7610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7900b67cf0e924797659eb869f220b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1370888465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370888462}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 447e30e3a6774e94ab9de55a65fdee1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectors:
-  - {fileID: 603235477}
-  - {fileID: 1712891908}
-  - {fileID: 354408329}
-  - {fileID: 1296861349}
-  - {fileID: 6727612}
 --- !u!222 &1370888466
 CanvasRenderer:
   m_ObjectHideFlags: 0
