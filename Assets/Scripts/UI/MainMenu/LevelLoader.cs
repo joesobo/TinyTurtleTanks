@@ -9,10 +9,6 @@ public class LevelLoader : MonoBehaviour {
     public UnityEngine.UI.Slider slider;
     public UnityEngine.UI.Text textProgress;
 
-    private void Start() {
-        UnloadLevelLoader();
-    }
-
     public void LoadLevelLoader() {
         this.gameObject.SetActive(true);
     }

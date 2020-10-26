@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelSelectionLoader : MonoBehaviour {
-    private void Start() {
-        //UnloadLevelSelection();
-    }
-
     public void LoadLevelSelection() {
         this.gameObject.SetActive(true);
     }

@@ -3,37 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelSelectionController : MonoBehaviour {
-    private const int MAXLEVEL = 5;
-    private int unlockedLevels = 1;
-    public List<GameObject> selectors = new List<GameObject>();
-    private int activeLevel = 1;
+    public List<GameObject> selectors = new List<GameObject>();    
+    
+    private LevelSingleton ls;
     private GameObject activeSelectorRef;
     private LevelLoader levelLoader;
     private GameSettings settings;
 
+    private const int MAXLEVEL = 5;
+
     private void OnEnable() {
+        ls = FindObjectOfType<LevelSingleton>();
         settings = FindObjectOfType<GameSettings>();
         levelLoader = GetComponent<LevelLoader>();
-        activeSelectorRef = selectors[activeLevel - 1];
+        Debug.Log(ls.activeLevel);
+        activeSelectorRef = selectors[ls.activeLevel - 1];
+        activeSelectorRef.SetActive(true);
     }
 
     public void UnlockNextLevel() {
-        if(unlockedLevels < MAXLEVEL) {
-            unlockedLevels++;
+        if (ls.unlockedLevels < MAXLEVEL) {
+            ls.unlockedLevels++;
         }
     }
 
     public void Next() {
-        if (activeLevel < unlockedLevels) {
-            activeLevel++;
+        if (ls.activeLevel < ls.unlockedLevels) {
+            ls.activeLevel++;
 
             UpdateSelectors();
         }
     }
 
     public void Previous() {
-        if (activeLevel > 1) {
-            activeLevel--;
+        if (ls.activeLevel > 1) {
+            ls.activeLevel--;
 
             UpdateSelectors();
         }
@@ -41,12 +45,12 @@ public class LevelSelectionController : MonoBehaviour {
 
     public void Play() {
         settings.isPaused = false;
-        levelLoader.LoadLevel(activeLevel);
+        levelLoader.LoadLevel(ls.activeLevel);
     }
 
     private void UpdateSelectors() {
         activeSelectorRef.SetActive(false);
-        activeSelectorRef = selectors[activeLevel-1];
+        activeSelectorRef = selectors[ls.activeLevel - 1];
         activeSelectorRef.SetActive(true);
     }
 }

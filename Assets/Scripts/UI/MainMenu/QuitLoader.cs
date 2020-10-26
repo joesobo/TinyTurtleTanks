@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class QuitLoader : MonoBehaviour {
-    private void Start() {
-        UnloadQuit();
-    }
-
     public void LoadQuit() {
         this.gameObject.SetActive(true);
     }

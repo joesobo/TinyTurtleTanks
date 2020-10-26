@@ -19,11 +19,7 @@ public class SettingLoader : MonoBehaviour {
         settings = FindObjectOfType<GameSettings>();
         SetupSettings();
     }
-
-    private void Start() {
-        UnloadSettings();
-    }
-
+    
     public void SetupSettings() {
         LoadColor(settings.useVFX, vfxButton);
         LoadColor(settings.useSound, soundButton);
