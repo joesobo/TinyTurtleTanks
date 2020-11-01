@@ -803,8 +803,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ChangeTrailSetting
+      - m_Target: {fileID: 738613313}
+        m_MethodName: ChangeFootprintSetting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1005,7 +1005,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 738613313}
         m_MethodName: ChangeGrassSetting
         m_Mode: 1
         m_Arguments:
@@ -1134,7 +1134,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 738613313}
         m_MethodName: ChangeSoundSetting
         m_Mode: 1
         m_Arguments:
@@ -3640,7 +3640,6 @@ GameObject:
   m_Component:
   - component: {fileID: 738613310}
   - component: {fileID: 738613312}
-  - component: {fileID: 738613311}
   - component: {fileID: 738613313}
   m_Layer: 5
   m_Name: SettingsPanel
@@ -3671,34 +3670,6 @@ RectTransform:
   m_AnchoredPosition: {x: 5.4750977, y: -13.600098}
   m_SizeDelta: {x: 10.95, y: 27.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &738613311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738613309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &738613312
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3719,6 +3690,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5154d51a7dd6a9408646298a5a14cdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vfxButton: {fileID: 1409666373}
+  soundButton: {fileID: 165508033}
+  particleButton: {fileID: 1321452890}
+  grassButton: {fileID: 140466251}
+  footPrintButton: {fileID: 133541302}
+  cloudButton: {fileID: 1157467994}
   inActiveColor: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
   ActiveColor: {r: 0.092196584, g: 1, b: 0, a: 1}
 --- !u!1 &744351052
@@ -6183,7 +6160,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 738613313}
         m_MethodName: ChangeCloudSetting
         m_Mode: 1
         m_Arguments:
@@ -7284,7 +7261,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 738613313}
         m_MethodName: ChangeParticleSetting
         m_Mode: 1
         m_Arguments:
@@ -7908,7 +7885,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 738613313}
         m_MethodName: ChangeVFXSetting
         m_Mode: 1
         m_Arguments:
