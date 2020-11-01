@@ -75,7 +75,7 @@ public class DebugController : MonoBehaviour {
     }
 
     void Update() {
-        if (settings.allowCheats) {
+        if (settings.useCheats) {
             if (Input.GetKeyDown(KeyCode.BackQuote)) {
                 showConsole = !showConsole;
                 settings.isPaused = !settings.isPaused;

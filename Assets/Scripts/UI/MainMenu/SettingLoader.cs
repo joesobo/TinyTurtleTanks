@@ -1,22 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SettingLoader : MonoBehaviour {
     private GameSettings settings;
-    public GameObject vfxButton;
-    public GameObject soundButton;
-    public GameObject particleButton;
-    public GameObject grassButton;
-    public GameObject footPrintButton;
-    public GameObject cloudButton;
-
-    private UnityEngine.UI.Image vfxImg;
-    private UnityEngine.UI.Image soundImg;
-    private UnityEngine.UI.Image particleImg;
-    private UnityEngine.UI.Image grassImg;
-    private UnityEngine.UI.Image footPrintImg;
-    private UnityEngine.UI.Image cloudImg;
+    public UnityEngine.UI.Image vfxButton;
+    public UnityEngine.UI.Image soundButton;
+    public UnityEngine.UI.Slider soundSlider;
+    public UnityEngine.UI.Image particleButton;
+    public UnityEngine.UI.Slider particleSlider;
+    public UnityEngine.UI.Image grassButton;
+    public UnityEngine.UI.Image footPrintButton;
+    public UnityEngine.UI.Image cloudButton;
+    public UnityEngine.UI.Image moonButton;
+    public UnityEngine.UI.Image birdButton;
+    public UnityEngine.UI.Image daylightCycleButton;
+    public UnityEngine.UI.Image cheatsButton;
 
     public Color inActiveColor;
     public Color ActiveColor;
@@ -24,23 +21,22 @@ public class SettingLoader : MonoBehaviour {
     private void Awake() {
         settings = FindObjectOfType<GameSettings>();
 
-        vfxImg = vfxButton.GetComponent<UnityEngine.UI.Image>();
-        soundImg = soundButton.GetComponent<UnityEngine.UI.Image>();
-        particleImg = particleButton.GetComponent<UnityEngine.UI.Image>();
-        grassImg = grassButton.GetComponent<UnityEngine.UI.Image>();
-        footPrintImg = footPrintButton.GetComponent<UnityEngine.UI.Image>();
-        cloudImg = cloudButton.GetComponent<UnityEngine.UI.Image>();
-
         SetupSettings();
     }
     
     public void SetupSettings() {
-        LoadColor(settings.useVFX, vfxImg);
-        LoadColor(settings.useSound, soundImg);
-        LoadColor(settings.useParticle, particleImg);
-        LoadColor(settings.useGrass, grassImg);
-        LoadColor(settings.useFootPrints, footPrintImg);
-        LoadColor(settings.useClouds, cloudImg);
+        LoadColor(settings.useVFX, vfxButton);
+        LoadColor(settings.useSound, soundButton);
+        LoadColor(settings.useParticle, particleButton);
+        LoadColor(settings.useGrass, grassButton);
+        LoadColor(settings.useFootPrints, footPrintButton);
+        LoadColor(settings.useClouds, cloudButton);
+        LoadColor(settings.useMoons, moonButton);
+        LoadColor(settings.useBirds, birdButton);
+        LoadColor(settings.daylightCycle, daylightCycleButton);
+        LoadColor(settings.useCheats, cheatsButton);
+        UpdateSoundVolume();
+        UpdateParticleCount();
     }
 
     public void LoadSettings() {
@@ -53,32 +49,61 @@ public class SettingLoader : MonoBehaviour {
 
     public void ChangeVFXSetting() {
         settings.useVFX = !settings.useVFX;
-        LoadColor(settings.useVFX, vfxImg);
+        LoadColor(settings.useVFX, vfxButton);
     }
 
     public void ChangeSoundSetting() {
         settings.useSound = !settings.useSound;
-        LoadColor(settings.useSound, soundImg);
+        LoadColor(settings.useSound, soundButton);
+    }
+
+    public void UpdateSoundVolume() {
+        settings.soundVolume = soundSlider.value;
+    }
+
+    public void UpdateParticleCount() {
+        settings.particleSlider = particleSlider.value;
     }
 
     public void ChangeParticleSetting() {
         settings.useParticle = !settings.useParticle;
-        LoadColor(settings.useParticle, particleImg);
+        LoadColor(settings.useParticle, particleButton);
     }
 
     public void ChangeGrassSetting() {
         settings.useGrass = !settings.useGrass;
-        LoadColor(settings.useGrass, grassImg);
+        settings.useSeaweed = !settings.useSeaweed;
+        LoadColor(settings.useGrass, grassButton);
     }
 
     public void ChangeFootprintSetting() {
         settings.useFootPrints = !settings.useFootPrints;
-        LoadColor(settings.useFootPrints, footPrintImg);
+        LoadColor(settings.useFootPrints, footPrintButton);
     }
 
     public void ChangeCloudSetting() {
         settings.useClouds = !settings.useClouds;
-        LoadColor(settings.useClouds, cloudImg);
+        LoadColor(settings.useClouds, cloudButton);
+    }
+
+    public void ChangeMoonSetting() {
+        settings.useMoons = !settings.useMoons;
+        LoadColor(settings.useMoons, moonButton);
+    }
+
+    public void ChangeBirdSetting() {
+        settings.useBirds = !settings.useBirds;
+        LoadColor(settings.useBirds, birdButton);
+    }
+
+    public void ChangeDaylightSetting() {
+        settings.daylightCycle = !settings.daylightCycle;
+        LoadColor(settings.daylightCycle, daylightCycleButton);
+    }
+
+    public void ChangeCheatsSetting() {
+        settings.useCheats = !settings.useCheats;
+        LoadColor(settings.useCheats, cheatsButton);
     }
 
     public void LoadColor(bool condition, UnityEngine.UI.Image button) {

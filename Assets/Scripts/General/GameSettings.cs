@@ -4,9 +4,11 @@ using static UnityEngine.ParticleSystem;
 public class GameSettings : MonoBehaviour {
     public static GameSettings Instance;
     public bool isPaused = false;
-    public bool allowCheats = false;
+    public bool useCheats = false;
     public bool useVFX = false;
     public bool useSound = false;
+    [Range(0, 1)]
+    public float soundVolume = 1.0f;
     [HideInInspector]
     public bool useParticle = false;
     [Range(0, 5)]
@@ -20,8 +22,7 @@ public class GameSettings : MonoBehaviour {
     public bool useAtmosphere = false;
     public bool useWater = false;
     public bool daylightCycle = false;
-    [Range(0, 1)]
-    public float soundVolume = 1.0f;
+    
 
     [Header("Test Settings")]
     public bool useCrates = false;
