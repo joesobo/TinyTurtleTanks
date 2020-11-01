@@ -36714,7 +36714,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.32894215, y: 0.5539686, z: -0.25240368, w: 0.7219476}
+  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.72194755}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -42509,7 +42509,8 @@ MonoBehaviour:
   boidManager: {fileID: 385413396}
   atmosphere: {fileID: 0}
   crateSpawner: {fileID: 2029102068}
-  obstacleList: {fileID: 768355268}
+  obstacleList:
+  - {fileID: 768355268}
   footprints: {fileID: 1969841753}
   enemyStuffList:
   - {fileID: 558591791}

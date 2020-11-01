@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class QuitMenu : MonoBehaviour {
     public BaseMenu menu;
 
     public void OnYes() {
-        Application.Quit();
+        SceneManager.LoadScene(0);
     }
 
     public void OnNo() {
