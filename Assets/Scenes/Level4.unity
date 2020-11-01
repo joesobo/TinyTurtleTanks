@@ -9494,9 +9494,9 @@ MonoBehaviour:
   useBirds: 1
   useAtmosphere: 1
   useWater: 1
-  daylightCycle: 0
+  daylightCycle: 1
   soundVolume: 0.5
-  useCrates: 0
+  useCrates: 1
   useEnvironmentObjects: 1
   useEnemies: 1
   currentLevel: 1
@@ -36577,7 +36577,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.32894218, y: 0.5539685, z: -0.25240365, w: 0.7219476}
+  m_LocalRotation: {x: 0.32894215, y: 0.5539686, z: -0.25240368, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

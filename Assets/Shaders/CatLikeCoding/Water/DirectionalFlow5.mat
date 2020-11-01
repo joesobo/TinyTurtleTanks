@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: dbc161fc7c9cab74ba1346bd16050faa, type: 3}
+        m_Texture: {fileID: 2800000, guid: 36dd0b22da8874ed38075789055ca664, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -37,9 +37,9 @@ Material:
     - _Metallic: 0.1
     - _RefractionStrength: 0.3
     - _Speed: 0.03
-    - _Tiling: 10
+    - _Tiling: 0
     - _TilingModulated: 100
     - _WaterFogDensity: 0.1
     m_Colors:
-    - _Color: {r: 1, g: 0.64280576, b: 0, a: 0.7490196}
+    - _Color: {r: 0.754717, g: 0.5627404, b: 0.21003917, a: 0.7490196}
     - _WaterFogColor: {r: 0.7, g: 0, b: 0.026086712, a: 1}
