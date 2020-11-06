@@ -95,8 +95,8 @@ public class LevelRunner : MonoBehaviour {
     public void UpdateSettings() {
         //SFX and VFX
         fx.SetActive(settings.useVFX);
-        grassSpawner.SetActive(settings.useGrass);
-        seaweedSpawner.SetActive(settings.useSeaweed);
+        if (grassSpawner) grassSpawner.SetActive(settings.useGrass);
+        if (seaweedSpawner) seaweedSpawner.SetActive(settings.useSeaweed);
         backgroundMusic.SetActive(settings.useSound);
 
         //Obstacles and Environment
