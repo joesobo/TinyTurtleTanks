@@ -62,19 +62,7 @@ public class LevelSelectionController : MonoBehaviour {
     }
 
     private void UpdateButtons() {
-        if (ls.activeLevel < ls.unlockedLevels) {
-            nextText.color = white;
-        }
-        else {
-            nextText.color = deactivatedColor;
-            Debug.Log(1);
-        }
-
-        if (ls.activeLevel > 1) {
-            prevText.color = white;
-        }
-        else {
-            prevText.color = deactivatedColor;
-        }
+        nextText.color = ls.activeLevel < ls.unlockedLevels ?  white : deactivatedColor;
+        prevText.color = ls.activeLevel > 1 ?  white : deactivatedColor;
     }
 }
