@@ -12,8 +12,10 @@ public class LevelRunner : MonoBehaviour {
     private LoseMenu loseMenu;
     private WinMenu winMenu;
     private QuitMenu quitMenu;
-    private bool activeLose = true;
-    private bool activeWin = true;
+    [HideInInspector]
+    public bool activeLose = true;
+    [HideInInspector]
+    public bool activeWin = true;
     private GameSettings settings;
 
     public GameObject fx;
@@ -34,6 +36,7 @@ public class LevelRunner : MonoBehaviour {
 
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
+        settings.isPaused = false;
 
         quitMenu = FindObjectOfType<QuitMenu>();
 
@@ -69,7 +72,8 @@ public class LevelRunner : MonoBehaviour {
                 winMenu.ActivateWin();
             }
 
-            if (!activeLose || !activeWin) {
+            if ((!activeLose || !activeWin) && !settings.isPaused) {
+                Debug.Log(2);
                 settings.isPaused = true;
             }
         }

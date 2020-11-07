@@ -9895,9 +9895,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  allowCheats: 1
+  useCheats: 0
   useVFX: 1
   useSound: 0
+  soundVolume: 0.5
   useParticle: 1
   particleSlider: 1
   useGrass: 1
@@ -9909,7 +9910,6 @@ MonoBehaviour:
   useAtmosphere: 1
   useWater: 1
   daylightCycle: 1
-  soundVolume: 0.5
   useCrates: 0
   useEnvironmentObjects: 1
   useEnemies: 0
@@ -36594,7 +36594,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.3210852, y: 0.5489511, z: -0.17453074, w: 0.7517288}
+  m_LocalRotation: {x: 0.3210852, y: 0.54895115, z: -0.17453076, w: 0.7517287}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -36778,7 +36778,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.7219476}
+  m_LocalRotation: {x: 0.32894218, y: 0.5539685, z: -0.25240365, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -43368,9 +43368,12 @@ MonoBehaviour:
   speed: 0
   jump: 0
   health: 0
+  fire: 0
   waitForSecondsShield: 5
   waitForSecondsSpeed: 5
   waitForSecondsJump: 5
+  waitForSecondsFireBurn: 6
+  waitForSecondsFireDamage: 1.5
   shieldParticles: {fileID: 6771612981600578561, guid: fdda36121b7fb8f49a2f48296bc87f67,
     type: 3}
   speedParticles: {fileID: 6771612981600578561, guid: 96b1dc3b8f368de4e96e3871bd926584,

@@ -12404,8 +12404,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  useCheats: 0
-  useVFX: 0
+  useCheats: 1
+  useVFX: 1
   useSound: 0
   soundVolume: 0
   useParticle: 1
@@ -12416,11 +12416,11 @@ MonoBehaviour:
   useClouds: 0
   useMoons: 0
   useBirds: 0
-  useAtmosphere: 1
+  useAtmosphere: 0
   useWater: 1
   daylightCycle: 0
-  useCrates: 1
-  useEnvironmentObjects: 1
+  useCrates: 0
+  useEnvironmentObjects: 0
   useEnemies: 1
   currentLevel: 1
   defaultTimeScale: 1

@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinMenu : BaseMenu {
     private bool pauseActive = false;
     private GameSettings settings;
+    private LevelSingleton levelSingleton;
     private QuitMenu quitMenu;
     private bool stopScale = false;
 
@@ -12,6 +12,7 @@ public class WinMenu : BaseMenu {
         quitMenu = FindObjectOfType<QuitMenu>();
         gameObject.transform.localScale = Vector3.zero;
         settings = FindObjectOfType<GameSettings>();
+        levelSingleton = FindObjectOfType<LevelSingleton>();
     }
 
     private void Update() {
@@ -28,6 +29,15 @@ public class WinMenu : BaseMenu {
     public void ActivateWin() {
         pauseActive = true;
         //LeanTween.scale(gameObject, Vector3.one, 0.4f);
+    }
+
+    public void OnMenu() {
+        SceneManager.LoadScene(0);
+    }
+
+    public void OnNext() {
+        levelSingleton.UnlockNextLevel();
+        SceneManager.LoadScene(levelSingleton.activeLevel++);
     }
 
     public override void OpenQuit() {

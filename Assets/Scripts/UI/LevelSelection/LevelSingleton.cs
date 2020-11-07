@@ -5,6 +5,8 @@ public class LevelSingleton : MonoBehaviour {
     public int activeLevel = 1;
     public int unlockedLevels = 1;
 
+    private const int MAXLEVEL = 5;
+
     void Awake() {
         if (Instance == null) {
             DontDestroyOnLoad(gameObject);
@@ -12,6 +14,18 @@ public class LevelSingleton : MonoBehaviour {
         }
         else if (Instance != this) {
             Destroy(gameObject);
+        }
+    }
+
+    public void UnlockLevel() {
+        if (unlockedLevels < MAXLEVEL) {
+            unlockedLevels++;
+        }
+    }
+
+    public void UnlockNextLevel() {
+        if (activeLevel < unlockedLevels) {
+            UnlockLevel();
         }
     }
 }

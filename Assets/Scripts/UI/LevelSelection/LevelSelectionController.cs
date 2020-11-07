@@ -15,8 +15,6 @@ public class LevelSelectionController : MonoBehaviour {
     private Color deactivatedColor = new Color(0.5f, 0.5f, 0.5f, 1);
     private Color white = new Color(1, 1, 1, 1);
 
-    private const int MAXLEVEL = 5;
-
     private void OnEnable() {
         ls = FindObjectOfType<LevelSingleton>();
         settings = FindObjectOfType<GameSettings>();
@@ -26,10 +24,8 @@ public class LevelSelectionController : MonoBehaviour {
     }
 
     public void UnlockNextLevel() {
-        if (ls.unlockedLevels < MAXLEVEL) {
-            ls.unlockedLevels++;
-            UpdateButtons();
-        }
+        ls.UnlockLevel();
+        UpdateButtons();
     }
 
     public void Next() {
@@ -62,7 +58,7 @@ public class LevelSelectionController : MonoBehaviour {
     }
 
     private void UpdateButtons() {
-        nextText.color = ls.activeLevel < ls.unlockedLevels ?  white : deactivatedColor;
-        prevText.color = ls.activeLevel > 1 ?  white : deactivatedColor;
+        nextText.color = ls.activeLevel < ls.unlockedLevels ? white : deactivatedColor;
+        prevText.color = ls.activeLevel > 1 ? white : deactivatedColor;
     }
 }
