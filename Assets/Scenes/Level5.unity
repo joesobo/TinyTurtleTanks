@@ -7240,38 +7240,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455273107}
   m_CullTransparentMesh: 0
---- !u!1 &464551887
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 464551888}
-  m_Layer: 4
-  m_Name: LavaShader
-  m_TagString: Water
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!4 &464551888
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 464551887}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1507705203}
-  - {fileID: 1681135430}
-  m_Father: {fileID: 6939802438092130745}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &514090208
 GameObject:
   m_ObjectHideFlags: 0
@@ -37095,115 +37063,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463744410}
   m_CullTransparentMesh: 0
---- !u!1 &1507705202
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1507705203}
-  - component: {fileID: 1507705206}
-  - component: {fileID: 1507705205}
-  - component: {fileID: 1507705207}
-  - component: {fileID: 1507705204}
-  m_Layer: 4
-  m_Name: WaterShader (Toon Foam)
-  m_TagString: Water
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
---- !u!4 &1507705203
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507705202}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 26.5, y: 26.5, z: 26.5}
-  m_Children: []
-  m_Father: {fileID: 464551888}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1507705204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507705202}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 567f9b6a2c426bb4880481b7c2221c0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  changeSpeed: 5
-  changeJump: 50
-  changeGravity: 0.2
---- !u!23 &1507705205
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507705202}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: d6606f497954cb94893425571b609283, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1507705206
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507705202}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!135 &1507705207
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507705202}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1565448507
 GameObject:
   m_ObjectHideFlags: 0
@@ -37486,7 +37345,7 @@ MonoBehaviour:
   - {fileID: 1126744869}
   - {fileID: 1708068062}
   - {fileID: 784793773}
-  water: {fileID: 464551887}
+  water: {fileID: 1681135429}
   daylightCycle: {fileID: 1261682982}
 --- !u!1 &1681107140
 GameObject:
@@ -37535,7 +37394,7 @@ GameObject:
   - component: {fileID: 1681135432}
   - component: {fileID: 1681135431}
   m_Layer: 4
-  m_Name: WaterShader (CatlikeCoding 2)
+  m_Name: LavaShader
   m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37550,10 +37409,10 @@ Transform:
   m_GameObject: {fileID: 1681135429}
   m_LocalRotation: {x: -0.22280934, y: -0.054285664, z: 0.2304085, w: 0.94568545}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 26.5, y: 26.499998, z: 26.500002}
+  m_LocalScale: {x: 26.5, y: 26.499998, z: 26.500004}
   m_Children: []
-  m_Father: {fileID: 464551888}
-  m_RootOrder: 1
+  m_Father: {fileID: 6939802438092130745}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -23.353, y: -12.925, z: 30.068}
 --- !u!114 &1681135431
 MonoBehaviour:
@@ -37564,12 +37423,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1681135429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 567f9b6a2c426bb4880481b7c2221c0b, type: 3}
+  m_Script: {fileID: 11500000, guid: cb31655acfb8201499d9cadfee7dbf67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeSpeed: 5
-  changeJump: 50
-  changeGravity: 0.2
 --- !u!135 &1681135432
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -37855,9 +37711,11 @@ MonoBehaviour:
   speed: 0
   jump: 0
   health: 0
+  fire: 0
   waitForSecondsShield: 5
   waitForSecondsSpeed: 5
   waitForSecondsJump: 5
+  waitForSecondsFire: 5
   shieldParticles: {fileID: 6771612981600578561, guid: fdda36121b7fb8f49a2f48296bc87f67,
     type: 3}
   speedParticles: {fileID: 6771612981600578561, guid: 96b1dc3b8f368de4e96e3871bd926584,
@@ -37865,6 +37723,8 @@ MonoBehaviour:
   jumpParticles: {fileID: 6771612981600578561, guid: 14aa4b2ab9088764db88e04e16fd4939,
     type: 3}
   healthParticles: {fileID: 1316538544476190114, guid: cc3d1e6aeb6a9f04890b30f40de859e8,
+    type: 3}
+  fireParticles: {fileID: 8257447937672053010, guid: 11633120127179e498127c0fdd8f17a2,
     type: 3}
 --- !u!114 &1681413304
 MonoBehaviour:
@@ -40719,7 +40579,7 @@ Transform:
   - {fileID: 5006512735793446057}
   - {fileID: 586028989972044417}
   - {fileID: 1127533629}
-  - {fileID: 464551888}
+  - {fileID: 1681135430}
   m_Father: {fileID: 237689038}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

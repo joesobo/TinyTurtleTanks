@@ -11,11 +11,14 @@ public class PlayerEffects : MonoBehaviour {
     public bool jump = false;
     [HideInInspector]
     public bool health = false;
+    [HideInInspector]
+    public bool fire = false;
 
     private bool shieldLock = false;
     private bool speedLock = false;
     private bool jumpLock = false;
     private bool healthLock = false;
+    private bool fireLock = false;
 
     private float saveSpeed;
     private float saveJump;
@@ -23,6 +26,7 @@ public class PlayerEffects : MonoBehaviour {
     public int waitForSecondsShield = 5;
     public int waitForSecondsSpeed = 5;
     public int waitForSecondsJump = 5;
+    public int waitForSecondsFire = 5;
 
     private PlayerController playerController;
     private Health playerHealth;
@@ -35,6 +39,7 @@ public class PlayerEffects : MonoBehaviour {
     public GameObject speedParticles;
     public GameObject jumpParticles;
     public GameObject healthParticles;
+    public GameObject fireParticles;
 
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
@@ -66,6 +71,11 @@ public class PlayerEffects : MonoBehaviour {
             playerHealth.IncreaseHealth(1);
             Instantiate(healthParticles, transform.position, transform.rotation, transform);
             health = false;
+        }
+
+        if (fire && fireLock) {
+            fireLock = false;
+            StartCoroutine("StartFire");
         }
     }
 
@@ -99,6 +109,13 @@ public class PlayerEffects : MonoBehaviour {
         Destroy(particle);
     }
 
+    IEnumerator StartFire() {
+        particle = Instantiate(fireParticles, transform.position, transform.rotation, transform);
+        yield return new WaitForSeconds(waitForSecondsShield);
+        fire = false;
+        Destroy(particle);
+    }
+
     private Transform findChildByName(string text) {
         Transform saveChild = null;
 
@@ -129,5 +146,10 @@ public class PlayerEffects : MonoBehaviour {
     public void ActivateHealth() {
         health = true;
         healthLock = true;
+    }
+
+    public void ActivateFire() {
+        fire = true;
+        fireLock = true;
     }
 }
