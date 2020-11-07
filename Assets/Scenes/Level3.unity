@@ -6343,6 +6343,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 529589680}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &529589682 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7548803982561538815, guid: cf1fefb852ca88e4ba61f8f68d19b21c,
+    type: 3}
+  m_PrefabInstance: {fileID: 529589680}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &529589683 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7548803983310387889, guid: cf1fefb852ca88e4ba61f8f68d19b21c,
+    type: 3}
+  m_PrefabInstance: {fileID: 529589680}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &557920415
 GameObject:
   m_ObjectHideFlags: 0
@@ -33883,7 +33895,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.32894215, y: 0.5539686, z: -0.25240368, w: 0.7219476}
+  m_LocalRotation: {x: 0.32894218, y: 0.5539685, z: -0.25240365, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -34284,9 +34296,9 @@ MonoBehaviour:
   - {fileID: 768355268}
   footprints: {fileID: 1969841753}
   enemyStuffList:
-  - {fileID: 0}
+  - {fileID: 529589683}
   - {fileID: 1681107140}
-  - {fileID: 0}
+  - {fileID: 529589682}
   particleList:
   - {fileID: 1223611375}
   - {fileID: 1708068062}
@@ -34847,7 +34859,6 @@ MonoBehaviour:
   dropPoint: {fileID: 1811440632}
   parent: {fileID: 857233571}
   altParent: {fileID: 1879273467}
-  screenShake: {fileID: 1761544806}
 --- !u!114 &1681413302
 MonoBehaviour:
   m_ObjectHideFlags: 0
