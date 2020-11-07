@@ -26,7 +26,8 @@ public class PlayerEffects : MonoBehaviour {
     public int waitForSecondsShield = 5;
     public int waitForSecondsSpeed = 5;
     public int waitForSecondsJump = 5;
-    public int waitForSecondsFire = 5;
+    public int waitForSecondsFireBurn = 6;
+    public float waitForSecondsFireDamage = 1.5f;
 
     private PlayerController playerController;
     private Health playerHealth;
@@ -111,9 +112,16 @@ public class PlayerEffects : MonoBehaviour {
 
     IEnumerator StartFire() {
         particle = Instantiate(fireParticles, transform.position, transform.rotation, transform);
-        yield return new WaitForSeconds(waitForSecondsShield);
+        StartCoroutine("StartFireDamage");
+        yield return new WaitForSeconds(waitForSecondsFireBurn);
         fire = false;
         Destroy(particle);
+    }
+
+    IEnumerator StartFireDamage() {
+        playerHealth.DecreaseHealth(1);
+        yield return new WaitForSeconds(waitForSecondsFireDamage);
+        if (fire) StartCoroutine("StartFireDamage");
     }
 
     private Transform findChildByName(string text) {
