@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerEffects : MonoBehaviour {
@@ -34,20 +33,24 @@ public class PlayerEffects : MonoBehaviour {
     private GameSettings settings;
 
     private GameObject particle;
-    private GameObject saveFireParticle;
     private PickupDisplay pickupDisplay;
+
+    private Transform fireObject;
+    private Transform shieldObject;
 
     public GameObject shieldParticles;
     public GameObject speedParticles;
     public GameObject jumpParticles;
     public GameObject healthParticles;
-    public GameObject fireParticles;
 
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
         playerController = GetComponent<PlayerController>();
         playerHealth = GetComponent<Health>();
         pickupDisplay = FindObjectOfType<PickupDisplay>();
+
+        shieldObject = findChildByName("Shield");
+        fireObject = findChildByName("Fire Particle");
     }
 
     private void Update() {
@@ -77,7 +80,7 @@ public class PlayerEffects : MonoBehaviour {
 
         if (fire && fireLock) {
             fireLock = false;
-            saveFireParticle = Instantiate(fireParticles, transform.position, transform.rotation, transform);
+            fireObject.gameObject.SetActive(true);
             StartCoroutine("StartFireDamage");
         }
     }
@@ -85,9 +88,9 @@ public class PlayerEffects : MonoBehaviour {
     IEnumerator StartShield() {
         particle = Instantiate(shieldParticles, transform.position, transform.rotation, transform);
         pickupDisplay.Begin(waitForSecondsShield, new Color32(52, 179, 217, 85));
-        findChildByName("Shield").gameObject.SetActive(true);
+        shieldObject.gameObject.SetActive(true);
         yield return new WaitForSeconds(waitForSecondsShield);
-        findChildByName("Shield").gameObject.SetActive(false);
+        shieldObject.gameObject.SetActive(false);
         shield = false;
         Destroy(particle);
     }
@@ -114,8 +117,8 @@ public class PlayerEffects : MonoBehaviour {
 
     public IEnumerator StartFire() {
         yield return new WaitForSeconds(waitForSecondsFireBurn);
+        fireObject.gameObject.SetActive(false);
         fire = false;
-        Destroy(saveFireParticle);
     }
 
     IEnumerator StartFireDamage() {

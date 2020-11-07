@@ -36,11 +36,11 @@ Material:
     - _HeightScale: 1
     - _HeightScaleModulated: 10
     - _Metallic: 0.1
-    - _RefractionStrength: 0.3
+    - _RefractionStrength: 0.837
     - _Speed: 0.03
     - _Tiling: 0
     - _TilingModulated: 100
-    - _WaterFogDensity: 0.1
+    - _WaterFogDensity: 0.54
     m_Colors:
     - _Color: {r: 0.7830189, g: 0.3745389, b: 0.1071111, a: 1}
     - _WaterFogColor: {r: 0.7735849, g: 0, b: 0.030421779, a: 1}
