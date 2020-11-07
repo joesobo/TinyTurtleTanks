@@ -37715,7 +37715,7 @@ MonoBehaviour:
   waitForSecondsShield: 5
   waitForSecondsSpeed: 5
   waitForSecondsJump: 5
-  waitForSecondsFireBurn: 6
+  waitForSecondsFireBurn: 3
   waitForSecondsFireDamage: 1.5
   shieldParticles: {fileID: 6771612981600578561, guid: fdda36121b7fb8f49a2f48296bc87f67,
     type: 3}

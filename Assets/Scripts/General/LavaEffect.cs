@@ -14,4 +14,10 @@ public class LavaEffect : MonoBehaviour {
             playerEffects.ActivateFire();
         }
     }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.tag == "Player" && playerEffects.fire) {
+            playerEffects.StartCoroutine("StartFire");
+        }
+    }
 }

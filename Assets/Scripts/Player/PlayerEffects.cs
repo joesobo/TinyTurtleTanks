@@ -34,6 +34,7 @@ public class PlayerEffects : MonoBehaviour {
     private GameSettings settings;
 
     private GameObject particle;
+    private GameObject saveFireParticle;
     private PickupDisplay pickupDisplay;
 
     public GameObject shieldParticles;
@@ -76,7 +77,8 @@ public class PlayerEffects : MonoBehaviour {
 
         if (fire && fireLock) {
             fireLock = false;
-            StartCoroutine("StartFire");
+            saveFireParticle = Instantiate(fireParticles, transform.position, transform.rotation, transform);
+            StartCoroutine("StartFireDamage");
         }
     }
 
@@ -110,12 +112,10 @@ public class PlayerEffects : MonoBehaviour {
         Destroy(particle);
     }
 
-    IEnumerator StartFire() {
-        particle = Instantiate(fireParticles, transform.position, transform.rotation, transform);
-        StartCoroutine("StartFireDamage");
+    public IEnumerator StartFire() {
         yield return new WaitForSeconds(waitForSecondsFireBurn);
         fire = false;
-        Destroy(particle);
+        Destroy(saveFireParticle);
     }
 
     IEnumerator StartFireDamage() {
