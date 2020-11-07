@@ -19,6 +19,7 @@ public abstract class Health : MonoBehaviour {
     private bool flashInProgress = false;
     private bool cooldownInProgress = false;
     private List<Material> tempMaterials = new List<Material>();
+    private CameraShake screenShake;
 
     private float flashTime = 0.15f;
     private float cooldownTime = 0.5f;
@@ -29,6 +30,7 @@ public abstract class Health : MonoBehaviour {
         levelRunner = FindObjectOfType<LevelRunner>();
         meshRenderers = transform.GetChild(0).GetComponentsInChildren<MeshRenderer>();
         curHealth = MAXHEALTH;
+        screenShake = FindObjectOfType<CameraShake>();
     }
 
     private void Update() {
@@ -64,6 +66,9 @@ public abstract class Health : MonoBehaviour {
                 if (settings.useParticle) {
                     Instantiate(bloodParticles, transform.position, transform.rotation);
                 }
+            }
+            if (transform.name == "TurtlePlayer") {
+                StartCoroutine(screenShake.Shake());
             }
         }
     }

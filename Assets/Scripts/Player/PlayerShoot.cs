@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour {
@@ -32,11 +31,12 @@ public class PlayerShoot : MonoBehaviour {
 
     private GameSettings settings;
     private AudioSource source;
-    public CameraShake screenShake;
+    private CameraShake screenShake;
 
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
         source = GetComponent<AudioSource>();
+        screenShake = FindObjectOfType<CameraShake>();
 
         if (altWeapon) {
             altWeapon.inPlay = 0;
