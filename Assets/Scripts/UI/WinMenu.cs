@@ -28,7 +28,7 @@ public class WinMenu : BaseMenu {
 
     public void ActivateWin() {
         pauseActive = true;
-        //LeanTween.scale(gameObject, Vector3.one, 0.4f);
+        levelSingleton.UnlockNextLevel();
     }
 
     public void OnMenu() {
@@ -36,8 +36,8 @@ public class WinMenu : BaseMenu {
     }
 
     public void OnNext() {
-        levelSingleton.UnlockNextLevel();
-        SceneManager.LoadScene(levelSingleton.activeLevel++);
+        levelSingleton.activeLevel++;
+        SceneManager.LoadScene(levelSingleton.activeLevel);
     }
 
     public override void OpenQuit() {

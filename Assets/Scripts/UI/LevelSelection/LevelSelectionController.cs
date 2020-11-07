@@ -21,6 +21,9 @@ public class LevelSelectionController : MonoBehaviour {
         levelLoader = GetComponent<LevelLoader>();
         activeSelectorRef = selectors[ls.activeLevel - 1];
         activeSelectorRef.SetActive(true);
+
+        UpdateSelectors();
+        UpdateButtons();
     }
 
     public void UnlockNextLevel() {

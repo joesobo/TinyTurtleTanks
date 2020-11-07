@@ -20,7 +20,6 @@ public class EnemyHealth : Health {
     }
 
     public void InstantKillEnemy() {
-        Debug.Log(1);
         Destroy(gameObject);
     }
 }

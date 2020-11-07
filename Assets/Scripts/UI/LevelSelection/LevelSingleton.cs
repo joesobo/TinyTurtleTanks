@@ -24,7 +24,7 @@ public class LevelSingleton : MonoBehaviour {
     }
 
     public void UnlockNextLevel() {
-        if (activeLevel < unlockedLevels) {
+        if (activeLevel == unlockedLevels) {
             UnlockLevel();
         }
     }

@@ -73,7 +73,6 @@ public class LevelRunner : MonoBehaviour {
             }
 
             if ((!activeLose || !activeWin) && !settings.isPaused) {
-                Debug.Log(2);
                 settings.isPaused = true;
             }
         }
