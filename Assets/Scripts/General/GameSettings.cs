@@ -9,6 +9,9 @@ public class GameSettings : MonoBehaviour {
     public bool useSound = false;
     [Range(0, 1)]
     public float soundVolume = 1.0f;
+    public bool useMusic = false;
+    [Range(0, 1)]
+    public float musicVolume = 1.0f;
     [HideInInspector]
     public bool useParticle = false;
     [Range(0, 5)]
@@ -22,7 +25,6 @@ public class GameSettings : MonoBehaviour {
     public bool useAtmosphere = false;
     public bool useWater = false;
     public bool daylightCycle = false;
-    
 
     [Header("Test Settings")]
     public bool useCrates = false;

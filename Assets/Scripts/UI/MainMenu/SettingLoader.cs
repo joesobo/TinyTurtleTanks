@@ -5,6 +5,8 @@ public class SettingLoader : MonoBehaviour {
     public UnityEngine.UI.Image vfxButton;
     public UnityEngine.UI.Image soundButton;
     public UnityEngine.UI.Slider soundSlider;
+    public UnityEngine.UI.Image musicButton;
+    public UnityEngine.UI.Slider musicSlider;
     public UnityEngine.UI.Image particleButton;
     public UnityEngine.UI.Slider particleSlider;
     public UnityEngine.UI.Image grassButton;
@@ -27,6 +29,7 @@ public class SettingLoader : MonoBehaviour {
     public void SetupSettings() {
         LoadColor(settings.useVFX, vfxButton);
         LoadColor(settings.useSound, soundButton);
+        LoadColor(settings.useMusic, musicButton);
         LoadColor(settings.useParticle, particleButton);
         LoadColor(settings.useGrass, grassButton);
         LoadColor(settings.useFootPrints, footPrintButton);
@@ -35,8 +38,10 @@ public class SettingLoader : MonoBehaviour {
         LoadColor(settings.useBirds, birdButton);
         LoadColor(settings.daylightCycle, daylightCycleButton);
         LoadColor(settings.useCheats, cheatsButton);
-        UpdateSoundVolume();
-        UpdateParticleCount();
+        
+        soundSlider.value = settings.soundVolume;
+        musicSlider.value = settings.musicVolume;
+        particleSlider.value = settings.particleSlider;
     }
 
     public void LoadSettings() {
@@ -59,10 +64,37 @@ public class SettingLoader : MonoBehaviour {
 
     public void UpdateSoundVolume() {
         settings.soundVolume = soundSlider.value;
+        if (settings.soundVolume > 0 && !settings.useSound) {
+            ChangeSoundSetting();
+        }
+        if (settings.soundVolume == 0 && settings.useSound) {
+            ChangeSoundSetting();
+        }
+    }
+
+    public void ChangeMusicSetting() {
+        settings.useMusic = !settings.useMusic;
+        LoadColor(settings.useMusic, musicButton);
+    }
+
+    public void UpdateMusicVolume() {
+        settings.musicVolume = musicSlider.value;
+        if (settings.musicVolume > 0 && !settings.useMusic) {
+            ChangeMusicSetting();
+        }
+        if (settings.musicVolume == 0 && settings.useMusic) {
+            ChangeMusicSetting();
+        }
     }
 
     public void UpdateParticleCount() {
         settings.particleSlider = particleSlider.value;
+        if (settings.particleSlider > 0 && !settings.useParticle) {
+            ChangeParticleSetting();
+        }
+        if (settings.particleSlider == 0 && settings.useParticle) {
+            ChangeParticleSetting();
+        }
     }
 
     public void ChangeParticleSetting() {
