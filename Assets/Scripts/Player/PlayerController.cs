@@ -1,6 +1,5 @@
-﻿using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     public BaseTurtle BaseTurtle;
@@ -11,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     private float maxRotateSpeed = 100;
     public float jumpForce = 200;
     public LayerMask groundMask;
+    public List<Transform> groundDetectionPoints;
 
     private Vector3 moveAmount;
     private Vector3 smoothMoveVelocity;
@@ -83,16 +83,25 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void GroundCheck() {
-        ray = new Ray(transform.position, -transform.up);
-        Debug.DrawRay(transform.position, -transform.up * .85f, Color.red);
-        if (Physics.Raycast(ray, out hit, .85f, groundMask)) {
-            grounded = true;
+        bool hitGround = false;
 
-            if (settings.useParticle && !landParticleSpawned) {
-                ps = Instantiate(landParticles, transform.position, transform.rotation);
-                settings.SetParticleValues(ps);
-                landParticleSpawned = true;
+        foreach (Transform checkPoint in groundDetectionPoints) {
+            ray = new Ray(checkPoint.position, -transform.up);
+            Debug.DrawRay(checkPoint.position, -transform.up * .85f, Color.red);
+
+            if (Physics.Raycast(ray, out hit, .85f, groundMask)) {
+                hitGround = true;
+
+                if (!ps && settings.useParticle && !landParticleSpawned) {
+                    ps = Instantiate(landParticles, transform.position, transform.rotation);
+                    settings.SetParticleValues(ps);
+                    landParticleSpawned = true;
+                }
             }
+        }
+
+        if (hitGround) {
+            grounded = true;
         }
         else {
             grounded = false;
