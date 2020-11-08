@@ -17,15 +17,23 @@ public class SettingLoader : MonoBehaviour {
     public UnityEngine.UI.Image daylightCycleButton;
     public UnityEngine.UI.Image cheatsButton;
 
+    private UnityEngine.UI.Text soundSliderText;
+    private UnityEngine.UI.Text musicSliderText;
+    private UnityEngine.UI.Text particleSliderText;
+
     public Color inActiveColor;
     public Color ActiveColor;
 
     private void Awake() {
         settings = FindObjectOfType<GameSettings>();
 
+        soundSliderText = soundSlider.GetComponentInChildren<UnityEngine.UI.Text>();
+        musicSliderText = musicSlider.GetComponentInChildren<UnityEngine.UI.Text>();
+        particleSliderText = particleSlider.GetComponentInChildren<UnityEngine.UI.Text>();
+
         SetupSettings();
     }
-    
+
     public void SetupSettings() {
         LoadColor(settings.useVFX, vfxButton);
         LoadColor(settings.useSound, soundButton);
@@ -38,10 +46,14 @@ public class SettingLoader : MonoBehaviour {
         LoadColor(settings.useBirds, birdButton);
         LoadColor(settings.daylightCycle, daylightCycleButton);
         LoadColor(settings.useCheats, cheatsButton);
-        
+
         soundSlider.value = settings.soundVolume;
         musicSlider.value = settings.musicVolume;
         particleSlider.value = settings.particleSlider;
+
+        UpdateSoundText();
+        UpdateMusicText();
+        UpdateParticleText();
     }
 
     public void LoadSettings() {
@@ -64,12 +76,25 @@ public class SettingLoader : MonoBehaviour {
 
     public void UpdateSoundVolume() {
         settings.soundVolume = soundSlider.value;
+        UpdateSoundText();
         if (settings.soundVolume > 0 && !settings.useSound) {
             ChangeSoundSetting();
         }
         if (settings.soundVolume == 0 && settings.useSound) {
             ChangeSoundSetting();
         }
+    }
+
+    private void UpdateSoundText() {
+        soundSliderText.text = ((int)(soundSlider.value * 100)).ToString() + '%';
+    }
+
+    private void UpdateMusicText() {
+        musicSliderText.text = ((int)(musicSlider.value * 100)).ToString() + '%';
+    }
+
+    private void UpdateParticleText() {
+        particleSliderText.text = particleSlider.value.ToString() + 'x';
     }
 
     public void ChangeMusicSetting() {
@@ -79,6 +104,7 @@ public class SettingLoader : MonoBehaviour {
 
     public void UpdateMusicVolume() {
         settings.musicVolume = musicSlider.value;
+        UpdateMusicText();
         if (settings.musicVolume > 0 && !settings.useMusic) {
             ChangeMusicSetting();
         }
@@ -89,6 +115,7 @@ public class SettingLoader : MonoBehaviour {
 
     public void UpdateParticleCount() {
         settings.particleSlider = particleSlider.value;
+        UpdateParticleText();
         if (settings.particleSlider > 0 && !settings.useParticle) {
             ChangeParticleSetting();
         }
