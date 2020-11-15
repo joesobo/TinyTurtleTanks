@@ -24,7 +24,7 @@ public class SettingLoader : MonoBehaviour {
     public Color inActiveColor;
     public Color ActiveColor;
 
-    private void Awake() {
+    private void Start() {
         settings = FindObjectOfType<GameSettings>();
 
         soundSliderText = soundSlider.GetComponentInChildren<UnityEngine.UI.Text>();
@@ -66,16 +66,19 @@ public class SettingLoader : MonoBehaviour {
 
     public void ChangeVFXSetting() {
         settings.useVFX = !settings.useVFX;
+        settings.UpdatePlayerPrefs();
         LoadColor(settings.useVFX, vfxButton);
     }
 
     public void ChangeSoundSetting() {
         settings.useSound = !settings.useSound;
+        settings.UpdatePlayerPrefs();
         LoadColor(settings.useSound, soundButton);
     }
 
     public void UpdateSoundVolume() {
         settings.soundVolume = soundSlider.value;
+        settings.UpdatePlayerPrefs();
         UpdateSoundText();
         if (settings.soundVolume > 0 && !settings.useSound) {
             ChangeSoundSetting();
@@ -99,11 +102,13 @@ public class SettingLoader : MonoBehaviour {
 
     public void ChangeMusicSetting() {
         settings.useMusic = !settings.useMusic;
+        settings.UpdatePlayerPrefs();
         LoadColor(settings.useMusic, musicButton);
     }
 
     public void UpdateMusicVolume() {
         settings.musicVolume = musicSlider.value;
+        settings.UpdatePlayerPrefs();
         UpdateMusicText();
         if (settings.musicVolume > 0 && !settings.useMusic) {
             ChangeMusicSetting();
@@ -115,6 +120,7 @@ public class SettingLoader : MonoBehaviour {
 
     public void UpdateParticleCount() {
         settings.particleSlider = particleSlider.value;
+        settings.UpdatePlayerPrefs();
         UpdateParticleText();
         if (settings.particleSlider > 0 && !settings.useParticle) {
             ChangeParticleSetting();
@@ -126,42 +132,50 @@ public class SettingLoader : MonoBehaviour {
 
     public void ChangeParticleSetting() {
         settings.useParticle = !settings.useParticle;
+        settings.UpdatePlayerPrefs();
         LoadColor(settings.useParticle, particleButton);
     }
 
     public void ChangeGrassSetting() {
         settings.useGrass = !settings.useGrass;
         settings.useSeaweed = !settings.useSeaweed;
+        settings.UpdatePlayerPrefs();
         LoadColor(settings.useGrass, grassButton);
     }
 
     public void ChangeFootprintSetting() {
         settings.useFootPrints = !settings.useFootPrints;
+        settings.UpdatePlayerPrefs();
         LoadColor(settings.useFootPrints, footPrintButton);
     }
 
     public void ChangeCloudSetting() {
         settings.useClouds = !settings.useClouds;
+        settings.UpdatePlayerPrefs();
         LoadColor(settings.useClouds, cloudButton);
     }
 
     public void ChangeMoonSetting() {
         settings.useMoons = !settings.useMoons;
+        settings.UpdatePlayerPrefs();
         LoadColor(settings.useMoons, moonButton);
     }
 
     public void ChangeBirdSetting() {
         settings.useBirds = !settings.useBirds;
+        settings.UpdatePlayerPrefs();
         LoadColor(settings.useBirds, birdButton);
     }
 
     public void ChangeDaylightSetting() {
         settings.daylightCycle = !settings.daylightCycle;
+        settings.UpdatePlayerPrefs();
         LoadColor(settings.daylightCycle, daylightCycleButton);
     }
 
     public void ChangeCheatsSetting() {
         settings.useCheats = !settings.useCheats;
+        settings.UpdatePlayerPrefs();
         LoadColor(settings.useCheats, cheatsButton);
     }
 
@@ -172,5 +186,10 @@ public class SettingLoader : MonoBehaviour {
         else {
             button.color = inActiveColor;
         }
+    }
+
+    public void ResetSettings() {
+        settings.ResetPlayerPrefs();
+        SetupSettings();
     }
 }

@@ -47,6 +47,8 @@ public class GameSettings : MonoBehaviour {
         if (particleSlider == 0) {
             useParticle = false;
         }
+
+        SetupPlayerPrefs();
     }
 
     void Update() {
@@ -56,6 +58,69 @@ public class GameSettings : MonoBehaviour {
         else {
             Time.timeScale = defaultTimeScale;
         }
+    }
+
+    private void SetupPlayerPrefs() {
+        if (!PlayerPrefs.HasKey("soundSetting")) {
+            ResetPlayerPrefs();
+        }
+
+        UpdateBoolSettings();
+    }
+
+    public void UpdatePlayerPrefs() {
+        PlayerPrefs.SetInt("cheatSetting", (useCheats ? 1 : 0));
+        PlayerPrefs.SetInt("vfxSetting", (useVFX ? 1 : 0));
+        PlayerPrefs.SetInt("soundSetting", (useSound ? 1 : 0));
+        PlayerPrefs.SetFloat("soundVolume", soundVolume);
+        PlayerPrefs.SetInt("musicSetting", (useMusic ? 1 : 0));
+        PlayerPrefs.SetFloat("musicVolume", musicVolume);
+        PlayerPrefs.SetInt("particleSetting", (useParticle ? 1 : 0));
+        PlayerPrefs.SetFloat("particleValue", particleSlider);
+        PlayerPrefs.SetInt("grassSetting", (useGrass ? 1 : 0));
+        PlayerPrefs.SetInt("trailSetting", (useFootPrints ? 1 : 0));
+        PlayerPrefs.SetInt("cloudSetting", (useClouds ? 1 : 0));
+        PlayerPrefs.SetInt("moonSetting", (useMoons ? 1 : 0));
+        PlayerPrefs.SetInt("birdSetting", (useBirds ? 1 : 0));
+        PlayerPrefs.SetInt("daylightCycle", (daylightCycle ? 1 : 0));
+        PlayerPrefs.Save();
+    }
+
+    public void ResetPlayerPrefs() {
+        PlayerPrefs.SetInt("cheatSetting", 0);
+        PlayerPrefs.SetInt("vfxSetting", 1);
+        PlayerPrefs.SetInt("soundSetting", 1);
+        PlayerPrefs.SetFloat("soundVolume", 1);
+        PlayerPrefs.SetInt("musicSetting", 1);
+        PlayerPrefs.SetFloat("musicVolume", 1);
+        PlayerPrefs.SetInt("particleSetting", 1);
+        PlayerPrefs.SetFloat("particleValue", 1);
+        PlayerPrefs.SetInt("grassSetting", 1);
+        PlayerPrefs.SetInt("trailSetting", 1);
+        PlayerPrefs.SetInt("cloudSetting", 1);
+        PlayerPrefs.SetInt("moonSetting", 1);
+        PlayerPrefs.SetInt("birdSetting", 1);
+        PlayerPrefs.SetInt("daylightCycle", 1);
+        PlayerPrefs.Save();
+
+        UpdateBoolSettings();
+    }
+
+    private void UpdateBoolSettings() {
+        useCheats = (PlayerPrefs.GetInt("cheatSetting") != 0);
+        useVFX = (PlayerPrefs.GetInt("vfxSetting") != 0);
+        useSound = (PlayerPrefs.GetInt("soundSetting") != 0);
+        soundVolume = PlayerPrefs.GetFloat("soundVolume");
+        useMusic = (PlayerPrefs.GetInt("musicSetting") != 0);
+        musicVolume = PlayerPrefs.GetFloat("musicVolume");
+        useParticle = (PlayerPrefs.GetInt("particleSetting") != 0);
+        particleSlider = PlayerPrefs.GetFloat("particleValue");
+        useGrass = (PlayerPrefs.GetInt("grassSetting") != 0);
+        useFootPrints = (PlayerPrefs.GetInt("trailSetting") != 0);
+        useClouds = (PlayerPrefs.GetInt("cloudSetting") != 0);
+        useMoons = (PlayerPrefs.GetInt("moonSetting") != 0);
+        useBirds = (PlayerPrefs.GetInt("birdSetting") != 0);
+        daylightCycle = (PlayerPrefs.GetInt("daylightCycle") != 0);
     }
 
     public void SetParticleValues(ParticleSystem ps) {
