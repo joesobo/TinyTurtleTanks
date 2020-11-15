@@ -6295,6 +6295,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 237689038}
     m_Modifications:
+    - target: {fileID: 98515040991360901, guid: 8e713354ac90b4e48ba21060a6793d36,
+        type: 3}
+      propertyPath: footprintParent
+      value: 
+      objectReference: {fileID: 1969841753}
+    - target: {fileID: 98515040991360904, guid: 8e713354ac90b4e48ba21060a6793d36,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 857233571}
+    - target: {fileID: 98515040991360904, guid: 8e713354ac90b4e48ba21060a6793d36,
+        type: 3}
+      propertyPath: altParent
+      value: 
+      objectReference: {fileID: 1075711860}
     - target: {fileID: 98515040991360914, guid: 8e713354ac90b4e48ba21060a6793d36,
         type: 3}
       propertyPath: groundMask.m_Bits
@@ -6365,6 +6380,12 @@ PrefabInstance:
 --- !u!4 &720473217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4468430367408782423, guid: 8e713354ac90b4e48ba21060a6793d36,
+    type: 3}
+  m_PrefabInstance: {fileID: 720473216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &720473218 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 98515039922952983, guid: 8e713354ac90b4e48ba21060a6793d36,
     type: 3}
   m_PrefabInstance: {fileID: 720473216}
   m_PrefabAsset: {fileID: 0}
@@ -7213,6 +7234,8 @@ MonoBehaviour:
   useVFX: 1
   useSound: 0
   soundVolume: 0.5
+  useMusic: 0
+  musicVolume: 1
   useParticle: 1
   particleSlider: 1
   useGrass: 1
@@ -33552,7 +33575,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.3210852, y: 0.5489511, z: -0.17453074, w: 0.7517288}
+  m_LocalRotation: {x: 0.3210852, y: 0.54895115, z: -0.17453076, w: 0.7517287}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -33626,7 +33649,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.7219476}
+  m_LocalRotation: {x: 0.32894218, y: 0.5539685, z: -0.25240365, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -34240,6 +34263,7 @@ MonoBehaviour:
   particleList:
   - {fileID: 580573761}
   - {fileID: 1708068062}
+  - {fileID: 720473218}
   water: {fileID: 464551887}
   daylightCycle: {fileID: 1261682982}
 --- !u!1 &1681107140
