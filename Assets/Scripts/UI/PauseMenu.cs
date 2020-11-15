@@ -18,7 +18,7 @@ public class PauseMenu : BaseMenu {
 
     private void Update() {
         if (!levelRunner.isDead) {
-            if (!settings.isPaused && Input.GetKeyDown(KeyCode.Escape)) {
+            if (Input.GetButtonDown("Cancel")) {
                 TogglePauseMenu();
             }
 

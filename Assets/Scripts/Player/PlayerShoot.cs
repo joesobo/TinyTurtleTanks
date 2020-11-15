@@ -53,7 +53,7 @@ public class PlayerShoot : MonoBehaviour {
     }
 
     private void AltShoot() {
-        if (altWeapon && Input.GetMouseButtonDown(1) && !altDelayOn && altWeapon.inPlay < altWeapon.maxInPlay) {
+        if (altWeapon && Input.GetButtonDown("Fire2") && !altDelayOn && altWeapon.inPlay < altWeapon.maxInPlay) {
             //start delay for next shot
             altDelayOn = true;
             StartCoroutine("AltDelayCo");
@@ -71,7 +71,7 @@ public class PlayerShoot : MonoBehaviour {
     }
 
     private void MainShoot() {
-        if (weapon && Input.GetMouseButtonDown(0) && !mainDelayOn) {
+        if (weapon && Input.GetButtonDown("Fire1") && !mainDelayOn) {
             //start delay for next shot
             mainDelayOn = true;
             StartCoroutine("MainDelayCo");
