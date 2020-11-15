@@ -80,9 +80,6 @@ public class SettingLoader : MonoBehaviour {
         settings.soundVolume = soundSlider.value;
         settings.UpdatePlayerPrefs();
         UpdateSoundText();
-        if (settings.soundVolume > 0 && !settings.useSound) {
-            settings.soundVolume = 0;
-        }
     }
 
     private void UpdateSoundText() {
@@ -107,18 +104,12 @@ public class SettingLoader : MonoBehaviour {
         settings.musicVolume = musicSlider.value;
         settings.UpdatePlayerPrefs();
         UpdateMusicText();
-        if (settings.musicVolume > 0 && !settings.useMusic) {
-            settings.musicVolume = 0;
-        }
     }
 
     public void UpdateParticleCount() {
         settings.particleSlider = particleSlider.value;
         settings.UpdatePlayerPrefs();
         UpdateParticleText();
-        if (settings.particleSlider > 0 && !settings.useParticle) {
-            settings.particleSlider = 0;
-        }
     }
 
     public void ChangeParticleSetting() {
