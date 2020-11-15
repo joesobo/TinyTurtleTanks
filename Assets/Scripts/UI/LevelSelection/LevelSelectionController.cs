@@ -64,4 +64,10 @@ public class LevelSelectionController : MonoBehaviour {
         nextText.color = ls.activeLevel < ls.unlockedLevels ? white : deactivatedColor;
         prevText.color = ls.activeLevel > 1 ? white : deactivatedColor;
     }
+
+    public void ResetLevels() {
+        ls.ResetLevels();
+        UpdateSelectors();
+        UpdateButtons();
+    }
 }
