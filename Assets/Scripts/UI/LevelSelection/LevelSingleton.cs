@@ -15,11 +15,21 @@ public class LevelSingleton : MonoBehaviour {
         else if (Instance != this) {
             Destroy(gameObject);
         }
+
+        if(!PlayerPrefs.HasKey("levelUnlocked")) {
+            PlayerPrefs.SetInt("levelUnlocked", 1);
+            PlayerPrefs.Save();
+        }else{
+            unlockedLevels = PlayerPrefs.GetInt("levelUnlocked");
+            activeLevel = unlockedLevels;
+        }
     }
 
     public void UnlockLevel() {
         if (unlockedLevels < MAXLEVEL) {
             unlockedLevels++;
+            PlayerPrefs.SetInt("levelUnlocked", unlockedLevels);
+            PlayerPrefs.Save();
         }
     }
 
