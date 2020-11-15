@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
     private PlayerHealth playerHealth;
     private PlayerShoot playerShoot;
 
-    private void Start() {
+    private void Awake() {
         playerHealth = GetComponent<PlayerHealth>();
         playerHealth.MAXHEALTH = BaseTurtle.health;
 
