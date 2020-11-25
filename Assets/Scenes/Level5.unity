@@ -328,6 +328,10 @@ GameObject:
   m_Component:
   - component: {fileID: 160200634}
   - component: {fileID: 160200636}
+  - component: {fileID: 160200635}
+  - component: {fileID: 160200637}
+  - component: {fileID: 160200638}
+  - component: {fileID: 160200639}
   m_Layer: 0
   m_Name: Object Spawner
   m_TagString: Untagged
@@ -349,6 +353,50 @@ Transform:
   m_Father: {fileID: 1100216287}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &160200635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160200633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5dcd6ea01ffef544a18d1990797ad5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 5499062630823446204, guid: 2375366aaaead9b4595b7c7176962c76, type: 3}
+  parent: {fileID: 1079151834}
+  num: 100
+  radius: 50
+  checkDst: 150
+  offsetScale: 0
+  maxDensity: 1
+  minScale: 0.5
+  maxScale: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  objectMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  useColliders: 1
+  spawnTopDown: 1
+  useGizmoRadius: 0
+  useGizmoHeight: 0
+  useGizmoRayHeight: 0
+  useRandomRotation: 1
+  useRandomColor: 0
+  useSlopeCutoff: 1
+  useRandomScaleAxis: 0
+  minRayHeight: 0
+  maxRayHeight: 50
+  minHeight: 25
+  maxHeight: 40
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  slopeCutoff: 0.75
 --- !u!114 &160200636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,8 +438,143 @@ MonoBehaviour:
   maxRayHeight: 50
   minHeight: 22.4
   maxHeight: 32.7
-  startColor: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
-  endColor: {r: 0.42346027, g: 0.4435829, b: 0.49056602, a: 1}
+  startColor: {r: 0.56096476, g: 0.60300314, b: 0.6226415, a: 1}
+  endColor: {r: 0.31399074, g: 0.35482588, b: 0.4528302, a: 1}
+  slopeCutoff: 0.75
+--- !u!114 &160200637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160200633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5dcd6ea01ffef544a18d1990797ad5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 2711694020470125463, guid: 62f5871cb6fea164a9b4f3152082a9c5, type: 3}
+  - {fileID: 8632772550932576963, guid: 65840563239e4a841b484920f281f796, type: 3}
+  parent: {fileID: 714160608}
+  num: 100
+  radius: 50
+  checkDst: 150
+  offsetScale: -0.3
+  maxDensity: 1
+  minScale: 0.5
+  maxScale: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  objectMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  useColliders: 0
+  spawnTopDown: 1
+  useGizmoRadius: 0
+  useGizmoHeight: 0
+  useGizmoRayHeight: 0
+  useRandomRotation: 1
+  useRandomColor: 0
+  useSlopeCutoff: 1
+  useRandomScaleAxis: 0
+  minRayHeight: 0
+  maxRayHeight: 50
+  minHeight: 25.704226
+  maxHeight: 40
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 1, g: 0.96369815, b: 0.33490568, a: 1}
+  slopeCutoff: 0.75
+--- !u!114 &160200638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160200633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5dcd6ea01ffef544a18d1990797ad5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 8203050323335001238, guid: 388b293087d8b434381992c883883428, type: 3}
+  - {fileID: 9012181013347636634, guid: d9a0f525c29d9ea4ca66b3576d2f26bc, type: 3}
+  parent: {fileID: 1177254860}
+  num: 50
+  radius: 50
+  checkDst: 150
+  offsetScale: 0
+  maxDensity: 1
+  minScale: 0.75
+  maxScale: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  objectMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  useColliders: 0
+  spawnTopDown: 1
+  useGizmoRadius: 0
+  useGizmoHeight: 0
+  useGizmoRayHeight: 0
+  useRandomRotation: 1
+  useRandomColor: 0
+  useSlopeCutoff: 1
+  useRandomScaleAxis: 0
+  minRayHeight: 0
+  maxRayHeight: 50
+  minHeight: 10
+  maxHeight: 40
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
+  slopeCutoff: 0.75
+--- !u!114 &160200639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160200633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5dcd6ea01ffef544a18d1990797ad5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 2610536545608913429, guid: 78554d65313ebd447ad9cb2fc0c4821e, type: 3}
+  - {fileID: 3704238797110295365, guid: 4265347cea2d75b478a9103fe757e815, type: 3}
+  parent: {fileID: 1177254860}
+  num: 10
+  radius: 50
+  checkDst: 150
+  offsetScale: 0
+  maxDensity: 1
+  minScale: 1.5
+  maxScale: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  objectMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  useColliders: 1
+  spawnTopDown: 1
+  useGizmoRadius: 0
+  useGizmoHeight: 0
+  useGizmoRayHeight: 0
+  useRandomRotation: 1
+  useRandomColor: 0
+  useSlopeCutoff: 1
+  useRandomScaleAxis: 0
+  minRayHeight: 0
+  maxRayHeight: 50
+  minHeight: 10
+  maxHeight: 40
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 0, g: 0, b: 0, a: 0}
   slopeCutoff: 0.75
 --- !u!1001 &204285360
 PrefabInstance:
@@ -6763,17 +6946,17 @@ MonoBehaviour:
   musicVolume: 1
   useParticle: 1
   particleSlider: 1
-  useGrass: 1
-  useSeaweed: 1
-  useFootPrints: 1
-  useClouds: 1
-  useMoons: 1
-  useBirds: 1
-  useAtmosphere: 1
+  useGrass: 0
+  useSeaweed: 0
+  useFootPrints: 0
+  useClouds: 0
+  useMoons: 0
+  useBirds: 0
+  useAtmosphere: 0
   useWater: 1
-  daylightCycle: 1
+  daylightCycle: 0
   useCrates: 0
-  useEnvironmentObjects: 0
+  useEnvironmentObjects: 1
   useEnemies: 0
   currentLevel: 1
   defaultTimeScale: 1
@@ -33250,7 +33433,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.7219476}
+  m_LocalRotation: {x: 0.32894218, y: 0.5539685, z: -0.25240365, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -33349,7 +33532,7 @@ MonoBehaviour:
       widthCylinderFade: 0.5
       yNegativeCylinderFade: 0.25
       yPositiveCylinderFade: 0.25
-      distanceSphereFade: 0.65
+      distanceSphereFade: 0.75
   useAsLightProbesProxyVolume: 0
   lightProbesMultiplier: 1
   texture2DMask:
