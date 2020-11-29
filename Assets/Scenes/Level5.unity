@@ -6755,7 +6755,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.30798948, y: 0.56101614, z: -0.23632857, w: 0.7311307}
+  m_LocalRotation: {x: 0.30798945, y: 0.56101614, z: -0.23632857, w: 0.7311307}
   m_LocalPosition: {x: -20.959259, y: 40.27, z: -0.88819146}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -33255,7 +33255,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149512827}
-  m_LocalRotation: {x: 0.35861695, y: 0.5300854, z: -0.16760936, w: 0.7498737}
+  m_LocalRotation: {x: 0.35861692, y: 0.5300853, z: -0.16760935, w: 0.7498737}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -33766,11 +33766,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 237689038}
     m_Modifications:
+    - target: {fileID: 98515039922952977, guid: 8e713354ac90b4e48ba21060a6793d36,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5922a61d4aa338a4ead963554a75e41a, type: 2}
+    - target: {fileID: 98515039922952977, guid: 8e713354ac90b4e48ba21060a6793d36,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5922a61d4aa338a4ead963554a75e41a, type: 2}
     - target: {fileID: 98515040991360901, guid: 8e713354ac90b4e48ba21060a6793d36,
         type: 3}
       propertyPath: footprintParent
       value: 
       objectReference: {fileID: 1969841753}
+    - target: {fileID: 98515040991360901, guid: 8e713354ac90b4e48ba21060a6793d36,
+        type: 3}
+      propertyPath: color.r
+      value: 0.33962262
+      objectReference: {fileID: 0}
+    - target: {fileID: 98515040991360901, guid: 8e713354ac90b4e48ba21060a6793d36,
+        type: 3}
+      propertyPath: color.g
+      value: 0.2613037
+      objectReference: {fileID: 0}
+    - target: {fileID: 98515040991360901, guid: 8e713354ac90b4e48ba21060a6793d36,
+        type: 3}
+      propertyPath: color.b
+      value: 0.23549305
+      objectReference: {fileID: 0}
     - target: {fileID: 98515040991360904, guid: 8e713354ac90b4e48ba21060a6793d36,
         type: 3}
       propertyPath: parent
