@@ -42,5 +42,5 @@ Material:
     - _TilingModulated: 100
     - _WaterFogDensity: 0.54
     m_Colors:
-    - _Color: {r: 0.7830189, g: 0.3745389, b: 0.1071111, a: 1}
-    - _WaterFogColor: {r: 0.7735849, g: 0, b: 0.030421779, a: 1}
+    - _Color: {r: 0.9056604, g: 0.4665104, b: 0.17515129, a: 1}
+    - _WaterFogColor: {r: 0.7169812, g: 0.037201855, b: 0.06480694, a: 1}
