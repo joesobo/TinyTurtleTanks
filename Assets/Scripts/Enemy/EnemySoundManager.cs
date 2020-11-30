@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 
-public class PlayerSoundManager : MonoBehaviour {
-    public enum Clip { jump, shootMain, shootAlt, powerup };
+public class EnemySoundManager : MonoBehaviour {
+    public enum Clip { jump, shootMain, shootAlt };
 
     public AudioClip jumpAudioClip;
     public AudioClip shootMainAudioClip;
     public AudioClip shootAltAudioClip;
-    public AudioClip powerupClip;
 
     private AudioSource source;
     private GameSettings settings;
@@ -26,16 +25,15 @@ public class PlayerSoundManager : MonoBehaviour {
         if (settings.useSound) {
             switch (audioClip) {
                 case Clip.jump:
-                    source.PlayOneShot(jumpAudioClip);
+                    if (!source.isPlaying) {
+                        source.PlayOneShot(jumpAudioClip);
+                    }
                     break;
                 case Clip.shootMain:
                     source.PlayOneShot(shootMainAudioClip);
                     break;
                 case Clip.shootAlt:
                     source.PlayOneShot(shootAltAudioClip);
-                    break;
-                case Clip.powerup:
-                    source.PlayOneShot(powerupClip);
                     break;
                 default:
                     break;

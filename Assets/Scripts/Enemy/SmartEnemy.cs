@@ -38,6 +38,7 @@ public class SmartEnemy : MonoBehaviour {
     private bool grounded;
 
     private GameSettings settings;
+    private EnemySoundManager soundManager;
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
@@ -45,6 +46,7 @@ public class SmartEnemy : MonoBehaviour {
         parent = FindObjectOfType<BulletController>().transform;
         altParent = GameObject.Find("BombController").transform;
         settings = FindObjectOfType<GameSettings>();
+        soundManager = GetComponent<EnemySoundManager>();
 
         GenerateRandomTimes();
         StartCoroutine("StartRotate");
@@ -110,6 +112,7 @@ public class SmartEnemy : MonoBehaviour {
         if (canJump) {
             canJump = false;
             rb.AddForce(transform.up * jumpForce);
+            soundManager.Play(EnemySoundManager.Clip.jump);
         }
     }
 
@@ -248,16 +251,14 @@ public class SmartEnemy : MonoBehaviour {
         foreach (Transform shootPoint in shootPoints) {
             weapon.Shoot(shootPoint.position, this.transform.rotation, parent);
         }
+        soundManager.Play(EnemySoundManager.Clip.shootMain);
     }
 
     private void ShootAltWeaponAtPoints() {
         foreach (Transform shootPoint in shootPoints) {
             altWeapon.Shoot(shootPoint.position, this.transform.rotation, altParent);
         }
-        // if (settings.useSound) {
-        //     source.volume = settings.soundVolume;
-        //     source.Play();
-        // }
+        soundManager.Play(EnemySoundManager.Clip.shootAlt);
     }
 
     private void GenerateRandomTimes() {

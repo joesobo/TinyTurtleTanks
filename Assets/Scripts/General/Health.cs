@@ -39,6 +39,10 @@ public abstract class Health : MonoBehaviour {
         screenShake = FindObjectOfType<CameraShake>();
 
         source = GetComponent<AudioSource>();
+        UpdateSettings();
+    }
+
+    public void UpdateSettings() {
         source.volume = settings.soundVolume;
     }
 

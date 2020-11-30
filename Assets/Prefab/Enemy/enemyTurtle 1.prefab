@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7865330909404507681}
   - component: {fileID: 7865330909404507695}
   - component: {fileID: 5738638306009937676}
+  - component: {fileID: 8315109479933988915}
   - component: {fileID: -4124609015406849563}
   m_Layer: 10
   m_Name: enemyTurtle 1
@@ -135,6 +136,21 @@ MonoBehaviour:
   source: {fileID: 0}
   hurtAudioClip: {fileID: 8300000, guid: f8ce212401902b842ad4dded833c2c08, type: 3}
   deathAudioClip: {fileID: 8300000, guid: 95c84e916bfdad843a400d4d3e3df94f, type: 3}
+--- !u!114 &8315109479933988915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163603433509154725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eecd7942197cc746a34c51ece0a51ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpAudioClip: {fileID: 8300000, guid: d5c09ab9b61b2b04e9eb8f17ec7c993c, type: 3}
+  shootMainAudioClip: {fileID: 8300000, guid: 810baedc4abdef34c885b8d5a8bf1055, type: 3}
+  shootAltAudioClip: {fileID: 8300000, guid: dab0de869dacbb347bd74ac05e5e10df, type: 3}
 --- !u!82 &-4124609015406849563
 AudioSource:
   m_ObjectHideFlags: 0
@@ -156,7 +172,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 15
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0

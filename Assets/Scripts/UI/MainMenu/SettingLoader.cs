@@ -78,7 +78,7 @@ public class SettingLoader : MonoBehaviour {
 
     public void UpdateSoundVolume() {
         settings.soundVolume = soundSlider.value;
-        settings.UpdatePlayerPrefs();
+        settings.UpdateAll();
         UpdateSoundText();
     }
 

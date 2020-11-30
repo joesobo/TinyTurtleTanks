@@ -1,5 +1,10 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using static UnityEngine.ParticleSystem;
+
+using UnityEngine.SceneManagement;
+
 
 public class GameSettings : MonoBehaviour {
     public static GameSettings Instance;
@@ -35,6 +40,10 @@ public class GameSettings : MonoBehaviour {
     [HideInInspector]
     public float defaultTimeScale = 1;
 
+    private PlayerSoundManager playerSoundManager;
+    private List<EnemySoundManager> enemySoundManagers;
+    private List<Health> healthList;
+
     void Awake() {
         if (Instance == null) {
             DontDestroyOnLoad(gameObject);
@@ -49,11 +58,15 @@ public class GameSettings : MonoBehaviour {
         }
 
         SetupPlayerPrefs();
+        SceneManager.sceneLoaded += FindAudioObjects;
+    }
+
+    private void FindAudioObjects(Scene scene, LoadSceneMode mode) {
+        StartCoroutine(FindAudio());
     }
 
     private void OnValidate() {
-        UpdatePlayerPrefs();
-        UpdateBoolSettings();
+        UpdateAll();
     }
 
     void Update() {
@@ -63,6 +76,12 @@ public class GameSettings : MonoBehaviour {
         else {
             Time.timeScale = defaultTimeScale;
         }
+    }
+
+    public void UpdateAll() {
+        UpdatePlayerPrefs();
+        UpdateBoolSettings();
+        UpdateSoundSettings();
     }
 
     private void SetupPlayerPrefs() {
@@ -128,6 +147,19 @@ public class GameSettings : MonoBehaviour {
         daylightCycle = (PlayerPrefs.GetInt("daylightCycle") != 0);
     }
 
+    public void UpdateSoundSettings() {
+        if (playerSoundManager) {
+            playerSoundManager.UpdateSettings();
+
+            foreach (EnemySoundManager soundManager in enemySoundManagers) {
+                soundManager.UpdateSettings();
+            }
+            foreach (Health health in healthList) {
+                health.UpdateSettings();
+            }
+        }
+    }
+
     public void SetParticleValues(ParticleSystem ps) {
         if (ps != null) {
             var main = ps.main;
@@ -144,5 +176,13 @@ public class GameSettings : MonoBehaviour {
 
             main.maxParticles = (int)(oldMaxParticles * particleSlider);
         }
+    }
+
+    IEnumerator FindAudio() {
+        yield return new WaitForSeconds(0.5f);
+
+        playerSoundManager = FindObjectOfType<PlayerSoundManager>();
+        enemySoundManagers = new List<EnemySoundManager>(FindObjectsOfType<EnemySoundManager>());
+        healthList = new List<Health>(FindObjectsOfType<Health>());
     }
 }
