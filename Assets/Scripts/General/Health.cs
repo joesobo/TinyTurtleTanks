@@ -13,6 +13,7 @@ public abstract class Health : MonoBehaviour {
     private LevelRunner levelRunner;
     public GameObject bloodParticles;
     public GameObject deathParticles;
+    [HideInInspector]
     public GameSettings settings;
     private MeshRenderer[] meshRenderers;
     public Material flashMaterial;
@@ -25,12 +26,20 @@ public abstract class Health : MonoBehaviour {
     private float cooldownTime = 0.5f;
     private bool isDead = false;
 
+    [HideInInspector]
+    public AudioSource source;
+    public AudioClip hurtAudioClip;
+    public AudioClip deathAudioClip;
+
     void Start() {
         settings = FindObjectOfType<GameSettings>();
         levelRunner = FindObjectOfType<LevelRunner>();
         meshRenderers = transform.GetChild(0).GetComponentsInChildren<MeshRenderer>();
         curHealth = MAXHEALTH;
         screenShake = FindObjectOfType<CameraShake>();
+
+        source = GetComponent<AudioSource>();
+        source.volume = settings.soundVolume;
     }
 
     private void Update() {
@@ -65,6 +74,10 @@ public abstract class Health : MonoBehaviour {
 
                 if (settings.useParticle) {
                     Instantiate(bloodParticles, transform.position, transform.rotation);
+                }
+
+                if (settings.useSound) {
+                    source.PlayOneShot(hurtAudioClip);
                 }
             }
             if (transform.name == "TurtlePlayer") {
@@ -115,5 +128,9 @@ public abstract class Health : MonoBehaviour {
         flashInProgress = false;
     }
 
-    protected abstract void OnDeath();
+    protected virtual void OnDeath() {
+        if (settings.useSound) {
+            source.PlayOneShot(deathAudioClip);
+        }
+    }
 }

@@ -103,8 +103,8 @@ MonoBehaviour:
     m_Bits: 3328
   playerLookRadius: 10
   playerShootRadius: 6
-  shootSeconds: 3
-  bullet: {fileID: 7755037917241053201, guid: a94f929a01267b5409e09e27718bb354, type: 3}
+  weapon: {fileID: 0}
+  altWeapon: {fileID: 0}
   shootPoints:
   - {fileID: 7865330910300125785}
   jumpForce: 200
@@ -126,10 +126,15 @@ MonoBehaviour:
   MAXHEALTH: 3
   curHealth: 0
   curHealthBar: {fileID: 7865330909671270361}
+  bloodParticles: {fileID: 8343780882660272222, guid: 19b2cc45717b8204aad3bdaea8236e47,
+    type: 3}
   deathParticles: {fileID: 7710933089740006782, guid: 0e7e116dd6e65674188f1c137a9d5f1e,
     type: 3}
   settings: {fileID: 0}
   flashMaterial: {fileID: 2100000, guid: fb58a5ca3fc56c34fad62e9cd1cba95f, type: 2}
+  source: {fileID: 0}
+  hurtAudioClip: {fileID: 8300000, guid: f8ce212401902b842ad4dded833c2c08, type: 3}
+  deathAudioClip: {fileID: 8300000, guid: 95c84e916bfdad843a400d4d3e3df94f, type: 3}
 --- !u!82 &-4124609015406849563
 AudioSource:
   m_ObjectHideFlags: 0
@@ -140,7 +145,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3851c6e38f3cdbd43b34268cefeb3ae4, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -151,9 +156,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -186,7 +191,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
