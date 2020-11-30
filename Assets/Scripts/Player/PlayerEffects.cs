@@ -43,6 +43,8 @@ public class PlayerEffects : MonoBehaviour {
     public GameObject jumpParticles;
     public GameObject healthParticles;
 
+    private PlayerSoundManager soundManager;
+
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
         playerController = GetComponent<PlayerController>();
@@ -51,6 +53,8 @@ public class PlayerEffects : MonoBehaviour {
 
         shieldObject = findChildByName("Shield");
         fireObject = findChildByName("Fire Particle");
+
+        soundManager = GetComponent<PlayerSoundManager>();
     }
 
     private void Update() {
@@ -142,21 +146,25 @@ public class PlayerEffects : MonoBehaviour {
     public void ActivateShield() {
         shield = true;
         shieldLock = true;
+        soundManager.Play(PlayerSoundManager.Clip.powerup);
     }
 
     public void ActivateSpeed() {
         speed = true;
         speedLock = true;
+        soundManager.Play(PlayerSoundManager.Clip.powerup);
     }
 
     public void ActivateJump() {
         jump = true;
         jumpLock = true;
+        soundManager.Play(PlayerSoundManager.Clip.powerup);
     }
 
     public void ActivateHealth() {
         health = true;
         healthLock = true;
+        soundManager.Play(PlayerSoundManager.Clip.powerup);
     }
 
     public void ActivateFire() {

@@ -100,7 +100,7 @@ public class LevelRunner : MonoBehaviour {
         fx.SetActive(settings.useVFX);
         if (grassSpawner) grassSpawner.SetActive(settings.useGrass);
         if (seaweedSpawner) seaweedSpawner.SetActive(settings.useSeaweed);
-        backgroundMusic.SetActive(settings.useSound);
+        backgroundMusic.SetActive(settings.useMusic);
 
         //Obstacles and Environment
         if (cloudSpawner) cloudSpawner.SetActive(settings.useClouds);

@@ -51,6 +51,11 @@ public class GameSettings : MonoBehaviour {
         SetupPlayerPrefs();
     }
 
+    private void OnValidate() {
+        UpdatePlayerPrefs();
+        UpdateBoolSettings();
+    }
+
     void Update() {
         if (isPaused) {
             Time.timeScale = 0;

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletMove : MonoBehaviour {
@@ -20,7 +19,6 @@ public class BulletMove : MonoBehaviour {
 
     private GameSettings settings;
     private Rigidbody rb;
-    private AudioSource source;
 
     private Vector3 moveAmount;
     private Vector3 smoothMoveVelocity;
@@ -30,7 +28,6 @@ public class BulletMove : MonoBehaviour {
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
         rb = GetComponent<Rigidbody>();
-        source = GetComponent<AudioSource>();
 
         //add coroutine delay
         StartCoroutine("DelayCo");
@@ -53,10 +50,6 @@ public class BulletMove : MonoBehaviour {
         
         if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Planet") {
             Debug.Log("Hit Obstacle");
-            if (settings.useSound) {
-                source.volume = settings.soundVolume;
-                source.Play();
-            }
             ExplodeBullet();
         }
         else if (col.gameObject.tag == "Enemy") {
@@ -65,31 +58,17 @@ public class BulletMove : MonoBehaviour {
             if (settings.useParticle) {
                 Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
             }
-
-            if (settings.useSound) {
-                source.volume = settings.soundVolume;
-                source.Play();
-            }
             ExplodeBullet();
         }
         else if (col.gameObject.tag == "Breakable") {
             Debug.Log("Hit Breakable");
             col.gameObject.GetComponent<Breakable>().Break();
-            if (settings.useSound) {
-                source.volume = settings.soundVolume;
-                source.Play();
-            }
             ExplodeBullet();
         }
         else if (col.gameObject.tag == "Fish") {
             Debug.Log("Hit Fish");
             if (settings.useParticle) {
                 Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
-            }
-
-            if (settings.useSound) {
-                source.volume = settings.soundVolume;
-                source.Play();
             }
             ExplodeBullet();
             Destroy(col.gameObject);
@@ -100,11 +79,6 @@ public class BulletMove : MonoBehaviour {
                 Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
             }
 
-            if (settings.useSound) {
-                source.volume = settings.soundVolume;
-                source.Play();
-            }
-
             BoidManager boidManager = FindObjectOfType<BoidManager>();
             boidManager.RemoveBoid(col.gameObject.GetComponentInChildren<Boid>());
 
@@ -113,10 +87,6 @@ public class BulletMove : MonoBehaviour {
         }
         else if (col.gameObject.tag == "Unbreakable") {
             Debug.Log("Hit Unbreakable");
-            if (settings.useSound) {
-                source.volume = settings.soundVolume;
-                source.Play();
-            }
             ExplodeBullet();
         }
     }

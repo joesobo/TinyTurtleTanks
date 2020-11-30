@@ -39,9 +39,13 @@ public class PlayerController : MonoBehaviour {
     private PlayerHealth playerHealth;
     private PlayerShoot playerShoot;
 
+    private PlayerSoundManager soundManager;
+
     private void Awake() {
         playerHealth = GetComponent<PlayerHealth>();
         playerHealth.MAXHEALTH = BaseTurtle.health;
+
+        soundManager = GetComponent<PlayerSoundManager>();
 
         speed = BaseTurtle.moveSpeed;
         rotateSpeed = BaseTurtle.rotateSpeed;
@@ -153,6 +157,7 @@ public class PlayerController : MonoBehaviour {
         if (doJump) {
             doJump = false;
             rb.AddForce(transform.up * jumpForce);
+            soundManager.Play(PlayerSoundManager.Clip.jump);
         }
     }
 

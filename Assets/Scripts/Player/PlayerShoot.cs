@@ -30,13 +30,15 @@ public class PlayerShoot : MonoBehaviour {
     private bool altDelayOn = false;
 
     private GameSettings settings;
-    private AudioSource source;
     private CameraShake screenShake;
+
+    private PlayerSoundManager soundManager;
 
     private void Start() {
         settings = FindObjectOfType<GameSettings>();
-        source = GetComponent<AudioSource>();
         screenShake = FindObjectOfType<CameraShake>();
+
+        soundManager = GetComponent<PlayerSoundManager>();
 
         if (altWeapon) {
             altWeapon.inPlay = 0;
@@ -61,10 +63,7 @@ public class PlayerShoot : MonoBehaviour {
             altWeapon.Shoot(dropPoint.position, this.transform.rotation, altParent);
             altWeapon.inPlay++;
             //play sound
-            if (settings.useSound) {
-                // source.volume = settings.soundVolume;
-                // source.Play();
-            }
+            soundManager.Play(PlayerSoundManager.Clip.shootAlt);
             //apply screen shake
             StartCoroutine(screenShake.Shake());
         }
@@ -78,10 +77,7 @@ public class PlayerShoot : MonoBehaviour {
             //create bullet
             weapon.Shoot(shootPoint.position, this.transform.rotation, parent);
             //play sound
-            if (settings.useSound) {
-                source.volume = settings.soundVolume;
-                source.Play();
-            }
+            soundManager.Play(PlayerSoundManager.Clip.shootMain);
             //apply screen shake
             StartCoroutine(screenShake.Shake());
         }

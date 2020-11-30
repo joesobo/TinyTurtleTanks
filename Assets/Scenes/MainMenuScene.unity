@@ -13884,7 +13884,7 @@ MonoBehaviour:
   isPaused: 0
   useCheats: 1
   useVFX: 1
-  useSound: 0
+  useSound: 1
   soundVolume: 0.75
   useMusic: 0
   musicVolume: 0.5

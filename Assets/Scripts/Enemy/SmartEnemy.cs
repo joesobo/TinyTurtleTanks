@@ -37,13 +37,11 @@ public class SmartEnemy : MonoBehaviour {
     public LayerMask groundMask;
     private bool grounded;
 
-    private AudioSource source;
     private GameSettings settings;
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
         player = FindObjectOfType<PlayerController>().gameObject;
-        source = GetComponent<AudioSource>();
         parent = FindObjectOfType<BulletController>().transform;
         altParent = GameObject.Find("BombController").transform;
         settings = FindObjectOfType<GameSettings>();
@@ -249,10 +247,6 @@ public class SmartEnemy : MonoBehaviour {
     private void ShootWeaponAtPoints() {
         foreach (Transform shootPoint in shootPoints) {
             weapon.Shoot(shootPoint.position, this.transform.rotation, parent);
-        }
-        if (settings.useSound) {
-            source.volume = settings.soundVolume;
-            source.Play();
         }
     }
 
