@@ -66,13 +66,13 @@ public class SettingLoader : MonoBehaviour {
 
     public void ChangeVFXSetting() {
         settings.useVFX = !settings.useVFX;
-        settings.UpdatePlayerPrefs();
+        settings.UpdateAll();
         LoadColor(settings.useVFX, vfxButton);
     }
 
     public void ChangeSoundSetting() {
         settings.useSound = !settings.useSound;
-        settings.UpdatePlayerPrefs();
+        settings.UpdateAll();
         LoadColor(settings.useSound, soundButton);
     }
 
@@ -96,13 +96,13 @@ public class SettingLoader : MonoBehaviour {
 
     public void ChangeMusicSetting() {
         settings.useMusic = !settings.useMusic;
-        settings.UpdatePlayerPrefs();
+        settings.UpdateAll();
         LoadColor(settings.useMusic, musicButton);
     }
 
     public void UpdateMusicVolume() {
         settings.musicVolume = musicSlider.value;
-        settings.UpdatePlayerPrefs();
+        settings.UpdateAll();
         UpdateMusicText();
     }
 
@@ -114,59 +114,61 @@ public class SettingLoader : MonoBehaviour {
 
     public void ChangeParticleSetting() {
         settings.useParticle = !settings.useParticle;
-        settings.UpdatePlayerPrefs();
+        settings.UpdateAll();
         LoadColor(settings.useParticle, particleButton);
     }
 
     public void ChangeGrassSetting() {
         settings.useGrass = !settings.useGrass;
         settings.useSeaweed = !settings.useSeaweed;
-        settings.UpdatePlayerPrefs();
+        settings.UpdateAll();
         LoadColor(settings.useGrass, grassButton);
     }
 
     public void ChangeFootprintSetting() {
         settings.useFootPrints = !settings.useFootPrints;
-        settings.UpdatePlayerPrefs();
+        settings.UpdateAll();
         LoadColor(settings.useFootPrints, footPrintButton);
     }
 
     public void ChangeCloudSetting() {
         settings.useClouds = !settings.useClouds;
-        settings.UpdatePlayerPrefs();
+        settings.UpdateAll();
         LoadColor(settings.useClouds, cloudButton);
     }
 
     public void ChangeMoonSetting() {
         settings.useMoons = !settings.useMoons;
-        settings.UpdatePlayerPrefs();
+        settings.UpdateAll();
         LoadColor(settings.useMoons, moonButton);
     }
 
     public void ChangeBirdSetting() {
         settings.useBirds = !settings.useBirds;
-        settings.UpdatePlayerPrefs();
+        settings.UpdateAll();
         LoadColor(settings.useBirds, birdButton);
     }
 
     public void ChangeDaylightSetting() {
         settings.daylightCycle = !settings.daylightCycle;
-        settings.UpdatePlayerPrefs();
+        settings.UpdateAll();
         LoadColor(settings.daylightCycle, daylightCycleButton);
     }
 
     public void ChangeCheatsSetting() {
         settings.useCheats = !settings.useCheats;
-        settings.UpdatePlayerPrefs();
+        settings.UpdateAll();
         LoadColor(settings.useCheats, cheatsButton);
     }
 
     public void LoadColor(bool condition, UnityEngine.UI.Image button) {
-        if (condition) {
-            button.color = ActiveColor;
-        }
-        else {
-            button.color = inActiveColor;
+        if (button) {
+            if (condition) {
+                button.color = ActiveColor;
+            }
+            else {
+                button.color = inActiveColor;
+            }
         }
     }
 

@@ -43,6 +43,9 @@ public class GameSettings : MonoBehaviour {
     private PlayerSoundManager playerSoundManager;
     private List<EnemySoundManager> enemySoundManagers;
     private List<Health> healthList;
+    private MusicController musicController;
+
+    private LevelRunner levelRunner;
 
     void Awake() {
         if (Instance == null) {
@@ -59,10 +62,15 @@ public class GameSettings : MonoBehaviour {
 
         SetupPlayerPrefs();
         SceneManager.sceneLoaded += FindAudioObjects;
+        SceneManager.sceneLoaded += FindLevelRunner;
     }
 
     private void FindAudioObjects(Scene scene, LoadSceneMode mode) {
         StartCoroutine(FindAudio());
+    }
+
+    private void FindLevelRunner(Scene scene, LoadSceneMode mode) {
+        StartCoroutine(FindRunner());
     }
 
     private void OnValidate() {
@@ -82,6 +90,14 @@ public class GameSettings : MonoBehaviour {
         UpdatePlayerPrefs();
         UpdateBoolSettings();
         UpdateSoundSettings();
+        UpdateMusicSettings();
+        UpdateLevel();
+    }
+
+    private void UpdateLevel() {
+        if (levelRunner) {
+            levelRunner.UpdateSettings();
+        }
     }
 
     private void SetupPlayerPrefs() {
@@ -160,6 +176,16 @@ public class GameSettings : MonoBehaviour {
         }
     }
 
+    private void UpdateMusicSettings() {
+        if (!musicController) {
+            musicController = FindObjectOfType<MusicController>();
+        }
+
+        if (musicController) {
+            musicController.UpdateSettings();
+        }
+    }
+
     public void SetParticleValues(ParticleSystem ps) {
         if (ps != null) {
             var main = ps.main;
@@ -184,5 +210,12 @@ public class GameSettings : MonoBehaviour {
         playerSoundManager = FindObjectOfType<PlayerSoundManager>();
         enemySoundManagers = new List<EnemySoundManager>(FindObjectsOfType<EnemySoundManager>());
         healthList = new List<Health>(FindObjectsOfType<Health>());
+        musicController = FindObjectOfType<MusicController>();
+    }
+
+    IEnumerator FindRunner() {
+        yield return new WaitForSeconds(0.25f);
+
+        levelRunner = FindObjectOfType<LevelRunner>();
     }
 }
