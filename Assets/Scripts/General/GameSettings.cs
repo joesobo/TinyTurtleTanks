@@ -17,7 +17,6 @@ public class GameSettings : MonoBehaviour {
     public bool useMusic = false;
     [Range(0, 1)]
     public float musicVolume = 1.0f;
-    [HideInInspector]
     public bool useParticle = false;
     [Range(0, 5)]
     public float particleSlider = 1.0f;
@@ -47,6 +46,8 @@ public class GameSettings : MonoBehaviour {
 
     private LevelRunner levelRunner;
 
+    private List<ParticleController> particleList = new List<ParticleController>();
+
     void Awake() {
         if (Instance == null) {
             DontDestroyOnLoad(gameObject);
@@ -56,13 +57,10 @@ public class GameSettings : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        if (particleSlider == 0) {
-            useParticle = false;
-        }
-
         SetupPlayerPrefs();
         SceneManager.sceneLoaded += FindAudioObjects;
         SceneManager.sceneLoaded += FindLevelRunner;
+        SceneManager.sceneLoaded += FindParticles;
     }
 
     private void FindAudioObjects(Scene scene, LoadSceneMode mode) {
@@ -71,6 +69,10 @@ public class GameSettings : MonoBehaviour {
 
     private void FindLevelRunner(Scene scene, LoadSceneMode mode) {
         StartCoroutine(FindRunner());
+    }
+
+    private void FindParticles(Scene scene, LoadSceneMode mode) {
+        StartCoroutine(FindAllParticles());
     }
 
     private void OnValidate() {
@@ -84,6 +86,10 @@ public class GameSettings : MonoBehaviour {
         else {
             Time.timeScale = defaultTimeScale;
         }
+
+        if (particleSlider == 0) {
+            useParticle = false;
+        }
     }
 
     public void UpdateAll() {
@@ -91,6 +97,7 @@ public class GameSettings : MonoBehaviour {
         UpdateBoolSettings();
         UpdateSoundSettings();
         UpdateMusicSettings();
+        UpdateParticleSettings();
         UpdateLevel();
     }
 
@@ -186,21 +193,42 @@ public class GameSettings : MonoBehaviour {
         }
     }
 
+    public void UpdateParticleSettings() {
+        if (particleList.Count == 0) {
+            particleList = new List<ParticleController>(FindObjectsOfType<ParticleController>());
+        }
+
+        if (particleList.Count != 0) {
+            foreach (ParticleController controller in particleList) {
+                controller.UpdateSettings();
+            }
+        }
+    }
+
     public void SetParticleValues(ParticleSystem ps) {
         if (ps != null) {
             var main = ps.main;
             var emissionModule = ps.emission;
 
-            int oldMaxParticles = main.maxParticles;
-            float oldRateOverTime = emissionModule.rateOverTime.constant;
-            Burst oldBurst = emissionModule.GetBurst(0);
+            if (!useParticle || particleSlider == 0) {
+                ps.Stop();
+                ps.Clear();
+                emissionModule.enabled = false;
+            }
+            else {
+                emissionModule.enabled = true;
+                
+                int oldMaxParticles = main.maxParticles;
+                float oldRateOverTime = emissionModule.rateOverTime.constant;
+                Burst oldBurst = emissionModule.GetBurst(0);
 
-            emissionModule = ps.emission;
-            emissionModule.rateOverTime = new MinMaxCurve(oldRateOverTime * particleSlider);
+                emissionModule = ps.emission;
+                emissionModule.rateOverTime = new MinMaxCurve(oldRateOverTime * particleSlider);
 
-            emissionModule.SetBurst(0, new Burst(0, oldBurst.count.constant * particleSlider));
+                emissionModule.SetBurst(0, new Burst(0, oldBurst.count.constant * particleSlider));
 
-            main.maxParticles = (int)(oldMaxParticles * particleSlider);
+                main.maxParticles = (int)(oldMaxParticles * particleSlider);
+            }
         }
     }
 
@@ -217,5 +245,11 @@ public class GameSettings : MonoBehaviour {
         yield return new WaitForSeconds(0.25f);
 
         levelRunner = FindObjectOfType<LevelRunner>();
+    }
+
+    IEnumerator FindAllParticles() {
+        yield return new WaitForSeconds(0.25f);
+
+        particleList = new List<ParticleController>(FindObjectsOfType<ParticleController>());
     }
 }

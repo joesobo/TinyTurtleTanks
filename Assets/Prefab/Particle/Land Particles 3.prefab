@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3753587685060808994}
   - component: {fileID: 3754762435365305190}
   - component: {fileID: -1715654997982435447}
+  - component: {fileID: 2188534021593688324}
   m_Layer: 0
   m_Name: Land Particles 3
   m_TagString: Untagged
@@ -4823,5 +4824,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c2c8002b82dacb468a060dc87ddcf12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2188534021593688324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8592822320209493385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd92a9dcf20267b4a98d9b6ced8fd233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

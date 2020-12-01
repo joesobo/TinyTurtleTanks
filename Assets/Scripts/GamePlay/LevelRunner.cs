@@ -124,8 +124,8 @@ public class LevelRunner : MonoBehaviour {
 
         //Particles
         foreach (GameObject particle in particleList) {
-            if (settings.useParticle) {
-                particle.SetActive(settings.useParticle);
+            if (settings.useParticle && settings.particleSlider != 0) {
+                particle.SetActive(true);
                 ParticleSystem ps = particle.GetComponent<ParticleSystem>();
                 settings.SetParticleValues(ps);
             }

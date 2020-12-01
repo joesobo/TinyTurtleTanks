@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8343780882660272216}
   - component: {fileID: 8343780882660272223}
   - component: {fileID: 7670849570719745242}
+  - component: {fileID: 6440340720712726884}
   m_Layer: 0
   m_Name: Death Particle
   m_TagString: Untagged
@@ -4823,5 +4824,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c2c8002b82dacb468a060dc87ddcf12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6440340720712726884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8343780882660272222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd92a9dcf20267b4a98d9b6ced8fd233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8257447937426508586}
   - component: {fileID: 8257447937426508584}
   - component: {fileID: 8257447937426508587}
+  - component: {fileID: 2668640052724238318}
   m_Layer: 0
   m_Name: Smoke
   m_TagString: Untagged
@@ -4755,6 +4756,18 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2668640052724238318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8257447937426508757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd92a9dcf20267b4a98d9b6ced8fd233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8257447937672053010
 GameObject:
   m_ObjectHideFlags: 0
@@ -4797,6 +4810,7 @@ GameObject:
   - component: {fileID: 8257447938122304392}
   - component: {fileID: 8257447938122304398}
   - component: {fileID: 8257447938122304393}
+  - component: {fileID: 7257421279244302484}
   m_Layer: 0
   m_Name: Flame
   m_TagString: Untagged
@@ -9540,3 +9554,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &7257421279244302484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8257447938122304395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd92a9dcf20267b4a98d9b6ced8fd233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

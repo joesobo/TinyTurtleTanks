@@ -106,16 +106,20 @@ public class SettingLoader : MonoBehaviour {
         UpdateMusicText();
     }
 
-    public void UpdateParticleCount() {
-        settings.particleSlider = particleSlider.value;
-        settings.UpdatePlayerPrefs();
-        UpdateParticleText();
-    }
-
     public void ChangeParticleSetting() {
         settings.useParticle = !settings.useParticle;
         settings.UpdateAll();
         LoadColor(settings.useParticle, particleButton);
+    }
+
+    public void UpdateParticleSetting() {
+        settings.particleSlider = particleSlider.value;
+        if (settings.particleSlider == 0) {
+            LoadColor(false, particleButton);
+        }
+        settings.UpdateParticleSettings();
+        settings.UpdateAll();
+        UpdateParticleText();
     }
 
     public void ChangeGrassSetting() {
