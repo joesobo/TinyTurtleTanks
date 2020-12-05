@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 
 public class PlayerSoundManager : MonoBehaviour {
-    public enum Clip { jump, shootMain, shootAlt, powerup };
+    public enum Clip { jump, shootMain, shootAlt, powerup, land, splash };
 
     public AudioClip jumpAudioClip;
     public AudioClip shootMainAudioClip;
     public AudioClip shootAltAudioClip;
     public AudioClip powerupClip;
+    public AudioClip landClip;
+    public AudioClip splashClip;
 
     private AudioSource source;
     private GameSettings settings;
@@ -36,6 +38,12 @@ public class PlayerSoundManager : MonoBehaviour {
                     break;
                 case Clip.powerup:
                     source.PlayOneShot(powerupClip);
+                    break;
+                case Clip.land:
+                    source.PlayOneShot(landClip);
+                    break;
+                case Clip.splash:
+                    source.PlayOneShot(splashClip);
                     break;
                 default:
                     break;

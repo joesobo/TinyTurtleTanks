@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     private Vector3 smoothMoveVelocity;
     private Rigidbody rb;
     private bool grounded;
+    private bool groundLocked = false;
     private bool landParticleSpawned = false;
 
     private GameSettings settings;
@@ -96,11 +98,18 @@ public class PlayerController : MonoBehaviour {
             if (Physics.Raycast(ray, out hit, .85f, groundMask)) {
                 hitGround = true;
 
-                if (!ps && settings.useParticle && !landParticleSpawned) {
-                    ps = Instantiate(landParticles, transform.position, transform.rotation);
-                    settings.SetParticleValues(ps);
-                    landParticleSpawned = true;
+                if (!groundLocked) {
+                    groundLocked = true;
+                    soundManager.Play(PlayerSoundManager.Clip.land);
+
+                    if (!ps && settings.useParticle && !landParticleSpawned) {
+                        ps = Instantiate(landParticles, transform.position, transform.rotation);
+                        settings.SetParticleValues(ps);
+                        landParticleSpawned = true;
+                        StartCoroutine("ResetParticle");
+                    }
                 }
+
             }
         }
 
@@ -156,6 +165,8 @@ public class PlayerController : MonoBehaviour {
 
         if (doJump) {
             doJump = false;
+            StartCoroutine("ResetGroundLock");
+
             rb.AddForce(transform.up * jumpForce);
             soundManager.Play(PlayerSoundManager.Clip.jump);
         }
@@ -163,10 +174,22 @@ public class PlayerController : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Water") {
+            soundManager.Play(PlayerSoundManager.Clip.splash);
+
             if (settings.useParticle) {
                 ps = Instantiate(waterParticles, transform.position, transform.rotation);
                 settings.SetParticleValues(ps);
             }
         }
+    }
+
+    IEnumerator ResetParticle() {
+        yield return new WaitForSeconds(0.1f);
+        ps = null;
+    }
+
+    IEnumerator ResetGroundLock() {
+        yield return new WaitForSeconds(0.1f);
+        groundLocked = false;
     }
 }
