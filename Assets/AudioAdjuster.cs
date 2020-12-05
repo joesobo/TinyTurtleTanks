@@ -11,5 +11,9 @@ public class AudioAdjuster : MonoBehaviour {
         settings = FindObjectOfType<GameSettings>();
 
         source.volume = settings.soundVolume;
+
+        if (!settings.useSound) {
+            source.volume = 0;
+        }
     }
 }

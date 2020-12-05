@@ -173,7 +173,7 @@ public class GameSettings : MonoBehaviour {
     public void UpdateSoundSettings() {
         if (playerSoundManager) {
             playerSoundManager.UpdateSettings();
-
+            
             foreach (EnemySoundManager soundManager in enemySoundManagers) {
                 soundManager.UpdateSettings();
             }
@@ -248,7 +248,7 @@ public class GameSettings : MonoBehaviour {
     }
 
     IEnumerator FindAllParticles() {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.35f);
 
         particleList = new List<ParticleController>(FindObjectsOfType<ParticleController>());
     }
