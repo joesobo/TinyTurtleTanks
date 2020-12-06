@@ -58,7 +58,7 @@ MonoBehaviour:
     value: 1
   mode:
     overrideState: 1
-    value: 1
+    value: 0
   sensitivityDepth:
     overrideState: 1
     value: 2
@@ -78,8 +78,8 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   edgesOnlyBgColor:
-    overrideState: 1
-    value: {r: 1, g: 1, b: 1, a: 1}
+    overrideState: 0
+    value: {r: 1, g: 1, b: 1, a: 0.42745098}
 --- !u!114 &-4813778444536143555
 MonoBehaviour:
   m_ObjectHideFlags: 3
