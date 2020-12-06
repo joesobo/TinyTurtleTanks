@@ -63,8 +63,8 @@ Material:
     - _BendRotationRandom: 0.15
     - _BladeDepth: 0.03
     - _BladeDepthRandom: 0
-    - _BladeHeight: 0.01
-    - _BladeHeightRandom: 0.1
+    - _BladeHeight: 0.05
+    - _BladeHeightRandom: 0.03
     - _BladeWidth: 0.03
     - _BladeWidthRandom: 0
     - _BumpScale: 1
@@ -78,14 +78,14 @@ Material:
     - _HeightCutoff: 1.68
     - _MaxHeightCutoff: 5
     - _Metallic: 0
-    - _MinHeightCutoff: 1.96
+    - _MinHeightCutoff: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TessellationUniform: 7
+    - _TessellationUniform: 6
     - _TranslucentGain: 0.745
     - _UVSec: 0
     - _WindStrength: 0.1
