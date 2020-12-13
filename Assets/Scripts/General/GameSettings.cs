@@ -18,7 +18,7 @@ public class GameSettings : MonoBehaviour {
     [Range(0, 1)]
     public float musicVolume = 1.0f;
     public bool useParticle = false;
-    [Range(0, 5)]
+    [Range(0, 3)]
     public float particleSlider = 1.0f;
     public bool useGrass = false;
     public bool useSeaweed = false;
@@ -173,7 +173,7 @@ public class GameSettings : MonoBehaviour {
     public void UpdateSoundSettings() {
         if (playerSoundManager) {
             playerSoundManager.UpdateSettings();
-            
+
             foreach (EnemySoundManager soundManager in enemySoundManagers) {
                 soundManager.UpdateSettings();
             }
@@ -217,17 +217,18 @@ public class GameSettings : MonoBehaviour {
             }
             else {
                 emissionModule.enabled = true;
-                
+
                 int oldMaxParticles = main.maxParticles;
                 float oldRateOverTime = emissionModule.rateOverTime.constant;
                 Burst oldBurst = emissionModule.GetBurst(0);
+                float sliderValue = (particleSlider + 1) * 0.5f;
 
                 emissionModule = ps.emission;
-                emissionModule.rateOverTime = new MinMaxCurve(oldRateOverTime * particleSlider);
+                emissionModule.rateOverTime = new MinMaxCurve(oldRateOverTime * sliderValue);
 
-                emissionModule.SetBurst(0, new Burst(0, oldBurst.count.constant * particleSlider));
+                emissionModule.SetBurst(0, new Burst(0, oldBurst.count.constant * sliderValue));
 
-                main.maxParticles = (int)(oldMaxParticles * particleSlider);
+                main.maxParticles = (int)(oldMaxParticles * sliderValue);
             }
         }
     }

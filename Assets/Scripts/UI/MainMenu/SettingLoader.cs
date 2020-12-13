@@ -8,7 +8,6 @@ public class SettingLoader : MonoBehaviour {
     public UnityEngine.UI.Image musicButton;
     public UnityEngine.UI.Slider musicSlider;
     public UnityEngine.UI.Image particleButton;
-    public UnityEngine.UI.Slider particleSlider;
     public UnityEngine.UI.Image grassButton;
     public UnityEngine.UI.Image footPrintButton;
     public UnityEngine.UI.Image cloudButton;
@@ -19,7 +18,6 @@ public class SettingLoader : MonoBehaviour {
 
     private UnityEngine.UI.Text soundSliderText;
     private UnityEngine.UI.Text musicSliderText;
-    private UnityEngine.UI.Text particleSliderText;
 
     public Color inActiveColor;
     public Color ActiveColor;
@@ -29,7 +27,6 @@ public class SettingLoader : MonoBehaviour {
 
         soundSliderText = soundSlider.GetComponentInChildren<UnityEngine.UI.Text>();
         musicSliderText = musicSlider.GetComponentInChildren<UnityEngine.UI.Text>();
-        particleSliderText = particleSlider.GetComponentInChildren<UnityEngine.UI.Text>();
 
         SetupSettings();
     }
@@ -49,11 +46,9 @@ public class SettingLoader : MonoBehaviour {
 
         soundSlider.value = settings.soundVolume;
         musicSlider.value = settings.musicVolume;
-        particleSlider.value = settings.particleSlider;
 
         UpdateSoundText();
         UpdateMusicText();
-        UpdateParticleText();
     }
 
     public void LoadSettings() {
@@ -90,10 +85,6 @@ public class SettingLoader : MonoBehaviour {
         musicSliderText.text = ((int)(musicSlider.value * 100)).ToString() + '%';
     }
 
-    private void UpdateParticleText() {
-        particleSliderText.text = particleSlider.value.ToString() + 'x';
-    }
-
     public void ChangeMusicSetting() {
         settings.useMusic = !settings.useMusic;
         settings.UpdateAll();
@@ -113,13 +104,8 @@ public class SettingLoader : MonoBehaviour {
     }
 
     public void UpdateParticleSetting() {
-        settings.particleSlider = particleSlider.value;
-        if (settings.particleSlider == 0) {
-            LoadColor(false, particleButton);
-        }
         settings.UpdateParticleSettings();
         settings.UpdateAll();
-        UpdateParticleText();
     }
 
     public void ChangeGrassSetting() {
