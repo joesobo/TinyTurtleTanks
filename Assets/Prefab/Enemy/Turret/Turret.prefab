@@ -2542,8 +2542,8 @@ MonoBehaviour:
   objectLayerMask:
     serializedVersion: 2
     m_Bits: 3328
-  playerLookRadius: 10
-  playerShootRadius: 6
+  playerLookRadius: 15
+  playerShootRadius: 10
   weapon: {fileID: 0}
   altWeapon: {fileID: 0}
   shootPoints:

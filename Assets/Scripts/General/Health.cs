@@ -43,7 +43,9 @@ public abstract class Health : MonoBehaviour {
     }
 
     public void UpdateSettings() {
-        source.volume = settings.soundVolume;
+        if (source) {
+            source.volume = settings.soundVolume;
+        }
     }
 
     private void Update() {

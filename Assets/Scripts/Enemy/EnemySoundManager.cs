@@ -18,7 +18,9 @@ public class EnemySoundManager : MonoBehaviour {
     }
 
     public void UpdateSettings() {
-        source.volume = settings.soundVolume;
+        if (source) {
+            source.volume = settings.soundVolume;
+        }
     }
 
     public void Play(Clip audioClip) {

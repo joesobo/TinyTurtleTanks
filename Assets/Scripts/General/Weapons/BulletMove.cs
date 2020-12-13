@@ -39,21 +39,17 @@ public class BulletMove : MonoBehaviour {
 
     void OnTriggerEnter(Collider col) {
         if (col.gameObject.tag == "Player" && !delayOn) {
-            Debug.Log("Hit Player");
             col.gameObject.GetComponent<Health>().DecreaseHealth(damage);
             ExplodeBullet();
         }
         if (col.gameObject.tag == "Shield" && !delayOn) {
-            Debug.Log("Hit Shield");
             ExplodeBullet();
         }
         
         if (col.gameObject.tag == "Obstacle" || col.gameObject.tag == "Planet") {
-            Debug.Log("Hit Obstacle");
             ExplodeBullet();
         }
         else if (col.gameObject.tag == "Enemy") {
-            Debug.Log("Hit Enemy");
             col.gameObject.GetComponent<Health>().DecreaseHealth(damage);
             if (settings.useParticle) {
                 Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
@@ -61,12 +57,10 @@ public class BulletMove : MonoBehaviour {
             ExplodeBullet();
         }
         else if (col.gameObject.tag == "Breakable") {
-            Debug.Log("Hit Breakable");
             col.gameObject.GetComponent<Breakable>().Break();
             ExplodeBullet();
         }
         else if (col.gameObject.tag == "Fish") {
-            Debug.Log("Hit Fish");
             if (settings.useParticle) {
                 Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
             }
@@ -74,7 +68,6 @@ public class BulletMove : MonoBehaviour {
             Destroy(col.gameObject);
         }
         else if (col.gameObject.tag == "Boid") {
-            Debug.Log("Hit Boid");
             if (settings.useParticle) {
                 Instantiate(bloodParticlePrefab, col.transform.position, col.transform.rotation);
             }
@@ -86,7 +79,6 @@ public class BulletMove : MonoBehaviour {
             Destroy(col.gameObject);
         }
         else if (col.gameObject.tag == "Unbreakable") {
-            Debug.Log("Hit Unbreakable");
             ExplodeBullet();
         }
     }

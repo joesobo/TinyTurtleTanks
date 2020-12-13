@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class Pickup : MonoBehaviour {
     void OnTriggerEnter(Collider col) {
         if (col.gameObject.tag == "Player") {
-            Debug.Log("Player got pickup");
             ApplyEffect(col);
         }
     }

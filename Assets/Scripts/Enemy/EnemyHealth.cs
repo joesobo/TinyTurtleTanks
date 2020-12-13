@@ -15,7 +15,7 @@ public class EnemyHealth : Health {
     }
 
     IEnumerator KillObject() {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.25f);
         Destroy(gameObject);
     }
 

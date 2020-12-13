@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour {
 
     private GameSettings settings;
 
-    void Start() {
+    void Awake() {
         settings = FindObjectOfType<GameSettings>();
 
         if (settings.useEnemies) {

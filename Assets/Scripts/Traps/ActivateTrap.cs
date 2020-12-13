@@ -23,7 +23,6 @@ public class ActivateTrap : MonoBehaviour {
 
     void OnTriggerEnter(Collider col) {
         if (col.gameObject.tag == "Player") {
-            Debug.Log("Player activated trap");
             moveSpike = true;
         }
     }
