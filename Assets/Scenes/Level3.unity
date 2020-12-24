@@ -9368,7 +9368,7 @@ GameObject:
   - component: {fileID: 1127533630}
   m_Layer: 0
   m_Name: GrassShader
-  m_TagString: Planet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -32928,7 +32928,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230189777}
-  m_LocalRotation: {x: 0.3210852, y: 0.5489511, z: -0.17453074, w: 0.7517288}
+  m_LocalRotation: {x: 0.3210852, y: 0.54895115, z: -0.17453076, w: 0.7517287}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -33237,7 +33237,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254477523}
-  m_LocalRotation: {x: 0.3289422, y: 0.55396855, z: -0.25240374, w: 0.7219476}
+  m_LocalRotation: {x: 0.32894218, y: 0.5539685, z: -0.25240365, w: 0.7219476}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -33298,7 +33298,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh98452
+  m_Name: pb_Mesh141300
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -36193,7 +36193,7 @@ GameObject:
   - component: {fileID: 2008951772}
   m_Layer: 0
   m_Name: SeaweedShader
-  m_TagString: Planet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -44237,6 +44237,7 @@ GameObject:
   - component: {fileID: 4049573118000465074}
   - component: {fileID: 4688347829322573890}
   - component: {fileID: 260473511}
+  - component: {fileID: 4344836168602031320}
   m_Layer: 8
   m_Name: default
   m_TagString: Planet
@@ -44244,6 +44245,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!114 &4344836168602031320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4344836168602031319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5712ab3dea085f045920a5d9ba2c62d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: -18
 --- !u!224 &4391874745072403855
 RectTransform:
   m_ObjectHideFlags: 0
@@ -44838,27 +44852,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6939802438092130745}
-  - component: {fileID: 6202714891422923691}
   m_Layer: 8
   m_Name: MainPlanet3
-  m_TagString: Planet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &6202714891422923691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6202714891422923690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5712ab3dea085f045920a5d9ba2c62d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravity: -18
 --- !u!224 &6272649129865529773
 RectTransform:
   m_ObjectHideFlags: 0
@@ -48772,7 +48772,7 @@ GameObject:
   - component: {fileID: 6493317714380391257}
   m_Layer: 8
   m_Name: Ground3
-  m_TagString: Planet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
