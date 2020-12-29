@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe80a903bc7b00499d4d7bc76e6945b, type: 3}
+  m_Name: advancedEnemy
+  m_EditorClassIdentifier: 
+  health: 4
+  moveSpeed: 4
+  rotateSpeed: 100
+  jumpForce: 100
+  weapon: {fileID: 11400000, guid: 8248fcfe1e0209c4fbd15b522150a47a, type: 2}
+  altWeapon: {fileID: 11400000, guid: d6037df5a7e6e1e4bb162803e37b9fdc, type: 2}
+  prefab: {fileID: 2163603433509154725, guid: a742e9524385a0743a553d9669d44786, type: 3}
