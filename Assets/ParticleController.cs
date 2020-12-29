@@ -12,6 +12,8 @@ public class ParticleController : MonoBehaviour {
     }
 
     public void UpdateSettings() {
-        settings.SetParticleValues(particle);
+        if (particle) {
+            settings.SetParticleValues(particle);
+        }
     }
 }
