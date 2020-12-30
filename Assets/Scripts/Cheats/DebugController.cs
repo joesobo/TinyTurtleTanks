@@ -88,7 +88,7 @@ public class DebugController : MonoBehaviour {
     }
 
     private void OnApplicationQuit() {
-        playerController.BaseTurtle.weapon = weaponList[1] as Weapon;
+        playerController.BaseTurtle.weapon = weaponList[0] as Weapon;
         playerController.BaseTurtle.altWeapon = weaponList[3] as AltWeapon;
         playerController.SetupWeapons();
     }
