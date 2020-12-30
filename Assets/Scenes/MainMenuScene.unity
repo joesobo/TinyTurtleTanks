@@ -13411,12 +13411,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  useCheats: 1
+  useCheats: 0
   useVFX: 1
   useSound: 1
-  soundVolume: 0.75
+  soundVolume: 1
   useMusic: 0
-  musicVolume: 0.5
+  musicVolume: 0
   useParticle: 1
   particleSlider: 1
   useGrass: 1
