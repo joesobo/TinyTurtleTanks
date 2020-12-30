@@ -200,7 +200,9 @@ public class GameSettings : MonoBehaviour {
 
         if (particleList.Count != 0) {
             foreach (ParticleController controller in particleList) {
-                controller.UpdateSettings();
+                if (controller) {
+                    controller.UpdateSettings();
+                }
             }
         }
     }
