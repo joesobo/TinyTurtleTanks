@@ -27,7 +27,7 @@ Jump, shoot, and collect powerups to win the game (just be careful not to shoot 
 WASD - Move  
 Space - Jump  
 Left Click - Shoot  
-Right Click - Shoot Alt
+Right Click - Shoot Alt   
 Escape - Menu  
 
 - - - - 
@@ -36,4 +36,4 @@ Escape - Menu
 https://trello.com/b/DI2z6zpZ/tiny-turtle-tanks
 
 ## Download ##
-Currently still in development
+https://poleski.itch.io/tiny-turtle-tanks
